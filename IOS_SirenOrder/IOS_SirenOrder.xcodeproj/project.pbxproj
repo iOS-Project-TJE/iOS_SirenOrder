@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6980AFBE26B286C00048DAAB /* OtherTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6980AFBD26B286C00048DAAB /* OtherTableViewController.swift */; };
+		6980AFC026B29CA40048DAAB /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6980AFBF26B29CA40048DAAB /* NoticeViewController.swift */; };
 		857F1C4C26B27A210028D3BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857F1C4B26B27A210028D3BC /* AppDelegate.swift */; };
 		857F1C4E26B27A210028D3BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857F1C4D26B27A210028D3BC /* SceneDelegate.swift */; };
 		857F1C5026B27A210028D3BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857F1C4F26B27A210028D3BC /* ViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6980AFBD26B286C00048DAAB /* OtherTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherTableViewController.swift; sourceTree = "<group>"; };
+		6980AFBF26B29CA40048DAAB /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
 		857F1C4826B27A210028D3BC /* IOS_SirenOrder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOS_SirenOrder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		857F1C4B26B27A210028D3BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		857F1C4D26B27A210028D3BC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +67,8 @@
 				857F1C5426B27A230028D3BC /* Assets.xcassets */,
 				857F1C5626B27A230028D3BC /* LaunchScreen.storyboard */,
 				857F1C5926B27A230028D3BC /* Info.plist */,
+				6980AFBD26B286C00048DAAB /* OtherTableViewController.swift */,
+				6980AFBF26B29CA40048DAAB /* NoticeViewController.swift */,
 			);
 			path = IOS_SirenOrder;
 			sourceTree = "<group>";
@@ -139,7 +145,9 @@
 			files = (
 				857F1C5026B27A210028D3BC /* ViewController.swift in Sources */,
 				857F1C4C26B27A210028D3BC /* AppDelegate.swift in Sources */,
+				6980AFBE26B286C00048DAAB /* OtherTableViewController.swift in Sources */,
 				857F1C4E26B27A210028D3BC /* SceneDelegate.swift in Sources */,
+				6980AFC026B29CA40048DAAB /* NoticeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
