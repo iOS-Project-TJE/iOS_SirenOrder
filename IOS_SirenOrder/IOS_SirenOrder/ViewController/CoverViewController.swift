@@ -17,8 +17,7 @@ class CoverViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        view.backgroundColor = #colorLiteral(red: 0, green: 0.5628422499, blue: 0.3188166618, alpha: 1)
-        
+
         Timer.scheduledTimer(timeInterval: interval, target: self, selector: timeSelector, userInfo: nil, repeats: true)
         
     }

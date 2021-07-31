@@ -28,8 +28,6 @@ class ExplainViewController: UIViewController {
         imgView.image = UIImage(named: images[0])
         pageControl.numberOfPages = images.count
         pageControl.currentPage = 0
-        pageControl.pageIndicatorTintColor = #colorLiteral(red: 0, green: 0.5628422499, blue: 0.3188166618, alpha: 1)
-        pageControl.currentPageIndicatorTintColor = #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1)
        
         makeSingleTouch()
         
