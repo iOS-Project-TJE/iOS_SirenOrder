@@ -1,23 +1,20 @@
 //
-//  OtherTableViewController.swift
+//  NoticeTableViewController.swift
 //  IOS_SirenOrder
 //
-//  Created by 박성준 on 2021/07/29.
+//  Created by 박성준 on 2021/07/30.
 //
 
 import UIKit
 
-class OtherTableViewController: UITableViewController {
-    @IBOutlet var listTableView: UITableView!
+class NoticeTableViewController: UITableViewController {
+    @IBOutlet var tvNoticeList: UITableView!
     
-    let serviceList=["알림","히스토리","전자영수증"]
-    let helpList=["고객의 소리","매장 정보"]
-    let policyList=["이용약관","개인정보 처리 방침"]
-    let sectionList=["서비스","고객지원","약관 및 정책"]
+    var tempList:[String]=[]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -29,44 +26,32 @@ class OtherTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return sectionList.count
-    }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sectionList[section]
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        switch section {
-        case 0:
-            return serviceList.count
-        case 1:
-            return helpList.count
-        case 2:
-            return policyList.count
-        default:
-            return 0
+        if tempList.count == 0{
+            return 1
+        }else{
+            return tempList.count
         }
+        
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "otherCell", for: indexPath)
-
-        // Configure the cell...
-        switch indexPath.section{
-        case 0:
-            cell.textLabel?.text=serviceList[indexPath.row]
-        case 1:
-            cell.textLabel?.text=helpList[indexPath.row]
-        case 2:
-            cell.textLabel?.text=policyList[indexPath.row]
-        default:
-            break
-        }
-
-        return cell
+        let noNoticeCell = tableView.dequeueReusableCell(withIdentifier: "noticeCell", for: indexPath) as! NoticeTableViewCell
+        let noticeCell = tableView.dequeueReusableCell(withIdentifier: "noticeCell", for: indexPath)
+            if tempList.count == 0 {
+                tvNoticeList.rowHeight=700
+                noNoticeCell.noNotice.isHidden=false
+                return noNoticeCell
+            }else{
+                noNoticeCell.noNotice.isHidden=true
+                noticeCell.textLabel?.text=tempList[indexPath.row]
+                return noticeCell
+            }
     }
     
 

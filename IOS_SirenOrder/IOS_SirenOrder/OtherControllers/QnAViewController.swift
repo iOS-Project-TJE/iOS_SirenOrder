@@ -1,13 +1,13 @@
 //
-//  NoticeViewController.swift
+//  QnAViewController.swift
 //  IOS_SirenOrder
 //
-//  Created by 박성준 on 2021/07/29.
+//  Created by 박성준 on 2021/07/30.
 //
 
 import UIKit
 
-class NoticeViewController: UIViewController {
+class QnAViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

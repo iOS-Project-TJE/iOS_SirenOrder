@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6980B01E26B585690048DAAB /* NoticeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6980B00D26B585690048DAAB /* NoticeTableViewController.swift */; };
+		6980B01F26B585690048DAAB /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6980B00E26B585690048DAAB /* HistoryTableViewCell.swift */; };
+		6980B02026B585690048DAAB /* OtherTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6980B00F26B585690048DAAB /* OtherTableViewController.swift */; };
+		6980B02126B585690048DAAB /* PersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6980B01026B585690048DAAB /* PersonalViewController.swift */; };
+		6980B02226B585690048DAAB /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6980B01126B585690048DAAB /* MapViewController.swift */; };
+		6980B02326B585690048DAAB /* QnAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6980B01226B585690048DAAB /* QnAViewController.swift */; };
+		6980B02426B585690048DAAB /* GiftCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6980B01326B585690048DAAB /* GiftCardViewController.swift */; };
+		6980B02526B585690048DAAB /* ReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6980B01426B585690048DAAB /* ReceiptViewController.swift */; };
+		6980B02626B585690048DAAB /* NoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6980B01526B585690048DAAB /* NoticeTableViewCell.swift */; };
+		6980B02726B585690048DAAB /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6980B01626B585690048DAAB /* HistoryViewController.swift */; };
+		6980B02826B585690048DAAB /* ManualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6980B01726B585690048DAAB /* ManualViewController.swift */; };
+		6980B02926B585690048DAAB /* HistoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6980B01926B585690048DAAB /* HistoryList.swift */; };
+		6980B02A26B585690048DAAB /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6980B01B26B585690048DAAB /* OrderModel.swift */; };
+		6980B02B26B585690048DAAB /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6980B01C26B585690048DAAB /* UserModel.swift */; };
+		6980B02C26B585690048DAAB /* DrinkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6980B01D26B585690048DAAB /* DrinkModel.swift */; };
 		701E9C8E26B2B8550008F6F5 /* ExplainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701E9C8D26B2B8550008F6F5 /* ExplainViewController.swift */; };
 		70D9EAD826B2A0640036255C /* CoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D9EAD726B2A0640036255C /* CoverViewController.swift */; };
 		70D9EADA26B2A5A30036255C /* PermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D9EAD926B2A5A30036255C /* PermissionViewController.swift */; };
@@ -19,6 +34,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6980B00D26B585690048DAAB /* NoticeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeTableViewController.swift; sourceTree = "<group>"; };
+		6980B00E26B585690048DAAB /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		6980B00F26B585690048DAAB /* OtherTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherTableViewController.swift; sourceTree = "<group>"; };
+		6980B01026B585690048DAAB /* PersonalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalViewController.swift; sourceTree = "<group>"; };
+		6980B01126B585690048DAAB /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		6980B01226B585690048DAAB /* QnAViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QnAViewController.swift; sourceTree = "<group>"; };
+		6980B01326B585690048DAAB /* GiftCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftCardViewController.swift; sourceTree = "<group>"; };
+		6980B01426B585690048DAAB /* ReceiptViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptViewController.swift; sourceTree = "<group>"; };
+		6980B01526B585690048DAAB /* NoticeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCell.swift; sourceTree = "<group>"; };
+		6980B01626B585690048DAAB /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		6980B01726B585690048DAAB /* ManualViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManualViewController.swift; sourceTree = "<group>"; };
+		6980B01926B585690048DAAB /* HistoryList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryList.swift; sourceTree = "<group>"; };
+		6980B01B26B585690048DAAB /* OrderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
+		6980B01C26B585690048DAAB /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		6980B01D26B585690048DAAB /* DrinkModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinkModel.swift; sourceTree = "<group>"; };
 		701E9C8D26B2B8550008F6F5 /* ExplainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplainViewController.swift; sourceTree = "<group>"; };
 		70D9EAD726B2A0640036255C /* CoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverViewController.swift; sourceTree = "<group>"; };
 		70D9EAD926B2A5A30036255C /* PermissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +73,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6980B00C26B585690048DAAB /* OtherControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6980B00D26B585690048DAAB /* NoticeTableViewController.swift */,
+				6980B00E26B585690048DAAB /* HistoryTableViewCell.swift */,
+				6980B00F26B585690048DAAB /* OtherTableViewController.swift */,
+				6980B01026B585690048DAAB /* PersonalViewController.swift */,
+				6980B01126B585690048DAAB /* MapViewController.swift */,
+				6980B01226B585690048DAAB /* QnAViewController.swift */,
+				6980B01326B585690048DAAB /* GiftCardViewController.swift */,
+				6980B01426B585690048DAAB /* ReceiptViewController.swift */,
+				6980B01526B585690048DAAB /* NoticeTableViewCell.swift */,
+				6980B01626B585690048DAAB /* HistoryViewController.swift */,
+				6980B01726B585690048DAAB /* ManualViewController.swift */,
+			);
+			path = OtherControllers;
+			sourceTree = "<group>";
+		};
+		6980B01826B585690048DAAB /* Dao */ = {
+			isa = PBXGroup;
+			children = (
+				6980B01926B585690048DAAB /* HistoryList.swift */,
+			);
+			path = Dao;
+			sourceTree = "<group>";
+		};
+		6980B01A26B585690048DAAB /* Dto */ = {
+			isa = PBXGroup;
+			children = (
+				6980B01B26B585690048DAAB /* OrderModel.swift */,
+				6980B01C26B585690048DAAB /* UserModel.swift */,
+				6980B01D26B585690048DAAB /* DrinkModel.swift */,
+			);
+			path = Dto;
+			sourceTree = "<group>";
+		};
 		70D9EAD626B2A02A0036255C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +138,9 @@
 		857F1C4A26B27A210028D3BC /* IOS_SirenOrder */ = {
 			isa = PBXGroup;
 			children = (
+				6980B01826B585690048DAAB /* Dao */,
+				6980B01A26B585690048DAAB /* Dto */,
+				6980B00C26B585690048DAAB /* OtherControllers */,
 				70D9EAD626B2A02A0036255C /* ViewController */,
 				857F1C4B26B27A210028D3BC /* AppDelegate.swift */,
 				857F1C4D26B27A210028D3BC /* SceneDelegate.swift */,
@@ -155,10 +224,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				857F1C5026B27A210028D3BC /* ViewController.swift in Sources */,
+				6980B02526B585690048DAAB /* ReceiptViewController.swift in Sources */,
 				857F1C4C26B27A210028D3BC /* AppDelegate.swift in Sources */,
+				6980B02426B585690048DAAB /* GiftCardViewController.swift in Sources */,
+				6980B02826B585690048DAAB /* ManualViewController.swift in Sources */,
+				6980B02026B585690048DAAB /* OtherTableViewController.swift in Sources */,
 				70D9EAD826B2A0640036255C /* CoverViewController.swift in Sources */,
+				6980B02326B585690048DAAB /* QnAViewController.swift in Sources */,
+				6980B01F26B585690048DAAB /* HistoryTableViewCell.swift in Sources */,
+				6980B02B26B585690048DAAB /* UserModel.swift in Sources */,
+				6980B02A26B585690048DAAB /* OrderModel.swift in Sources */,
+				6980B02C26B585690048DAAB /* DrinkModel.swift in Sources */,
+				6980B02226B585690048DAAB /* MapViewController.swift in Sources */,
+				6980B02626B585690048DAAB /* NoticeTableViewCell.swift in Sources */,
 				857F1C4E26B27A210028D3BC /* SceneDelegate.swift in Sources */,
+				6980B01E26B585690048DAAB /* NoticeTableViewController.swift in Sources */,
 				701E9C8E26B2B8550008F6F5 /* ExplainViewController.swift in Sources */,
+				6980B02726B585690048DAAB /* HistoryViewController.swift in Sources */,
+				6980B02126B585690048DAAB /* PersonalViewController.swift in Sources */,
+				6980B02926B585690048DAAB /* HistoryList.swift in Sources */,
 				70D9EADA26B2A5A30036255C /* PermissionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
