@@ -1,22 +1,26 @@
 //
-//  AllStoreModel.swift
+//  FrequentStoreModel.swift
 //  IOS_SirenOrder
 //
-//  Created by Hyeji on 2021/07/31.
+//  Created by Hyeji on 2021/08/02.
 //
 
 import Foundation
 
-// 21.07.31 조혜지 Order 전체 매장 Table View Dao
-protocol AllStoreModelProtocol : AnyObject {
+// 21.08.02 조혜지 Order 자주 가는 매장 Table View Dao
+protocol FrequentStoreModelProtocol : AnyObject {
     func itemDownloaded(items: NSArray)
 }
 
-class AllStoreModel: NSObject{
-    var delegate: AllStoreModelProtocol!
-    let urlPath = "http://\(macIp):8080/starbucks/jsp/allStoreSelect.jsp"
+class FrequentStoreModel: NSObject{
+    var delegate: FrequentStoreModelProtocol!
+    var urlPath = "http://\(macIp):8080/starbucks/jsp/frequentStoreSelect.jsp"
     
     func downloadItems(){
+        
+        let urlAdd = "?userId=\(userId)"
+        urlPath = urlPath + urlAdd
+        
         let url: URL = URL(string: urlPath)!
         let defaultSession = URLSession(configuration: URLSessionConfiguration.default)
         let task = defaultSession.dataTask(with: url){(data, response, error) in

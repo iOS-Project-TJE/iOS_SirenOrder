@@ -44,6 +44,9 @@
 		85423B4826B6FBD200FFEF85 /* AllStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85423B4726B6FBD200FFEF85 /* AllStoreModel.swift */; };
 		85423B4A26B6FBF700FFEF85 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85423B4926B6FBF700FFEF85 /* LocationModel.swift */; };
 		85423B4C26B6FC6800FFEF85 /* AllStoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85423B4B26B6FC6800FFEF85 /* AllStoreTableViewCell.swift */; };
+		85423B4E26B70CD200FFEF85 /* FrequentStoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85423B4D26B70CD200FFEF85 /* FrequentStoreTableViewCell.swift */; };
+		85423B5026B710F600FFEF85 /* FrequentStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85423B4F26B710F500FFEF85 /* FrequentStoreModel.swift */; };
+		85423B5226B7169D00FFEF85 /* StoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85423B5126B7169D00FFEF85 /* StoreDetailViewController.swift */; };
 		857F1C4C26B27A210028D3BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857F1C4B26B27A210028D3BC /* AppDelegate.swift */; };
 		857F1C4E26B27A210028D3BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857F1C4D26B27A210028D3BC /* SceneDelegate.swift */; };
 		857F1C5026B27A210028D3BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857F1C4F26B27A210028D3BC /* ViewController.swift */; };
@@ -100,6 +103,9 @@
 		85423B4726B6FBD200FFEF85 /* AllStoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllStoreModel.swift; sourceTree = "<group>"; };
 		85423B4926B6FBF700FFEF85 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		85423B4B26B6FC6800FFEF85 /* AllStoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllStoreTableViewCell.swift; sourceTree = "<group>"; };
+		85423B4D26B70CD200FFEF85 /* FrequentStoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequentStoreTableViewCell.swift; sourceTree = "<group>"; };
+		85423B4F26B710F500FFEF85 /* FrequentStoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequentStoreModel.swift; sourceTree = "<group>"; };
+		85423B5126B7169D00FFEF85 /* StoreDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailViewController.swift; sourceTree = "<group>"; };
 		857F1C4826B27A210028D3BC /* IOS_SirenOrder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOS_SirenOrder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		857F1C4B26B27A210028D3BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		857F1C4D26B27A210028D3BC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +163,7 @@
 				85423B3526B6F7C100FFEF85 /* MyMenuModel.swift */,
 				85423B3F26B6FA4300FFEF85 /* CategoryDetailModel.swift */,
 				85423B4726B6FBD200FFEF85 /* AllStoreModel.swift */,
+				85423B4F26B710F500FFEF85 /* FrequentStoreModel.swift */,
 			);
 			path = Dao;
 			sourceTree = "<group>";
@@ -184,7 +191,7 @@
 			path = "Cover-HomeControllers";
 			sourceTree = "<group>";
 		};
-		85423B2426B6EE9A00FFEF85 /* OrderControllers */ = {
+		85423B2426B6EE9A00FFEF85 /* OrderController */ = {
 			isa = PBXGroup;
 			children = (
 				85423B2526B6EEB200FFEF85 /* AllMenuViewController.swift */,
@@ -194,8 +201,9 @@
 				85423B4126B6FB2100FFEF85 /* StoreSettingViewController.swift */,
 				85423B4326B6FB7C00FFEF85 /* AllStoreTableViewController.swift */,
 				85423B4526B6FB9700FFEF85 /* FrequentStoreTableViewController.swift */,
+				85423B5126B7169D00FFEF85 /* StoreDetailViewController.swift */,
 			);
-			path = OrderControllers;
+			path = OrderController;
 			sourceTree = "<group>";
 		};
 		85423B2B26B6F39200FFEF85 /* OrderCustomCell */ = {
@@ -205,6 +213,7 @@
 				85423B2E26B6F3FE00FFEF85 /* MyMenuTableViewCell.swift */,
 				85423B3926B6F8C000FFEF85 /* CategoryDetailTableViewCell.swift */,
 				85423B4B26B6FC6800FFEF85 /* AllStoreTableViewCell.swift */,
+				85423B4D26B70CD200FFEF85 /* FrequentStoreTableViewCell.swift */,
 			);
 			path = OrderCustomCell;
 			sourceTree = "<group>";
@@ -240,7 +249,7 @@
 			children = (
 				85423B3026B6F6BB00FFEF85 /* ShareVar */,
 				85423B2B26B6F39200FFEF85 /* OrderCustomCell */,
-				85423B2426B6EE9A00FFEF85 /* OrderControllers */,
+				85423B2426B6EE9A00FFEF85 /* OrderController */,
 				997120F126B68F0B0026317F /* LoginViewController */,
 				6980B01826B585690048DAAB /* Dao */,
 				6980B01A26B585690048DAAB /* Dto */,
@@ -435,9 +444,12 @@
 				9966F1EB26B6DE2A003B3DDD /* FindUserPwViewController.swift in Sources */,
 				6980B02626B585690048DAAB /* NoticeTableViewCell.swift in Sources */,
 				85423B4A26B6FBF700FFEF85 /* LocationModel.swift in Sources */,
+				85423B5026B710F600FFEF85 /* FrequentStoreModel.swift in Sources */,
 				857F1C4E26B27A210028D3BC /* SceneDelegate.swift in Sources */,
+				85423B4E26B70CD200FFEF85 /* FrequentStoreTableViewCell.swift in Sources */,
 				85423B3E26B6F91C00FFEF85 /* CategoryDetailViewController.swift in Sources */,
 				85423B4026B6FA4300FFEF85 /* CategoryDetailModel.swift in Sources */,
+				85423B5226B7169D00FFEF85 /* StoreDetailViewController.swift in Sources */,
 				9966F1E526B6D6F9003B3DDD /* SignUpNicNameViewController.swift in Sources */,
 				85423B2A26B6F1E700FFEF85 /* OrderViewController.swift in Sources */,
 				6980B01E26B585690048DAAB /* NoticeTableViewController.swift in Sources */,
