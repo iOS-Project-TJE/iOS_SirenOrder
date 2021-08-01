@@ -17,6 +17,7 @@ class ExplainViewController: UIViewController {
     var imgLeft = [UIImage]()
     var imgRight = [UIImage]()
     
+    //쓰이는 이미지 리스트
     var images = ["ex1.png","ex2.png","ex3.png"]
     var count = 0
         
@@ -25,13 +26,18 @@ class ExplainViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
+        //첫 이미지 뷰 설정
         imgView.image = UIImage(named: images[0])
         pageControl.numberOfPages = images.count
         pageControl.currentPage = 0
        
         makeSingleTouch()
         
+        // 처음에 오케이버튼 숨김.
         btnOK.isHidden = true
+        
+        // 버튼 라운드
+        btnOK.layer.cornerRadius = 20
         
     }
     @IBAction func pageChange(_ sender: UIPageControl) {
@@ -39,6 +45,7 @@ class ExplainViewController: UIViewController {
         imgView.image = UIImage(named: images[pageControl.currentPage])
     }
     
+    //스와이프 사용
     func makeSingleTouch(){
        
         //left
@@ -54,6 +61,7 @@ class ExplainViewController: UIViewController {
         
     }
     
+    //스와프이 사용시 하는 메소드
     @objc func respondToSwipeGesture(_ gesture: UIGestureRecognizer){
         if let swipeGesture = gesture as? UISwipeGestureRecognizer{
            
@@ -62,6 +70,7 @@ class ExplainViewController: UIViewController {
                 pageControl.currentPage += 1
                 imgView.image = UIImage(named: images[pageControl.currentPage])
                 
+                //2이상으로 넘어가지 않음. 그 이하는 카운터 +1
                 if count < 2 {
                     count += 1
                 }
@@ -70,6 +79,7 @@ class ExplainViewController: UIViewController {
                 pageControl.currentPage -= 1
                 imgView.image = UIImage(named: images[pageControl.currentPage])
                 
+                //0이하로 내려가지 않음. 그 이상은 카운터-1
                 if count > 0  {
                     count -= 1
                 }
@@ -78,7 +88,7 @@ class ExplainViewController: UIViewController {
                 break
             }
             
-            //스킵,확인 버튼 표시
+            //카운트에 따라 스킵,확인 버튼 표시
             if count == 2 {
                 btnSkip.isHidden = true
                 btnOK.isHidden = false
