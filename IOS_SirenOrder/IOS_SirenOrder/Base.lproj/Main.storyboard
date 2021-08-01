@@ -16,7 +16,7 @@
             <objects>
                 <viewController id="vZq-4n-ai7" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TaD-yD-li4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="beU-2q-ZfZ">
@@ -64,6 +64,9 @@
                                 <state key="normal" title="로그인">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="hT2-aS-J4e" kind="show" id="dpe-fV-E2L"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="cWh-0s-Hgv">
                                 <rect key="frame" x="65" y="545" width="285" height="30"/>
@@ -104,10 +107,11 @@
                         <viewLayoutGuide key="safeArea" id="u8x-QD-PGN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Gt3-lV-s13"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Fx-FB-nom" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3386" y="-1702"/>
+            <point key="canvasLocation" x="-1139" y="406"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="1sH-Dy-b41">
@@ -268,7 +272,7 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="hT2-aS-J4e" kind="show" id="bJn-Y5-yFE"/>
+                                    <segue destination="vZq-4n-ai7" kind="show" id="eU3-y3-Iv3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tmz-Xt-sZA">
@@ -282,7 +286,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="hT2-aS-J4e" kind="show" id="Pj1-Jl-wnO"/>
+                                    <segue destination="vZq-4n-ai7" kind="show" id="nhZ-ng-lqo"/>
                                 </connections>
                             </button>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="rgB-VO-QZp">
@@ -1379,7 +1383,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Eg1-oz-FCI"/>
-        <segue reference="Pj1-Jl-wnO"/>
+        <segue reference="eU3-y3-Iv3"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bluetooth" width="108" height="108"/>
