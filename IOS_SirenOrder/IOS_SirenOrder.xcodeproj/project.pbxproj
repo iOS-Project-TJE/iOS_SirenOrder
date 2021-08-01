@@ -129,7 +129,7 @@
 			path = Dto;
 			sourceTree = "<group>";
 		};
-		70D9EAD626B2A02A0036255C /* cover-home */ = {
+		70D9EAD626B2A02A0036255C /* Cover-HomeControllers */ = {
 			isa = PBXGroup;
 			children = (
 				70D9EAD726B2A0640036255C /* CoverViewController.swift */,
@@ -137,7 +137,7 @@
 				701E9C8D26B2B8550008F6F5 /* ExplainViewController.swift */,
 				708D257026B5C575000FCCD7 /* HomeViewController.swift */,
 			);
-			path = "cover-home";
+			path = "Cover-HomeControllers";
 			sourceTree = "<group>";
 		};
 		857F1C3F26B27A210028D3BC = {
@@ -163,7 +163,7 @@
 				6980B01826B585690048DAAB /* Dao */,
 				6980B01A26B585690048DAAB /* Dto */,
 				6980B00C26B585690048DAAB /* OtherControllers */,
-				70D9EAD626B2A02A0036255C /* cover-home */,
+				70D9EAD626B2A02A0036255C /* Cover-HomeControllers */,
 				857F1C4B26B27A210028D3BC /* AppDelegate.swift */,
 				857F1C4D26B27A210028D3BC /* SceneDelegate.swift */,
 				857F1C4F26B27A210028D3BC /* ViewController.swift */,

@@ -9,9 +9,14 @@ import UIKit
 
 class PermissionViewController: UIViewController {
 
+    @IBOutlet weak var btnOK: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //버튼 라운드
+        btnOK.layer.cornerRadius = 20
+    }
         // Do any additional setup after loading the view.
     }
     
@@ -26,4 +31,4 @@ class PermissionViewController: UIViewController {
     }
     */
 
-}
+
