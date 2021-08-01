@@ -25,6 +25,20 @@ class SignUpIdPwdViewController: UIViewController {
     }
     
 
+    
+    @IBAction func btnNext(_ sender: UIButton) {
+        
+        //버튼눌렀을때 nickName 입력창으로
+          self.performSegue(withIdentifier: "sgToNickName", sender: self)
+    
+    }
+    
+    
+    
+    
+    
+    
+    
     // 터치
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
