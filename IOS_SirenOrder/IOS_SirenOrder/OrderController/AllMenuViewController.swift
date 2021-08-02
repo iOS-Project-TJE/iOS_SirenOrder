@@ -7,7 +7,7 @@
 
 import UIKit
 
-var categoryList = ["NEW", "추천", "콜드 브루", "에스프레소", "프라푸치노", "블렌디드", "피지오", "티바나", "브루드 커피", "기타", "병음료"]
+var categoryList = ["NEW", "추천", "콜드 브루", "에스프레소", "프라푸치노", "블렌디드", "피지오", "티바나", "브루드 커피", "기타"]
 var categoryImageList = [UIImage?]()
 
 class AllMenuViewController: UIViewController { // 2021.07.30 조혜지 TabBar에서 Order Tab 클릭 시 첫 View (메뉴 카테고리)
