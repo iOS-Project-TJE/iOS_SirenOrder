@@ -29,4 +29,9 @@ class PersonalModel : NSObject{
         self.img = img
     }
     
+    // 2021.08.02 조혜지 PersonalIdModel에서 사용할 init 추가
+    init(personalId : String) {
+        self.personalId = personalId
+    }
+    
 }

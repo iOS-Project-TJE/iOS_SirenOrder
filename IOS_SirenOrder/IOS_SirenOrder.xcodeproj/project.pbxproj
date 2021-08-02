@@ -53,6 +53,16 @@
 		857F1C5326B27A210028D3BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 857F1C5126B27A210028D3BC /* Main.storyboard */; };
 		857F1C5526B27A230028D3BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 857F1C5426B27A230028D3BC /* Assets.xcassets */; };
 		857F1C5826B27A230028D3BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 857F1C5626B27A230028D3BC /* LaunchScreen.storyboard */; };
+		85DDD67126B8571000B97DF7 /* MyMenuInsertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DDD67026B8571000B97DF7 /* MyMenuInsertModel.swift */; };
+		85DDD67326B8575400B97DF7 /* DrinkInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DDD67226B8575400B97DF7 /* DrinkInfoModel.swift */; };
+		85DDD67526B857AB00B97DF7 /* PersonalIdModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DDD67426B857AB00B97DF7 /* PersonalIdModel.swift */; };
+		85DDD67726B857F800B97DF7 /* MyMenuDeleteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DDD67626B857F800B97DF7 /* MyMenuDeleteModel.swift */; };
+		85DDD67926B8583E00B97DF7 /* CartInsertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DDD67826B8583E00B97DF7 /* CartInsertModel.swift */; };
+		85DDD67B26B8587F00B97DF7 /* PersonalOptionContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DDD67A26B8587F00B97DF7 /* PersonalOptionContentTableViewCell.swift */; };
+		85DDD67D26B858C800B97DF7 /* PersonalOptionTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DDD67C26B858C800B97DF7 /* PersonalOptionTitleTableViewCell.swift */; };
+		85DDD67F26B85C1500B97DF7 /* DrinkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DDD67E26B85C1500B97DF7 /* DrinkDetailViewController.swift */; };
+		85DDD68326B85D8900B97DF7 /* OrderPersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DDD68226B85D8900B97DF7 /* OrderPersonalViewController.swift */; };
+		85DDD68526B8606B00B97DF7 /* PersonalOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DDD68426B8606B00B97DF7 /* PersonalOptionViewController.swift */; };
 		9966F1E526B6D6F9003B3DDD /* SignUpNicNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9966F1E426B6D6F9003B3DDD /* SignUpNicNameViewController.swift */; };
 		9966F1E726B6D9A0003B3DDD /* FindUserIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9966F1E626B6D9A0003B3DDD /* FindUserIdViewController.swift */; };
 		9966F1E926B6DB56003B3DDD /* CheckFindIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9966F1E826B6DB56003B3DDD /* CheckFindIdViewController.swift */; };
@@ -114,6 +124,16 @@
 		857F1C5426B27A230028D3BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		857F1C5726B27A230028D3BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		857F1C5926B27A230028D3BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85DDD67026B8571000B97DF7 /* MyMenuInsertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMenuInsertModel.swift; sourceTree = "<group>"; };
+		85DDD67226B8575400B97DF7 /* DrinkInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkInfoModel.swift; sourceTree = "<group>"; };
+		85DDD67426B857AB00B97DF7 /* PersonalIdModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalIdModel.swift; sourceTree = "<group>"; };
+		85DDD67626B857F800B97DF7 /* MyMenuDeleteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMenuDeleteModel.swift; sourceTree = "<group>"; };
+		85DDD67826B8583E00B97DF7 /* CartInsertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartInsertModel.swift; sourceTree = "<group>"; };
+		85DDD67A26B8587F00B97DF7 /* PersonalOptionContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalOptionContentTableViewCell.swift; sourceTree = "<group>"; };
+		85DDD67C26B858C800B97DF7 /* PersonalOptionTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalOptionTitleTableViewCell.swift; sourceTree = "<group>"; };
+		85DDD67E26B85C1500B97DF7 /* DrinkDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDetailViewController.swift; sourceTree = "<group>"; };
+		85DDD68226B85D8900B97DF7 /* OrderPersonalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPersonalViewController.swift; sourceTree = "<group>"; };
+		85DDD68426B8606B00B97DF7 /* PersonalOptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalOptionViewController.swift; sourceTree = "<group>"; };
 		9966F1E426B6D6F9003B3DDD /* SignUpNicNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNicNameViewController.swift; sourceTree = "<group>"; };
 		9966F1E626B6D9A0003B3DDD /* FindUserIdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindUserIdViewController.swift; sourceTree = "<group>"; };
 		9966F1E826B6DB56003B3DDD /* CheckFindIdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckFindIdViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +184,11 @@
 				85423B3F26B6FA4300FFEF85 /* CategoryDetailModel.swift */,
 				85423B4726B6FBD200FFEF85 /* AllStoreModel.swift */,
 				85423B4F26B710F500FFEF85 /* FrequentStoreModel.swift */,
+				85DDD67026B8571000B97DF7 /* MyMenuInsertModel.swift */,
+				85DDD67226B8575400B97DF7 /* DrinkInfoModel.swift */,
+				85DDD67426B857AB00B97DF7 /* PersonalIdModel.swift */,
+				85DDD67626B857F800B97DF7 /* MyMenuDeleteModel.swift */,
+				85DDD67826B8583E00B97DF7 /* CartInsertModel.swift */,
 			);
 			path = Dao;
 			sourceTree = "<group>";
@@ -187,6 +212,7 @@
 				70D9EAD926B2A5A30036255C /* PermissionViewController.swift */,
 				701E9C8D26B2B8550008F6F5 /* ExplainViewController.swift */,
 				708D257026B5C575000FCCD7 /* HomeViewController.swift */,
+				85DDD67E26B85C1500B97DF7 /* DrinkDetailViewController.swift */,
 			);
 			path = "Cover-HomeControllers";
 			sourceTree = "<group>";
@@ -202,6 +228,8 @@
 				85423B4326B6FB7C00FFEF85 /* AllStoreTableViewController.swift */,
 				85423B4526B6FB9700FFEF85 /* FrequentStoreTableViewController.swift */,
 				85423B5126B7169D00FFEF85 /* StoreDetailViewController.swift */,
+				85DDD68226B85D8900B97DF7 /* OrderPersonalViewController.swift */,
+				85DDD68426B8606B00B97DF7 /* PersonalOptionViewController.swift */,
 			);
 			path = OrderController;
 			sourceTree = "<group>";
@@ -214,6 +242,8 @@
 				85423B3926B6F8C000FFEF85 /* CategoryDetailTableViewCell.swift */,
 				85423B4B26B6FC6800FFEF85 /* AllStoreTableViewCell.swift */,
 				85423B4D26B70CD200FFEF85 /* FrequentStoreTableViewCell.swift */,
+				85DDD67A26B8587F00B97DF7 /* PersonalOptionContentTableViewCell.swift */,
+				85DDD67C26B858C800B97DF7 /* PersonalOptionTitleTableViewCell.swift */,
 			);
 			path = OrderCustomCell;
 			sourceTree = "<group>";
@@ -418,6 +448,7 @@
 				6980B02526B585690048DAAB /* ReceiptViewController.swift in Sources */,
 				85423B4426B6FB7C00FFEF85 /* AllStoreTableViewController.swift in Sources */,
 				85423B2626B6EEB200FFEF85 /* AllMenuViewController.swift in Sources */,
+				85DDD67F26B85C1500B97DF7 /* DrinkDetailViewController.swift in Sources */,
 				857F1C4C26B27A210028D3BC /* AppDelegate.swift in Sources */,
 				6980B02426B585690048DAAB /* GiftCardViewController.swift in Sources */,
 				9966F1E926B6DB56003B3DDD /* CheckFindIdViewController.swift in Sources */,
@@ -428,13 +459,16 @@
 				85423B2D26B6F3B300FFEF85 /* AllMenuTableViewCell.swift in Sources */,
 				85423B4826B6FBD200FFEF85 /* AllStoreModel.swift in Sources */,
 				6980B02326B585690048DAAB /* QnAViewController.swift in Sources */,
+				85DDD68526B8606B00B97DF7 /* PersonalOptionViewController.swift in Sources */,
 				85423B4C26B6FC6800FFEF85 /* AllStoreTableViewCell.swift in Sources */,
 				6980B01F26B585690048DAAB /* HistoryTableViewCell.swift in Sources */,
 				6980B02B26B585690048DAAB /* UserModel.swift in Sources */,
 				85423B4626B6FB9700FFEF85 /* FrequentStoreTableViewController.swift in Sources */,
 				6980B02A26B585690048DAAB /* OrderModel.swift in Sources */,
+				85DDD68326B85D8900B97DF7 /* OrderPersonalViewController.swift in Sources */,
 				9966F1ED26B6E0B9003B3DDD /* ResetPassWordViewController.swift in Sources */,
 				9966F1E726B6D9A0003B3DDD /* FindUserIdViewController.swift in Sources */,
+				85DDD67726B857F800B97DF7 /* MyMenuDeleteModel.swift in Sources */,
 				85423B3826B6F7EA00FFEF85 /* PersonalModel.swift in Sources */,
 				997120F526B692280026317F /* SignUpAuthEmailViewController.swift in Sources */,
 				6980B02C26B585690048DAAB /* DrinkModel.swift in Sources */,
@@ -444,11 +478,13 @@
 				9966F1EB26B6DE2A003B3DDD /* FindUserPwViewController.swift in Sources */,
 				6980B02626B585690048DAAB /* NoticeTableViewCell.swift in Sources */,
 				85423B4A26B6FBF700FFEF85 /* LocationModel.swift in Sources */,
+				85DDD67126B8571000B97DF7 /* MyMenuInsertModel.swift in Sources */,
 				85423B5026B710F600FFEF85 /* FrequentStoreModel.swift in Sources */,
 				857F1C4E26B27A210028D3BC /* SceneDelegate.swift in Sources */,
 				85423B4E26B70CD200FFEF85 /* FrequentStoreTableViewCell.swift in Sources */,
 				85423B3E26B6F91C00FFEF85 /* CategoryDetailViewController.swift in Sources */,
 				85423B4026B6FA4300FFEF85 /* CategoryDetailModel.swift in Sources */,
+				85DDD67326B8575400B97DF7 /* DrinkInfoModel.swift in Sources */,
 				85423B5226B7169D00FFEF85 /* StoreDetailViewController.swift in Sources */,
 				9966F1E526B6D6F9003B3DDD /* SignUpNicNameViewController.swift in Sources */,
 				85423B2A26B6F1E700FFEF85 /* OrderViewController.swift in Sources */,
@@ -458,10 +494,14 @@
 				6980B02726B585690048DAAB /* HistoryViewController.swift in Sources */,
 				6980B02126B585690048DAAB /* PersonalViewController.swift in Sources */,
 				85423B4226B6FB2100FFEF85 /* StoreSettingViewController.swift in Sources */,
+				85DDD67926B8583E00B97DF7 /* CartInsertModel.swift in Sources */,
 				6980B02926B585690048DAAB /* HistoryList.swift in Sources */,
 				85423B3626B6F7C100FFEF85 /* MyMenuModel.swift in Sources */,
 				85423B3226B6F6CB00FFEF85 /* ShareVar.swift in Sources */,
+				85DDD67526B857AB00B97DF7 /* PersonalIdModel.swift in Sources */,
+				85DDD67B26B8587F00B97DF7 /* PersonalOptionContentTableViewCell.swift in Sources */,
 				997120F926B6957D0026317F /* LoginViewController.swift in Sources */,
+				85DDD67D26B858C800B97DF7 /* PersonalOptionTitleTableViewCell.swift in Sources */,
 				85423B2F26B6F3FE00FFEF85 /* MyMenuTableViewCell.swift in Sources */,
 				70D9EADA26B2A5A30036255C /* PermissionViewController.swift in Sources */,
 			);

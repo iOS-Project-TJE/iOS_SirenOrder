@@ -30,15 +30,24 @@ class CategoryDetailViewController: UIViewController { // 2021.08.01 조혜지 O
         categoryDetailModel.downloadItems()
             }
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "sgDrinkDetail" {
+            let cell = sender as! CategoryDetailTableViewCell
+            let indexPath = self.tvCategoryDetail.indexPath(for: cell)
+            
+            let item: DrinkModel = dataItem[indexPath!.row] as! DrinkModel
+            
+            let drinkDetailViewController = segue.destination as! DrinkDetailViewController
+            drinkDetailViewController.receivedCd = item.cd!
+        }
     }
-    */
+    
 
 }
 
@@ -47,8 +56,8 @@ extension CategoryDetailViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "categoryDetailCell") as! CategoryDetailTableViewCell
         let item: DrinkModel = dataItem[indexPath.row] as! DrinkModel
         
-        cell.lblCategoryDetailName.text = "\(item.name!)"
-        cell.lblCategoryDetailPrice.text = "\(DecimalWon(value: item.price!))"
+        cell.lblCategoryDetailName.text = item.name!
+        cell.lblCategoryDetailPrice.text = DecimalWon(value: item.price!)
         
         let url = URL(string: "\(item.img!)")
         let data = try? Data(contentsOf: url!)
@@ -62,7 +71,7 @@ extension CategoryDetailViewController: UITableViewDataSource {
     func DecimalWon(value: Int) -> String{
             let numberFormatter = NumberFormatter()
             numberFormatter.numberStyle = .decimal
-            let result = numberFormatter.string(from: NSNumber(value: value))! + "원"
+            let result = numberFormatter.string(from: NSNumber(value: value))! + " 원"
             
             return result
     }
