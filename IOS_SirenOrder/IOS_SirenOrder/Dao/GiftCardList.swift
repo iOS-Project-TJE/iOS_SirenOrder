@@ -1,23 +1,23 @@
 //
-//  HistoryList.swift
+//  GiftCardList.swift
 //  IOS_SirenOrder
 //
-//  Created by 박성준 on 2021/07/31.
+//  Created by Biso on 2021/08/02.
 //
 
 import Foundation
 
-protocol HistoryListProtocol : AnyObject {
+protocol GiftCardListProtocol : AnyObject {
     func itemDownloaded(items: NSArray)
 }
 
-class HistoryList: NSObject{
-    var delegate: HistoryListProtocol!
-    let urlPath = "http://localhost:8080/starbucks/HistoryList.jsp"
+class GiftCardList: NSObject{
+    var delegate: GiftCardListProtocol!
+    let urlPath = "http://192.168.5.101:8080/starbucks/giftCardList_select.jsp"
+    
     
     func downloadItems(){
-        let userId = UserDefaults.standard.string(forKey: "userId")
-        let url: URL = URL(string: urlPath+"?userId=\((userId)!)")!
+        let url: URL = URL(string: "http://192.168.5.101:8080/starbucks/giftCardList_select.jsp")!
         let defaultSession = URLSession(configuration: URLSessionConfiguration.default)
         let task = defaultSession.dataTask(with: url){(data, response, error) in
             if error != nil{
@@ -33,6 +33,7 @@ class HistoryList: NSObject{
     func parseJSON(_ data: Data){
         var jsonResult = NSArray()
         do{
+            print("Data 1")
             jsonResult=try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as! NSArray
         }catch let error as NSError{
             print(error)
@@ -43,18 +44,16 @@ class HistoryList: NSObject{
         
         for i in 0..<jsonResult.count{
             jsonElement = jsonResult[i] as! NSDictionary
-            if let orderId = jsonElement["orderId"] as? String,
-               let orderNum = jsonElement["orderNum"] as? String,
-               let orderCount = jsonElement["orderCount"] as? Int,
-               let orderPersonal = jsonElement["orderPersonal"] as? String,
-               let orderDate = jsonElement["orderDate"] as? String,
-               let storename = jsonElement["storename"] as? String,
-               let cd = jsonElement["cd"] as? String,
-               let userId = jsonElement["userId"] as? String{
-                let query = OrderModel(orderId: orderId, orderNum: orderNum, orderCount: orderCount, orderPersonal: orderPersonal, orderDate: orderDate, storename: storename, cd: cd, userId: userId)
+            if let cd = jsonElement["cd"] as? String,
+               let name = jsonElement["name"] as? String,
+               let img = jsonElement["img"] as? String,
+               let launch = jsonElement["launch"] as? String{
+                let query = CardModel(cd: cd, name: name, img: img, launch: launch)
+                print(name)
                 locations.add(query)
             }
         }
+        print("Data 2")
         DispatchQueue.main.async(execute: {() -> Void in
             self.delegate.itemDownloaded(items: locations)
         })
