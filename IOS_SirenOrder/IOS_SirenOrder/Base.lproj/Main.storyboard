@@ -1389,21 +1389,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="tab1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RC7-xN-oLN">
-                                <rect key="frame" x="186" y="279" width="32" height="21"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="event1" translatesAutoresizingMaskIntoConstraints="NO" id="Gai-LN-jbI">
+                                <rect key="frame" x="20" y="105" width="374" height="254"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </imageView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="bDB-eC-DXW">
+                                <rect key="frame" x="20" y="367" width="374" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="cardImgPageChange:" destination="IM5-KX-ikF" eventType="valueChanged" id="0vu-Vi-Vsh"/>
+                                </connections>
+                            </pageControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="s2d-f6-M0A"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="cardImgChangeControler" destination="bDB-eC-DXW" id="u83-gS-LN0"/>
+                        <outlet property="giftCardImgView" destination="Gai-LN-jbI" id="vGu-df-9tz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dVq-4j-2fe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="622" y="1040"/>
+            <point key="canvasLocation" x="621.73913043478262" y="1039.9553571428571"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="lhi-s0-yJJ">

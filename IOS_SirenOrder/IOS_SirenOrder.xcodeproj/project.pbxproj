@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F13599626B78D44004B68E1 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13599526B78D44004B68E1 /* CardModel.swift */; };
 		4F3AA05326B6F46200A96916 /* GiftMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3AA05226B6F46200A96916 /* GiftMainViewController.swift */; };
 		4F485B3126B7165100238F3F /* GiftCardItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F485B3026B7165100238F3F /* GiftCardItemViewController.swift */; };
 		4F485B3326B7165C00238F3F /* GiftCardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F485B3226B7165C00238F3F /* GiftCardListViewController.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F13599526B78D44004B68E1 /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 		4F3AA05226B6F46200A96916 /* GiftMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftMainViewController.swift; sourceTree = "<group>"; };
 		4F485B3026B7165100238F3F /* GiftCardItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCardItemViewController.swift; sourceTree = "<group>"; };
 		4F485B3226B7165C00238F3F /* GiftCardListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCardListViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				6980B01B26B585690048DAAB /* OrderModel.swift */,
 				6980B01C26B585690048DAAB /* UserModel.swift */,
 				6980B01D26B585690048DAAB /* DrinkModel.swift */,
+				4F13599526B78D44004B68E1 /* CardModel.swift */,
 			);
 			path = Dto;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				6980B02226B585690048DAAB /* MapViewController.swift in Sources */,
 				9966F1EB26B6DE2A003B3DDD /* FindUserPwViewController.swift in Sources */,
 				6980B02626B585690048DAAB /* NoticeTableViewCell.swift in Sources */,
+				4F13599626B78D44004B68E1 /* CardModel.swift in Sources */,
 				857F1C4E26B27A210028D3BC /* SceneDelegate.swift in Sources */,
 				9966F1E526B6D6F9003B3DDD /* SignUpNicNameViewController.swift in Sources */,
 				6980B01E26B585690048DAAB /* NoticeTableViewController.swift in Sources */,
