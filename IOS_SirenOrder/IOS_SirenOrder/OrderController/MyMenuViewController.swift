@@ -27,6 +27,13 @@ class MyMenuViewController: UIViewController { // 2021.07.31 조혜지 Order 나
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .always
+        tvMyMenu.bounces = true
+        tvMyMenu.alwaysBounceVertical = true
+    }
+    
 
     /*
     // MARK: - Navigation

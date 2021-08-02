@@ -1,15 +1,16 @@
 //
-//  AllStoreTableViewController.swift
+//  FrequentStoreTableViewController.swift
 //  IOS_SirenOrder
 //
-//  Created by Hyeji on 2021/07/30.
+//  Created by Hyeji on 2021/08/02.
 //
 
 import UIKit
 
-class AllStoreTableViewController: UITableViewController { // 21.07.30 조혜지 Order 전체 매장 Table View
-
-    @IBOutlet var tvAllStore: UITableView!
+class FrequentStoreTableViewController: UITableViewController { // 21.08.02 조혜지 Order 자주 가는 매장 Table View
+    
+    @IBOutlet var tvFrequentStore: UITableView!
+    
     var dataItem: NSArray = NSArray()
     
     override func viewDidLoad() {
@@ -20,10 +21,10 @@ class AllStoreTableViewController: UITableViewController { // 21.07.30 조혜지
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        let allStoreModel = AllStoreModel()
-        allStoreModel.delegate = self
-        allStoreModel.downloadItems()
-        tvAllStore.rowHeight = 103
+        let frequentStoreModel = FrequentStoreModel()
+        frequentStoreModel.delegate = self
+        frequentStoreModel.downloadItems()
+        tvFrequentStore.rowHeight = 96
         self.navigationController?.navigationBar.tintColor = UIColor(displayP3Red: 0/255, green: 112/225, blue: 74/255, alpha: 1)
     }
 
@@ -41,14 +42,16 @@ class AllStoreTableViewController: UITableViewController { // 21.07.30 조혜지
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "allStoreCell", for: indexPath) as! AllStoreTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "frequentStoreCell", for: indexPath) as! FrequentStoreTableViewCell
 
         // Configure the cell...
         // let item = LocationModel
+        cell.selectionStyle = .none
+        
         let item: LocationModel = dataItem[indexPath.row] as! LocationModel
         
-        cell.lblAllStoreName.text = "\(item.storename!)"
-        cell.lblAllStoreAddress.text = "\(item.address!)"
+        cell.lblFrequentStoreName.text = "\(item.storename!)"
+        cell.lblFrequentStoreAddress.text = "\(item.address!)"
 
         return cell
     }
@@ -89,21 +92,29 @@ class AllStoreTableViewController: UITableViewController { // 21.07.30 조혜지
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "sgFrequentStoreDetail" {
+            let cell = sender as! FrequentStoreTableViewCell
+            let indexPath = self.tvFrequentStore.indexPath(for: cell)
+            let item: LocationModel = dataItem[indexPath!.row] as! LocationModel
+            let storeDetailViewController = segue.destination as! StoreDetailViewController
+            storeDetailViewController.receivedData(item)
+        }
+        
     }
-    */
+    
 
 }
 
-extension AllStoreTableViewController : AllStoreModelProtocol{
+extension FrequentStoreTableViewController : FrequentStoreModelProtocol{
     func itemDownloaded(items: NSArray) {
         dataItem = items
-        self.tvAllStore.reloadData()
+        self.tvFrequentStore.reloadData()
     }
 }

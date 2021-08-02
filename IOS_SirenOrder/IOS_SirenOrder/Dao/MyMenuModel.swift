@@ -20,7 +20,7 @@ class MyMenuModel : NSObject {
         
         let urlAdd = "?userId=\(userId)"
         urlPath = urlPath + urlAdd
-        print(urlPath)
+        
         let url: URL = URL(string: urlPath)!
         let defaultSession = URLSession(configuration: URLSessionConfiguration.default)
         let task = defaultSession.dataTask(with: url){(data, response, error) in
