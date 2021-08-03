@@ -10,6 +10,7 @@ import UIKit
 class CategoryDetailViewController: UIViewController { // 2021.08.01 조혜지 Order Category 선택 후 카테고리 별 메뉴 View
 
     @IBOutlet weak var tvCategoryDetail: UITableView!
+    @IBOutlet weak var lblStore: UILabel!
     
     var dataItem: NSArray = NSArray()
     var indexPath = 0
@@ -28,7 +29,13 @@ class CategoryDetailViewController: UIViewController { // 2021.08.01 조혜지 O
         let categoryDetailModel = CategoryDetailModel()
         categoryDetailModel.delegate = self
         categoryDetailModel.downloadItems()
-            }
+        
+        if storeName == "" {
+            lblStore.text = "주문할 매장을 선택해 주세요"
+        }else {
+            lblStore.text = storeName
+        }
+    }
     
     
     // MARK: - Navigation

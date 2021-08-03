@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3258C15226B8D601006892A6 /* StoreSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3258C15126B8D601006892A6 /* StoreSearchTableViewController.swift */; };
+		3258C15526B8D635006892A6 /* StoreSearchClickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3258C15426B8D635006892A6 /* StoreSearchClickViewController.swift */; };
+		3258C15826B8D6A3006892A6 /* StoreSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3258C15726B8D6A3006892A6 /* StoreSearchTableViewCell.swift */; };
+		3258C15E26B8E16E006892A6 /* StoreSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3258C15D26B8E16E006892A6 /* StoreSearchModel.swift */; };
 		5E4AB2B60D49CA78EAC2D69E /* Pods_IOS_SirenOrder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A08F0ADDDE1E5AACCD89525E /* Pods_IOS_SirenOrder.framework */; };
 		6980B01E26B585690048DAAB /* NoticeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6980B00D26B585690048DAAB /* NoticeTableViewController.swift */; };
 		6980B01F26B585690048DAAB /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6980B00E26B585690048DAAB /* HistoryTableViewCell.swift */; };
@@ -75,6 +79,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3258C15126B8D601006892A6 /* StoreSearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreSearchTableViewController.swift; sourceTree = "<group>"; };
+		3258C15426B8D635006892A6 /* StoreSearchClickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreSearchClickViewController.swift; sourceTree = "<group>"; };
+		3258C15726B8D6A3006892A6 /* StoreSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreSearchTableViewCell.swift; sourceTree = "<group>"; };
+		3258C15D26B8E16E006892A6 /* StoreSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreSearchModel.swift; sourceTree = "<group>"; };
 		615FB0826BEB5B7B6461CB8D /* Pods-IOS_SirenOrder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOS_SirenOrder.debug.xcconfig"; path = "Target Support Files/Pods-IOS_SirenOrder/Pods-IOS_SirenOrder.debug.xcconfig"; sourceTree = "<group>"; };
 		6980B00D26B585690048DAAB /* NoticeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeTableViewController.swift; sourceTree = "<group>"; };
 		6980B00E26B585690048DAAB /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -189,6 +197,7 @@
 				85DDD67426B857AB00B97DF7 /* PersonalIdModel.swift */,
 				85DDD67626B857F800B97DF7 /* MyMenuDeleteModel.swift */,
 				85DDD67826B8583E00B97DF7 /* CartInsertModel.swift */,
+				3258C15D26B8E16E006892A6 /* StoreSearchModel.swift */,
 			);
 			path = Dao;
 			sourceTree = "<group>";
@@ -230,6 +239,8 @@
 				85423B5126B7169D00FFEF85 /* StoreDetailViewController.swift */,
 				85DDD68226B85D8900B97DF7 /* OrderPersonalViewController.swift */,
 				85DDD68426B8606B00B97DF7 /* PersonalOptionViewController.swift */,
+				3258C15126B8D601006892A6 /* StoreSearchTableViewController.swift */,
+				3258C15426B8D635006892A6 /* StoreSearchClickViewController.swift */,
 			);
 			path = OrderController;
 			sourceTree = "<group>";
@@ -244,6 +255,7 @@
 				85423B4D26B70CD200FFEF85 /* FrequentStoreTableViewCell.swift */,
 				85DDD67A26B8587F00B97DF7 /* PersonalOptionContentTableViewCell.swift */,
 				85DDD67C26B858C800B97DF7 /* PersonalOptionTitleTableViewCell.swift */,
+				3258C15726B8D6A3006892A6 /* StoreSearchTableViewCell.swift */,
 			);
 			path = OrderCustomCell;
 			sourceTree = "<group>";
@@ -450,6 +462,7 @@
 				85423B2626B6EEB200FFEF85 /* AllMenuViewController.swift in Sources */,
 				85DDD67F26B85C1500B97DF7 /* DrinkDetailViewController.swift in Sources */,
 				857F1C4C26B27A210028D3BC /* AppDelegate.swift in Sources */,
+				3258C15526B8D635006892A6 /* StoreSearchClickViewController.swift in Sources */,
 				6980B02426B585690048DAAB /* GiftCardViewController.swift in Sources */,
 				9966F1E926B6DB56003B3DDD /* CheckFindIdViewController.swift in Sources */,
 				6980B02826B585690048DAAB /* ManualViewController.swift in Sources */,
@@ -473,11 +486,13 @@
 				997120F526B692280026317F /* SignUpAuthEmailViewController.swift in Sources */,
 				6980B02C26B585690048DAAB /* DrinkModel.swift in Sources */,
 				997120F726B693990026317F /* SignUpIdPwdViewController.swift in Sources */,
+				3258C15826B8D6A3006892A6 /* StoreSearchTableViewCell.swift in Sources */,
 				6980B02226B585690048DAAB /* MapViewController.swift in Sources */,
 				85423B3A26B6F8C000FFEF85 /* CategoryDetailTableViewCell.swift in Sources */,
 				9966F1EB26B6DE2A003B3DDD /* FindUserPwViewController.swift in Sources */,
 				6980B02626B585690048DAAB /* NoticeTableViewCell.swift in Sources */,
 				85423B4A26B6FBF700FFEF85 /* LocationModel.swift in Sources */,
+				3258C15226B8D601006892A6 /* StoreSearchTableViewController.swift in Sources */,
 				85DDD67126B8571000B97DF7 /* MyMenuInsertModel.swift in Sources */,
 				85423B5026B710F600FFEF85 /* FrequentStoreModel.swift in Sources */,
 				857F1C4E26B27A210028D3BC /* SceneDelegate.swift in Sources */,
@@ -504,6 +519,7 @@
 				85DDD67D26B858C800B97DF7 /* PersonalOptionTitleTableViewCell.swift in Sources */,
 				85423B2F26B6F3FE00FFEF85 /* MyMenuTableViewCell.swift in Sources */,
 				70D9EADA26B2A5A30036255C /* PermissionViewController.swift in Sources */,
+				3258C15E26B8E16E006892A6 /* StoreSearchModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

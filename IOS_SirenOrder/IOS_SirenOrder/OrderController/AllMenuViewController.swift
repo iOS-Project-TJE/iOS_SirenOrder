@@ -23,6 +23,12 @@ class AllMenuViewController: UIViewController { // 2021.07.30 조혜지 TabBar�
         self.tvAllMenu.separatorStyle = .none
         
         serverImageDownloaded()
+        
+        if storeName == "" {
+            lblStore.text = "주문할 매장을 선택해 주세요"
+        }else {
+            lblStore.text = storeName
+        }
     }
     
     func serverImageDownloaded() {
