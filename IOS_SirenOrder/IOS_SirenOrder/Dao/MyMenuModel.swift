@@ -14,7 +14,7 @@ protocol MyMenuModelProtocol : AnyObject {
 
 class MyMenuModel : NSObject {
     var delegate: MyMenuModelProtocol!
-    var urlPath = "http://\(macIp):8080/starbucks/jsp/myMenuSelect.jsp"
+    var urlPath = "http://\(macIp):8080/starbucks/jsp/hj/myMenuSelect.jsp"
     
     func downloadItems() {
         

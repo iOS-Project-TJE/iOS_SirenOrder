@@ -1,31 +1,26 @@
 //
-//  CategoryDetailModel.swift
+//  DrinkInfoModel.swift
 //  IOS_SirenOrder
 //
-//  Created by Hyeji on 2021/08/01.
+//  Created by Hyeji on 2021/08/02.
 //
 
 import Foundation
 
-// 2021.08.01 조혜지 Order Category 선택 후 카테고리 별 메뉴 View Dao
-protocol CategoryDetailModelProtocol : AnyObject {
+// 21.08.02 조혜지 Order Personal 옵션 선택을 위해 Drink 정보 불러오는 Dao
+protocol DrinkInfoModelProtocol : AnyObject {
     func itemDownloaded(items: NSArray)
 }
 
-class CategoryDetailModel : NSObject {
-    var delegate: CategoryDetailModelProtocol!
+class DrinkInfoModel : NSObject {
+    var delegate: DrinkInfoModelProtocol!
     var urlPath = "http://\(macIp):8080/starbucks/jsp/hj/"
     
-    func downloadItems() {
-        var urlAdd = ""
-        if category == "1" {
-            urlAdd = "recommendDetailSelect.jsp?userId=\(userId)"
-        }else{
-            urlAdd = "categoryDetailSelect.jsp?category=\(category)"
-        }
-        
+    func downloadItems(cd: String) {
+        let urlAdd = "drinkInfoSelect.jsp?cd=\(cd)"
         urlPath = urlPath + urlAdd
         print(urlPath)
+        
         let url: URL = URL(string: urlPath)!
         let defaultSession = URLSession(configuration: URLSessionConfiguration.default)
         let task = defaultSession.dataTask(with: url){(data, response, error) in
@@ -54,12 +49,11 @@ class CategoryDetailModel : NSObject {
         
         for i in 0..<jsonResult.count {
             jsonElement = jsonResult[i] as! NSDictionary
-            if let cd = jsonElement["cd"] as? String,
-               let name = jsonElement["name"] as? String,
-               let img = jsonElement["img"] as? String,
-               let price = jsonElement["price"] as? String{
+            if let name = jsonElement["name"] as? String,
+               let price = jsonElement["price"] as? String,
+               let type = jsonElement["type"] as? String{
                 
-                let query = DrinkModel(cd: cd, name: name, img: img, price: Int(price)!)
+                let query = DrinkModel(name: name, price: Int(price)!, type: Int(type)!)
                 locations.add(query)
                 
             }
