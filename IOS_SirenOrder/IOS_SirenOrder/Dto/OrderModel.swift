@@ -16,19 +16,25 @@ class OrderModel : NSObject{
     var storename : String?
     var cd : String?
     var userId : String?
+    var price : Int?
+    var img : String?
+    var name : String?
     
     override init() {
         
     }
     
-    init(orderId : String, orderNum : String, orderCount : Int, orderPersonal : String, orderDate : String, storename : String, cd : String, userId : String){
+    
+    init(orderId : String, orderNum : String, orderCount : Int, orderPersonal : String, orderDate : String, storename : String, cd : String, price : Int, img : String, name : String){
         self.orderId=orderId
         self.orderNum=orderNum
-        self.orderCount=orderCount
         self.orderPersonal=orderPersonal
+        self.orderCount=orderCount
         self.orderDate=orderDate
         self.storename=storename
         self.cd=cd
-        self.userId=userId
+        self.price=price
+        self.img=img
+        self.name=name
     }
 }
