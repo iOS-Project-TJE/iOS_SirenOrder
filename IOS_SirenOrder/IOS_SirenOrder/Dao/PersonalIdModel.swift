@@ -1,31 +1,26 @@
 //
-//  CategoryDetailModel.swift
+//  PersonalIdModel.swift
 //  IOS_SirenOrder
 //
-//  Created by Hyeji on 2021/08/01.
+//  Created by Hyeji on 2021/08/02.
 //
 
 import Foundation
 
-// 2021.08.01 조혜지 Order Category 선택 후 카테고리 별 메뉴 View Dao
-protocol CategoryDetailModelProtocol : AnyObject {
-    func itemDownloaded(items: NSArray)
+// 21.08.02 조혜지 Order myMenu Insert 후, PersonalId 정보 불러오는 Dao
+protocol PersonalIdModelProtocol : AnyObject {
+    func itemDownloaded(items: NSMutableArray)
 }
 
-class CategoryDetailModel : NSObject {
-    var delegate: CategoryDetailModelProtocol!
+class PersonalIdModel : NSObject {
+    var delegate: PersonalIdModelProtocol!
     var urlPath = "http://\(macIp):8080/starbucks/jsp/hj/"
     
     func downloadItems() {
-        var urlAdd = ""
-        if category == "1" {
-            urlAdd = "recommendDetailSelect.jsp?userId=\(userId)"
-        }else{
-            urlAdd = "categoryDetailSelect.jsp?category=\(category)"
-        }
-        
+        let urlAdd = "personalIdSelect.jsp?userId=\(userId)"
         urlPath = urlPath + urlAdd
         print(urlPath)
+        
         let url: URL = URL(string: urlPath)!
         let defaultSession = URLSession(configuration: URLSessionConfiguration.default)
         let task = defaultSession.dataTask(with: url){(data, response, error) in
@@ -54,12 +49,9 @@ class CategoryDetailModel : NSObject {
         
         for i in 0..<jsonResult.count {
             jsonElement = jsonResult[i] as! NSDictionary
-            if let cd = jsonElement["cd"] as? String,
-               let name = jsonElement["name"] as? String,
-               let img = jsonElement["img"] as? String,
-               let price = jsonElement["price"] as? String{
+            if let personalId = jsonElement["personalId"] as? String{
                 
-                let query = DrinkModel(cd: cd, name: name, img: img, price: Int(price)!)
+                let query = PersonalModel(personalId: personalId)
                 locations.add(query)
                 
             }

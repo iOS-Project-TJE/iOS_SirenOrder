@@ -14,7 +14,7 @@ protocol FrequentStoreModelProtocol : AnyObject {
 
 class FrequentStoreModel: NSObject{
     var delegate: FrequentStoreModelProtocol!
-    var urlPath = "http://\(macIp):8080/starbucks/jsp/frequentStoreSelect.jsp"
+    var urlPath = "http://\(macIp):8080/starbucks/jsp/hj/frequentStoreSelect.jsp"
     
     func downloadItems(){
         

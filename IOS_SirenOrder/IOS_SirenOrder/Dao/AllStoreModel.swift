@@ -14,7 +14,7 @@ protocol AllStoreModelProtocol : AnyObject {
 
 class AllStoreModel: NSObject{
     var delegate: AllStoreModelProtocol!
-    let urlPath = "http://\(macIp):8080/starbucks/jsp/allStoreSelect.jsp"
+    let urlPath = "http://\(macIp):8080/starbucks/jsp/hj/allStoreSelect.jsp"
     
     func downloadItems(){
         let url: URL = URL(string: urlPath)!

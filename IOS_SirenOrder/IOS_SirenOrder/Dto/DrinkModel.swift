@@ -58,4 +58,11 @@ class DrinkModel : NSObject{
         self.img = img
         self.price = price
     }
+    
+    // 2021.08.02 조혜지 DrinkInfoModel에서 사용할 init 추가
+    init(name : String, price : Int, type: Int) {
+        self.name = name
+        self.price = price
+        self.type = type
+    }
 }

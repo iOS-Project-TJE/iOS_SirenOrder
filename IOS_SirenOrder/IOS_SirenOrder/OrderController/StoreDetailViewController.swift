@@ -61,6 +61,8 @@ class StoreDetailViewController: UIViewController {
     }
 
     @IBAction func btnStoreCheck(_ sender: UIButton) {
+        storeName = name
+        navigationController?.popToRootViewController(animated: true)
     }
     
     /*
