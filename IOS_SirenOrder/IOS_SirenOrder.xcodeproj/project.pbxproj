@@ -25,6 +25,10 @@
 		6980B02C26B585690048DAAB /* DrinkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6980B01D26B585690048DAAB /* DrinkModel.swift */; };
 		701E9C8E26B2B8550008F6F5 /* ExplainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701E9C8D26B2B8550008F6F5 /* ExplainViewController.swift */; };
 		708D257126B5C575000FCCD7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708D257026B5C575000FCCD7 /* HomeViewController.swift */; };
+		70C0534E26B8D5DD00137D6A /* HomeRecommendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C0534D26B8D5DD00137D6A /* HomeRecommendModel.swift */; };
+		70C0535026B8E0A900137D6A /* HomeNewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C0534F26B8E0A900137D6A /* HomeNewModel.swift */; };
+		70C0535326B8E0D100137D6A /* HomeBestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C0535226B8E0D100137D6A /* HomeBestModel.swift */; };
+		70C0535B26B9172500137D6A /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C0535A26B9172500137D6A /* HomeCollectionViewCell.swift */; };
 		70D9EAD826B2A0640036255C /* CoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D9EAD726B2A0640036255C /* CoverViewController.swift */; };
 		70D9EADA26B2A5A30036255C /* PermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D9EAD926B2A5A30036255C /* PermissionViewController.swift */; };
 		85423B2626B6EEB200FFEF85 /* AllMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85423B2526B6EEB200FFEF85 /* AllMenuViewController.swift */; };
@@ -94,6 +98,10 @@
 		701E9C8D26B2B8550008F6F5 /* ExplainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplainViewController.swift; sourceTree = "<group>"; };
 		7086B2066E099B664CDD496E /* Pods-IOS_SirenOrder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOS_SirenOrder.release.xcconfig"; path = "Target Support Files/Pods-IOS_SirenOrder/Pods-IOS_SirenOrder.release.xcconfig"; sourceTree = "<group>"; };
 		708D257026B5C575000FCCD7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		70C0534D26B8D5DD00137D6A /* HomeRecommendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecommendModel.swift; sourceTree = "<group>"; };
+		70C0534F26B8E0A900137D6A /* HomeNewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNewModel.swift; sourceTree = "<group>"; };
+		70C0535226B8E0D100137D6A /* HomeBestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBestModel.swift; sourceTree = "<group>"; };
+		70C0535A26B9172500137D6A /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		70D9EAD726B2A0640036255C /* CoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverViewController.swift; sourceTree = "<group>"; };
 		70D9EAD926B2A5A30036255C /* PermissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionViewController.swift; sourceTree = "<group>"; };
 		85423B2526B6EEB200FFEF85 /* AllMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMenuViewController.swift; sourceTree = "<group>"; };
@@ -189,6 +197,9 @@
 				85DDD67426B857AB00B97DF7 /* PersonalIdModel.swift */,
 				85DDD67626B857F800B97DF7 /* MyMenuDeleteModel.swift */,
 				85DDD67826B8583E00B97DF7 /* CartInsertModel.swift */,
+				70C0534D26B8D5DD00137D6A /* HomeRecommendModel.swift */,
+				70C0534F26B8E0A900137D6A /* HomeNewModel.swift */,
+				70C0535226B8E0D100137D6A /* HomeBestModel.swift */,
 			);
 			path = Dao;
 			sourceTree = "<group>";
@@ -203,6 +214,14 @@
 				85423B4926B6FBF700FFEF85 /* LocationModel.swift */,
 			);
 			path = Dto;
+			sourceTree = "<group>";
+		};
+		70C0534C26B8D33200137D6A /* HomeCustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				70C0535A26B9172500137D6A /* HomeCollectionViewCell.swift */,
+			);
+			path = HomeCustomCell;
 			sourceTree = "<group>";
 		};
 		70D9EAD626B2A02A0036255C /* Cover-HomeControllers */ = {
@@ -277,6 +296,7 @@
 		857F1C4A26B27A210028D3BC /* IOS_SirenOrder */ = {
 			isa = PBXGroup;
 			children = (
+				70C0534C26B8D33200137D6A /* HomeCustomCell */,
 				85423B3026B6F6BB00FFEF85 /* ShareVar */,
 				85423B2B26B6F39200FFEF85 /* OrderCustomCell */,
 				85423B2426B6EE9A00FFEF85 /* OrderController */,
@@ -448,6 +468,7 @@
 				6980B02526B585690048DAAB /* ReceiptViewController.swift in Sources */,
 				85423B4426B6FB7C00FFEF85 /* AllStoreTableViewController.swift in Sources */,
 				85423B2626B6EEB200FFEF85 /* AllMenuViewController.swift in Sources */,
+				70C0535B26B9172500137D6A /* HomeCollectionViewCell.swift in Sources */,
 				85DDD67F26B85C1500B97DF7 /* DrinkDetailViewController.swift in Sources */,
 				857F1C4C26B27A210028D3BC /* AppDelegate.swift in Sources */,
 				6980B02426B585690048DAAB /* GiftCardViewController.swift in Sources */,
@@ -458,6 +479,7 @@
 				708D257126B5C575000FCCD7 /* HomeViewController.swift in Sources */,
 				85423B2D26B6F3B300FFEF85 /* AllMenuTableViewCell.swift in Sources */,
 				85423B4826B6FBD200FFEF85 /* AllStoreModel.swift in Sources */,
+				70C0535026B8E0A900137D6A /* HomeNewModel.swift in Sources */,
 				6980B02326B585690048DAAB /* QnAViewController.swift in Sources */,
 				85DDD68526B8606B00B97DF7 /* PersonalOptionViewController.swift in Sources */,
 				85423B4C26B6FC6800FFEF85 /* AllStoreTableViewCell.swift in Sources */,
@@ -490,11 +512,13 @@
 				85423B2A26B6F1E700FFEF85 /* OrderViewController.swift in Sources */,
 				6980B01E26B585690048DAAB /* NoticeTableViewController.swift in Sources */,
 				701E9C8E26B2B8550008F6F5 /* ExplainViewController.swift in Sources */,
+				70C0534E26B8D5DD00137D6A /* HomeRecommendModel.swift in Sources */,
 				85423B2826B6EED100FFEF85 /* MyMenuViewController.swift in Sources */,
 				6980B02726B585690048DAAB /* HistoryViewController.swift in Sources */,
 				6980B02126B585690048DAAB /* PersonalViewController.swift in Sources */,
 				85423B4226B6FB2100FFEF85 /* StoreSettingViewController.swift in Sources */,
 				85DDD67926B8583E00B97DF7 /* CartInsertModel.swift in Sources */,
+				70C0535326B8E0D100137D6A /* HomeBestModel.swift in Sources */,
 				6980B02926B585690048DAAB /* HistoryList.swift in Sources */,
 				85423B3626B6F7C100FFEF85 /* MyMenuModel.swift in Sources */,
 				85423B3226B6F6CB00FFEF85 /* ShareVar.swift in Sources */,

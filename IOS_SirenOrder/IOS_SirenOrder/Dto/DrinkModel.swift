@@ -65,4 +65,12 @@ class DrinkModel : NSObject{
         self.price = price
         self.type = type
     }
+
+    // 2021.08.03 김도우 HomeRecommend,New,Best에서 사용할 init 추가
+    init(cd: String, name : String, img : String) {
+        self.cd = cd
+        self.name = name
+        self.img = img
+    }
+    
 }
