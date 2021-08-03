@@ -1381,7 +1381,7 @@
             </objects>
             <point key="canvasLocation" x="-55" y="1221"/>
         </scene>
-        <!--Gift Card Item View Controller-->
+        <!--선물하기-->
         <scene sceneID="skB-kT-Xhk">
             <objects>
                 <viewController storyboardIdentifier="giftItems" id="IM5-KX-ikF" customClass="GiftCardItemViewController" customModule="IOS_SirenOrder" customModuleProvider="target" sceneMemberID="viewController">
@@ -1390,7 +1390,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Gai-LN-jbI">
-                                <rect key="frame" x="20" y="105" width="374" height="254"/>
+                                <rect key="frame" x="20" y="123" width="374" height="236"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="bDB-eC-DXW">
@@ -1405,15 +1405,15 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="giftCardListCell" rowHeight="95" id="nLO-Tb-Tko" customClass="GiftCardTableViewCell" customModule="IOS_SirenOrder" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="95"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="giftCardListCell" rowHeight="127" id="nLO-Tb-Tko" customClass="GiftCardTableViewCell" customModule="IOS_SirenOrder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="127"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nLO-Tb-Tko" id="nzb-dA-yKo">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="95"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="127"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cak-te-mja">
-                                                    <rect key="frame" x="20" y="11" width="50" height="23"/>
+                                                    <rect key="frame" x="20" y="11" width="96" height="23"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                                     <nil key="textColor"/>
@@ -1423,32 +1423,27 @@
                                                     <rect key="frame" x="0.0" y="42" width="414" height="72"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="I2a-mL-h1G">
-                                                        <size key="itemSize" width="107" height="52"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="I2a-mL-h1G">
+                                                        <size key="itemSize" width="158" height="65"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cardCell" id="jHp-Ud-lX1" customClass="GiftCardCollectionViewCell" customModule="IOS_SirenOrder" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="107" height="52"/>
+                                                            <rect key="frame" x="0.0" y="3.5" width="158" height="65"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="2Wu-Cx-LQf">
-                                                                <rect key="frame" x="0.0" y="0.0" width="107" height="52"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="158" height="65"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f6g-bJ-PTY">
-                                                                        <rect key="frame" x="-67" y="-41" width="240" height="128"/>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bluetooth" translatesAutoresizingMaskIntoConstraints="NO" id="f6g-bJ-PTY">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="158" height="65"/>
+                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                 </subviews>
-                                                                <constraints>
-                                                                    <constraint firstItem="f6g-bJ-PTY" firstAttribute="top" secondItem="2Wu-Cx-LQf" secondAttribute="top" constant="-62" id="Adh-6R-6M5"/>
-                                                                    <constraint firstItem="f6g-bJ-PTY" firstAttribute="leading" secondItem="2Wu-Cx-LQf" secondAttribute="leading" constant="-67" id="MlD-B0-4dq"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="f6g-bJ-PTY" secondAttribute="bottom" constant="-21" id="OkA-oi-tZ8"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="f6g-bJ-PTY" secondAttribute="trailing" constant="-66" id="SYF-Qw-eeF"/>
-                                                                </constraints>
                                                             </collectionViewCellContentView>
-                                                            <size key="customSize" width="107" height="52"/>
+                                                            <size key="customSize" width="158" height="65"/>
                                                             <connections>
                                                                 <outlet property="imgGiftCard" destination="f6g-bJ-PTY" id="sjA-un-jAS"/>
                                                             </connections>
@@ -1472,15 +1467,60 @@
                         <viewLayoutGuide key="safeArea" id="s2d-f6-M0A"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" title="선물하기" id="UFu-rw-KR2"/>
                     <connections>
                         <outlet property="cardImgChangeControler" destination="bDB-eC-DXW" id="u83-gS-LN0"/>
                         <outlet property="collectionListTable" destination="NIt-cJ-dSh" id="ee8-lS-bDD"/>
                         <outlet property="giftCardImgView" destination="Gai-LN-jbI" id="vGu-df-9tz"/>
+                        <segue destination="caM-hV-9FJ" kind="show" identifier="sgToGift" id="k8g-OK-tAy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dVq-4j-2fe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="621.73913043478262" y="1039.9553571428571"/>
+            <point key="canvasLocation" x="1531.8840579710145" y="1039.9553571428571"/>
+        </scene>
+        <!--Gift Card Pay View Controller-->
+        <scene sceneID="7St-Sv-IBv">
+            <objects>
+                <viewController id="caM-hV-9FJ" customClass="GiftCardPayViewController" customModule="IOS_SirenOrder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OsS-YC-N3G">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Qc-Ws-pRa">
+                                <rect key="frame" x="207" y="149" width="136" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Odl-gL-INM">
+                                <rect key="frame" x="20" y="114" width="202" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="KJE-wz-oIe">
+                                <rect key="frame" x="20" y="224" width="374" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="vU1-CC-cjH"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="휴대폰 MMS 전송"/>
+                                    <segment title="이메일 전송"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xoP-jr-FHE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Pu8-ub-uWP"/>
+                    <connections>
+                        <outlet property="cardImageView" destination="Odl-gL-INM" id="Vnu-G4-FfG"/>
+                        <outlet property="cardNameLabel" destination="7Qc-Ws-pRa" id="IGm-3L-DMi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ug0-fo-wEr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2247.826086956522" y="1039.9553571428571"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="lhi-s0-yJJ">
@@ -1542,11 +1582,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="54g-6W-OIk" customClass="HomeViewController" customModule="IOS_SirenOrder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bwf-8Q-0ww">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="2446"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="2500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qyx-Ef-Yd7">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="2446"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="2456"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CJd-2g-PjU">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="2177"/>
@@ -2362,9 +2402,27 @@
             </objects>
             <point key="canvasLocation" x="622" y="1687"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="e88-df-J4H">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="baF-qO-YLs" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hlw-i3-Gfd">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="IM5-KX-ikF" kind="relationship" relationship="rootViewController" id="3TJ-gt-IOz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G3b-M1-UN9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="621.73913043478262" y="1039.9553571428571"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="kR5-y2-H3I"/>
+        <segue reference="Eg1-oz-FCI"/>
         <segue reference="eU3-y3-Iv3"/>
     </inferredMetricsTieBreakers>
     <resources>

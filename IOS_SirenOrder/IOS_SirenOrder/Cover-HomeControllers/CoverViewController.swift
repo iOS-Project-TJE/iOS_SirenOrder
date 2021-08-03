@@ -6,6 +6,8 @@
 //
 
 import UIKit
+var allCardImgList: NSArray = NSArray() // 양서린_card data Array
+
 
 class CoverViewController: UIViewController {
 
@@ -16,6 +18,10 @@ class CoverViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let giftCardList = GiftCardList()
+        giftCardList.delegate = self
+        giftCardList.downloadItems()
 
         // Do any additional setup after loading the view.
 
@@ -58,4 +64,10 @@ class CoverViewController: UIViewController {
     }
     */
 
+}
+extension CoverViewController: GiftCardListProtocol {
+    func itemDownloaded(items: NSArray) {
+        allCardImgList = items
+    }
+    
 }

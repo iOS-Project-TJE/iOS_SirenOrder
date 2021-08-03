@@ -7,20 +7,22 @@
 
 import UIKit
 
-class GiftCardItemViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+//category list
+var category:[String] = ["축하","감사","응원","사랑","coffee"]
+//sub card img Array
+var celebration: [String] = []
+var thanks: [String] = []
+var cheer: [String] = []
+var love: [String] = []
+var coffee: [String] = []
+//main card img Array
+var mainCardImgList:[String] = []
+
+class GiftCardItemViewController: UIViewController {
     
-    var allCardImgList: NSArray = NSArray()
-    //main card img Array
-    var mainCardImgList:[String] = []
     
-    //category list
-    var category:[String] = ["축하","감사","응원","사랑","coffee"]
-    //sub card img Array
-    var celebration: [String] = []
-    var thanks: [String] = []
-    var cheer: [String] = []
-    var love: [String] = []
-    var coffee: [String] = []
+    //
+    
     
     @IBOutlet weak var collectionListTable: UITableView!
     @IBOutlet weak var cardImgChangeControler: UIPageControl!
@@ -29,37 +31,20 @@ class GiftCardItemViewController: UIViewController, UITableViewDataSource, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let giftCardList = GiftCardList()
-        giftCardList.delegate = self
-        giftCardList.downloadItems()
-        // Do any additional setup after loading the view.
+        
+        listappend()
+        makeMainImage()
+        linkPageControler()
+        
+        collectionListTable.delegate = self
+        collectionListTable.dataSource = self
         collectionListTable.rowHeight = 130
+        
     }
     
-    
-        func numberOfSections(in tableView: UITableView) -> Int {
-            // #warning Incomplete implementation, return the number of sections
-            return 1
-        }
-
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            // #warning Incomplete implementation, return the number of rows
-            return category.count
-        }
-
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "giftCardListCell", for: indexPath)
-        
-//            cell.lbl?.text = "\(category[indexPath.row])"
-
-            return cell
-        }
-    
-    
-    func arrayInputImages() {
+    func listappend() {
         for i in 0..<5 {
             let item: CardModel = allCardImgList[i] as! CardModel
-            print(item.img!)
             mainCardImgList.append(item.img!)
         }
     }
@@ -72,24 +57,79 @@ class GiftCardItemViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     @IBAction func cardImgPageChange(_ sender: UIPageControl) {
-        makeImage()
+        makeMainImage()
     }
     
-    func makeImage() {
+    func makeMainImage() {
         let url = URL(string: mainCardImgList[cardImgChangeControler.currentPage])
         let data = try? Data(contentsOf: url!)
         giftCardImgView.image = UIImage(data: data!)
     }
 
-}
-extension GiftCardItemViewController: GiftCardListProtocol {
-    func itemDownloaded(items: NSArray) {
-        print("extension start")
-        allCardImgList = items
 
-        arrayInputImages()
-        makeImage()
-        linkPageControler()
+}
+
+
+extension GiftCardItemViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return category.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "giftCardListCell", for: indexPath) as? GiftCardTableViewCell {
+            
+            cell.collectionView.dataSource = self
+            cell.collectionView.delegate = self
+            cell.lblListTatle?.text = "\(category[indexPath.row])"
+
+
+            return cell
+        }
+        
+    
+        return UITableViewCell()
     }
     
+}
+
+extension GiftCardItemViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 160, height: 88)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 20
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cardCell", for: indexPath) as! GiftCardCollectionViewCell
+        
+        var item: CardModel = CardModel.init()
+        item = allCardImgList[indexPath.row] as! CardModel
+
+        let url = URL(string: item.img!)
+        let data = try? Data(contentsOf: url!)
+        cell.imgGiftCard.image = UIImage(data: data!)
+
+        return  cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "sqToGift" {
+            let cell = sender as! GiftCardCollectionViewCell
+//            let indexPath = self.collectionView.indexPath(for: cell)
+//            let detailView = segue.destination as! DetailViewController
+//            detailView.receiveItems(imageName[indexPath!.row])
+            
+        }
+    }
+
 }
