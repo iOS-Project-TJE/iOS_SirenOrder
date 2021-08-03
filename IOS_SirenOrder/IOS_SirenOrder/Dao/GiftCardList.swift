@@ -13,11 +13,11 @@ protocol GiftCardListProtocol : AnyObject {
 
 class GiftCardList: NSObject{
     var delegate: GiftCardListProtocol!
-    let urlPath = "http://192.168.5.101:8080/starbucks/giftCardList_select.jsp"
+    let urlPath = "http://localhost:8080/starbucks/giftCardList_select.jsp"
     
     
     func downloadItems(){
-        let url: URL = URL(string: "http://192.168.5.101:8080/starbucks/giftCardList_select.jsp")!
+        let url: URL = URL(string: "http://localhost:8080/starbucks/giftCardList_select.jsp")!
         let defaultSession = URLSession(configuration: URLSessionConfiguration.default)
         let task = defaultSession.dataTask(with: url){(data, response, error) in
             if error != nil{

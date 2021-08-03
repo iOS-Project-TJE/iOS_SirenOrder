@@ -16,6 +16,7 @@ class GiftMainViewController: TabmanViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
         let vc2 = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "giftItems") as! GiftCardItemViewController
         let vc3 = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "giftLists") as! GiftCardListViewController
