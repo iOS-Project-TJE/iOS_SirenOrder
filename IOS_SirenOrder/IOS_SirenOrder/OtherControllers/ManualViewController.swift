@@ -6,12 +6,18 @@
 //
 
 import UIKit
+import WebKit
 
 class ManualViewController: UIViewController {
-
+    @IBOutlet weak var webView: WKWebView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let myUrl = URL(string : "https://www.starbucks.co.kr/footer/etc/rules.do")
+        let myRequest = URLRequest(url: myUrl!)
+        webView.load(myRequest)
         // Do any additional setup after loading the view.
     }
     
