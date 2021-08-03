@@ -32,6 +32,12 @@ class MyMenuViewController: UIViewController { // 2021.07.31 조혜지 Order 나
         navigationItem.largeTitleDisplayMode = .always
         tvMyMenu.bounces = true
         tvMyMenu.alwaysBounceVertical = true
+        
+        if storeName == "" {
+            lblStore.text = "주문할 매장을 선택해 주세요"
+        }else {
+            lblStore.text = storeName
+        }
     }
     
 
