@@ -7,15 +7,30 @@
 
 import UIKit
 
+protocol GiftCardTableViewCellDelegate: AnyObject {
+    func collectionView(collectionviewcell: GiftCardCollectionViewCell?, index: Int, didTappedInTableViewCell: GiftCardTableViewCell)
+}
+
 class GiftCardTableViewCell: UITableViewCell{
    
-    
+    weak var cellDelegate: GiftCardTableViewCellDelegate?
 
     @IBOutlet weak var lblListTatle: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func awakeFromNib() {
            super.awakeFromNib()
+    }
+    
+    func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "sgToGift" {
+          
+            let cell = sender as! GiftCardCollectionViewCell
+            let indexPath = self.collectionView.indexPath(for: cell)
+            let payView = segue.destination as! GiftCardPayViewController
+            payView.cardData = ("dfs" ,"dafdf")
+            
+        }
     }
 //    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 //        return category.count

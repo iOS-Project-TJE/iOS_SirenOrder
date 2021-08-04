@@ -14,7 +14,6 @@
 		4F485B3326B7165C00238F3F /* GiftCardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F485B3226B7165C00238F3F /* GiftCardListViewController.swift */; };
 		4F54EBA026B8E9A00079B8CF /* GiftCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F54EB9F26B8E9A00079B8CF /* GiftCardTableViewCell.swift */; };
 		4F54EBA226B8ECAE0079B8CF /* GiftCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F54EBA126B8ECAE0079B8CF /* GiftCardCollectionViewCell.swift */; };
-		4F54EBB426B920900079B8CF /* E-GiftCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F54EBB326B920900079B8CF /* E-GiftCard.swift */; };
 		4F54EBBA26B93F170079B8CF /* GiftCardPayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F54EBB926B93F170079B8CF /* GiftCardPayViewController.swift */; };
 		6980B01E26B585690048DAAB /* NoticeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6980B00D26B585690048DAAB /* NoticeTableViewController.swift */; };
 		6980B01F26B585690048DAAB /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6980B00E26B585690048DAAB /* HistoryTableViewCell.swift */; };
@@ -61,7 +60,6 @@
 		4F485B3226B7165C00238F3F /* GiftCardListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCardListViewController.swift; sourceTree = "<group>"; };
 		4F54EB9F26B8E9A00079B8CF /* GiftCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCardTableViewCell.swift; sourceTree = "<group>"; };
 		4F54EBA126B8ECAE0079B8CF /* GiftCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCardCollectionViewCell.swift; sourceTree = "<group>"; };
-		4F54EBB326B920900079B8CF /* E-GiftCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "E-GiftCard.swift"; sourceTree = "<group>"; };
 		4F54EBB926B93F170079B8CF /* GiftCardPayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCardPayViewController.swift; sourceTree = "<group>"; };
 		6980B00D26B585690048DAAB /* NoticeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeTableViewController.swift; sourceTree = "<group>"; };
 		6980B00E26B585690048DAAB /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -133,7 +131,6 @@
 				4F485B3026B7165100238F3F /* GiftCardItemViewController.swift */,
 				4F485B3226B7165C00238F3F /* GiftCardListViewController.swift */,
 				4F54EB9F26B8E9A00079B8CF /* GiftCardTableViewCell.swift */,
-				4F54EBB326B920900079B8CF /* E-GiftCard.swift */,
 				4F54EBB926B93F170079B8CF /* GiftCardPayViewController.swift */,
 			);
 			name = GiftController;
@@ -370,7 +367,6 @@
 				6980B02526B585690048DAAB /* ReceiptViewController.swift in Sources */,
 				857F1C4C26B27A210028D3BC /* AppDelegate.swift in Sources */,
 				6980B02426B585690048DAAB /* GiftCardViewController.swift in Sources */,
-				4F54EBB426B920900079B8CF /* E-GiftCard.swift in Sources */,
 				4F3AA05326B6F46200A96916 /* GiftMainViewController.swift in Sources */,
 				9966F1E926B6DB56003B3DDD /* CheckFindIdViewController.swift in Sources */,
 				6980B02826B585690048DAAB /* ManualViewController.swift in Sources */,

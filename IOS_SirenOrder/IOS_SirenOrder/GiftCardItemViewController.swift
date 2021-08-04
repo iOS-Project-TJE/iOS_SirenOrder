@@ -40,6 +40,14 @@ class GiftCardItemViewController: UIViewController {
         collectionListTable.dataSource = self
         collectionListTable.rowHeight = 130
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
+        self.giftCardImgView.isUserInteractionEnabled = true
+        self.giftCardImgView.addGestureRecognizer(tapGesture)
+
+        
+    }
+    @objc func handleTap(sender: UITapGestureRecognizer) { print("tap")
+        self.performSegue(withIdentifier: "sgToGift", sender: self)
     }
     
     func listappend() {
@@ -67,6 +75,7 @@ class GiftCardItemViewController: UIViewController {
     }
 
 
+
 }
 
 
@@ -88,6 +97,9 @@ extension GiftCardItemViewController: UITableViewDataSource, UITableViewDelegate
             cell.collectionView.dataSource = self
             cell.collectionView.delegate = self
             cell.lblListTatle?.text = "\(category[indexPath.row])"
+            let background = UIView()
+               background.backgroundColor = .clear
+               cell.selectedBackgroundView = background
 
 
             return cell
@@ -96,7 +108,7 @@ extension GiftCardItemViewController: UITableViewDataSource, UITableViewDelegate
     
         return UITableViewCell()
     }
-    
+
 }
 
 extension GiftCardItemViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
@@ -122,14 +134,14 @@ extension GiftCardItemViewController: UICollectionViewDelegateFlowLayout, UIColl
         return  cell
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "sqToGift" {
-            let cell = sender as! GiftCardCollectionViewCell
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "sqToGift" {
+//            let cell = sender as! GiftCardCollectionViewCell
 //            let indexPath = self.collectionView.indexPath(for: cell)
 //            let detailView = segue.destination as! DetailViewController
 //            detailView.receiveItems(imageName[indexPath!.row])
-            
-        }
-    }
+//
+//        }
+//    }
 
 }

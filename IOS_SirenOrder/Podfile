@@ -5,6 +5,7 @@ target 'IOS_SirenOrder' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   pod 'Tabman', '~> 2.11'
+  pod "AAMultiSelectController"
   # Pods for IOS_SirenOrder
 
 end

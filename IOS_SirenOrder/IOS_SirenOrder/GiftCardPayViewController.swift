@@ -17,10 +17,10 @@ class GiftCardPayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let url = URL(string: cardData.1)
+        let url = URL(string: "https://image.istarbucks.co.kr/cardImg/20150805/000944_WEB.png")
         let data = try? Data(contentsOf: url!)
         cardImageView.image = UIImage(data: data!)
-        cardNameLabel.text =  cardData.0
+        cardNameLabel.text =  "스타벅스 카드"
         // Do any additional setup after loading the view.
     }
     

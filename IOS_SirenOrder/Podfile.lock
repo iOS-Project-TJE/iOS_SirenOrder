@@ -1,20 +1,28 @@
 PODS:
+  - AAMultiSelectController (0.5.0):
+    - Masonry
+  - Masonry (1.1.0)
   - Pageboy (3.6.2)
   - Tabman (2.11.1):
     - Pageboy (~> 3.6.0)
 
 DEPENDENCIES:
+  - AAMultiSelectController
   - Tabman (~> 2.11)
 
 SPEC REPOS:
   trunk:
+    - AAMultiSelectController
+    - Masonry
     - Pageboy
     - Tabman
 
 SPEC CHECKSUMS:
+  AAMultiSelectController: 7aeca25d94fa7651287cd22591d00ec282591293
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   Pageboy: cf121b9dd48c63f3f281b2a9ec93d02e0f23879b
   Tabman: 792ac76fd1ec95af175c93db880a3c47cabedc91
 
-PODFILE CHECKSUM: 94d390ef7cd5442514b1689a70349a59650b5c18
+PODFILE CHECKSUM: d92120a84b01abae78e887865dd1784726d6ab54
 
 COCOAPODS: 1.10.1
