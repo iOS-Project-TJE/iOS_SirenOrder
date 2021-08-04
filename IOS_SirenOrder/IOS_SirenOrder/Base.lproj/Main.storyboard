@@ -1454,7 +1454,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="collectionView" destination="tOB-32-m6v" id="4jV-4c-oLT"/>
-                                            <outlet property="lblListTatle" destination="Cak-te-mja" id="391-LS-OVf"/>
+                                            <outlet property="lblListTitle" destination="Cak-te-mja" id="sk2-3u-c0r"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

@@ -1,28 +1,52 @@
 PODS:
-  - AAMultiSelectController (0.5.0):
-    - Masonry
-  - Masonry (1.1.0)
+  - MaterialComponents/Availability (124.2.0)
+  - MaterialComponents/BottomSheet (124.2.0):
+    - MaterialComponents/Elevation
+    - MaterialComponents/private/KeyboardWatcher
+    - MaterialComponents/private/Math
+    - MaterialComponents/ShadowElevations
+    - MaterialComponents/ShadowLayer
+    - MaterialComponents/ShapeLibrary
+    - MaterialComponents/Shapes
+  - MaterialComponents/Elevation (124.2.0):
+    - MaterialComponents/Availability
+    - MaterialComponents/private/Color
+    - MaterialComponents/private/Math
+  - MaterialComponents/private/Application (124.2.0)
+  - MaterialComponents/private/Color (124.2.0):
+    - MaterialComponents/Availability
+  - MaterialComponents/private/KeyboardWatcher (124.2.0):
+    - MaterialComponents/private/Application
+  - MaterialComponents/private/Math (124.2.0)
+  - MaterialComponents/ShadowElevations (124.2.0)
+  - MaterialComponents/ShadowLayer (124.2.0):
+    - MaterialComponents/ShadowElevations
+  - MaterialComponents/ShapeLibrary (124.2.0):
+    - MaterialComponents/private/Math
+    - MaterialComponents/Shapes
+  - MaterialComponents/Shapes (124.2.0):
+    - MaterialComponents/private/Color
+    - MaterialComponents/private/Math
+    - MaterialComponents/ShadowLayer
   - Pageboy (3.6.2)
   - Tabman (2.11.1):
     - Pageboy (~> 3.6.0)
 
 DEPENDENCIES:
-  - AAMultiSelectController
+  - MaterialComponents/BottomSheet
   - Tabman (~> 2.11)
 
 SPEC REPOS:
   trunk:
-    - AAMultiSelectController
-    - Masonry
+    - MaterialComponents
     - Pageboy
     - Tabman
 
 SPEC CHECKSUMS:
-  AAMultiSelectController: 7aeca25d94fa7651287cd22591d00ec282591293
-  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MaterialComponents: 1a9b2d9d45b1601ae544de85089adc4c464306d4
   Pageboy: cf121b9dd48c63f3f281b2a9ec93d02e0f23879b
   Tabman: 792ac76fd1ec95af175c93db880a3c47cabedc91
 
-PODFILE CHECKSUM: d92120a84b01abae78e887865dd1784726d6ab54
+PODFILE CHECKSUM: f6b3f7b784ca32f3e7f6f3198f76742bcdd6e7e5
 
 COCOAPODS: 1.10.1

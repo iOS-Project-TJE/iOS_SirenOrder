@@ -18,11 +18,14 @@ var coffee: [String] = []
 //main card img Array
 var mainCardImgList:[String] = []
 
+
+
+
 class GiftCardItemViewController: UIViewController {
     
     
     //
-    
+    var cardData:(String, String, String) = ("","","")
     
     @IBOutlet weak var collectionListTable: UITableView!
     @IBOutlet weak var cardImgChangeControler: UIPageControl!
@@ -42,17 +45,38 @@ class GiftCardItemViewController: UIViewController {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
         self.giftCardImgView.isUserInteractionEnabled = true
+        self.collectionListTable.isUserInteractionEnabled = true
+        
         self.giftCardImgView.addGestureRecognizer(tapGesture)
-
+//        self.collectionListTable.addGestureRecognizer(tapGesture)
         
     }
-    @objc func handleTap(sender: UITapGestureRecognizer) { print("tap")
+    @objc func handleTap(sender: UITapGestureRecognizer) {
         self.performSegue(withIdentifier: "sgToGift", sender: self)
     }
     
     func listappend() {
         for i in 0..<5 {
             let item: CardModel = allCardImgList[i] as! CardModel
+            mainCardImgList.append(item.img!)
+        }
+        for i in 5..<105 {
+            let item: CardModel = allCardImgList[i] as! CardModel
+            
+            switch i {
+            case 5..<25:
+                celebration.append(item.img!)
+            case 25..<45:
+                thanks.append(item.img!)
+            case 45..<65:
+                cheer.append(item.img!)
+            case 65..<85:
+                love.append(item.img!)
+            case 85..<105:
+                coffee.append(item.img!)
+            default:
+                mainCardImgList.append(item.img!)
+            }
             mainCardImgList.append(item.img!)
         }
     }
@@ -79,7 +103,7 @@ class GiftCardItemViewController: UIViewController {
 }
 
 
-extension GiftCardItemViewController: UITableViewDataSource, UITableViewDelegate {
+extension GiftCardItemViewController: UITableViewDataSource, UITableViewDelegate, GiftCardTableViewCellDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -91,48 +115,107 @@ extension GiftCardItemViewController: UITableViewDataSource, UITableViewDelegate
         return category.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "giftCardListCell", for: indexPath) as? GiftCardTableViewCell {
-            
-            cell.collectionView.dataSource = self
-            cell.collectionView.delegate = self
-            cell.lblListTatle?.text = "\(category[indexPath.row])"
-            let background = UIView()
-               background.backgroundColor = .clear
-               cell.selectedBackgroundView = background
-
-
-            return cell
-        }
-        
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("여기요 \(indexPath.row)")
+    }
     
-        return UITableViewCell()
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "giftCardListCell", for: indexPath) as! GiftCardTableViewCell
+
+        cell.lblListTitle?.text = "\(category[indexPath.row])"
+        let background = UIView()
+        background.backgroundColor = .clear
+        cell.selectedBackgroundView = background
+        
+
+        cell.collectionView.dataSource = self
+        cell.collectionView.delegate = self
+       
+
+        return cell
     }
 
+    func collectionView(collectionviewcell: GiftCardCollectionViewCell?, index: Int, didTappedInTableViewCell: GiftCardTableViewCell) {
+        
+        print(didTappedInTableViewCell.lblListTitle as Any)
+        if let colorsRow = didTappedInTableViewCell.lblListTitle {
+//                  self.tappedCell = colorsRow[index]
+            print("이것보삼!!!",colorsRow, index)
+//                  performSegue(withIdentifier: "detailsviewcontrollerseg", sender: self)
+                  // You can also do changes to the cell you tapped using the 'collectionviewcell'
+              }
+    }
 }
-
-extension GiftCardItemViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
-
+extension GiftCardItemViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 160, height: 88)
     }
-
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as? GiftCardCollectionViewCell
+        
+        let giftCardTableViewCell:GiftCardTableViewCell = GiftCardTableViewCell()
+        self.collectionView(collectionviewcell: cell, index: indexPath.item, didTappedInTableViewCell: giftCardTableViewCell)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 20
     }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cardCell", for: indexPath) as! GiftCardCollectionViewCell
-        
-        var item: CardModel = CardModel.init()
-        item = allCardImgList[indexPath.row] as! CardModel
-
-        let url = URL(string: item.img!)
-        let data = try? Data(contentsOf: url!)
-        cell.imgGiftCard.image = UIImage(data: data!)
-
-        return  cell
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
     }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cardCell", for: indexPath) as? GiftCardCollectionViewCell {
+            var item: CardModel = CardModel.init()
+            item = allCardImgList[indexPath.row] as! CardModel
 
+            let url = URL(string: item.img!)
+            let data = try? Data(contentsOf: url!)
+            cell.imgGiftCard.image = UIImage(data: data!)
 
+            return  cell
+        }
+        return UICollectionViewCell()
+        
+    }
+    
+    // Add spaces at the beginning and the end of the collection view
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+    }
 }
+
+
+
+
+// ---
+//extension GiftCardItemViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
+//
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        return CGSize(width: 160, height: 88)
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return 20
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cardCell", for: indexPath) as! GiftCardCollectionViewCell
+//
+//        var item: CardModel = CardModel.init()
+//        item = allCardImgList[indexPath.row] as! CardModel
+//
+//        let url = URL(string: item.img!)
+//        let data = try? Data(contentsOf: url!)
+//        cell.imgGiftCard.image = UIImage(data: data!)
+//
+//        return  cell
+//    }
+//
+//
+//}
