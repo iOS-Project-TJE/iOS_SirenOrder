@@ -24,7 +24,8 @@ class MyMenuViewController: UIViewController { // 2021.07.31 조혜지 Order 나
         tvMyMenu.dataSource = self
         tvMyMenu.delegate = self
         self.tvMyMenu.separatorStyle = .none
-        
+        navigationController?.navigationBar.barTintColor = .white
+        self.navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     override func viewWillAppear(_ animated: Bool) {
