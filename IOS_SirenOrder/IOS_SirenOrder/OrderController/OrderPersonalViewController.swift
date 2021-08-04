@@ -204,6 +204,11 @@ class OrderPersonalViewController: UIViewController { // 2021.08.02 조혜지 �
     @IBAction func btnMyMenuSelect(_ sender: UIButton) {
         print("체크해제")
         let myMenuDeleteController = UIAlertController(title: "삭제", message: "나만의 메뉴에서 정말 삭제하시겠습니까?", preferredStyle: .alert)
+        let myMenuDeleteCancelAction = UIAlertAction(title: "Cancel", style: .default, handler: {ACTION in
+            self.btnMyMenuNonSelect.isHidden = true
+            self.btnMyMenuSelect.isHidden = false
+            self.myMenuState = true
+        })
         let myMenuDeleteConfirmAction = UIAlertAction(title: "OK", style: .default, handler: {ACTION in
             let myMenuDeleteModel = MyMenuDeleteModel()
             let result = myMenuDeleteModel.DeleteItems(personalId: self.pId)
@@ -213,11 +218,7 @@ class OrderPersonalViewController: UIViewController { // 2021.08.02 조혜지 �
                 self.myMenuState = false
             }
         })
-        let myMenuDeleteCancelAction = UIAlertAction(title: "취소", style: .default, handler: {ACTION in
-            self.btnMyMenuNonSelect.isHidden = true
-            self.btnMyMenuSelect.isHidden = false
-            self.myMenuState = true
-        })
+
         
         myMenuDeleteController.addAction(myMenuDeleteConfirmAction)
         myMenuDeleteController.addAction(myMenuDeleteCancelAction)
@@ -231,7 +232,7 @@ class OrderPersonalViewController: UIViewController { // 2021.08.02 조혜지 �
         myMenuState = true
         
         let myMenuInsertModel = MyMenuInsertModel()
-        let result = myMenuInsertModel.InsertItems(personalContent: "\(iceHot),\(cupSize),\(cupType),\(pContent)", cd: receivedCd, userId: userId)
+        let result = myMenuInsertModel.InsertItems(personalContent: "\(iceHot), \(cupSize), \(cupType), \(pContent)", cd: receivedCd, userId: userId)
         
         let personalIdModel = PersonalIdModel()
         personalIdModel.delegate = self
@@ -239,15 +240,8 @@ class OrderPersonalViewController: UIViewController { // 2021.08.02 조혜지 �
                         
         if result{
             let myMenuCheckController = UIAlertController(title: "추가", message: "나만의 메뉴에 추가되었습니다!", preferredStyle: .alert)
-
             let myMenuCheckAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            let myMenuGoAction = UIAlertAction(title: "보러가기", style: .default, handler: {ACTION in
-                self.performSegue(withIdentifier: "sgMyMenu", sender: self)
-            })
-            
-            myMenuCheckController.addAction(myMenuCheckAction)
-            myMenuCheckController.addAction(myMenuGoAction)
-            
+            myMenuCheckController.addAction(myMenuCheckAction)            
             present(myMenuCheckController, animated: true, completion: nil)
         }else{
             let resultAlert = UIAlertController(title: "실패", message: "에러가 발생되었습니다!", preferredStyle: .alert)
@@ -289,11 +283,12 @@ class OrderPersonalViewController: UIViewController { // 2021.08.02 조혜지 �
         goOrder = true
         if storeName == "" {
             let resultAlert = UIAlertController(title: "주문할 매장을 선택해 주세요!", message: nil, preferredStyle: .alert)
-            let onAction = UIAlertAction(title: "OK", style: .default, handler: {ACTION in
+            let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: {ACTION in
                 self.performSegue(withIdentifier: "sgStoreChoice", sender: self)
             })
-            resultAlert.addAction(onAction)
-            present(resultAlert, animated: true, completion: nil)
+            resultAlert.addAction(cancelAction)
+            resultAlert.addAction(okAction)
         }else {
             self.performSegue(withIdentifier: "sgOrder", sender: self)
         }
