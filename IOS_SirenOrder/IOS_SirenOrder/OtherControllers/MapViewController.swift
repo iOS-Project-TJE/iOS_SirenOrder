@@ -3,74 +3,46 @@
 //  IOS_SirenOrder
 //
 //  Created by 박성준 on 2021/07/30.
-//  Created by biso on 2021/08/04.
+//
 
 import UIKit
-import MapKit
+//import CoreLocation
+//import GoogleMaps
 
-
-class MapViewController: UIViewController {
-
-    @IBOutlet weak var mapView: MKMapView!
-    
-    var allLocationList: NSArray = NSArray() // 양서린_location data Array
-
-    let myLoc = CLLocationManager()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        let locationList = LocationList()
-        locationList.delegate = self
-        locationList.downloadItems()
-        
-        myLoc.delegate = self
-        myLoc.requestWhenInUseAuthorization() // 승인 허융 받아 처리
-        mapView.showsUserLocation =  true
-        myLoc.startUpdatingLocation()
-        // Do any additional setu!p after loading the view.
-    }
-    
-    
-    func setPoint(_ lat: CLLocationDegrees, _ lon: CLLocationDegrees, _ txt1: String, _ txt2: String) {
-        let pin = MKPointAnnotation()
-        let pLoc = CLLocationCoordinate2DMake(lat, lon)
-        pin.coordinate = pLoc
-        pin.title = txt1
-        pin.subtitle = txt2
-        
-        mapView.addAnnotation(pin)
-        
-    }
-    func mapMove(_ lat: CLLocationDegrees, _ lon: CLLocationDegrees) {
-            let pLoc = CLLocationCoordinate2DMake(lat, lon)
-            // 배율
-            let pSpan = MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002)
-            //좌표 정보
-            let pRegion = MKCoordinateRegion(center: pLoc, span: pSpan)
-            mapView.setRegion(pRegion, animated: true)
-    }
-
-}
-
-extension MapViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let lastLoc = locations.last
-        // 지도 보기
-        mapMove((lastLoc?.coordinate.latitude)!, (lastLoc?.coordinate.longitude)!)
-        myLoc.stopUpdatingLocation() // 좌표 받기 중지
-        
-    }
-}
-
-extension MapViewController: LocationListProtocol {
-    func itemDownloaded(items: NSArray) {
-        allLocationList = items
-        for i in 0..<allLocationList.count {
-            let item: LocationModel = allLocationList[i] as! LocationModel
-            setPoint(item.lat!, item.lon!, item.storename!, item.address!)
-        }
-
-    }
-    
-}
+//class MapViewController: UIViewController, CLLocationManagerDelegate {
+//
+//    var locationManager: CLLocationManager!
+//
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//        // 현재 위치 가져오기
+//        locationManager = CLLocationManager()
+//        locationManager.delegate = self
+//
+//        // 앱이 실행될 때 위치 추적 권한 요청
+//        locationManager.requestWhenInUseAuthorization()
+//        // 배터리에 맞게 권장되는 최적의 정확도
+//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+//        // 위치 업데이트
+//        locationManager.startUpdatingLocation()
+//
+//        // 위, 경도 가져오기
+//        let coor = locationManager.location?.coordinate
+//
+//        let latitude = (coor?.latitude ?? 37.566508) as Double
+//        let longitude = (coor?.longitude ?? 126.977945) as Double
+//
+//        let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: 16.0)
+//        let mapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
+//        self.view.addSubview(mapView)
+//
+//        // Creates a marker in the center of the map.
+//        let marker = GMSMarker()
+//        marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+//        marker.title = "Sydney"
+//        marker.snippet = "South Korea"
+//        marker.map = mapView
+//    }
+//
+//}
