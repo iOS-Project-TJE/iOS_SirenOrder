@@ -8,7 +8,6 @@
 import UIKit
 var allCardImgList: NSArray = NSArray() // 양서린_card data Array
 
-
 class CoverViewController: UIViewController {
 
     //시간설정
@@ -22,6 +21,8 @@ class CoverViewController: UIViewController {
         let giftCardList = GiftCardList()
         giftCardList.delegate = self
         giftCardList.downloadItems()
+        
+
 
         // Do any additional setup after loading the view.
 
@@ -71,3 +72,4 @@ extension CoverViewController: GiftCardListProtocol {
     }
     
 }
+

@@ -133,15 +133,6 @@ extension GiftCardItemViewController: UICollectionViewDelegateFlowLayout, UIColl
 
         return  cell
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "sqToGift" {
-//            let cell = sender as! GiftCardCollectionViewCell
-//            let indexPath = self.collectionView.indexPath(for: cell)
-//            let detailView = segue.destination as! DetailViewController
-//            detailView.receiveItems(imageName[indexPath!.row])
-//
-//        }
-//    }
+
 
 }

@@ -1,19 +1,18 @@
 //
-//  GiftCardList.swift
+//  LocationList.swift
 //  IOS_SirenOrder
 //
-//  Created by Biso on 2021/08/02.
+//  Created by Biso on 2021/08/04.
 //
 
 import Foundation
-
-protocol GiftCardListProtocol : AnyObject {
+protocol LocationListProtocol : AnyObject {
     func itemDownloaded(items: NSArray)
 }
 
-class GiftCardList: NSObject{
-    var delegate: GiftCardListProtocol!
-    let urlPath = "http://localhost:8080/starbucks/giftCardList_select.jsp"
+class LocationList: NSObject{
+    var delegate: LocationListProtocol!
+    let urlPath = "http://localhost:8080/starbucks/locationList_select.jsp"
     
     
     func downloadItems(){
@@ -44,11 +43,12 @@ class GiftCardList: NSObject{
         
         for i in 0..<jsonResult.count{
             jsonElement = jsonResult[i] as! NSDictionary
-            if let cd = jsonElement["cd"] as? String,
-               let name = jsonElement["name"] as? String,
-               let img = jsonElement["img"] as? String,
-               let launch = jsonElement["launch"] as? String{
-                let query = CardModel(cd: cd, name: name, img: img, launch: launch)
+            if let storename = jsonElement["storename"] as? String,
+               let lat = jsonElement["lat"] as? String,
+               let lon = jsonElement["lon"] as? String,
+               let address = jsonElement["address"] as? String{
+                let query = LocationModel(storename: storename, lat: Double(lat)!, lon: Double(lon)!, address: address)
+                print(storename)
                 locations.add(query)
             }
         }
