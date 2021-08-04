@@ -45,7 +45,7 @@ class MapViewController: UIViewController {
     func mapMove(_ lat: CLLocationDegrees, _ lon: CLLocationDegrees) {
             let pLoc = CLLocationCoordinate2DMake(lat, lon)
             // 배율
-            let pSpan = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
+            let pSpan = MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002)
             //좌표 정보
             let pRegion = MKCoordinateRegion(center: pLoc, span: pSpan)
             mapView.setRegion(pRegion, animated: true)
