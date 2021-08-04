@@ -10,15 +10,27 @@ import UIKit
 class HistoryViewController: UIViewController {
     @IBOutlet weak var lblPeriod: UILabel!
     @IBOutlet weak var tvHistoryList: UITableView!
+    @IBOutlet weak var btnPeriod: UIButton!
     
     var feedItem : NSMutableArray = NSMutableArray()
+    var orderDate:Date=Date()
+    var nowTime:Date=Date()
     
+    let interval=1.0
+    let timeSelector:Selector=#selector(HistoryViewController.updateTime)
+    
+    let dateFormatter=DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Timer.scheduledTimer(timeInterval: interval, target: self, selector: timeSelector, userInfo: nil, repeats: true)
+        
+        btnPeriod.layer.cornerRadius = 10
+        btnPeriod.layer.borderWidth = 1.2
+        btnPeriod.layer.borderColor = UIColor.brown.cgColor
+        
         tvHistoryList.rowHeight = 90
         
-        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         lblPeriod.text="\(dateFormatter.string(from: Calendar.current.date(byAdding: DateComponents(day:-30), to: Date())!)) ~ \(dateFormatter.string(from: Date()))"
 
@@ -39,15 +51,16 @@ class HistoryViewController: UIViewController {
     @IBAction func btnPeriod(_ sender: UIButton) {
     }
     
-    /*
-    // MARK: - Navigation
+    @objc func updateTime(){
+        let date=NSDate() // Next Step
+        
+        let dateFormatter = DateFormatter()
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.locale=Locale(identifier: "ko")
+        
+        nowTime=date as Date
     }
-    */
 
 }
 
@@ -70,7 +83,7 @@ extension HistoryViewController:UITableViewDataSource,UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let item:OrderModel = feedItem[indexPath.row] as! OrderModel
+        let item:HistoryModel = feedItem[indexPath.row] as! HistoryModel
 
         if feedItem.count == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath)
@@ -92,7 +105,23 @@ extension HistoryViewController:UITableViewDataSource,UITableViewDelegate{
             
             if indexPath.row % 2 == 0{
                 cell.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 0.08)
+            }else{
+                cell.backgroundColor=UIColor.white
             }
+            
+
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            dateFormatter.locale=Locale(identifier: "ko")
+            
+            orderDate = dateFormatter.date(from: item.orderDate!)!
+            
+            if nowTime >= orderDate{
+                cell.lblOrderComplete.isHidden=false
+//                cell.ivHistoryImg.animationImages
+            }else{
+                cell.lblOrderComplete.isHidden=true
+            }
+            
             return cell
         }
     }
@@ -104,7 +133,7 @@ extension HistoryViewController:UITableViewDataSource,UITableViewDelegate{
             let cell = sender as! UITableViewCell
             let indexPath = self.tvHistoryList.indexPath(for: cell)
             
-            let item:OrderModel = feedItem[indexPath!.row] as! OrderModel
+            let item:HistoryModel = feedItem[indexPath!.row] as! HistoryModel
             
             let detailView = segue.destination as! HistoryDetailViewController
             detailView.receiveItems(item)

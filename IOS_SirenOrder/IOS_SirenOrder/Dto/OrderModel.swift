@@ -19,22 +19,11 @@ class OrderModel : NSObject{
     var price : Int?
     var img : String?
     var name : String?
+    var address : String?
     
     override init() {
         
     }
     
     
-    init(orderId : String, orderNum : String, orderCount : Int, orderPersonal : String, orderDate : String, storename : String, cd : String, price : Int, img : String, name : String){
-        self.orderId=orderId
-        self.orderNum=orderNum
-        self.orderPersonal=orderPersonal
-        self.orderCount=orderCount
-        self.orderDate=orderDate
-        self.storename=storename
-        self.cd=cd
-        self.price=price
-        self.img=img
-        self.name=name
-    }
 }

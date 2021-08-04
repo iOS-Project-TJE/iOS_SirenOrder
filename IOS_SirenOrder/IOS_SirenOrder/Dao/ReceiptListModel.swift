@@ -7,17 +7,17 @@
 
 import Foundation
 
-protocol HistoryModelProtocol : AnyObject {
+protocol ReceiptModelProtocol : AnyObject {
     func itemDownloaded(items: NSMutableArray)
 }
 
-class HistoryListModel: NSObject{
-    var delegate: HistoryModelProtocol!
+class ReceiptListModel: NSObject{
+    var delegate: ReceiptModelProtocol!
     var urlPath = "http://\(macIp):8080/starbucks/jsp/sj/"
     
-    func downloadHistoryItems(){
+    func downloadReceiptItems(){
         var urlAdd=""
-        urlAdd="HistoryList.jsp?userId=\(userId)"
+        urlAdd="ReceiptList.jsp?userId=\(userId)"
         
         urlPath += urlAdd
         let url: URL = URL(string: urlPath)!
@@ -57,8 +57,9 @@ class HistoryListModel: NSObject{
                let price = jsonElement["price"] as? String,
                let img = jsonElement["img"] as? String,
                let name = jsonElement["name"] as? String,
-               let address = jsonElement["address"] as? String{
-                let query = HistoryModel(orderId: orderId, orderNum: orderNum, orderCount: Int(orderCount)!, orderPersonal: orderPersonal, orderDate: orderDate, storename: storename, cd: cd, price: Int(price)!, img: img, name: name, address: address)
+               let address = jsonElement["address"] as? String,
+               let userNickname = jsonElement["userNickname"] as? String{
+                let query = ReceiptModel(orderId: orderId, orderNum: orderNum, orderCount: Int(orderCount)!, orderPersonal: orderPersonal, orderDate: orderDate, storename: storename, cd: cd, price: Int(price)!, img: img, name: name, address: address, userNickname: userNickname)
                 locations.add(query)
             }
         }
