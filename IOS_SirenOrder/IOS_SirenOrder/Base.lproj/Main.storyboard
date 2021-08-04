@@ -2576,7 +2576,7 @@
                                                         <imageReference key="image" image="heart.fill" catalog="system" symbolScale="large"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="btnDelete:" destination="hbR-Yg-8hZ" eventType="touchUpInside" id="Z08-w2-OBC"/>
+                                                        <action selector="btnMyMenuDelete:" destination="hbR-Yg-8hZ" eventType="touchUpInside" id="Lc4-hy-h3X"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TIa-E7-ZuS">
@@ -2586,9 +2586,6 @@
                                                     <state key="normal" title="담기">
                                                         <color key="titleColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
-                                                    <connections>
-                                                        <segue destination="6Ue-If-TgS" kind="show" id="Kfv-EB-beg"/>
-                                                    </connections>
                                                 </button>
                                                 <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVu-TA-6Zc">
                                                     <rect key="frame" x="277" y="180" width="124" height="30"/>
@@ -2606,6 +2603,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="btnCartShape" destination="TIa-E7-ZuS" id="44h-9b-s3U"/>
+                                            <outlet property="btnDelete" destination="ze9-dF-nVd" id="tBE-7U-8cd"/>
                                             <outlet property="btnOrderShape" destination="qVu-TA-6Zc" id="mDX-K9-OIJ"/>
                                             <outlet property="ivMyMenu" destination="62I-ZG-rbp" id="YcY-DY-1qv"/>
                                             <outlet property="lblMyMenuName" destination="YdX-uu-lgL" id="Z0C-Ol-O07"/>
@@ -2679,6 +2677,8 @@
                     <connections>
                         <outlet property="lblStore" destination="mI2-1Q-xQ2" id="DfG-g0-aiC"/>
                         <outlet property="tvMyMenu" destination="QQq-aA-x3G" id="tAT-3T-2ZM"/>
+                        <segue destination="6Ue-If-TgS" kind="show" identifier="sgCart" id="Bc3-zU-qcJ"/>
+                        <segue destination="ipQ-OS-k3u" kind="show" identifier="sgCart" id="Ngw-ka-lf5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ln7-Mq-y9p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2706,7 +2706,7 @@
         <!--장바구니-->
         <scene sceneID="l1j-T1-jb5">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="6Ue-If-TgS" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="6Ue-If-TgS" customClass="CartViewController" customModule="IOS_SirenOrder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0Ek-G0-OHk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2851,7 +2851,7 @@
                                             <color key="titleColor" systemColor="secondarySystemBackgroundColor"/>
                                         </state>
                                         <connections>
-                                            <segue destination="ipQ-OS-k3u" kind="show" id="iIm-XO-pPi"/>
+                                            <action selector="btnOrder:" destination="6Ue-If-TgS" eventType="touchUpInside" id="uaQ-hZ-4Mk"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -2864,12 +2864,19 @@
                     <navigationItem key="navigationItem" title="장바구니" id="2tZ-3x-eNI">
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="hTG-xt-4AI">
                             <color key="tintColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="btnAllDelete:" destination="6Ue-If-TgS" id="dQS-oG-BfD"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="ipQ-OS-k3u" kind="show" identifier="sgOrder" id="qVp-pZ-vBB"/>
+                        <segue destination="FmL-3P-H9K" kind="show" identifier="sgStoreChoice" id="2sj-rg-kQz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sDU-zq-24g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1852" y="5449"/>
+            <point key="canvasLocation" x="-1852" y="5403"/>
         </scene>
         <!--결제하기-->
         <scene sceneID="5s2-MG-G4O">
@@ -2908,7 +2915,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cda-nA-80H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1852" y="6167"/>
+            <point key="canvasLocation" x="-1852" y="6119"/>
         </scene>
         <!--매장 설정-->
         <scene sceneID="aq3-jY-jbN">
@@ -3150,6 +3157,7 @@
                         <outlet property="btnStoreCheckShape" destination="fTI-H1-WxW" id="Llj-uV-E70"/>
                         <outlet property="lblStoreDetailAddress" destination="Plv-tj-fH4" id="tXO-UI-Uc2"/>
                         <outlet property="mapStoreDetail" destination="XhT-2M-qZi" id="Cf5-mF-N4k"/>
+                        <segue destination="ipQ-OS-k3u" kind="show" identifier="sgOrder" id="DFb-S2-SrH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RX3-CU-JKO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3416,7 +3424,6 @@
                                         </state>
                                         <connections>
                                             <action selector="btnOrder:" destination="DB7-B3-54W" eventType="touchUpInside" id="lyZ-Wv-MLw"/>
-                                            <segue destination="ipQ-OS-k3u" kind="show" id="aRq-ox-JGq"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jo4-Sx-ruc">
@@ -3543,6 +3550,10 @@
                         <outlet property="lblPersonalContent" destination="Dcc-i4-lcr" id="Qiq-Bz-Sri"/>
                         <outlet property="lblPersonalPrice" destination="gUo-ig-Jb4" id="5zN-VE-HFc"/>
                         <outlet property="scShpae" destination="ULa-oE-vD7" id="LJ7-XV-qQ9"/>
+                        <segue destination="FmL-3P-H9K" kind="show" identifier="sgStoreChoice" id="CQ3-bO-q8E"/>
+                        <segue destination="ipQ-OS-k3u" kind="show" identifier="sgOrder" id="6BG-mi-SlS"/>
+                        <segue destination="6Ue-If-TgS" kind="show" identifier="sgCart" id="kAz-mu-mEY"/>
+                        <segue destination="hbR-Yg-8hZ" kind="show" identifier="sgMyMenu" id="k7D-Iv-Xs7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ndo-aE-mJI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3707,9 +3718,6 @@
                                         <state key="normal" title="주문하기">
                                             <color key="titleColor" systemColor="secondarySystemBackgroundColor"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="ipQ-OS-k3u" kind="show" id="sll-3E-nZ5"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lwn-r0-9wG">
                                         <rect key="frame" x="146" y="49" width="81" height="35"/>
@@ -3768,6 +3776,10 @@
                         <outlet property="lblPersonalOptionPrice" destination="eh2-hR-iTj" id="S9D-Un-awh"/>
                         <outlet property="lblPersonalOptionSelected" destination="3Dy-HY-dM0" id="GsS-AB-aXh"/>
                         <outlet property="tvPersonalOption" destination="BGf-h0-OJl" id="he7-Jv-nDi"/>
+                        <segue destination="ipQ-OS-k3u" kind="show" identifier="sgOrder" id="saf-gf-gor"/>
+                        <segue destination="FmL-3P-H9K" kind="show" identifier="sgStoreChoice" id="0SL-t8-LSp"/>
+                        <segue destination="6Ue-If-TgS" kind="show" identifier="sgCart" id="a8y-gg-9Wc"/>
+                        <segue destination="hbR-Yg-8hZ" kind="show" identifier="sgMyMenu" id="Du8-4f-6bj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nrf-Bb-ZeZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -4082,9 +4094,10 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="IDY-P2-z5t"/>
-        <segue reference="IW9-6W-q9c"/>
-        <segue reference="aRq-ox-JGq"/>
-        <segue reference="Kfv-EB-beg"/>
+        <segue reference="CQ3-bO-q8E"/>
+        <segue reference="6BG-mi-SlS"/>
+        <segue reference="kAz-mu-mEY"/>
+        <segue reference="k7D-Iv-Xs7"/>
         <segue reference="Eg1-oz-FCI"/>
         <segue reference="eU3-y3-Iv3"/>
     </inferredMetricsTieBreakers>

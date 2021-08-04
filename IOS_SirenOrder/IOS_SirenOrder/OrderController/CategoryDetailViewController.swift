@@ -27,6 +27,8 @@ class CategoryDetailViewController: UIViewController { // 2021.08.01 조혜지 O
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        goOrder = false
+        
         let categoryDetailModel = CategoryDetailModel()
         categoryDetailModel.delegate = self
         categoryDetailModel.downloadItems()
