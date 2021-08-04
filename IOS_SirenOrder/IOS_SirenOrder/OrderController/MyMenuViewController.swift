@@ -11,6 +11,7 @@ class MyMenuViewController: UIViewController { // 2021.07.31 조혜지 Order 나
 
     @IBOutlet weak var tvMyMenu: UITableView!
     @IBOutlet weak var lblStore: UILabel!
+    var tag = 0
     
     var dataItem: NSArray = NSArray()
     
@@ -24,7 +25,8 @@ class MyMenuViewController: UIViewController { // 2021.07.31 조혜지 Order 나
         tvMyMenu.dataSource = self
         tvMyMenu.delegate = self
         self.tvMyMenu.separatorStyle = .none
-        
+        navigationController?.navigationBar.barTintColor = .white
+        self.navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,7 +42,18 @@ class MyMenuViewController: UIViewController { // 2021.07.31 조혜지 Order 나
         }
     }
     
-
+    @IBAction func btnMyMenuDelete(_ sender: UIButton) {
+//        let cell = tvMyMenu.dequeueReusableCell(withIdentifier: "myMenuCell") as! MyMenuTableViewCell
+//        let indexPath = self.tvMyMenu.indexPath(for: cell)
+//        print(indexPath!.row, "dddd")
+//        let item: PersonalModel = dataItem[indexPath!.row] as! PersonalModel
+//        let myMenuDeleteModel = MyMenuDeleteModel()
+//        let result = myMenuDeleteModel.DeleteItems(personalId: item.personalId!)
+//        if result {
+//            tvMyMenu.reloadData()
+//        }
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -59,7 +72,10 @@ extension MyMenuViewController: UITableViewDataSource {
         let item: PersonalModel = dataItem[indexPath.row] as! PersonalModel
         cell.lblMyMenuName.text = "\(item.name!)"
         cell.lblMyMenuPrice.text = "\(DecimalWon(value: item.price!))"
-        cell.lblMyMenuPersonal.text = "\(item.personalContent!)"
+        
+        let firstIndex = item.personalContent!.index(item.personalContent!.startIndex, offsetBy: 0)
+        let lastIndex = item.personalContent!.index(item.personalContent!.startIndex, offsetBy: item.personalContent!.count-1)
+        cell.lblMyMenuPersonal.text = String(item.personalContent![firstIndex..<lastIndex])
         
         let url = URL(string: "\(item.img!)")
         let data = try? Data(contentsOf: url!)
@@ -71,6 +87,12 @@ extension MyMenuViewController: UITableViewDataSource {
         cell.btnCartShape.layer.borderColor = UIColor(displayP3Red: 0/255, green: 112/225, blue: 74/255, alpha: 1).cgColor
         cell.btnCartShape.layer.cornerRadius = 15
         cell.btnOrderShape.layer.cornerRadius = 15
+        
+        if cell.btnDelete.isSelected == true {
+            
+        }
+        
+        tag = indexPath.row
         return cell
     }
     

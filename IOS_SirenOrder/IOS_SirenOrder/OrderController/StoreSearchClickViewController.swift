@@ -17,7 +17,10 @@ class StoreSearchClickViewController: UIViewController { // 21.08.03 조혜지 O
         // Do any additional setup after loading the view.
     }
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        tfSearchText.becomeFirstResponder()
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -26,7 +29,7 @@ class StoreSearchClickViewController: UIViewController { // 21.08.03 조혜지 O
         // Pass the selected object to the new view controller.
         if segue.identifier == "sgStoreSearch" {
             let storeSearchTableViewController = segue.destination as! StoreSearchTableViewController
-            storeSearchTableViewController.receivedSearchText = tfSearchText.text!
+            storeSearchTableViewController.receivedSearchText = tfSearchText.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         }
     }
     
