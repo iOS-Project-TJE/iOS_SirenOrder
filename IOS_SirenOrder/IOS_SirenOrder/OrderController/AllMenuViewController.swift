@@ -24,6 +24,12 @@ class AllMenuViewController: UIViewController { // 2021.07.30 조혜지 TabBar�
         
         serverImageDownloaded()
         
+        navigationController?.navigationBar.barTintColor = .white
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         if storeName == "" {
             lblStore.text = "주문할 매장을 선택해 주세요"
         }else {
