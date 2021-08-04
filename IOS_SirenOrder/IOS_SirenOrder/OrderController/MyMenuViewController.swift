@@ -8,7 +8,6 @@
 import UIKit
 
 class MyMenuViewController: UIViewController { // 2021.07.31 조혜지 Order 나만의 메뉴 View
-                                               // 2021.08.04 조혜지 Order 나만의 메뉴 삭제, 담기, 주문하기 클릭 이벤트
 
     @IBOutlet weak var tvMyMenu: UITableView!
     @IBOutlet weak var lblStore: UILabel!
@@ -18,9 +17,7 @@ class MyMenuViewController: UIViewController { // 2021.07.31 조혜지 Order 나
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
+
         let myMenuModel = MyMenuModel()
         myMenuModel.delegate = self
         myMenuModel.downloadItems()
@@ -30,7 +27,9 @@ class MyMenuViewController: UIViewController { // 2021.07.31 조혜지 Order 나
         self.tvMyMenu.separatorStyle = .none
         navigationController?.navigationBar.barTintColor = .white
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always
         tvMyMenu.bounces = true
@@ -41,68 +40,18 @@ class MyMenuViewController: UIViewController { // 2021.07.31 조혜지 Order 나
         }else {
             lblStore.text = storeName
         }
-        print("viewWill")
-
     }
     
     @IBAction func btnMyMenuDelete(_ sender: UIButton) {
-        let item: PersonalModel = dataItem[sender.tag] as! PersonalModel
-        let myMenuDeleteModel = MyMenuDeleteModel()
-        let result = myMenuDeleteModel.DeleteItems(personalId: item.personalId!)
-        if result {
-            let myMenuModel = MyMenuModel()
-            myMenuModel.delegate = self
-            myMenuModel.downloadItems()
-            tvMyMenu.reloadData()
-        }
-    }
-    
-    @IBAction func btnCart(_ sender: UIButton) {
-        let item: PersonalModel = dataItem[sender.tag] as! PersonalModel
-        let cartInsertModel = CartInsertModel()
-        let result = cartInsertModel.InsertItems(cartCount: 1, cartPersonal: item.personalContent!, cd: item.cd!, userId: userId)
-        
-        if result{
-            let myMenuCheckController = UIAlertController(title: "추가", message: "장바구니에 추가되었습니다!", preferredStyle: .alert)
-
-            let myMenuCheckAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            let myMenuGoAction = UIAlertAction(title: "보러가기", style: .default, handler: {ACTION in
-                self.performSegue(withIdentifier: "sgCart", sender: self)
-            })
-            
-            myMenuCheckController.addAction(myMenuCheckAction)
-            myMenuCheckController.addAction(myMenuGoAction)
-            
-            present(myMenuCheckController, animated: true, completion: nil)
-        }else{
-            let resultAlert = UIAlertController(title: "실패", message: "에러가 발생되었습니다!", preferredStyle: .alert)
-            let onAction = UIAlertAction(title: "OK", style: .default, handler: {ACTION in
-                self.navigationController?.popViewController(animated: true)
-            })
-            resultAlert.addAction(onAction)
-            present(resultAlert, animated: true, completion: nil)
-        }
-    }
-    
-    @IBAction func btnOrder(_ sender: UIButton) {
-        let item: PersonalModel = dataItem[sender.tag] as! PersonalModel
-        goOrder = true
-        if storeName == "" {
-            let resultAlert = UIAlertController(title: "주문할 매장을 선택해 주세요!", message: nil, preferredStyle: .alert)
-            let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: {ACTION in
-                self.performSegue(withIdentifier: "sgStoreChoice", sender: self)
-                ShareOrder.orderCd = item.cd!
-                ShareOrder.orderName = item.name!
-                ShareOrder.orderCount = 1
-                ShareOrder.orderPersonal = item.personalContent!
-            })
-            resultAlert.addAction(cancelAction)
-            resultAlert.addAction(okAction)
-            present(resultAlert, animated: true, completion: nil)
-        }else {
-            self.performSegue(withIdentifier: "sgOrder", sender: self)
-        }
+//        let cell = tvMyMenu.dequeueReusableCell(withIdentifier: "myMenuCell") as! MyMenuTableViewCell
+//        let indexPath = self.tvMyMenu.indexPath(for: cell)
+//        print(indexPath!.row, "dddd")
+//        let item: PersonalModel = dataItem[indexPath!.row] as! PersonalModel
+//        let myMenuDeleteModel = MyMenuDeleteModel()
+//        let result = myMenuDeleteModel.DeleteItems(personalId: item.personalId!)
+//        if result {
+//            tvMyMenu.reloadData()
+//        }
     }
     
     /*
@@ -125,7 +74,7 @@ extension MyMenuViewController: UITableViewDataSource {
         cell.lblMyMenuPrice.text = "\(DecimalWon(value: item.price!))"
         
         let firstIndex = item.personalContent!.index(item.personalContent!.startIndex, offsetBy: 0)
-        let lastIndex = item.personalContent!.index(item.personalContent!.startIndex, offsetBy: item.personalContent!.count-2)
+        let lastIndex = item.personalContent!.index(item.personalContent!.startIndex, offsetBy: item.personalContent!.count-1)
         cell.lblMyMenuPersonal.text = String(item.personalContent![firstIndex..<lastIndex])
         
         let url = URL(string: "\(item.img!)")
@@ -139,10 +88,11 @@ extension MyMenuViewController: UITableViewDataSource {
         cell.btnCartShape.layer.cornerRadius = 15
         cell.btnOrderShape.layer.cornerRadius = 15
         
-        cell.btnDelete.tag = indexPath.row
-        cell.btnCartShape.tag = indexPath.row
-        cell.btnOrderShape.tag = indexPath.row
+        if cell.btnDelete.isSelected == true {
+            
+        }
         
+        tag = indexPath.row
         return cell
     }
     

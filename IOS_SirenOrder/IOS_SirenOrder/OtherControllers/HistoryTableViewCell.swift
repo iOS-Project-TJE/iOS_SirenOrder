@@ -13,7 +13,6 @@ class HistoryTableViewCell: UITableViewCell {
     @IBOutlet weak var lblHistoryDate: UILabel!
     @IBOutlet weak var lblHistoryLocation: UILabel!
     @IBOutlet weak var lblHistoryPrice: UILabel!
-    @IBOutlet weak var lblOrderComplete: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
