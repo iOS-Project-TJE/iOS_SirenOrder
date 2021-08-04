@@ -2931,17 +2931,10 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUt-bd-pB5">
-                                                    <rect key="frame" x="123" y="63" width="228" height="27"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLN-Bg-GI6">
-                                                    <rect key="frame" x="123" y="98" width="282" height="65"/>
+                                                    <rect key="frame" x="123" y="85" width="282" height="88"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -2965,6 +2958,9 @@
                                                     <state key="normal" title="담기">
                                                         <color key="titleColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="btnCart:" destination="hbR-Yg-8hZ" eventType="touchUpInside" id="iT2-Gn-lR6"/>
+                                                    </connections>
                                                 </button>
                                                 <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVu-TA-6Zc">
                                                     <rect key="frame" x="277" y="180" width="124" height="30"/>
@@ -2975,9 +2971,17 @@
                                                         <color key="titleColor" systemColor="secondarySystemBackgroundColor"/>
                                                     </state>
                                                     <connections>
+                                                        <action selector="btnOrder:" destination="hbR-Yg-8hZ" eventType="touchUpInside" id="v62-BF-NVc"/>
                                                         <segue destination="ipQ-OS-k3u" kind="show" id="3Ey-1o-Z7Q"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUt-bd-pB5">
+                                                    <rect key="frame" x="123" y="61" width="228" height="19"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -3057,12 +3061,13 @@
                         <outlet property="lblStore" destination="mI2-1Q-xQ2" id="DfG-g0-aiC"/>
                         <outlet property="tvMyMenu" destination="QQq-aA-x3G" id="tAT-3T-2ZM"/>
                         <segue destination="6Ue-If-TgS" kind="show" identifier="sgCart" id="Bc3-zU-qcJ"/>
-                        <segue destination="ipQ-OS-k3u" kind="show" identifier="sgCart" id="Ngw-ka-lf5"/>
+                        <segue destination="ipQ-OS-k3u" kind="show" identifier="sgOrder" id="Ngw-ka-lf5"/>
+                        <segue destination="FmL-3P-H9K" kind="show" identifier="sgStoreChoice" id="BJe-Uk-Bsb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ln7-Mq-y9p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1161" y="2575"/>
+            <point key="canvasLocation" x="-1162.3188405797102" y="2574.7767857142858"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0Ua-xM-1cY">
@@ -3932,7 +3937,6 @@
                         <segue destination="FmL-3P-H9K" kind="show" identifier="sgStoreChoice" id="CQ3-bO-q8E"/>
                         <segue destination="ipQ-OS-k3u" kind="show" identifier="sgOrder" id="6BG-mi-SlS"/>
                         <segue destination="6Ue-If-TgS" kind="show" identifier="sgCart" id="kAz-mu-mEY"/>
-                        <segue destination="hbR-Yg-8hZ" kind="show" identifier="sgMyMenu" id="k7D-Iv-Xs7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ndo-aE-mJI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -4158,7 +4162,6 @@
                         <segue destination="ipQ-OS-k3u" kind="show" identifier="sgOrder" id="saf-gf-gor"/>
                         <segue destination="FmL-3P-H9K" kind="show" identifier="sgStoreChoice" id="0SL-t8-LSp"/>
                         <segue destination="6Ue-If-TgS" kind="show" identifier="sgCart" id="a8y-gg-9Wc"/>
-                        <segue destination="hbR-Yg-8hZ" kind="show" identifier="sgMyMenu" id="Du8-4f-6bj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nrf-Bb-ZeZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -4181,7 +4184,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bkI-Je-j8P">
-                                <rect key="frame" x="27" y="518" width="360" height="40"/>
+                                <rect key="frame" x="27" y="513" width="360" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -4468,15 +4471,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0HW-aY-oxS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2539" y="1894"/>
+            <point key="canvasLocation" x="2537.68115942029" y="1893.75"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="IDY-P2-z5t"/>
-        <segue reference="CQ3-bO-q8E"/>
-        <segue reference="6BG-mi-SlS"/>
-        <segue reference="kAz-mu-mEY"/>
-        <segue reference="k7D-Iv-Xs7"/>
+        <segue reference="BJe-Uk-Bsb"/>
+        <segue reference="3Ey-1o-Z7Q"/>
+        <segue reference="Bc3-zU-qcJ"/>
         <segue reference="Eg1-oz-FCI"/>
         <segue reference="eU3-y3-Iv3"/>
     </inferredMetricsTieBreakers>
