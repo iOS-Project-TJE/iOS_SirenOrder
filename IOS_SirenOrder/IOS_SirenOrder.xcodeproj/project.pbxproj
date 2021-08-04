@@ -55,6 +55,7 @@
 		856F78F026BA9BE50092B57C /* SharePersonal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856F78EF26BA9BE50092B57C /* SharePersonal.swift */; };
 		856F78F226BA9C030092B57C /* SharePersonalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856F78F126BA9C030092B57C /* SharePersonalData.swift */; };
 		856F78F426BAA0950092B57C /* PersonalOptionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856F78F326BAA0950092B57C /* PersonalOptionDetailViewController.swift */; };
+		856F78F626BABD7E0092B57C /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856F78F526BABD7E0092B57C /* CartViewController.swift */; };
 		857F1C4C26B27A210028D3BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857F1C4B26B27A210028D3BC /* AppDelegate.swift */; };
 		857F1C4E26B27A210028D3BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857F1C4D26B27A210028D3BC /* SceneDelegate.swift */; };
 		857F1C5026B27A210028D3BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857F1C4F26B27A210028D3BC /* ViewController.swift */; };
@@ -132,6 +133,7 @@
 		856F78EF26BA9BE50092B57C /* SharePersonal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharePersonal.swift; sourceTree = "<group>"; };
 		856F78F126BA9C030092B57C /* SharePersonalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharePersonalData.swift; sourceTree = "<group>"; };
 		856F78F326BAA0950092B57C /* PersonalOptionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalOptionDetailViewController.swift; sourceTree = "<group>"; };
+		856F78F526BABD7E0092B57C /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		857F1C4826B27A210028D3BC /* IOS_SirenOrder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOS_SirenOrder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		857F1C4B26B27A210028D3BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		857F1C4D26B27A210028D3BC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				3258C15126B8D601006892A6 /* StoreSearchTableViewController.swift */,
 				3258C15426B8D635006892A6 /* StoreSearchClickViewController.swift */,
 				856F78F326BAA0950092B57C /* PersonalOptionDetailViewController.swift */,
+				856F78F526BABD7E0092B57C /* CartViewController.swift */,
 			);
 			path = OrderController;
 			sourceTree = "<group>";
@@ -469,6 +472,7 @@
 			files = (
 				69E573EA26B92F430064CF83 /* HistoryDetailViewController.swift in Sources */,
 				997120F326B68F980026317F /* SignUpAgreeViewController.swift in Sources */,
+				856F78F626BABD7E0092B57C /* CartViewController.swift in Sources */,
 				857F1C5026B27A210028D3BC /* ViewController.swift in Sources */,
 				6980B02526B585690048DAAB /* ReceiptViewController.swift in Sources */,
 				85423B4426B6FB7C00FFEF85 /* AllStoreTableViewController.swift in Sources */,

@@ -241,7 +241,9 @@ class OrderPersonalViewController: UIViewController { // 2021.08.02 조혜지 �
             let myMenuCheckController = UIAlertController(title: "추가", message: "나만의 메뉴에 추가되었습니다!", preferredStyle: .alert)
 
             let myMenuCheckAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            let myMenuGoAction = UIAlertAction(title: "보러가기", style: .default, handler: nil)
+            let myMenuGoAction = UIAlertAction(title: "보러가기", style: .default, handler: {ACTION in
+                self.performSegue(withIdentifier: "sgMyMenu", sender: self)
+            })
             
             myMenuCheckController.addAction(myMenuCheckAction)
             myMenuCheckController.addAction(myMenuGoAction)
@@ -265,7 +267,9 @@ class OrderPersonalViewController: UIViewController { // 2021.08.02 조혜지 �
             let myMenuCheckController = UIAlertController(title: "추가", message: "장바구니에 추가되었습니다!", preferredStyle: .alert)
 
             let myMenuCheckAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            let myMenuGoAction = UIAlertAction(title: "보러가기", style: .default, handler: nil)
+            let myMenuGoAction = UIAlertAction(title: "보러가기", style: .default, handler: {ACTION in
+                self.performSegue(withIdentifier: "sgCart", sender: self)
+            })
             
             myMenuCheckController.addAction(myMenuCheckAction)
             myMenuCheckController.addAction(myMenuGoAction)
@@ -282,17 +286,16 @@ class OrderPersonalViewController: UIViewController { // 2021.08.02 조혜지 �
     }
     
     @IBAction func btnOrder(_ sender: UIButton) {
+        goOrder = true
         if storeName == "" {
             let resultAlert = UIAlertController(title: "주문할 매장을 선택해 주세요!", message: nil, preferredStyle: .alert)
             let onAction = UIAlertAction(title: "OK", style: .default, handler: {ACTION in
-                let storeSettingViewController = self.storyboard!.instantiateViewController(withIdentifier: "StoreSettingViewController")
-                storeSettingViewController.modalPresentationStyle = .fullScreen
-                self.present(storeSettingViewController, animated: true)
+                self.performSegue(withIdentifier: "sgStoreChoice", sender: self)
             })
             resultAlert.addAction(onAction)
             present(resultAlert, animated: true, completion: nil)
         }else {
-            
+            self.performSegue(withIdentifier: "sgOrder", sender: self)
         }
     }
     
