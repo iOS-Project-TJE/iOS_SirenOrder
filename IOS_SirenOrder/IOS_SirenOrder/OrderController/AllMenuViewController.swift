@@ -30,6 +30,8 @@ class AllMenuViewController: UIViewController { // 2021.07.30 조혜지 TabBar�
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        goOrder = false
+        
         if storeName == "" {
             lblStore.text = "주문할 매장을 선택해 주세요"
         }else {

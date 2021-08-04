@@ -15,6 +15,7 @@ class MyMenuTableViewCell: UITableViewCell { // 2021.07.31 조혜지 Order 나�
     @IBOutlet weak var ivMyMenu: UIImageView!
     @IBOutlet weak var btnCartShape: UIButton!
     @IBOutlet weak var btnOrderShape: UIButton!
+    @IBOutlet weak var btnDelete: UIButton!
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
