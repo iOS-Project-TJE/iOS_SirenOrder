@@ -27,6 +27,19 @@ class MyMenuViewController: UIViewController { // 2021.07.31 조혜지 Order 나
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .always
+        tvMyMenu.bounces = true
+        tvMyMenu.alwaysBounceVertical = true
+        
+        if storeName == "" {
+            lblStore.text = "주문할 매장을 선택해 주세요"
+        }else {
+            lblStore.text = storeName
+        }
+    }
+    
 
     /*
     // MARK: - Navigation
@@ -64,7 +77,7 @@ extension MyMenuViewController: UITableViewDataSource {
     func DecimalWon(value: Int) -> String{
             let numberFormatter = NumberFormatter()
             numberFormatter.numberStyle = .decimal
-            let result = numberFormatter.string(from: NSNumber(value: value))! + "원"
+            let result = numberFormatter.string(from: NSNumber(value: value))! + " 원"
             
             return result
     }

@@ -14,13 +14,13 @@ protocol MyMenuModelProtocol : AnyObject {
 
 class MyMenuModel : NSObject {
     var delegate: MyMenuModelProtocol!
-    var urlPath = "http://\(macIp):8080/starbucks/jsp/myMenuSelect.jsp"
+    var urlPath = "http://\(macIp):8080/starbucks/jsp/hj/myMenuSelect.jsp"
     
     func downloadItems() {
         
         let urlAdd = "?userId=\(userId)"
         urlPath = urlPath + urlAdd
-        print(urlPath)
+        
         let url: URL = URL(string: urlPath)!
         let defaultSession = URLSession(configuration: URLSessionConfiguration.default)
         let task = defaultSession.dataTask(with: url){(data, response, error) in

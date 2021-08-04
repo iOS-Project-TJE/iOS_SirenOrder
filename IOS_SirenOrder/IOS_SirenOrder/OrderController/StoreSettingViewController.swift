@@ -9,7 +9,7 @@ import UIKit
 import Tabman
 import Pageboy
 
-class StoreSettingViewController: TabmanViewController {
+class StoreSettingViewController: TabmanViewController { // 2021.07.30 조혜지 Order 매장 정보 Tabman 설정
 
     private var viewControllers: Array<UIViewController> = []
     

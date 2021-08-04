@@ -44,6 +44,8 @@ class OrderViewController: TabmanViewController { // 2021.07.30 조혜지 Order 
         bar.indicator.overscrollBehavior = .compress
         
         bar.indicator.overscrollBehavior = .bounce
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
 
