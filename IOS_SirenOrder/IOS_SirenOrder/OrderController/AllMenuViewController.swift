@@ -37,6 +37,7 @@ class AllMenuViewController: UIViewController { // 2021.07.30 조혜지 TabBar�
         }else {
             lblStore.text = storeName
         }
+        print("viewWill")
     }
     
     func serverImageDownloaded() {
