@@ -69,8 +69,6 @@ class MyMenuViewController: UIViewController { // 2021.07.31 조혜지 Order 나
                 myMenuModel.downloadItems()
                 self.tvMyMenu.reloadData()
             }
-            
-            
         }
     }
     

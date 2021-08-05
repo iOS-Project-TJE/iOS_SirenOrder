@@ -232,7 +232,7 @@ class OrderPersonalViewController: UIViewController { // 2021.08.02 조혜지 �
         myMenuState = true
         
         let myMenuInsertModel = MyMenuInsertModel()
-        let result = myMenuInsertModel.InsertItems(personalContent: "\(iceHot), \(cupSize), \(cupType), \(pContent)", cd: receivedCd, userId: userId)
+        let result = myMenuInsertModel.InsertItems(personalContent: "\(iceHot), \(cupSize), \(cupType), \(pContent)", cd: receivedCd, userId: userId, personalPrice: SharePersonalData.personalOptionPrice + SharePersonalData.size)
         
         let personalIdModel = PersonalIdModel()
         personalIdModel.delegate = self
@@ -255,7 +255,7 @@ class OrderPersonalViewController: UIViewController { // 2021.08.02 조혜지 �
     
     @IBAction func btnCart(_ sender: UIButton) {
         let cartInsertModel = CartInsertModel()
-        let result = cartInsertModel.InsertItems(cartCount: SharePersonalData.drinkCount, cartPersonal: "\(iceHot), \(cupSize), \(cupType), \(pContent)", cd: receivedCd, userId: userId, cartPersonalPrice: SharePersonalData.personalOptionPrice)
+        let result = cartInsertModel.InsertItems(cartCount: SharePersonalData.drinkCount, cartPersonal: "\(iceHot), \(cupSize), \(cupType), \(pContent)", cd: receivedCd, userId: userId, cartPersonalPrice: SharePersonalData.personalOptionPrice + SharePersonalData.size)
         
         if result{
             let myMenuCheckController = UIAlertController(title: "추가", message: "장바구니에 추가되었습니다!", preferredStyle: .alert)
@@ -280,8 +280,10 @@ class OrderPersonalViewController: UIViewController { // 2021.08.02 조혜지 �
     }
     
     @IBAction func btnOrder(_ sender: UIButton) {
+        print("여기?")
         goOrder = true
         if storeName == "" {
+            print("저기?")
             let resultAlert = UIAlertController(title: "주문할 매장을 선택해 주세요!", message: nil, preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: {ACTION in
@@ -289,7 +291,9 @@ class OrderPersonalViewController: UIViewController { // 2021.08.02 조혜지 �
             })
             resultAlert.addAction(cancelAction)
             resultAlert.addAction(okAction)
+            present(resultAlert, animated: true, completion: nil)
         }else {
+            print("요기?")
             self.performSegue(withIdentifier: "sgOrder", sender: self)
         }
     }

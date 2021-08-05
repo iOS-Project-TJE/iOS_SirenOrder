@@ -147,7 +147,7 @@ class PersonalOptionViewController: UIViewController { // 2021.08.02 조혜지 �
         pContent = "\(SharePersonal.coffee)\(SharePersonal.vSyrup)\(SharePersonal.hSyrup)\(SharePersonal.cSyrup)\(SharePersonal.ice)\(SharePersonal.whip)\(SharePersonal.caramelDrizzle)\(SharePersonal.chocoDrizzle)\(SharePersonal.lid)"
         
         let myMenuInsertModel = MyMenuInsertModel()
-        let result = myMenuInsertModel.InsertItems(personalContent: "\(iceHot), \(cupSize), \(cupType), \(pContent)", cd: cd, userId: userId)
+        let result = myMenuInsertModel.InsertItems(personalContent: "\(iceHot), \(cupSize), \(cupType), \(pContent)", cd: cd, userId: userId, personalPrice: SharePersonalData.personalOptionPrice + SharePersonalData.size)
         
         let personalIdModel = PersonalIdModel()
         personalIdModel.delegate = self
