@@ -57,8 +57,9 @@ class HistoryListModel: NSObject{
                let price = jsonElement["price"] as? String,
                let img = jsonElement["img"] as? String,
                let name = jsonElement["name"] as? String,
-               let address = jsonElement["address"] as? String{
-                let query = HistoryModel(orderId: orderId, orderNum: orderNum, orderCount: Int(orderCount)!, orderPersonal: orderPersonal, orderDate: orderDate, storename: storename, cd: cd, price: Int(price)!, img: img, name: name, address: address)
+               let address = jsonElement["address"] as? String,
+               let orderPersonalPrice = jsonElement["orderPersonalPrice"] as? String{
+                let query = HistoryModel(orderId: orderId, orderNum: orderNum, orderCount: Int(orderCount)!, orderPersonal: orderPersonal, orderDate: orderDate, storename: storename, cd: cd, price: Int(price)!, img: img, name: name, address: address, orderPersonalPrice: Int(orderPersonalPrice) ?? 0)
                 locations.add(query)
             }
         }
