@@ -15,6 +15,7 @@ class PersonalModel : NSObject{
     var name: String?
     var price: Int?
     var img: String?
+    var cartCount: Int?
  
     override init() {
         
@@ -32,6 +33,11 @@ class PersonalModel : NSObject{
     // 2021.08.02 조혜지 PersonalIdModel에서 사용할 init 추가
     init(personalId : String) {
         self.personalId = personalId
+    }
+    
+    // 2021.08.05 조혜지 CartCountModel에서 사용할 init 추가
+    init(cartCount: Int) {
+        self.cartCount = cartCount
     }
     
 }

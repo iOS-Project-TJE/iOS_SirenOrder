@@ -9,7 +9,9 @@ import UIKit
 
 class CartViewController: UIViewController {
 
-    override func viewDidLoad() {
+    @IBOutlet weak var lblStore: UILabel!
+    
+    override func viewDidLoad() { // 225
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
@@ -17,10 +19,21 @@ class CartViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.prefersLargeTitles = true
+        goOrder = false
+        if storeName == "" {
+            lblStore.text = "주문할 매장을 선택해 주세요"
+        }else {
+            lblStore.text = storeName
+        }
     }
     
     @IBAction func btnAllDelete(_ sender: UIBarButtonItem) {
         
+        
+    }
+    
+    @IBAction func btnStore(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "sgStoreChoice", sender: self)
     }
     
     @IBAction func btnOrder(_ sender: UIButton) {
