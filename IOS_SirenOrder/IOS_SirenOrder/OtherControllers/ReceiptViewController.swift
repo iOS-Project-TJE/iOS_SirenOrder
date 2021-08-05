@@ -45,9 +45,11 @@ class ReceiptViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        priceCount=0
         let receiptListModel = ReceiptListModel()
         receiptListModel.delegate=self
         receiptListModel.downloadReceiptItems()
+        self.tvReceiptList.reloadData()
     }
 
     @objc func updateTime(){
@@ -78,6 +80,7 @@ extension ReceiptViewController:UITableViewDataSource,UITableViewDelegate{
 //            return feedItem.count
 //        }
         lblCount.text = "\(feedItem.count)건"
+        priceCount=0
         
         for i in 0..<feedItem.count{
             let item=feedItem[i] as! ReceiptModel
@@ -85,7 +88,7 @@ extension ReceiptViewController:UITableViewDataSource,UITableViewDelegate{
             priceCount += item.price!
         }
         
-        lblPrice.text = "\(priceCount/2)원"
+        lblPrice.text = "\(priceCount)원"
         
         return feedItem.count
     }
