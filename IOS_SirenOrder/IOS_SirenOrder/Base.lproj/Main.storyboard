@@ -4758,8 +4758,8 @@
                         <outlet property="lblPersonalPrice" destination="gUo-ig-Jb4" id="5zN-VE-HFc"/>
                         <outlet property="scShpae" destination="ULa-oE-vD7" id="LJ7-XV-qQ9"/>
                         <segue destination="FmL-3P-H9K" kind="show" identifier="sgStoreChoice" id="CQ3-bO-q8E"/>
-                        <segue destination="ipQ-OS-k3u" kind="show" identifier="sgOrder" id="6BG-mi-SlS"/>
                         <segue destination="6Ue-If-TgS" kind="show" identifier="sgCart" id="kAz-mu-mEY"/>
+                        <segue destination="ipQ-OS-k3u" kind="show" identifier="sgOrder" id="cOb-0f-dmA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ndo-aE-mJI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -4982,9 +4982,9 @@
                         <outlet property="lblPersonalOptionPrice" destination="eh2-hR-iTj" id="S9D-Un-awh"/>
                         <outlet property="lblPersonalOptionSelected" destination="3Dy-HY-dM0" id="GsS-AB-aXh"/>
                         <outlet property="tvPersonalOption" destination="BGf-h0-OJl" id="he7-Jv-nDi"/>
-                        <segue destination="ipQ-OS-k3u" kind="show" identifier="sgOrder" id="saf-gf-gor"/>
                         <segue destination="FmL-3P-H9K" kind="show" identifier="sgStoreChoice" id="0SL-t8-LSp"/>
                         <segue destination="6Ue-If-TgS" kind="show" identifier="sgCart" id="a8y-gg-9Wc"/>
+                        <segue destination="ipQ-OS-k3u" kind="show" identifier="sgOrder" id="KDU-rb-uOf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nrf-Bb-ZeZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -5299,10 +5299,9 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="IDY-P2-z5t"/>
-        <segue reference="xdt-Md-2SL"/>
-        <segue reference="IW9-6W-q9c"/>
-        <segue reference="3Ey-1o-Z7Q"/>
-        <segue reference="Bc3-zU-qcJ"/>
+        <segue reference="0SL-t8-LSp"/>
+        <segue reference="KDU-rb-uOf"/>
+        <segue reference="a8y-gg-9Wc"/>
         <segue reference="9QZ-KS-g69"/>
         <segue reference="Eg1-oz-FCI"/>
         <segue reference="eU3-y3-Iv3"/>
