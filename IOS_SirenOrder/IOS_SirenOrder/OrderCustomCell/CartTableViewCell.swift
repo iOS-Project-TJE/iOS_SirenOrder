@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CartTableViewCell: UITableViewCell {
+class CartTableViewCell: UITableViewCell { // 21.08.05 조혜지 장바구니 Table View Cell
 
     @IBOutlet weak var ivCart: UIImageView!
     @IBOutlet weak var lblDrinkName: UILabel!

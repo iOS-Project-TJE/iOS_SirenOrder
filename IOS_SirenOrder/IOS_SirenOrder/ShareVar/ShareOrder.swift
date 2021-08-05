@@ -15,4 +15,6 @@ struct ShareOrder {
     static var orderCount: Int = 0
     static var orderPersonal : String = ""
     static var orderPersonalPrice: Int = 0
+    static var orderPrice: Int = 0
+    static var orderImg: String = ""
 }
