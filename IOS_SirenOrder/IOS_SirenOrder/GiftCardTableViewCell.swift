@@ -7,12 +7,13 @@
 
 import UIKit
 
-protocol GiftCardTableViewCellDelegate: AnyObject {
+protocol GiftCardTableViewCellDelegate: class {
     func collectionView(collectionviewcell: GiftCardCollectionViewCell?, index: Int, didTappedInTableViewCell: GiftCardTableViewCell)
 }
 
 class GiftCardTableViewCell: UITableViewCell{
    
+    static var nowTab:Int = 0
     weak var cellDelegate: GiftCardTableViewCellDelegate?
 
     @IBOutlet weak var lblListTitle: UILabel!
@@ -22,16 +23,6 @@ class GiftCardTableViewCell: UITableViewCell{
            super.awakeFromNib()
     }
     
-    func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "sgToGift" {
-          
-            let cell = sender as! GiftCardCollectionViewCell
-            let indexPath = self.collectionView.indexPath(for: cell)
-            let payView = segue.destination as! GiftCardPayViewController
-            payView.cardData = ("dfs" ,"dafdf")
-            
-        }
-    }
 }
 
 

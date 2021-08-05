@@ -127,7 +127,8 @@ extension GiftCardItemViewController: UITableViewDataSource, UITableViewDelegate
         background.backgroundColor = .clear
         cell.selectedBackgroundView = background
         
-
+        
+        
         cell.collectionView.dataSource = self
         cell.collectionView.delegate = self
        
@@ -137,13 +138,8 @@ extension GiftCardItemViewController: UITableViewDataSource, UITableViewDelegate
 
     func collectionView(collectionviewcell: GiftCardCollectionViewCell?, index: Int, didTappedInTableViewCell: GiftCardTableViewCell) {
         
-        print(didTappedInTableViewCell.lblListTitle as Any)
-        if let colorsRow = didTappedInTableViewCell.lblListTitle {
-//                  self.tappedCell = colorsRow[index]
-            print("이것보삼!!!",colorsRow, index)
-//                  performSegue(withIdentifier: "detailsviewcontrollerseg", sender: self)
-                  // You can also do changes to the cell you tapped using the 'collectionviewcell'
-              }
+        print(GiftCardTableViewCell.nowTab, index)
+
     }
 }
 extension GiftCardItemViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
