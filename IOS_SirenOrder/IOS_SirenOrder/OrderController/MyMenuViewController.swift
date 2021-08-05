@@ -12,8 +12,10 @@ class MyMenuViewController: UIViewController { // 2021.07.31 조혜지 Order 나
 
     @IBOutlet weak var tvMyMenu: UITableView!
     @IBOutlet weak var lblStore: UILabel!
-    var tag = 0
+    @IBOutlet weak var lblCartCount: UILabel!
     
+    var tag = 0
+    var data = NSMutableArray()
     var dataItem: NSArray = NSArray()
     
     override func viewDidLoad() {
@@ -24,6 +26,10 @@ class MyMenuViewController: UIViewController { // 2021.07.31 조혜지 Order 나
         let myMenuModel = MyMenuModel()
         myMenuModel.delegate = self
         myMenuModel.downloadItems()
+        
+        let cartCountModel = CartCountModel()
+        cartCountModel.delegate = self
+        cartCountModel.downloadItems()
 
         tvMyMenu.dataSource = self
         tvMyMenu.delegate = self
@@ -172,3 +178,13 @@ extension MyMenuViewController: MyMenuModelProtocol {
         self.tvMyMenu.reloadData()
     }
 }
+
+extension MyMenuViewController : CartCountModelProtocol {
+    func itemDownloaded(items: NSMutableArray) {
+        data = items
+        
+        let item: PersonalModel = data[0] as! PersonalModel
+        lblCartCount.text = String(item.cartCount!)
+    }
+}
+
