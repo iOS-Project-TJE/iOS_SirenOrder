@@ -17,6 +17,7 @@ class CartModel : NSObject{
     var name: String?
     var img: String?
     var price: Int?
+    var totalPrice: Int?
  
     override init() {
         
@@ -33,4 +34,7 @@ class CartModel : NSObject{
         self.price = price
     }
     
+    init(totalPrice: Int){
+        self.totalPrice = totalPrice
+    }
 }

@@ -3803,17 +3803,10 @@
                                 <rect key="frame" x="0.0" y="770" width="414" height="92"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="8,500원" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JdO-hq-Sqe">
-                                        <rect key="frame" x="246" y="8" width="147" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="총 1 건" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOr-RR-5vM">
+                                        <rect key="frame" x="21" y="13" width="82" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="총 1건" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOr-RR-5vM">
-                                        <rect key="frame" x="21" y="8" width="75" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -3829,6 +3822,13 @@
                                             <action selector="btnOrder:" destination="6Ue-If-TgS" eventType="touchUpInside" id="uaQ-hZ-4Mk"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="8,500원" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JdO-hq-Sqe">
+                                        <rect key="frame" x="246" y="13" width="147" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
@@ -4150,7 +4150,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cda-nA-80H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1852.1739130434785" y="6118.5267857142853"/>
+            <point key="canvasLocation" x="-1852" y="6105"/>
         </scene>
         <!--매장 설정-->
         <scene sceneID="aq3-jY-jbN">
@@ -4788,9 +4788,9 @@
                         <outlet property="lblPersonalContent" destination="Dcc-i4-lcr" id="Qiq-Bz-Sri"/>
                         <outlet property="lblPersonalPrice" destination="gUo-ig-Jb4" id="5zN-VE-HFc"/>
                         <outlet property="scShpae" destination="ULa-oE-vD7" id="LJ7-XV-qQ9"/>
-                        <segue destination="FmL-3P-H9K" kind="show" identifier="sgStoreChoice" id="CQ3-bO-q8E"/>
                         <segue destination="6Ue-If-TgS" kind="show" identifier="sgCart" id="kAz-mu-mEY"/>
-                        <segue destination="ipQ-OS-k3u" kind="show" identifier="sgOrder" id="cOb-0f-dmA"/>
+                        <segue destination="ipQ-OS-k3u" kind="show" identifier="sgOrder" id="kZT-Mg-Tgu"/>
+                        <segue destination="FmL-3P-H9K" kind="show" identifier="sgStoreChoice" id="6mb-g1-UgV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ndo-aE-mJI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -5013,9 +5013,9 @@
                         <outlet property="lblPersonalOptionPrice" destination="eh2-hR-iTj" id="S9D-Un-awh"/>
                         <outlet property="lblPersonalOptionSelected" destination="3Dy-HY-dM0" id="GsS-AB-aXh"/>
                         <outlet property="tvPersonalOption" destination="BGf-h0-OJl" id="he7-Jv-nDi"/>
-                        <segue destination="FmL-3P-H9K" kind="show" identifier="sgStoreChoice" id="0SL-t8-LSp"/>
                         <segue destination="6Ue-If-TgS" kind="show" identifier="sgCart" id="a8y-gg-9Wc"/>
-                        <segue destination="ipQ-OS-k3u" kind="show" identifier="sgOrder" id="KDU-rb-uOf"/>
+                        <segue destination="ipQ-OS-k3u" kind="show" identifier="sgOrder" id="0vZ-1z-EKh"/>
+                        <segue destination="FmL-3P-H9K" kind="show" identifier="sgStoreChoice" id="wsI-yt-6o8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nrf-Bb-ZeZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -5330,9 +5330,9 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="IDY-P2-z5t"/>
-        <segue reference="2sj-rg-kQz"/>
-        <segue reference="qVp-pZ-vBB"/>
-        <segue reference="Bc3-zU-qcJ"/>
+        <segue reference="6mb-g1-UgV"/>
+        <segue reference="kZT-Mg-Tgu"/>
+        <segue reference="kAz-mu-mEY"/>
         <segue reference="9QZ-KS-g69"/>
         <segue reference="Eg1-oz-FCI"/>
         <segue reference="eU3-y3-Iv3"/>

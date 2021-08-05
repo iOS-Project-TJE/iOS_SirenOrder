@@ -46,6 +46,10 @@
 		851AF38D26BBBFC60093B318 /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851AF38C26BBBFC60093B318 /* CartModel.swift */; };
 		851AF39126BBEE860093B318 /* OrderSendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851AF39026BBEE860093B318 /* OrderSendModel.swift */; };
 		851AF39326BBF2A70093B318 /* CartSelectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851AF39226BBF2A70093B318 /* CartSelectModel.swift */; };
+		851AF39526BC14D50093B318 /* CarttAllDeleteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851AF39426BC14D50093B318 /* CarttAllDeleteModel.swift */; };
+		851AF39726BC15890093B318 /* CartDeleteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851AF39626BC15890093B318 /* CartDeleteModel.swift */; };
+		851AF39926BC1AAA0093B318 /* CartCountUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851AF39826BC1AAA0093B318 /* CartCountUpdateModel.swift */; };
+		851AF39D26BC335D0093B318 /* CartPriceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851AF39C26BC335D0093B318 /* CartPriceModel.swift */; };
 		85423B2626B6EEB200FFEF85 /* AllMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85423B2526B6EEB200FFEF85 /* AllMenuViewController.swift */; };
 		85423B2826B6EED100FFEF85 /* MyMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85423B2726B6EED100FFEF85 /* MyMenuViewController.swift */; };
 		85423B2A26B6F1E700FFEF85 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85423B2926B6F1E700FFEF85 /* OrderViewController.swift */; };
@@ -142,6 +146,10 @@
 		851AF38C26BBBFC60093B318 /* CartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModel.swift; sourceTree = "<group>"; };
 		851AF39026BBEE860093B318 /* OrderSendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSendModel.swift; sourceTree = "<group>"; };
 		851AF39226BBF2A70093B318 /* CartSelectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartSelectModel.swift; sourceTree = "<group>"; };
+		851AF39426BC14D50093B318 /* CarttAllDeleteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarttAllDeleteModel.swift; sourceTree = "<group>"; };
+		851AF39626BC15890093B318 /* CartDeleteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartDeleteModel.swift; sourceTree = "<group>"; };
+		851AF39826BC1AAA0093B318 /* CartCountUpdateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCountUpdateModel.swift; sourceTree = "<group>"; };
+		851AF39C26BC335D0093B318 /* CartPriceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartPriceModel.swift; sourceTree = "<group>"; };
 		85423B2526B6EEB200FFEF85 /* AllMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMenuViewController.swift; sourceTree = "<group>"; };
 		85423B2726B6EED100FFEF85 /* MyMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMenuViewController.swift; sourceTree = "<group>"; };
 		85423B2926B6F1E700FFEF85 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
@@ -254,6 +262,10 @@
 				70BB20EC26BA79C200871D85 /* HomeRecommendModel.swift */,
 				70BB20EE26BA79D200871D85 /* HomeNewModel.swift */,
 				851AF39226BBF2A70093B318 /* CartSelectModel.swift */,
+				851AF39426BC14D50093B318 /* CarttAllDeleteModel.swift */,
+				851AF39626BC15890093B318 /* CartDeleteModel.swift */,
+				851AF39826BC1AAA0093B318 /* CartCountUpdateModel.swift */,
+				851AF39C26BC335D0093B318 /* CartPriceModel.swift */,
 			);
 			path = Dao;
 			sourceTree = "<group>";
@@ -543,6 +555,7 @@
 				85423B2626B6EEB200FFEF85 /* AllMenuViewController.swift in Sources */,
 				85DDD67F26B85C1500B97DF7 /* DrinkDetailViewController.swift in Sources */,
 				856F78F226BA9C030092B57C /* SharePersonalData.swift in Sources */,
+				851AF39D26BC335D0093B318 /* CartPriceModel.swift in Sources */,
 				857F1C4C26B27A210028D3BC /* AppDelegate.swift in Sources */,
 				3258C15526B8D635006892A6 /* StoreSearchClickViewController.swift in Sources */,
 				6980B02426B585690048DAAB /* GiftCardViewController.swift in Sources */,
@@ -565,6 +578,7 @@
 				6980B02B26B585690048DAAB /* UserModel.swift in Sources */,
 				851AF38926BBB3A80093B318 /* DrinkOrderTableViewCell.swift in Sources */,
 				85423B4626B6FB9700FFEF85 /* FrequentStoreTableViewController.swift in Sources */,
+				851AF39926BC1AAA0093B318 /* CartCountUpdateModel.swift in Sources */,
 				6980B02A26B585690048DAAB /* OrderModel.swift in Sources */,
 				70BB20ED26BA79C200871D85 /* HomeRecommendModel.swift in Sources */,
 				85DDD68326B85D8900B97DF7 /* OrderPersonalViewController.swift in Sources */,
@@ -608,6 +622,7 @@
 				85423B4226B6FB2100FFEF85 /* StoreSettingViewController.swift in Sources */,
 				85DDD67926B8583E00B97DF7 /* CartInsertModel.swift in Sources */,
 				6980B02926B585690048DAAB /* HistoryListModel.swift in Sources */,
+				851AF39526BC14D50093B318 /* CarttAllDeleteModel.swift in Sources */,
 				70BB20EB26BA79B200871D85 /* HomeBestModel.swift in Sources */,
 				85423B3626B6F7C100FFEF85 /* MyMenuModel.swift in Sources */,
 				851AF39126BBEE860093B318 /* OrderSendModel.swift in Sources */,
@@ -615,6 +630,7 @@
 				85DDD67526B857AB00B97DF7 /* PersonalIdModel.swift in Sources */,
 				70BB20EF26BA79D200871D85 /* HomeNewModel.swift in Sources */,
 				85DDD67B26B8587F00B97DF7 /* PersonalOptionContentTableViewCell.swift in Sources */,
+				851AF39726BC15890093B318 /* CartDeleteModel.swift in Sources */,
 				997120F926B6957D0026317F /* LoginViewController.swift in Sources */,
 				85DDD67D26B858C800B97DF7 /* PersonalOptionTitleTableViewCell.swift in Sources */,
 				85423B2F26B6F3FE00FFEF85 /* MyMenuTableViewCell.swift in Sources */,

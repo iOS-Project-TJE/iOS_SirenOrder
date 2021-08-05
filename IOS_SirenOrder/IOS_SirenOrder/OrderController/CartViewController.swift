@@ -16,19 +16,21 @@ class CartViewController: UIViewController { // 2021.08.05 조혜지 장바구�
     @IBOutlet weak var lblCartTotalPrice: UILabel!
     
     var dataItem: NSArray = NSArray()
+    var count = NSMutableArray()
+    var price = NSMutableArray()
     
-    override func viewDidLoad() { // 225
+    override func viewDidLoad() {
         super.viewDidLoad()
-
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.prefersLargeTitles = true
         self.tvCart.dataSource = self
         self.tvCart.delegate = self
         self.tvCart.separatorStyle = .none
         self.navigationController?.navigationBar.tintColor = UIColor(displayP3Red: 0/255, green: 112/225, blue: 74/255, alpha: 1)
         btnOrder.layer.cornerRadius = 20
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.navigationBar.prefersLargeTitles = true
+        
         goOrder = false
         if storeName == "" {
             lblStore.text = "주문할 매장을 선택해 주세요"
@@ -39,20 +41,89 @@ class CartViewController: UIViewController { // 2021.08.05 조혜지 장바구�
         let cartSelectModel = CartSelectModel()
         cartSelectModel.delegate = self
         cartSelectModel.downloadItems()
+        
+        let cartCountModel = CartCountModel()
+        cartCountModel.delegate = self
+        cartCountModel.downloadItems()
+
+//        let cartPriceModel = CartPriceModel()
+//        cartPriceModel.delegate = self
+//        cartCountModel.downloadItems()
     }
     
     @IBAction func btnAllDelete(_ sender: UIBarButtonItem) {
-        
-        
+        let cartAllDeleteModel = CartAllDeleteModel()
+        let result = cartAllDeleteModel.deleteItems()
+        if result {
+            let time = DispatchTime.now() + .seconds(1)
+            DispatchQueue.main.asyncAfter(deadline: time) {
+                let cartSelectModel = CartSelectModel()
+                cartSelectModel.delegate = self
+                cartSelectModel.downloadItems()
+                self.tvCart.reloadData()
+                
+                let cartCountModel = CartCountModel()
+                cartCountModel.delegate = self
+                cartCountModel.downloadItems()
+            }
+        }
     }
     
     @IBAction func btnDelete(_ sender: UIButton) {
+        let item: CartModel = dataItem[sender.tag] as! CartModel
+        let cartDeleteModel = CartDeleteModel()
+        let result = cartDeleteModel.deleteItems(item.cartId!)
+        if result {
+            let time = DispatchTime.now() + .seconds(1)
+            DispatchQueue.main.asyncAfter(deadline: time) {
+                let cartSelectModel = CartSelectModel()
+                cartSelectModel.delegate = self
+                cartSelectModel.downloadItems()
+                self.tvCart.reloadData()
+                
+                let cartCountModel = CartCountModel()
+                cartCountModel.delegate = self
+                cartCountModel.downloadItems()
+            }
+        }
     }
     
     @IBAction func btnMinus(_ sender: UIButton) {
+        let item: CartModel = dataItem[sender.tag] as! CartModel
+        let cartCountUpdateModel = CartCountUpdateModel()
+        let result = cartCountUpdateModel.uodateItems(item.cartCount!-1, Int(item.cartId!)!)
+        if result {
+            let time = DispatchTime.now() + .seconds(1)
+            DispatchQueue.main.asyncAfter(deadline: time) {
+                let cartSelectModel = CartSelectModel()
+                cartSelectModel.delegate = self
+                cartSelectModel.downloadItems()
+                self.tvCart.reloadData()
+                
+                let cartCountModel = CartCountModel()
+                cartCountModel.delegate = self
+                cartCountModel.downloadItems()
+            }
+        }
     }
     
     @IBAction func btnPlus(_ sender: UIButton) {
+        let item: CartModel = dataItem[sender.tag] as! CartModel
+        let cartCountUpdateModel = CartCountUpdateModel()
+        let result = cartCountUpdateModel.uodateItems(item.cartCount!+1, Int(item.cartId!)!)
+        if result {
+            let time = DispatchTime.now() + .seconds(1)
+            DispatchQueue.main.asyncAfter(deadline: time) {
+                let cartSelectModel = CartSelectModel()
+                cartSelectModel.delegate = self
+                cartSelectModel.downloadItems()
+                self.tvCart.reloadData()
+                
+                let cartCountModel = CartCountModel()
+                cartCountModel.delegate = self
+                cartCountModel.downloadItems()
+            }
+        }
     }
     
     @IBAction func btnStore(_ sender: UIButton) {
@@ -71,6 +142,14 @@ class CartViewController: UIViewController { // 2021.08.05 조혜지 장바구�
         }else {
             self.performSegue(withIdentifier: "sgOrder", sender: self)
         }
+    }
+    
+    func DecimalWon(value: Int) -> String{
+            let numberFormatter = NumberFormatter()
+            numberFormatter.numberStyle = .decimal
+            let result = numberFormatter.string(from: NSNumber(value: value))! + " 원"
+            
+            return result
     }
     /*
     // MARK: - Navigation
@@ -109,15 +188,12 @@ extension CartViewController: UITableViewDataSource {
         cell.btnMinus.tag = indexPath.row
         cell.btnPlus.tag = indexPath.row
         
+        if item.cartCount == 1 {
+            cell.btnMinus.isEnabled = false
+        }else {
+            cell.btnMinus.isEnabled = true
+        }
         return cell
-    }
-    
-    func DecimalWon(value: Int) -> String{
-            let numberFormatter = NumberFormatter()
-            numberFormatter.numberStyle = .decimal
-            let result = numberFormatter.string(from: NSNumber(value: value))! + " 원"
-            
-            return result
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -138,3 +214,19 @@ extension CartViewController : CartSelectModelProtocol {
         self.tvCart.reloadData()
     }
 }
+
+extension CartViewController : CartCountModelProtocol {
+    func itemDownloaded(items: NSMutableArray) {
+        count = items
+        let item: PersonalModel = count[0] as! PersonalModel
+        lblCartTotalCount.text = "총 \(item.cartCount!) 개"
+    }
+}
+
+//extension CartViewController : CartPriceModelProtocol {
+//    func itemDownloaded2(items: NSMutableArray) {
+//        price = items
+//        let item: CartModel = price[0] as! CartModel
+//        lblCartTotalPrice.text = "\(item.totalPrice!) 원"
+//    }
+//}
