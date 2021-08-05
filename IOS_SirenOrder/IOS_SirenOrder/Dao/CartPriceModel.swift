@@ -9,7 +9,7 @@ import Foundation
 
 // 21.08.05 조혜지 장바구니 총 가격 정보 불러오는 Dao
 protocol CartPriceModelProtocol : AnyObject {
-    func itemDownloaded(items: NSMutableArray)
+    func priceDownloaded(items: NSMutableArray)
 }
 
 class CartPriceModel : NSObject {
@@ -49,16 +49,16 @@ class CartPriceModel : NSObject {
         
         for i in 0..<jsonResult.count {
             jsonElement = jsonResult[i] as! NSDictionary
-            if let cartCount = jsonElement["cartCount"] as? String{
+            if let totalPrice = jsonElement["totalPrice"] as? String{
                 
-                let query = PersonalModel(cartCount: Int(cartCount)!)
+                let query = CartModel(totalPrice: Int(totalPrice)!)
                 locations.add(query)
                 
             }
         }
 
         DispatchQueue.main.async(execute: {() -> Void in
-            self.delegate.itemDownloaded(items: locations)
+            self.delegate.priceDownloaded(items: locations)
     })
     }
 }

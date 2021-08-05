@@ -280,22 +280,38 @@ class OrderPersonalViewController: UIViewController { // 2021.08.02 조혜지 �
     }
     
     @IBAction func btnOrder(_ sender: UIButton) {
-        print("여기?")
         goOrder = true
+        let item: DrinkModel = dataItem[0] as! DrinkModel
         if storeName == "" {
-            print("저기?")
             let resultAlert = UIAlertController(title: "주문할 매장을 선택해 주세요!", message: nil, preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: {ACTION in
                 self.performSegue(withIdentifier: "sgStoreChoice", sender: self)
+                ShareOrder.orderCd = self.receivedCd
+                ShareOrder.orderName = item.name!
+                ShareOrder.orderCount = SharePersonalData.drinkCount
+                ShareOrder.orderPersonal = "\(iceHot), \(cupSize), \(cupType), \(pContent)"
+                ShareOrder.orderPersonalPrice = SharePersonalData.personalOptionPrice
+                ShareOrder.orderPrice = item.price!
+                ShareOrder.orderImg = item.img!
             })
             resultAlert.addAction(cancelAction)
             resultAlert.addAction(okAction)
             present(resultAlert, animated: true, completion: nil)
         }else {
-            print("요기?")
             self.performSegue(withIdentifier: "sgOrder", sender: self)
+            ShareOrder.orderCd = self.receivedCd
+            ShareOrder.orderName = item.name!
+            ShareOrder.orderCount = SharePersonalData.drinkCount
+            ShareOrder.orderPersonal = "\(iceHot), \(cupSize), \(cupType), \(pContent)"
+            ShareOrder.orderPersonalPrice = SharePersonalData.personalOptionPrice
+            ShareOrder.orderPrice = item.price!
+            ShareOrder.orderImg = item.img!
         }
+    }
+    
+    @IBAction func btnPersonalOption(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "sgPersonalOption", sender: self)
     }
     
     func drinkModel() {
@@ -326,8 +342,9 @@ class OrderPersonalViewController: UIViewController { // 2021.08.02 조혜지 �
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         if segue.identifier == "sgPersonalOption" {
+            let item: DrinkModel = dataItem[0] as! DrinkModel
             let personalOptionViewController = segue.destination as! PersonalOptionViewController
-            personalOptionViewController.receivedData(lblDrinkName.text!, myMenuState, receivedCd, pId)
+            personalOptionViewController.receivedData(lblDrinkName.text!, myMenuState, receivedCd, pId, Int(item.price!), item.img!)
         }
     }
     

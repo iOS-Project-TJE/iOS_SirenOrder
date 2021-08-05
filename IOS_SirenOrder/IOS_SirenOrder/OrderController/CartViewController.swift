@@ -24,7 +24,6 @@ class CartViewController: UIViewController { // 2021.08.05 조혜지 장바구�
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.navigationBar.prefersLargeTitles = true
         self.tvCart.dataSource = self
         self.tvCart.delegate = self
         self.tvCart.separatorStyle = .none
@@ -46,9 +45,9 @@ class CartViewController: UIViewController { // 2021.08.05 조혜지 장바구�
         cartCountModel.delegate = self
         cartCountModel.downloadItems()
 
-//        let cartPriceModel = CartPriceModel()
-//        cartPriceModel.delegate = self
-//        cartCountModel.downloadItems()
+        let cartPriceModel = CartPriceModel()
+        cartPriceModel.delegate = self
+        cartPriceModel.downloadItems()
     }
     
     @IBAction func btnAllDelete(_ sender: UIBarButtonItem) {
@@ -65,6 +64,10 @@ class CartViewController: UIViewController { // 2021.08.05 조혜지 장바구�
                 let cartCountModel = CartCountModel()
                 cartCountModel.delegate = self
                 cartCountModel.downloadItems()
+                
+                let cartPriceModel = CartPriceModel()
+                cartPriceModel.delegate = self
+                cartPriceModel.downloadItems()
             }
         }
     }
@@ -84,6 +87,10 @@ class CartViewController: UIViewController { // 2021.08.05 조혜지 장바구�
                 let cartCountModel = CartCountModel()
                 cartCountModel.delegate = self
                 cartCountModel.downloadItems()
+                
+                let cartPriceModel = CartPriceModel()
+                cartPriceModel.delegate = self
+                cartPriceModel.downloadItems()
             }
         }
     }
@@ -103,6 +110,10 @@ class CartViewController: UIViewController { // 2021.08.05 조혜지 장바구�
                 let cartCountModel = CartCountModel()
                 cartCountModel.delegate = self
                 cartCountModel.downloadItems()
+                
+                let cartPriceModel = CartPriceModel()
+                cartPriceModel.delegate = self
+                cartPriceModel.downloadItems()
             }
         }
     }
@@ -122,6 +133,10 @@ class CartViewController: UIViewController { // 2021.08.05 조혜지 장바구�
                 let cartCountModel = CartCountModel()
                 cartCountModel.delegate = self
                 cartCountModel.downloadItems()
+                
+                let cartPriceModel = CartPriceModel()
+                cartPriceModel.delegate = self
+                cartPriceModel.downloadItems()
             }
         }
     }
@@ -223,10 +238,10 @@ extension CartViewController : CartCountModelProtocol {
     }
 }
 
-//extension CartViewController : CartPriceModelProtocol {
-//    func itemDownloaded2(items: NSMutableArray) {
-//        price = items
-//        let item: CartModel = price[0] as! CartModel
-//        lblCartTotalPrice.text = "\(item.totalPrice!) 원"
-//    }
-//}
+extension CartViewController : CartPriceModelProtocol {
+    func priceDownloaded(items: NSMutableArray) {
+        price = items
+        let item: CartModel = price[0] as! CartModel
+        lblCartTotalPrice.text = DecimalWon(value: item.totalPrice!)
+    }
+}
