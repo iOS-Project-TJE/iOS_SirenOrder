@@ -19,13 +19,14 @@ class HistoryModel : NSObject{
     var img : String?
     var name : String?
     var address : String?
+    var orderPersonalPrice : Int?
     
     override init() {
         
     }
     
     
-    init(orderId : String, orderNum : String, orderCount : Int, orderPersonal : String, orderDate : String, storename : String, cd : String, price : Int, img : String, name : String, address : String){
+    init(orderId : String, orderNum : String, orderCount : Int, orderPersonal : String, orderDate : String, storename : String, cd : String, price : Int, img : String, name : String, address : String, orderPersonalPrice : Int){
         self.orderId=orderId
         self.orderNum=orderNum
         self.orderPersonal=orderPersonal
@@ -37,5 +38,6 @@ class HistoryModel : NSObject{
         self.img=img
         self.name=name
         self.address=address
+        self.orderPersonalPrice=orderPersonalPrice
     }
 }
