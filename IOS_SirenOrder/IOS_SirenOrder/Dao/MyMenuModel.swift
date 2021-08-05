@@ -52,9 +52,10 @@ class MyMenuModel : NSObject {
                let cd = jsonElement["cd"] as? String,
                let name = jsonElement["name"] as? String,
                let price = jsonElement["price"] as? String,
-               let img = jsonElement["img"] as? String{
+               let img = jsonElement["img"] as? String,
+               let personalPrice = jsonElement["personalPrice"] as? String{
                 
-                let query = PersonalModel(personalId: personalId, personalContent: personalContent, cd: cd, name: name, price: Int(price)!, img: img)
+                let query = PersonalModel(personalId: personalId, personalContent: personalContent, cd: cd, name: name, price: Int(price)!, img: img, personalPrice: Int(personalPrice)!)
                 locations.add(query)
                 
             }

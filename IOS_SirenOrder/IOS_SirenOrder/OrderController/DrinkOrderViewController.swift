@@ -13,7 +13,9 @@ class DrinkOrderViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-
+        navigationItem.largeTitleDisplayMode = .never
+        navigationController?.navigationBar.barTintColor = .white
+        self.navigationController?.navigationBar.shadowImage = UIImage()
     }
 
     /*

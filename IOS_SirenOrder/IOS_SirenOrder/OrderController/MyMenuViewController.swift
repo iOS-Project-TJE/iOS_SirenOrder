@@ -47,8 +47,14 @@ class MyMenuViewController: UIViewController { // 2021.07.31 조혜지 Order 나
         }else {
             lblStore.text = storeName
         }
-        print("viewWill")
-
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let myMenuModel = MyMenuModel()
+        myMenuModel.delegate = self
+        myMenuModel.downloadItems()
+        tvMyMenu.reloadData()
+        print("여기???")
     }
     
     @IBAction func btnMyMenuDelete(_ sender: UIButton) {
@@ -56,10 +62,15 @@ class MyMenuViewController: UIViewController { // 2021.07.31 조혜지 Order 나
         let myMenuDeleteModel = MyMenuDeleteModel()
         let result = myMenuDeleteModel.DeleteItems(personalId: item.personalId!)
         if result {
-            let myMenuModel = MyMenuModel()
-            myMenuModel.delegate = self
-            myMenuModel.downloadItems()
-            tvMyMenu.reloadData()
+            let time = DispatchTime.now() + .seconds(1)
+            DispatchQueue.main.asyncAfter(deadline: time) {
+                let myMenuModel = MyMenuModel()
+                myMenuModel.delegate = self
+                myMenuModel.downloadItems()
+                self.tvMyMenu.reloadData()
+            }
+            
+            
         }
     }
     
@@ -128,7 +139,7 @@ extension MyMenuViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myMenuCell") as! MyMenuTableViewCell
         let item: PersonalModel = dataItem[indexPath.row] as! PersonalModel
         cell.lblMyMenuName.text = "\(item.name!)"
-        cell.lblMyMenuPrice.text = "\(DecimalWon(value: item.price!))"
+        cell.lblMyMenuPrice.text = "\(DecimalWon(value: item.price!+item.personalPrice!))"
         
         let firstIndex = item.personalContent!.index(item.personalContent!.startIndex, offsetBy: 0)
         let lastIndex = item.personalContent!.index(item.personalContent!.startIndex, offsetBy: item.personalContent!.count-2)
@@ -187,4 +198,3 @@ extension MyMenuViewController : CartCountModelProtocol {
         lblCartCount.text = String(item.cartCount!)
     }
 }
-
