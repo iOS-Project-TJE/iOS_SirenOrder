@@ -2,6 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+<<<<<<< HEAD
 	<key>NSBluetoothAlwaysUsageDescription</key>
 	<string>방문매장 확인을 위한 블루투스 사용 권한</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
@@ -14,6 +15,10 @@
 	<string>음성인식을 위한 마이크 사용 권한</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>사진 첨부를 위한 앨범 사용 권한</string>
+=======
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>앱을 사용하는 동안 위치 정보를 사용합니다.</string>
+>>>>>>> upstream/main
 	<key>NSAppleMusicUsageDescription</key>
 	<string>App needs location servers for stuff</string>
 	<key>NSAppTransportSecurity</key>
