@@ -7,29 +7,25 @@
 
 import Foundation
 
-protocol HistoryModelProtocol : AnyObject {
-    func itemDownloaded(items: NSMutableArray)
+protocol HistoryListProtocol : AnyObject {
+    func itemDownloaded(items: NSArray)
 }
 
-class HistoryListModel: NSObject{
-    var delegate: HistoryModelProtocol!
-    var urlPath = "http://\(macIp):8080/starbucks/jsp/sj/"
+class HistoryList: NSObject{
+    var delegate: HistoryListProtocol!
+    let urlPath = "http://localhost:8080/starbucks/HistoryList.jsp"
     
-    func downloadHistoryItems(){
-        var urlAdd=""
-        urlAdd="HistoryList.jsp?userId=\(userId)"
-        
-        urlPath += urlAdd
-        let url: URL = URL(string: urlPath)!
+    func downloadItems(){
+        let userId = UserDefaults.standard.string(forKey: "userId")
+        let url: URL = URL(string: urlPath+"?userId=\((userId)!)")!
         let defaultSession = URLSession(configuration: URLSessionConfiguration.default)
-        let task = defaultSession.dataTask(with: url){(data,response,error) in
+        let task = defaultSession.dataTask(with: url){(data, response, error) in
             if error != nil{
                 print("Failed to download data")
             }else{
                 print("Data is downloaded")
                 self.parseJSON(data!)
             }
-            self.parseJSON(data!)
         }
         task.resume()
     }
@@ -42,23 +38,20 @@ class HistoryListModel: NSObject{
             print(error)
         }
         
-        
         var jsonElement = NSDictionary()
         let locations = NSMutableArray()
+        
         for i in 0..<jsonResult.count{
             jsonElement = jsonResult[i] as! NSDictionary
             if let orderId = jsonElement["orderId"] as? String,
                let orderNum = jsonElement["orderNum"] as? String,
-               let orderCount = jsonElement["orderCount"] as? String,
+               let orderCount = jsonElement["orderCount"] as? Int,
                let orderPersonal = jsonElement["orderPersonal"] as? String,
                let orderDate = jsonElement["orderDate"] as? String,
                let storename = jsonElement["storename"] as? String,
                let cd = jsonElement["cd"] as? String,
-               let price = jsonElement["price"] as? String,
-               let img = jsonElement["img"] as? String,
-               let name = jsonElement["name"] as? String,
-               let address = jsonElement["address"] as? String{
-                let query = HistoryModel(orderId: orderId, orderNum: orderNum, orderCount: Int(orderCount)!, orderPersonal: orderPersonal, orderDate: orderDate, storename: storename, cd: cd, price: Int(price)!, img: img, name: name, address: address)
+               let userId = jsonElement["userId"] as? String{
+                let query = OrderModel(orderId: orderId, orderNum: orderNum, orderCount: orderCount, orderPersonal: orderPersonal, orderDate: orderDate, storename: storename, cd: cd, userId: userId)
                 locations.add(query)
             }
         }

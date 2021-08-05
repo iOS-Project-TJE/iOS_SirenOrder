@@ -1,26 +1,22 @@
 //
-//  FrequentStoreModel.swift
+//  GiftCardList.swift
 //  IOS_SirenOrder
 //
-//  Created by Hyeji on 2021/08/02.
+//  Created by Biso on 2021/08/02.
 //
 
 import Foundation
 
-// 21.08.02 조혜지 Order 자주 가는 매장 Table View Dao
-protocol FrequentStoreModelProtocol : AnyObject {
+protocol GiftCardListProtocol : AnyObject {
     func itemDownloaded(items: NSArray)
 }
 
-class FrequentStoreModel: NSObject{
-    var delegate: FrequentStoreModelProtocol!
-    var urlPath = "http://\(macIp):8080/starbucks/jsp/hj/frequentStoreSelect.jsp"
+class GiftCardList: NSObject{
+    var delegate: GiftCardListProtocol!
+    let urlPath = "http://localhost:8080/starbucks/giftCardList_select.jsp"
+    
     
     func downloadItems(){
-        
-        let urlAdd = "?userId=\(userId)"
-        urlPath = urlPath + urlAdd
-        
         let url: URL = URL(string: urlPath)!
         let defaultSession = URLSession(configuration: URLSessionConfiguration.default)
         let task = defaultSession.dataTask(with: url){(data, response, error) in
@@ -37,6 +33,7 @@ class FrequentStoreModel: NSObject{
     func parseJSON(_ data: Data){
         var jsonResult = NSArray()
         do{
+            print("Data 1")
             jsonResult=try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as! NSArray
         }catch let error as NSError{
             print(error)
@@ -47,14 +44,15 @@ class FrequentStoreModel: NSObject{
         
         for i in 0..<jsonResult.count{
             jsonElement = jsonResult[i] as! NSDictionary
-            if let storename = jsonElement["storename"] as? String,
-               let lat = jsonElement["lat"] as? String,
-               let long = jsonElement["long"] as? String,
-               let address = jsonElement["address"] as? String{
-                let query = LocationModel(storename: storename, lat: Double(lat)!, lon: Double(long)!, address: address)
+            if let cd = jsonElement["cd"] as? String,
+               let name = jsonElement["name"] as? String,
+               let img = jsonElement["img"] as? String,
+               let launch = jsonElement["launch"] as? String{
+                let query = CardModel(cd: cd, name: name, img: img, launch: launch)
                 locations.add(query)
             }
         }
+        print("Data 2")
         DispatchQueue.main.async(execute: {() -> Void in
             self.delegate.itemDownloaded(items: locations)
         })
