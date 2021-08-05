@@ -21,13 +21,14 @@ class ReceiptModel : NSObject{
     var name : String?
     var address : String?
     var userNickname : String?
+    var orderPersonalPrice : Int?
     
     override init() {
         
     }
     
     
-    init(orderId : String, orderNum : String, orderCount : Int, orderPersonal : String, orderDate : String, storename : String, cd : String, price : Int, img : String, name : String, address : String, userNickname : String){
+    init(orderId : String, orderNum : String, orderCount : Int, orderPersonal : String, orderDate : String, storename : String, cd : String, price : Int, img : String, name : String, address : String, userNickname : String, orderPersonalPrice : Int){
         self.orderId=orderId
         self.orderNum=orderNum
         self.orderPersonal=orderPersonal
@@ -40,5 +41,6 @@ class ReceiptModel : NSObject{
         self.name=name
         self.address=address
         self.userNickname=userNickname
+        self.orderPersonalPrice=orderPersonalPrice
     }
 }

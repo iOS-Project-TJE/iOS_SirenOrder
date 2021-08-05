@@ -58,8 +58,9 @@ class ReceiptListModel: NSObject{
                let img = jsonElement["img"] as? String,
                let name = jsonElement["name"] as? String,
                let address = jsonElement["address"] as? String,
-               let userNickname = jsonElement["userNickname"] as? String{
-                let query = ReceiptModel(orderId: orderId, orderNum: orderNum, orderCount: Int(orderCount)!, orderPersonal: orderPersonal, orderDate: orderDate, storename: storename, cd: cd, price: Int(price)!, img: img, name: name, address: address, userNickname: userNickname)
+               let userNickname = jsonElement["userNickname"] as? String,
+               let orderPersonalPrice = jsonElement["orderPersonalPrice"] as? String{
+                let query = ReceiptModel(orderId: orderId, orderNum: orderNum, orderCount: Int(orderCount)!, orderPersonal: orderPersonal, orderDate: orderDate, storename: storename, cd: cd, price: Int(price)!, img: img, name: name, address: address, userNickname: userNickname, orderPersonalPrice: Int(orderPersonalPrice) ?? 0)
                 locations.add(query)
             }
         }
