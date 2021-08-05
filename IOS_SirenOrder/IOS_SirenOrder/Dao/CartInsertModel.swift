@@ -11,9 +11,9 @@ import Foundation
 class CartInsertModel {
     var urlPath = "http://\(macIp):8080/starbucks/jsp/hj/cartInsert.jsp"
     
-    func InsertItems(cartCount: Int, cartPersonal: String, cd: String, userId: String) -> Bool {
+    func InsertItems(cartCount: Int, cartPersonal: String, cd: String, userId: String, cartPersonalPrice: Int) -> Bool {
         var result: Bool = true
-        let urlAdd = "?cartCount=\(cartCount)&cartPersonal=\(cartPersonal)&cd=\(cd)&userId=\(userId)"
+        let urlAdd = "?cartCount=\(cartCount)&cartPersonal=\(cartPersonal)&cd=\(cd)&userId=\(userId)&cartPersonalPrice=\(cartPersonalPrice)"
         urlPath = urlPath + urlAdd
         
         urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!

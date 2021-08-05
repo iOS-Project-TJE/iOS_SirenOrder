@@ -255,7 +255,7 @@ class OrderPersonalViewController: UIViewController { // 2021.08.02 조혜지 �
     
     @IBAction func btnCart(_ sender: UIButton) {
         let cartInsertModel = CartInsertModel()
-        let result = cartInsertModel.InsertItems(cartCount: SharePersonalData.drinkCount, cartPersonal: "\(iceHot), \(cupSize), \(cupType), \(pContent)", cd: receivedCd, userId: userId)
+        let result = cartInsertModel.InsertItems(cartCount: SharePersonalData.drinkCount, cartPersonal: "\(iceHot), \(cupSize), \(cupType), \(pContent)", cd: receivedCd, userId: userId, cartPersonalPrice: SharePersonalData.personalOptionPrice)
         
         if result{
             let myMenuCheckController = UIAlertController(title: "추가", message: "장바구니에 추가되었습니다!", preferredStyle: .alert)

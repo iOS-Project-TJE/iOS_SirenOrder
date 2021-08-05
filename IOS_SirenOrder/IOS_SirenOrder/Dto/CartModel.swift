@@ -14,17 +14,23 @@ class CartModel : NSObject{
     var cartPersonal: String?
     var cd : String?
     var cartPersonalPrice: Int?
+    var name: String?
+    var img: String?
+    var price: Int?
  
     override init() {
         
     }
     
-    init(cartId: String, cartCount: Int, cartPersonal: String, cd: String, cartPersonalPrice: Int){
+    init(cartId: String, cartCount: Int, cartPersonal: String, cd: String, cartPersonalPrice: Int, name: String, img: String, price: Int){
         self.cartId = cartId
         self.cartCount = cartCount
         self.cartPersonal = cartPersonal
         self.cd = cd
         self.cartPersonalPrice = cartPersonalPrice
+        self.name = name
+        self.img = img
+        self.price = price
     }
     
 }

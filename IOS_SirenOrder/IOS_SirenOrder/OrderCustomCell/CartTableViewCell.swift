@@ -18,6 +18,7 @@ class CartTableViewCell: UITableViewCell {
     @IBOutlet weak var btnMinus: UIButton!
     @IBOutlet weak var btnPlus: UIButton!
     @IBOutlet weak var btnDelete: UIButton!
+    @IBOutlet weak var lblPersonalPrice: UILabel!
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
