@@ -1730,13 +1730,12 @@
             <objects>
                 <tableViewController id="UkH-5N-WXc" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="0Yw-24-bBy">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="110" id="3ax-JJ-na4">
                                 <rect key="frame" x="0.0" y="24.5" width="414" height="110"/>
-
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3ax-JJ-na4" id="EOZ-hF-Amq">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
@@ -1798,11 +1797,11 @@
             <objects>
                 <viewController id="ANt-4m-sDi" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0M4-69-7at">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eug-sI-KV1">
-                                <rect key="frame" x="40" y="108" width="314" height="30"/>
+                                <rect key="frame" x="40" y="76" width="314" height="30"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pVZ-BO-EYG">
                                         <rect key="frame" x="3" y="4" width="20" height="22"/>
@@ -1832,7 +1831,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nff-q9-qXG">
-                                <rect key="frame" x="364" y="108" width="30" height="30"/>
+                                <rect key="frame" x="364" y="76" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="nff-q9-qXG" secondAttribute="height" multiplier="1:1" id="YSP-u5-5Rq"/>
                                 </constraints>
@@ -1841,7 +1840,7 @@
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최근 검색어가 없습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JBz-Fx-yJE">
-                                <rect key="frame" x="0.0" y="338" width="414" height="30"/>
+                                <rect key="frame" x="0.0" y="306" width="414" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="di3-RI-aII"/>
                                 </constraints>
@@ -1850,7 +1849,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MQd-1E-PBo">
-                                <rect key="frame" x="0.0" y="158" width="414" height="275"/>
+                                <rect key="frame" x="0.0" y="126" width="414" height="204"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최근 검색어" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WqF-Jv-aep">
                                         <rect key="frame" x="40" y="10" width="56" height="15"/>
@@ -1859,7 +1858,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CEz-wE-klC">
-                                        <rect key="frame" x="20" y="35" width="374" height="154"/>
+                                        <rect key="frame" x="20" y="35" width="374" height="83"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BMR-Ac-B1p">
                                             <size key="itemSize" width="374" height="50"/>
@@ -1911,7 +1910,7 @@
                                         </cells>
                                     </collectionView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fhn-hd-HXW">
-                                        <rect key="frame" x="352" y="225" width="42" height="30"/>
+                                        <rect key="frame" x="352" y="154" width="42" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Ica-O7-B5P"/>
                                         </constraints>
@@ -2878,6 +2877,7 @@
                                             <outlet property="ivCategoryDetail" destination="Iju-gx-kTj" id="P3c-0Y-rra"/>
                                             <outlet property="lblCategoryDetailName" destination="uNL-g6-pCA" id="RS2-ZB-bHl"/>
                                             <outlet property="lblCategoryDetailPrice" destination="akr-Uv-VoO" id="ejr-2M-sk9"/>
+                                            <segue destination="F9p-S4-2Za" kind="show" identifier="sgDrinkDetail" id="25Z-4m-haS"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -2970,6 +2970,9 @@
                                 <state key="normal" title="주문하기">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="DB7-B3-54W" kind="show" identifier="sgPersonal" id="Pbr-LD-46G"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="event2" translatesAutoresizingMaskIntoConstraints="NO" id="lMM-TO-XQS">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
@@ -4138,6 +4141,9 @@
                     <navigationItem key="navigationItem" id="st5-eG-p6r">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="6ie-kh-JeW">
                             <color key="tintColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="ANt-4m-sDi" kind="show" identifier="sgFindMenu" id="9QZ-KS-g69"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -4456,7 +4462,7 @@
             <objects>
                 <viewController id="EMt-RM-e0I" customClass="PersonalOptionViewController" customModule="IOS_SirenOrder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UEv-eo-zQ2">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="트윙클 스타 핑크 블렌디드" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TMf-Iz-cjw">
@@ -4681,7 +4687,7 @@
             <objects>
                 <viewController storyboardIdentifier="PersonalOptionDetailViewController" id="HVU-QK-LSO" customClass="PersonalOptionDetailViewController" customModule="IOS_SirenOrder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EL3-XM-oa1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="커피" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4d-e7-ppb">
@@ -4983,14 +4989,11 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="VEf-6C-Abn"/>
-        <segue reference="hjI-eu-gGQ"/>
-        <segue reference="3Ey-1o-Z7Q"/>
-        <segue reference="uUa-nT-SgO"/>
         <segue reference="IDY-P2-z5t"/>
-        <segue reference="BJe-Uk-Bsb"/>
+        <segue reference="xdt-Md-2SL"/>
         <segue reference="3Ey-1o-Z7Q"/>
-        <segue reference="Bc3-zU-qcJ"/>
+        <segue reference="Wkf-9m-4eO"/>
+        <segue reference="9QZ-KS-g69"/>
         <segue reference="Eg1-oz-FCI"/>
         <segue reference="eU3-y3-Iv3"/>
     </inferredMetricsTieBreakers>
