@@ -16,18 +16,20 @@ class PersonalModel : NSObject{
     var price: Int?
     var img: String?
     var cartCount: Int?
+    var personalPrice: Int?
  
     override init() {
         
     }
     
-    init(personalId: String, personalContent: String, cd: String, name: String, price: Int, img: String){
+    init(personalId: String, personalContent: String, cd: String, name: String, price: Int, img: String, personalPrice: Int){
         self.personalId = personalId
         self.personalContent = personalContent
         self.cd = cd
         self.name = name
         self.price = price
         self.img = img
+        self.personalPrice = personalPrice
     }
     
     // 2021.08.02 조혜지 PersonalIdModel에서 사용할 init 추가

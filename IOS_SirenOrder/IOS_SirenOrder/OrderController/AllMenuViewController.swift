@@ -26,13 +26,12 @@ class AllMenuViewController: UIViewController { // 2021.07.30 조혜지 TabBar�
         self.tvAllMenu.separatorStyle = .none
         
         serverImageDownloaded()
-        
         navigationController?.navigationBar.barTintColor = .white
         self.navigationController?.navigationBar.shadowImage = UIImage()
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {        
         let cartCountModel = CartCountModel()
         cartCountModel.delegate = self
         cartCountModel.downloadItems()

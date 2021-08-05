@@ -13,7 +13,6 @@ class CartTableViewCell: UITableViewCell {
     @IBOutlet weak var lblDrinkName: UILabel!
     @IBOutlet weak var lblDrinkPrice: UILabel!
     @IBOutlet weak var lblPersonal: UILabel!
-    @IBOutlet weak var lblPersonalPrice: UILabel!
     @IBOutlet weak var lblCartCount: UILabel!
     @IBOutlet weak var lblTotalPrice: UILabel!
     @IBOutlet weak var btnMinus: UIButton!
