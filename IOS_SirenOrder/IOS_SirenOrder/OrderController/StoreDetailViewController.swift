@@ -18,7 +18,7 @@ class StoreDetailViewController: UIViewController {
     
     var name: String = ""
     var lat: Double = 0.0
-    var lon: Double = 0.0
+    var long: Double = 0.0
     let myLoc = CLLocationManager()
     
     override func viewDidLoad() {
@@ -30,7 +30,7 @@ class StoreDetailViewController: UIViewController {
         navigationItem.title = name
         
         myLoc.requestWhenInUseAuthorization()
-        mapMove(lat, lon, name)
+        mapMove(lat, long, name)
     }
     
     func receivedData(_ receivedData: LocationModel) {
@@ -42,7 +42,7 @@ class StoreDetailViewController: UIViewController {
         lblStoreDetailAddress.text = item.address
         name = item.storename!
         lat = item.lat!
-        lon = item.lon!
+        long = item.long!
     }
     
     func mapMove(_ lat: CLLocationDegrees, _ lon: CLLocationDegrees, _ txt1: String) {

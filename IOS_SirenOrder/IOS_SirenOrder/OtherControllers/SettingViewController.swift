@@ -1,14 +1,15 @@
 //
-//  GiftTab2ViewController.swift
+//  SettingViewController.swift
 //  IOS_SirenOrder
 //
-//  Created by Biso on 2021/08/02.
+//  Created by 박성준 on 2021/08/04.
 //
 
 import UIKit
 
-class GiftCardListViewController: UIViewController {
-
+class SettingViewController: UIViewController {
+    @IBOutlet weak var tvHistoryDetailView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

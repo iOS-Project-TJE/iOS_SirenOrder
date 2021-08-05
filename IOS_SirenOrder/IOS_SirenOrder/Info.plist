@@ -5,7 +5,6 @@
 	<key>NSBluetoothAlwaysUsageDescription</key>
 	<string>방문매장 확인을 위한 블루투스 사용 권한</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>App needs location servers for stuff</string>
 	<string>내 위치 확인을 위한 위치 사용 권한</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>내 위치 확인을 위한 위치 사용 권한</string>
@@ -15,6 +14,7 @@
 	<string>음성인식을 위한 마이크 사용 권한</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>사진 첨부를 위한 앨범 사용 권한</string>
+
 	<key>NSAppleMusicUsageDescription</key>
 	<string>App needs location servers for stuff</string>
 	<key>NSAppTransportSecurity</key>

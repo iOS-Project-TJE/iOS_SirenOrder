@@ -8,10 +8,39 @@
 import UIKit
 
 class ReceiptViewController: UIViewController {
-
+    @IBOutlet weak var lblCount: UILabel!
+    @IBOutlet weak var lblPrice: UILabel!
+    @IBOutlet weak var lblPeriod: UILabel!
+    @IBOutlet weak var btnPeriod: UIButton!
+    @IBOutlet weak var tvReceiptList: UITableView!
+    
+    var feedItem : NSMutableArray = NSMutableArray()
+    var orderCount=0
+    var priceCount=0
+    
+    var nowTime:Date=Date()
+    
+    let interval=1.0
+    let timeSelector:Selector=#selector(HistoryViewController.updateTime)
+    
+    let dateFormatter=DateFormatter()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        Timer.scheduledTimer(timeInterval: interval, target: self, selector: timeSelector, userInfo: nil, repeats: true)
+        
+        btnPeriod.layer.cornerRadius = 10
+        btnPeriod.layer.borderWidth = 1.2
+        btnPeriod.layer.borderColor = UIColor.brown.cgColor
+        
+        tvReceiptList.rowHeight = 55
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        lblPeriod.text="\(dateFormatter.string(from: Calendar.current.date(byAdding: DateComponents(day:-30), to: Date())!)) ~ \(dateFormatter.string(from: Date()))"
 
+        self.tvReceiptList.dataSource=self
+        self.tvReceiptList.delegate=self
         // Do any additional setup after loading the view.
     }
     
@@ -68,14 +97,32 @@ extension ReceiptViewController:UITableViewDataSource,UITableViewDelegate{
         
         let item:ReceiptModel = feedItem[indexPath.row] as! ReceiptModel
 
-    /*
-    // MARK: - Navigation
+        if feedItem.count == 0{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "receiptCell", for: indexPath)
+            cell.textLabel?.text=""
+            return cell
+        }else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "receiptCell", for: indexPath) as! ReceiptTableViewCell
+            cell.lblOrderDate.text="\(item.orderDate!)"
+            cell.lblLocation.text="\(item.storename!)"
+            cell.lblOrderPrice.text="\(item.price!)원"
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+            return cell
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "ReceiptDetail"{
+            let cell = sender as! UITableViewCell
+            let indexPath = self.tvReceiptList.indexPath(for: cell)
+            
+            let item:ReceiptModel = feedItem[indexPath!.row] as! ReceiptModel
+            
+            let detailView = segue.destination as! ReceiptDetailViewController
+            detailView.receiveItems(item)
+        }
     }
-    */
-
 }
+

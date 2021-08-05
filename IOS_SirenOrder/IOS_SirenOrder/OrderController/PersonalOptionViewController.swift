@@ -119,6 +119,11 @@ class PersonalOptionViewController: UIViewController { // 2021.08.02 조혜지 �
     
     @IBAction func btnMyMenuSelect(_ sender: UIButton) {
         let myMenuDeleteController = UIAlertController(title: "삭제", message: "나만의 메뉴에서 정말 삭제하시겠습니까?", preferredStyle: .alert)
+        let myMenuDeleteCancelAction = UIAlertAction(title: "Cancel", style: .default, handler: {ACTION in
+            self.btnMyMenuNonSelect.isHidden = true
+            self.btnMyMenuSelect.isHidden = false
+            self.myMenuState = true
+        })
         let myMenuDeleteConfirmAction = UIAlertAction(title: "OK", style: .default, handler: {ACTION in
             let myMenuDeleteModel = MyMenuDeleteModel()
             let result = myMenuDeleteModel.DeleteItems(personalId: self.pId)
@@ -128,14 +133,8 @@ class PersonalOptionViewController: UIViewController { // 2021.08.02 조혜지 �
                 self.myMenuState = false
             }
         })
-        let myMenuDeleteCancelAction = UIAlertAction(title: "취소", style: .default, handler: {ACTION in
-            self.btnMyMenuNonSelect.isHidden = true
-            self.btnMyMenuSelect.isHidden = false
-            self.myMenuState = true
-        })
-        
-        myMenuDeleteController.addAction(myMenuDeleteConfirmAction)
         myMenuDeleteController.addAction(myMenuDeleteCancelAction)
+        myMenuDeleteController.addAction(myMenuDeleteConfirmAction)
         
         present(myMenuDeleteController, animated: true, completion: nil)
     }
@@ -145,8 +144,10 @@ class PersonalOptionViewController: UIViewController { // 2021.08.02 조혜지 �
         btnMyMenuSelect.isHidden = false
         myMenuState = true
         
+        pContent = "\(SharePersonal.coffee)\(SharePersonal.vSyrup)\(SharePersonal.hSyrup)\(SharePersonal.cSyrup)\(SharePersonal.ice)\(SharePersonal.whip)\(SharePersonal.caramelDrizzle)\(SharePersonal.chocoDrizzle)\(SharePersonal.lid)"
+        
         let myMenuInsertModel = MyMenuInsertModel()
-        let result = myMenuInsertModel.InsertItems(personalContent: "\(iceHot),\(cupSize),\(cupType),\(pContent)", cd: cd, userId: userId)
+        let result = myMenuInsertModel.InsertItems(personalContent: "\(iceHot), \(cupSize), \(cupType), \(pContent)", cd: cd, userId: userId)
         
         let personalIdModel = PersonalIdModel()
         personalIdModel.delegate = self
@@ -154,13 +155,8 @@ class PersonalOptionViewController: UIViewController { // 2021.08.02 조혜지 �
                         
         if result{
             let myMenuCheckController = UIAlertController(title: "추가", message: "나만의 메뉴에 추가되었습니다!", preferredStyle: .alert)
-
             let myMenuCheckAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            let myMenuGoAction = UIAlertAction(title: "보러가기", style: .default, handler: nil)
-            
             myMenuCheckController.addAction(myMenuCheckAction)
-            myMenuCheckController.addAction(myMenuGoAction)
-            
             present(myMenuCheckController, animated: true, completion: nil)
         }else{
             let resultAlert = UIAlertController(title: "실패", message: "에러가 발생되었습니다!", preferredStyle: .alert)
@@ -184,9 +180,7 @@ class PersonalOptionViewController: UIViewController { // 2021.08.02 조혜지 �
             
             let cellContent = sender as! PersonalOptionContentTableViewCell
             let indexPath = self.tvPersonalOption.indexPath(for: cellContent)
-            
-            print(indexPath!.row, "ddd")
-            
+                        
             personalOptionDetailViewController.receivedIndexPath = indexPath!.row
             
             let bottomSheet: MDCBottomSheetController = MDCBottomSheetController(contentViewController: personalOptionDetailViewController)
