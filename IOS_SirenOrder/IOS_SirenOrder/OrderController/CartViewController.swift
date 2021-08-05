@@ -7,14 +7,24 @@
 
 import UIKit
 
-class CartViewController: UIViewController {
+class CartViewController: UIViewController { // 2021.08.05 조혜지 장바구니 View
 
+    @IBOutlet weak var tvCart: UITableView!
     @IBOutlet weak var lblStore: UILabel!
+    @IBOutlet weak var btnOrder: UIButton!
+    @IBOutlet weak var lblCartTotalCount: UILabel!
+    @IBOutlet weak var lblCartTotalPrice: UILabel!
+    
+    var dataItem: NSArray = NSArray()
     
     override func viewDidLoad() { // 225
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.tvCart.dataSource = self
+        self.tvCart.delegate = self
+        self.tvCart.separatorStyle = .none
+        self.navigationController?.navigationBar.tintColor = UIColor(displayP3Red: 0/255, green: 112/225, blue: 74/255, alpha: 1)
+        btnOrder.layer.cornerRadius = 20
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -25,11 +35,24 @@ class CartViewController: UIViewController {
         }else {
             lblStore.text = storeName
         }
+        
+        let cartSelectModel = CartSelectModel()
+        cartSelectModel.delegate = self
+        cartSelectModel.downloadItems()
     }
     
     @IBAction func btnAllDelete(_ sender: UIBarButtonItem) {
         
         
+    }
+    
+    @IBAction func btnDelete(_ sender: UIButton) {
+    }
+    
+    @IBAction func btnMinus(_ sender: UIButton) {
+    }
+    
+    @IBAction func btnPlus(_ sender: UIButton) {
     }
     
     @IBAction func btnStore(_ sender: UIButton) {
@@ -59,4 +82,59 @@ class CartViewController: UIViewController {
     }
     */
 
+}
+
+extension CartViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cartCell") as! CartTableViewCell
+        let item: CartModel = dataItem[indexPath.row] as! CartModel
+        
+        cell.lblDrinkName.text = item.name!
+        cell.lblDrinkPrice.text = DecimalWon(value: item.price!)
+        cell.lblCartCount.text = String(item.cartCount!)
+        cell.lblTotalPrice.text = DecimalWon(value: (item.price! + item.cartPersonalPrice!) * item.cartCount!)
+        cell.lblPersonalPrice.text = DecimalWon(value: item.cartPersonalPrice!)
+        
+        let firstIndex = item.cartPersonal!.index(item.cartPersonal!.startIndex, offsetBy: 0)
+        let lastIndex = item.cartPersonal!.index(item.cartPersonal!.startIndex, offsetBy: item.cartPersonal!.count-2)
+        cell.lblPersonal.text = String(item.cartPersonal![firstIndex..<lastIndex])
+        
+        let url = URL(string: "\(item.img!)")
+        let data = try? Data(contentsOf: url!)
+        cell.ivCart.layer.cornerRadius = cell.ivCart.frame.height / 2
+        cell.ivCart.clipsToBounds = true
+        cell.ivCart.image = UIImage(data: data!)
+        
+        cell.btnDelete.tag = indexPath.row
+        cell.btnMinus.tag = indexPath.row
+        cell.btnPlus.tag = indexPath.row
+        
+        return cell
+    }
+    
+    func DecimalWon(value: Int) -> String{
+            let numberFormatter = NumberFormatter()
+            numberFormatter.numberStyle = .decimal
+            let result = numberFormatter.string(from: NSNumber(value: value))! + " 원"
+            
+            return result
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataItem.count
+    }
+
+}
+ 
+extension CartViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 225
+    }
+}
+
+extension CartViewController : CartSelectModelProtocol {
+    func itemDownloaded(items: NSArray) {
+        dataItem = items
+        self.tvCart.reloadData()
+    }
 }

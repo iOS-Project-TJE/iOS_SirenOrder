@@ -77,7 +77,7 @@ class MyMenuViewController: UIViewController { // 2021.07.31 조혜지 Order 나
     @IBAction func btnCart(_ sender: UIButton) {
         let item: PersonalModel = dataItem[sender.tag] as! PersonalModel
         let cartInsertModel = CartInsertModel()
-        let result = cartInsertModel.InsertItems(cartCount: 1, cartPersonal: item.personalContent!, cd: item.cd!, userId: userId)
+        let result = cartInsertModel.InsertItems(cartCount: 1, cartPersonal: item.personalContent!, cd: item.cd!, userId: userId, cartPersonalPrice: item.personalPrice!)
         
         if result{
             let myMenuCheckController = UIAlertController(title: "추가", message: "장바구니에 추가되었습니다!", preferredStyle: .alert)
@@ -113,6 +113,7 @@ class MyMenuViewController: UIViewController { // 2021.07.31 조혜지 Order 나
                 ShareOrder.orderName = item.name!
                 ShareOrder.orderCount = 1
                 ShareOrder.orderPersonal = item.personalContent!
+                ShareOrder.orderPersonalPrice = item.personalPrice!
             })
             resultAlert.addAction(cancelAction)
             resultAlert.addAction(okAction)
