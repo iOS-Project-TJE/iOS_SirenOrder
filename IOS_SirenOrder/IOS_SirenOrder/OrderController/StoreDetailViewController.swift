@@ -42,7 +42,7 @@ class StoreDetailViewController: UIViewController {
         lblStoreDetailAddress.text = item.address
         name = item.storename!
         lat = item.lat!
-        long = item.long!
+        long = item.lon!
     }
     
     func mapMove(_ lat: CLLocationDegrees, _ lon: CLLocationDegrees, _ txt1: String) {
