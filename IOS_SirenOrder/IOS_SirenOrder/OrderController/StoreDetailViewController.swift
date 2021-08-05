@@ -62,7 +62,11 @@ class StoreDetailViewController: UIViewController {
 
     @IBAction func btnStoreCheck(_ sender: UIButton) {
         storeName = name
-        navigationController?.popToRootViewController(animated: true)
+        if goOrder == true {
+            self.performSegue(withIdentifier: "sgOrder", sender: self)
+        }else {
+            navigationController?.popToRootViewController(animated: true)
+        }
     }
     
     /*

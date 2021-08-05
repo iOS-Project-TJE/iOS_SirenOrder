@@ -11,6 +11,8 @@ import Pageboy
 
 class OrderViewController: TabmanViewController { // 2021.07.30 조혜지 Order 첫 View Tabman 설정
 
+    @IBOutlet weak var uvTapMan: UIView!
+    
     private var viewControllers: Array<UIViewController> = []
     
     override func viewDidLoad() {
@@ -27,7 +29,7 @@ class OrderViewController: TabmanViewController { // 2021.07.30 조혜지 Order 
         let bar = TMBar.ButtonBar()
         bar.layout.transitionStyle = .snap
 
-        addBar(bar, dataSource: self, at: .top)
+        addBar(bar, dataSource: self, at: .custom(view: uvTapMan, layout: .none))
         
         bar.backgroundView.style = .blur(style: .regular)
         
@@ -44,8 +46,6 @@ class OrderViewController: TabmanViewController { // 2021.07.30 조혜지 Order 
         bar.indicator.overscrollBehavior = .compress
         
         bar.indicator.overscrollBehavior = .bounce
-        
-        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
 

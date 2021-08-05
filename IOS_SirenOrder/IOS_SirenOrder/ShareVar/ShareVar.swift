@@ -17,7 +17,9 @@ var iceHot = ""
 var cupSize = "Tall"
 var cupType = "매장컵"
 var pContent = ""
-var pPrice = ""
 
 // 2021.08.03 조혜지 Location View에서 필요한 변수 추가
 var storeName = ""
+
+// 2021.08.04 조혜지 매장 내 직접 수령 버튼 클릭 시 뷰 전환을 위한 상태 변수 추가
+var goOrder = false
