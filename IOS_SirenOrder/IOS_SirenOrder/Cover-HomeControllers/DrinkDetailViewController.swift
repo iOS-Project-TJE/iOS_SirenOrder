@@ -9,15 +9,12 @@ import UIKit
 
 class DrinkDetailViewController: UIViewController {
 
-    @IBOutlet weak var lblCdCheck: UILabel!
-    
     var receivedCd: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        lblCdCheck.text = receivedCd
     }
     
 
