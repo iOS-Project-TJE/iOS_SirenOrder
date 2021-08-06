@@ -24,3 +24,4 @@ var storeName = ""
 
 // 2021.08.04 조혜지 매장 내 직접 수령 버튼 클릭 시 뷰 전환을 위한 상태 변수 추가
 var goOrder = false
+var goCart = false

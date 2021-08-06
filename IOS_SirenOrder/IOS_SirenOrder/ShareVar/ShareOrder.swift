@@ -20,4 +20,8 @@ struct ShareOrder {
     
     // 2021.08.06 조혜지 장바구니에서 주문하기 버튼 클릭 알려주는 상태 변수 및 데이터 공유하는 변수 추가
     static var cartOrder = false
+    
+    // 2021.08.07 조혜지 기프트 카드 잔액 변수 및 데이터 공유하는 변수 추가
+    static var giftBeforePrice: Int = 0
+    static var giftAfterPrice: Int = 0
 }
