@@ -12,8 +12,10 @@ class MyMenuViewController: UIViewController { // 2021.07.31 조혜지 Order 나
 
     @IBOutlet weak var tvMyMenu: UITableView!
     @IBOutlet weak var lblStore: UILabel!
-    var tag = 0
+    @IBOutlet weak var lblCartCount: UILabel!
     
+    var tag = 0
+    var data = NSMutableArray()
     var dataItem: NSArray = NSArray()
     
     override func viewDidLoad() {
@@ -24,6 +26,10 @@ class MyMenuViewController: UIViewController { // 2021.07.31 조혜지 Order 나
         let myMenuModel = MyMenuModel()
         myMenuModel.delegate = self
         myMenuModel.downloadItems()
+        
+        let cartCountModel = CartCountModel()
+        cartCountModel.delegate = self
+        cartCountModel.downloadItems()
 
         tvMyMenu.dataSource = self
         tvMyMenu.delegate = self
@@ -41,8 +47,6 @@ class MyMenuViewController: UIViewController { // 2021.07.31 조혜지 Order 나
         }else {
             lblStore.text = storeName
         }
-        print("viewWill")
-
     }
     
     @IBAction func btnMyMenuDelete(_ sender: UIButton) {
@@ -50,17 +54,20 @@ class MyMenuViewController: UIViewController { // 2021.07.31 조혜지 Order 나
         let myMenuDeleteModel = MyMenuDeleteModel()
         let result = myMenuDeleteModel.DeleteItems(personalId: item.personalId!)
         if result {
-            let myMenuModel = MyMenuModel()
-            myMenuModel.delegate = self
-            myMenuModel.downloadItems()
-            tvMyMenu.reloadData()
+            let time = DispatchTime.now() + .seconds(1)
+            DispatchQueue.main.asyncAfter(deadline: time) {
+                let myMenuModel = MyMenuModel()
+                myMenuModel.delegate = self
+                myMenuModel.downloadItems()
+                self.tvMyMenu.reloadData()
+            }
         }
     }
     
     @IBAction func btnCart(_ sender: UIButton) {
         let item: PersonalModel = dataItem[sender.tag] as! PersonalModel
         let cartInsertModel = CartInsertModel()
-        let result = cartInsertModel.InsertItems(cartCount: 1, cartPersonal: item.personalContent!, cd: item.cd!, userId: userId)
+        let result = cartInsertModel.InsertItems(cartCount: 1, cartPersonal: item.personalContent!, cd: item.cd!, userId: userId, cartPersonalPrice: item.personalPrice!)
         
         if result{
             let myMenuCheckController = UIAlertController(title: "추가", message: "장바구니에 추가되었습니다!", preferredStyle: .alert)
@@ -96,15 +103,32 @@ class MyMenuViewController: UIViewController { // 2021.07.31 조혜지 Order 나
                 ShareOrder.orderName = item.name!
                 ShareOrder.orderCount = 1
                 ShareOrder.orderPersonal = item.personalContent!
+                ShareOrder.orderPersonalPrice = item.personalPrice!
+                ShareOrder.orderPrice = item.price!
+                ShareOrder.orderImg = item.img!
             })
             resultAlert.addAction(cancelAction)
             resultAlert.addAction(okAction)
             present(resultAlert, animated: true, completion: nil)
         }else {
             self.performSegue(withIdentifier: "sgOrder", sender: self)
+            ShareOrder.orderCd = item.cd!
+            ShareOrder.orderName = item.name!
+            ShareOrder.orderCount = 1
+            ShareOrder.orderPersonal = item.personalContent!
+            ShareOrder.orderPersonalPrice = item.personalPrice!
+            ShareOrder.orderPrice = item.price!
+            ShareOrder.orderImg = item.img!
         }
     }
     
+    @IBAction func btnStore(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "sgStoreChoice", sender: self)
+    }
+    
+    @IBAction func btnGoCart(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "sgCart", sender: self)
+    }
     /*
     // MARK: - Navigation
 
@@ -122,7 +146,7 @@ extension MyMenuViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myMenuCell") as! MyMenuTableViewCell
         let item: PersonalModel = dataItem[indexPath.row] as! PersonalModel
         cell.lblMyMenuName.text = "\(item.name!)"
-        cell.lblMyMenuPrice.text = "\(DecimalWon(value: item.price!))"
+        cell.lblMyMenuPrice.text = "\(DecimalWon(value: item.price!+item.personalPrice!))"
         
         let firstIndex = item.personalContent!.index(item.personalContent!.startIndex, offsetBy: 0)
         let lastIndex = item.personalContent!.index(item.personalContent!.startIndex, offsetBy: item.personalContent!.count-2)
@@ -170,5 +194,14 @@ extension MyMenuViewController: MyMenuModelProtocol {
     func itemDownloaded(items: NSArray) {
         dataItem = items
         self.tvMyMenu.reloadData()
+    }
+}
+
+extension MyMenuViewController : CartCountModelProtocol {
+    func itemDownloaded(items: NSMutableArray) {
+        data = items
+        
+        let item: PersonalModel = data[0] as! PersonalModel
+        lblCartCount.text = String(item.cartCount!)
     }
 }

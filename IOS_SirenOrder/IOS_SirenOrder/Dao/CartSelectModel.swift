@@ -1,20 +1,20 @@
 //
-//  MyMenuModel.swift
+//  CartSelectModel.swift
 //  IOS_SirenOrder
 //
-//  Created by Hyeji on 2021/07/31.
+//  Created by Hyeji on 2021/08/05.
 //
 
 import Foundation
 
-// 2021.07.31 조혜지 Order 나만의 메뉴 View Dao
-protocol MyMenuModelProtocol : AnyObject {
+// 2021.08.05 조혜지 Order Cart View Dao
+protocol CartSelectModelProtocol : AnyObject {
     func itemDownloaded(items: NSArray)
 }
 
-class MyMenuModel : NSObject {
-    var delegate: MyMenuModelProtocol!
-    var urlPath = "http://\(macIp):8080/starbucks/jsp/hj/myMenuSelect.jsp"
+class CartSelectModel : NSObject {
+    var delegate: CartSelectModelProtocol!
+    var urlPath = "http://\(macIp):8080/starbucks/jsp/hj/cartSelect.jsp"
     
     func downloadItems() {
         
@@ -47,15 +47,16 @@ class MyMenuModel : NSObject {
                 
         for i in 0..<jsonResult.count {
             jsonElement = jsonResult[i] as! NSDictionary
-            if let personalId = jsonElement["personalId"] as? String,
-               let personalContent = jsonElement["personalContent"] as? String,
+            if let cartId = jsonElement["cartId"] as? String,
+               let cartCount = jsonElement["cartCount"] as? String,
+               let cartPersonal = jsonElement["cartPersonal"] as? String,
                let cd = jsonElement["cd"] as? String,
+               let cartPersonalPrice = jsonElement["cartPersonalPrice"] as? String,
                let name = jsonElement["name"] as? String,
-               let price = jsonElement["price"] as? String,
                let img = jsonElement["img"] as? String,
-               let personalPrice = jsonElement["personalPrice"] as? String{
+               let price = jsonElement["price"] as? String{
                 
-                let query = PersonalModel(personalId: personalId, personalContent: personalContent, cd: cd, name: name, price: Int(price)!, img: img, personalPrice: Int(personalPrice)!)
+                let query = CartModel(cartId: cartId, cartCount: Int(cartCount)!, cartPersonal: cartPersonal, cd: cd, cartPersonalPrice: Int(cartPersonalPrice)!, name: name, img: img, price: Int(price)!)
                 locations.add(query)
                 
             }

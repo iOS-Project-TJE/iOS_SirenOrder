@@ -11,8 +11,10 @@ class CategoryDetailViewController: UIViewController { // 2021.08.01 조혜지 O
 
     @IBOutlet weak var tvCategoryDetail: UITableView!
     @IBOutlet weak var lblStore: UILabel!
+    @IBOutlet weak var lblCartCount: UILabel!
     
     var dataItem: NSArray = NSArray()
+    var data = NSMutableArray()
     var indexPath = 0
     
     override func viewDidLoad() {
@@ -32,6 +34,10 @@ class CategoryDetailViewController: UIViewController { // 2021.08.01 조혜지 O
         let categoryDetailModel = CategoryDetailModel()
         categoryDetailModel.delegate = self
         categoryDetailModel.downloadItems()
+        
+        let cartCountModel = CartCountModel()
+        cartCountModel.delegate = self
+        cartCountModel.downloadItems()
         
         if storeName == "" {
             lblStore.text = "주문할 매장을 선택해 주세요"
@@ -102,5 +108,14 @@ extension CategoryDetailViewController : CategoryDetailModelProtocol {
     func itemDownloaded(items: NSArray) {
         dataItem = items
         self.tvCategoryDetail.reloadData()
+    }
+}
+
+extension CategoryDetailViewController : CartCountModelProtocol {
+    func itemDownloaded(items: NSMutableArray) {
+        data = items
+        
+        let item: PersonalModel = data[0] as! PersonalModel
+        lblCartCount.text = String(item.cartCount!)
     }
 }

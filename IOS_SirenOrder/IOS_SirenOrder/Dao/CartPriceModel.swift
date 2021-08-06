@@ -1,25 +1,25 @@
 //
-//  MyMenuModel.swift
+//  CartPriceModel.swift
 //  IOS_SirenOrder
 //
-//  Created by Hyeji on 2021/07/31.
+//  Created by Hyeji on 2021/08/05.
 //
 
 import Foundation
 
-// 2021.07.31 조혜지 Order 나만의 메뉴 View Dao
-protocol MyMenuModelProtocol : AnyObject {
-    func itemDownloaded(items: NSArray)
+// 21.08.05 조혜지 장바구니 총 가격 정보 불러오는 Dao
+protocol CartPriceModelProtocol : AnyObject {
+    func priceDownloaded(items: NSMutableArray)
 }
 
-class MyMenuModel : NSObject {
-    var delegate: MyMenuModelProtocol!
-    var urlPath = "http://\(macIp):8080/starbucks/jsp/hj/myMenuSelect.jsp"
+class CartPriceModel : NSObject {
+    var delegate: CartPriceModelProtocol!
+    var urlPath = "http://\(macIp):8080/starbucks/jsp/hj/"
     
     func downloadItems() {
-        
-        let urlAdd = "?userId=\(userId)"
+        let urlAdd = "cartPriceSelect.jsp?userId=\(userId)"
         urlPath = urlPath + urlAdd
+        print(urlPath)
         
         let url: URL = URL(string: urlPath)!
         let defaultSession = URLSession(configuration: URLSessionConfiguration.default)
@@ -44,25 +44,21 @@ class MyMenuModel : NSObject {
         
         var jsonElement = NSDictionary()
         let locations = NSMutableArray()
-                
+        
+        print(jsonResult.count)
+        
         for i in 0..<jsonResult.count {
             jsonElement = jsonResult[i] as! NSDictionary
-            if let personalId = jsonElement["personalId"] as? String,
-               let personalContent = jsonElement["personalContent"] as? String,
-               let cd = jsonElement["cd"] as? String,
-               let name = jsonElement["name"] as? String,
-               let price = jsonElement["price"] as? String,
-               let img = jsonElement["img"] as? String,
-               let personalPrice = jsonElement["personalPrice"] as? String{
+            if let totalPrice = jsonElement["totalPrice"] as? String{
                 
-                let query = PersonalModel(personalId: personalId, personalContent: personalContent, cd: cd, name: name, price: Int(price)!, img: img, personalPrice: Int(personalPrice)!)
+                let query = CartModel(totalPrice: Int(totalPrice)!)
                 locations.add(query)
                 
             }
         }
 
         DispatchQueue.main.async(execute: {() -> Void in
-            self.delegate.itemDownloaded(items: locations)
+            self.delegate.priceDownloaded(items: locations)
     })
     }
 }

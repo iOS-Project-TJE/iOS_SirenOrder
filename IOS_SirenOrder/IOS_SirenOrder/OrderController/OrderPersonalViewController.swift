@@ -232,7 +232,7 @@ class OrderPersonalViewController: UIViewController { // 2021.08.02 조혜지 �
         myMenuState = true
         
         let myMenuInsertModel = MyMenuInsertModel()
-        let result = myMenuInsertModel.InsertItems(personalContent: "\(iceHot), \(cupSize), \(cupType), \(pContent)", cd: receivedCd, userId: userId)
+        let result = myMenuInsertModel.InsertItems(personalContent: "\(iceHot), \(cupSize), \(cupType), \(pContent)", cd: receivedCd, userId: userId, personalPrice: SharePersonalData.personalOptionPrice + SharePersonalData.size)
         
         let personalIdModel = PersonalIdModel()
         personalIdModel.delegate = self
@@ -255,7 +255,7 @@ class OrderPersonalViewController: UIViewController { // 2021.08.02 조혜지 �
     
     @IBAction func btnCart(_ sender: UIButton) {
         let cartInsertModel = CartInsertModel()
-        let result = cartInsertModel.InsertItems(cartCount: SharePersonalData.drinkCount, cartPersonal: "\(iceHot),\(cupSize),\(cupType),\(pContent)", cd: receivedCd, userId: userId)
+        let result = cartInsertModel.InsertItems(cartCount: SharePersonalData.drinkCount, cartPersonal: "\(iceHot), \(cupSize), \(cupType), \(pContent)", cd: receivedCd, userId: userId, cartPersonalPrice: SharePersonalData.personalOptionPrice + SharePersonalData.size)
         
         if result{
             let myMenuCheckController = UIAlertController(title: "추가", message: "장바구니에 추가되었습니다!", preferredStyle: .alert)
@@ -281,17 +281,37 @@ class OrderPersonalViewController: UIViewController { // 2021.08.02 조혜지 �
     
     @IBAction func btnOrder(_ sender: UIButton) {
         goOrder = true
+        let item: DrinkModel = dataItem[0] as! DrinkModel
         if storeName == "" {
             let resultAlert = UIAlertController(title: "주문할 매장을 선택해 주세요!", message: nil, preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: {ACTION in
                 self.performSegue(withIdentifier: "sgStoreChoice", sender: self)
+                ShareOrder.orderCd = self.receivedCd
+                ShareOrder.orderName = item.name!
+                ShareOrder.orderCount = SharePersonalData.drinkCount
+                ShareOrder.orderPersonal = "\(iceHot), \(cupSize), \(cupType), \(pContent)"
+                ShareOrder.orderPersonalPrice = SharePersonalData.personalOptionPrice
+                ShareOrder.orderPrice = item.price!
+                ShareOrder.orderImg = item.img!
             })
             resultAlert.addAction(cancelAction)
             resultAlert.addAction(okAction)
+            present(resultAlert, animated: true, completion: nil)
         }else {
             self.performSegue(withIdentifier: "sgOrder", sender: self)
+            ShareOrder.orderCd = self.receivedCd
+            ShareOrder.orderName = item.name!
+            ShareOrder.orderCount = SharePersonalData.drinkCount
+            ShareOrder.orderPersonal = "\(iceHot), \(cupSize), \(cupType), \(pContent)"
+            ShareOrder.orderPersonalPrice = SharePersonalData.personalOptionPrice
+            ShareOrder.orderPrice = item.price!
+            ShareOrder.orderImg = item.img!
         }
+    }
+    
+    @IBAction func btnPersonalOption(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "sgPersonalOption", sender: self)
     }
     
     func drinkModel() {
@@ -322,8 +342,9 @@ class OrderPersonalViewController: UIViewController { // 2021.08.02 조혜지 �
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         if segue.identifier == "sgPersonalOption" {
+            let item: DrinkModel = dataItem[0] as! DrinkModel
             let personalOptionViewController = segue.destination as! PersonalOptionViewController
-            personalOptionViewController.receivedData(lblDrinkName.text!, myMenuState, receivedCd, pId)
+            personalOptionViewController.receivedData(lblDrinkName.text!, myMenuState, receivedCd, pId, Int(item.price!), item.img!)
         }
     }
     

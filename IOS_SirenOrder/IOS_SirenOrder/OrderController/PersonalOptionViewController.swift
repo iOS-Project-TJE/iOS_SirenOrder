@@ -28,6 +28,8 @@ class PersonalOptionViewController: UIViewController { // 2021.08.02 조혜지 �
     var myMenuState = true
     var pId = ""
     var cd = ""
+    var price = 0
+    var img = ""
     var dataItem: NSArray = NSArray()
     var idItem: NSMutableArray = NSMutableArray()
     var personalTotalPrice = 0
@@ -52,11 +54,13 @@ class PersonalOptionViewController: UIViewController { // 2021.08.02 조혜지 �
         }
     }
     
-    func receivedData(_ receivedName: String, _ receivedState: Bool, _ receivedCd: String, _ receivedPId: String) {
+    func receivedData(_ receivedName: String, _ receivedState: Bool, _ receivedCd: String, _ receivedPId: String, _ receivedPrice: Int, _ receivedImg: String) {
         personalOptionName = receivedName
         myMenuState = receivedState
         cd = receivedCd
         pId = receivedPId
+        price = receivedPrice
+        img = receivedImg
     }
 
     func initSetting() {
@@ -147,7 +151,7 @@ class PersonalOptionViewController: UIViewController { // 2021.08.02 조혜지 �
         pContent = "\(SharePersonal.coffee)\(SharePersonal.vSyrup)\(SharePersonal.hSyrup)\(SharePersonal.cSyrup)\(SharePersonal.ice)\(SharePersonal.whip)\(SharePersonal.caramelDrizzle)\(SharePersonal.chocoDrizzle)\(SharePersonal.lid)"
         
         let myMenuInsertModel = MyMenuInsertModel()
-        let result = myMenuInsertModel.InsertItems(personalContent: "\(iceHot), \(cupSize), \(cupType), \(pContent)", cd: cd, userId: userId)
+        let result = myMenuInsertModel.InsertItems(personalContent: "\(iceHot), \(cupSize), \(cupType), \(pContent)", cd: cd, userId: userId, personalPrice: SharePersonalData.personalOptionPrice + SharePersonalData.size)
         
         let personalIdModel = PersonalIdModel()
         personalIdModel.delegate = self
@@ -168,6 +172,38 @@ class PersonalOptionViewController: UIViewController { // 2021.08.02 조혜지 �
         }
     }
     
+    @IBAction func btnCart(_ sender: UIButton) {
+    }
+    
+    @IBAction func btnOrder(_ sender: UIButton) {
+        goOrder = true
+        if storeName == "" {
+            let resultAlert = UIAlertController(title: "주문할 매장을 선택해 주세요!", message: nil, preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: {ACTION in
+                self.performSegue(withIdentifier: "sgStoreChoice", sender: self)
+                ShareOrder.orderCd = self.cd
+                ShareOrder.orderName = self.personalOptionName
+                ShareOrder.orderCount = SharePersonalData.drinkCount
+                ShareOrder.orderPersonal = "\(iceHot), \(cupSize), \(cupType), \(SharePersonal.coffee)\(SharePersonal.vSyrup)\(SharePersonal.hSyrup)\(SharePersonal.cSyrup)\(SharePersonal.ice)\(SharePersonal.whip)\(SharePersonal.caramelDrizzle)\(SharePersonal.chocoDrizzle)\(SharePersonal.lid)"
+                ShareOrder.orderPersonalPrice = SharePersonalData.personalOptionPrice
+                ShareOrder.orderPrice = self.price
+                ShareOrder.orderImg = self.img
+            })
+            resultAlert.addAction(cancelAction)
+            resultAlert.addAction(okAction)
+            present(resultAlert, animated: true, completion: nil)
+        }else {
+            self.performSegue(withIdentifier: "sgOrder", sender: self)
+            ShareOrder.orderCd = self.cd
+            ShareOrder.orderName = self.personalOptionName
+            ShareOrder.orderCount = SharePersonalData.drinkCount
+            ShareOrder.orderPersonal = "\(iceHot), \(cupSize), \(cupType), \(SharePersonal.coffee)\(SharePersonal.vSyrup)\(SharePersonal.hSyrup)\(SharePersonal.cSyrup)\(SharePersonal.ice)\(SharePersonal.whip)\(SharePersonal.caramelDrizzle)\(SharePersonal.chocoDrizzle)\(SharePersonal.lid)"
+            ShareOrder.orderPersonalPrice = SharePersonalData.personalOptionPrice
+            ShareOrder.orderPrice = self.price
+            ShareOrder.orderImg = self.img
+        }
+    }
     
     // MARK: - Navigation
 

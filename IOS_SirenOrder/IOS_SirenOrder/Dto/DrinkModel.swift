@@ -51,7 +51,7 @@ class DrinkModel : NSObject{
         self.price=price
     }
     
-    // 2021.08.01 조혜지 categoryDetailModel에서 사용할 init 추가
+    // 2021.08.01 조혜지 CategoryDetailModel에서 사용할 init 추가
     init(cd: String, name : String, img : String, price : Int) {
         self.cd = cd
         self.name = name
@@ -60,10 +60,11 @@ class DrinkModel : NSObject{
     }
     
     // 2021.08.02 조혜지 DrinkInfoModel에서 사용할 init 추가
-    init(name : String, price : Int, type: Int) {
+    init(name : String, price : Int, type: Int, img: String) {
         self.name = name
         self.price = price
         self.type = type
+        self.img = img
     }
     
     // 2021.08.02 김도우 homeModel에서 사용할 init 추가

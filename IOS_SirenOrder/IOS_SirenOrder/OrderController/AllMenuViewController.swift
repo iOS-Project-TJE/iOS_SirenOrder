@@ -14,6 +14,9 @@ class AllMenuViewController: UIViewController { // 2021.07.30 조혜지 TabBar�
 
     @IBOutlet weak var tvAllMenu: UITableView!
     @IBOutlet weak var lblStore: UILabel!
+    @IBOutlet weak var lblCartCount: UILabel!
+    
+    var data = NSMutableArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,13 +26,16 @@ class AllMenuViewController: UIViewController { // 2021.07.30 조혜지 TabBar�
         self.tvAllMenu.separatorStyle = .none
         
         serverImageDownloaded()
-        
         navigationController?.navigationBar.barTintColor = .white
         self.navigationController?.navigationBar.shadowImage = UIImage()
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {        
+        let cartCountModel = CartCountModel()
+        cartCountModel.delegate = self
+        cartCountModel.downloadItems()
+        
         goOrder = false
         
         if storeName == "" {
@@ -38,6 +44,8 @@ class AllMenuViewController: UIViewController { // 2021.07.30 조혜지 TabBar�
             lblStore.text = storeName
         }
         print("viewWill")
+        
+        
     }
     
     func serverImageDownloaded() {
@@ -85,5 +93,14 @@ extension AllMenuViewController: UITableViewDataSource {
 extension AllMenuViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
+    }
+}
+
+extension AllMenuViewController : CartCountModelProtocol {
+    func itemDownloaded(items: NSMutableArray) {
+        data = items
+        
+        let item: PersonalModel = data[0] as! PersonalModel
+        lblCartCount.text = String(item.cartCount!)
     }
 }
