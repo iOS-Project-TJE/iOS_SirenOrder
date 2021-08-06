@@ -1,28 +1,23 @@
 //
-//  StoreSearchModel.swift
+//  OrderNumModel.swift
 //  IOS_SirenOrder
 //
-//  Created by Hyeji on 2021/08/03.
+//  Created by Hyeji on 2021/08/06.
 //
 
 import Foundation
 
-// 21.08.03 조혜지 Order 매장 검색 결과 정보 불러오는 Dao
-protocol StoreSearchModelProtocol : AnyObject {
-    func itemDownloaded(items: NSMutableArray)
+// 21.08.05 조혜지 max orderNumber 알기 위한 Dao
+protocol OrderNumModelProtocol : AnyObject {
+    func orderNumDownloaded(items: NSMutableArray)
 }
 
-class StoreSearchModel : NSObject {
-    var delegate: StoreSearchModelProtocol!
-    var urlPath = "http://\(macIp):8080/starbucks/jsp/hj/"
+class OrderNumModel : NSObject {
+    var delegate: OrderNumModelProtocol!
+    let urlPath = "http://\(macIp):8080/starbucks/jsp/hj/orderNumSelect.jsp"
     
-    func downloadItems(searchText: String) {
-        let urlAdd = "storeSearchSelect.jsp?searchText=\(searchText)"
-        urlPath = urlPath + urlAdd
-        print(urlPath)
-        
-        urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
-        
+    func downloadItems() {
+
         let url: URL = URL(string: urlPath)!
         let defaultSession = URLSession(configuration: URLSessionConfiguration.default)
         let task = defaultSession.dataTask(with: url){(data, response, error) in
@@ -47,22 +42,20 @@ class StoreSearchModel : NSObject {
         var jsonElement = NSDictionary()
         let locations = NSMutableArray()
         
-        print(jsonResult.count)
         
         for i in 0..<jsonResult.count {
             jsonElement = jsonResult[i] as! NSDictionary
-            if let storename = jsonElement["storename"] as? String,
-               let lat = jsonElement["lat"] as? String,
-               let lon = jsonElement["lon"] as? String,
-               let address = jsonElement["address"] as? String{
-                let query = LocationModel(storename: storename, lat: Double(lat)!, lon: Double(lon)!, address: address)
+            if let orderNum = jsonElement["orderNum"] as? String{
+
+                let query = OrderModel(orderNum: orderNum)
                 locations.add(query)
+
+                
             }
-        
         }
 
         DispatchQueue.main.async(execute: {() -> Void in
-            self.delegate.itemDownloaded(items: locations)
+            self.delegate.orderNumDownloaded(items: locations)
     })
     }
 }

@@ -36,35 +36,37 @@ class PersonalOptionDetailViewController: UIViewController { // 2021.08.04 ì¡°í˜
     @IBOutlet weak var btnBig2: UIButton!
     @IBOutlet weak var btnLid: UIButton!
     
-    var receivedIndexPath = 0
-    var btnCount = 0
+    var receivedIndexPath: Int = 0
+    var btnCount: Int = 0
     var espressoCount = SharePersonal.coffeeCount
-    var espressoMessage = ""
-    var decaffeination = false
-    var halfDecaffeination = false
-    var coffeeStateCount = 0
+    var espressoMessage: String = ""
+    var decaffeination: Bool = false
+    var halfDecaffeination: Bool = false
+    var coffeeStateCount: Int = 0
     var hazelnutCount = SharePersonal.hSyrupCount
     var vanillaCount = SharePersonal.vSyrupCount
     var caramelCount = SharePersonal.cSyrupCount
-    var icedMessage = ""
-    var normalWhipS = false
-    var normalWhipR = false
-    var normalWhipB = false
-    var espressoWhipS = false
-    var espressoWhipR = false
-    var espressoWhipB = false
-    var whipMessage = ""
-    var caramelS = false
-    var caramelR = false
-    var caramelB = false
-    var chocolateS = false
-    var chocolateR = false
-    var chocolateB = false
-    var caramelMessage = ""
-    var chocolateMessage = ""
-    var whipCount = 0
-    var caramleDrizzleCount = 0
-    var chocoDrizzleCount = 0
+    var icedMessage: String = ""
+    var normalWhipS: Bool = false
+    var normalWhipR: Bool = false
+    var normalWhipB: Bool = false
+    var espressoWhipS: Bool = false
+    var espressoWhipR: Bool = false
+    var espressoWhipB: Bool = false
+    var whipMessage: String = ""
+    var caramelS: Bool = false
+    var caramelR: Bool = false
+    var caramelB: Bool = false
+    var chocolateS: Bool = false
+    var chocolateR: Bool = false
+    var chocolateB: Bool = false
+    var caramelMessage: String = ""
+    var chocolateMessage: String = ""
+    var whipCount: Int = 0
+    var caramleDrizzleCount: Int = 0
+    var chocoDrizzleCount: Int = 0
+    var beforePersonal: String = ""
+    var afterPersonal: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +75,8 @@ class PersonalOptionDetailViewController: UIViewController { // 2021.08.04 ì¡°í˜
     }
     
     func initSetting() {
+        beforePersonal = "\(SharePersonal.coffee)\(SharePersonal.vSyrup)\(SharePersonal.hSyrup)\(SharePersonal.cSyrup)\(SharePersonal.ice)\(SharePersonal.whip)\(SharePersonal.caramelDrizzle)\(SharePersonal.chocoDrizzle)\(SharePersonal.lid)"
+        
         lblPersonalName.text = personalList[receivedIndexPath]
         btnPersonalShape.layer.cornerRadius = 20
         btnAddOption1.layer.borderWidth = 1
@@ -1487,6 +1491,13 @@ class PersonalOptionDetailViewController: UIViewController { // 2021.08.04 ì¡°í˜
                 SharePersonal.lid = ""
             }
         }
+        
+        afterPersonal = "\(SharePersonal.coffee)\(SharePersonal.vSyrup)\(SharePersonal.hSyrup)\(SharePersonal.cSyrup)\(SharePersonal.ice)\(SharePersonal.whip)\(SharePersonal.caramelDrizzle)\(SharePersonal.chocoDrizzle)\(SharePersonal.lid)"
+
+        if beforePersonal != afterPersonal {
+            SharePersonalData.myMenuState = false
+        }
+        
         NotificationCenter.default.post(name: DidDismissPersonalOptionViewController, object: nil, userInfo: nil)
         dismiss(animated: true, completion: nil)
     }

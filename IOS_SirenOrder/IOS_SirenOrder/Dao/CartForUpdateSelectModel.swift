@@ -1,25 +1,27 @@
 //
-//  MyMenuModel.swift
+//  CartForUpdateSelectModel.swift
 //  IOS_SirenOrder
 //
-//  Created by Hyeji on 2021/07/31.
+//  Created by Hyeji on 2021/08/06.
 //
 
 import Foundation
 
-// 2021.07.31 조혜지 Order 나만의 메뉴 View Dao
-protocol MyMenuModelProtocol : AnyObject {
-    func itemDownloaded(items: NSArray)
+// 2021.08.05 조혜지 Order Cart View Dao
+protocol CartForUpdataeSelectModelProtocol : AnyObject {
+    func cartItemDownloaded(items: NSMutableArray)
 }
 
-class MyMenuModel : NSObject {
-    var delegate: MyMenuModelProtocol!
-    var urlPath = "http://\(macIp):8080/starbucks/jsp/hj/myMenuSelect.jsp"
+class CartForUpdateSelectModel : NSObject {
+    var delegate: CartForUpdataeSelectModelProtocol!
+    var urlPath = "http://\(macIp):8080/starbucks/jsp/hj/cartForUpdateSelect.jsp"
     
-    func downloadItems() {
+    func downloadItems(_ cd: String, _ cartPersonal: String, _ cartCount: Int) {
         
-        let urlAdd = "?userId=\(userId)"
+        let urlAdd = "?userId=\(userId)&cd=\(cd)&cartPersonal=\(cartPersonal)&cartCount=\(SharePersonalData.drinkCount)"
         urlPath = urlPath + urlAdd
+        print(urlPath)
+        urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
         
         let url: URL = URL(string: urlPath)!
         let defaultSession = URLSession(configuration: URLSessionConfiguration.default)
@@ -27,7 +29,7 @@ class MyMenuModel : NSObject {
             if error != nil{
                 print("Failed to download data")
             }else{
-                print("Data is downloaded")
+                print("Data is downloaded 되는거냐??????")
                 self.parseJSON(data!)
             }
         }
@@ -47,22 +49,17 @@ class MyMenuModel : NSObject {
                 
         for i in 0..<jsonResult.count {
             jsonElement = jsonResult[i] as! NSDictionary
-            if let personalId = jsonElement["personalId"] as? String,
-               let personalContent = jsonElement["personalContent"] as? String,
-               let cd = jsonElement["cd"] as? String,
-               let name = jsonElement["name"] as? String,
-               let price = jsonElement["price"] as? String,
-               let img = jsonElement["img"] as? String,
-               let personalPrice = jsonElement["personalPrice"] as? String{
+            if let cartId = jsonElement["cartId"] as? String,
+               let cartCount = jsonElement["cartCount"] as? String{
                 
-                let query = PersonalModel(personalId: personalId, personalContent: personalContent, cd: cd, name: name, price: Int(price)!, img: img, personalPrice: Int(personalPrice)!)
+                let query = CartModel(cartId: cartId, cartCount: Int(cartCount)!)
                 locations.add(query)
                 
             }
         }
 
         DispatchQueue.main.async(execute: {() -> Void in
-            self.delegate.itemDownloaded(items: locations)
+            self.delegate.cartItemDownloaded(items: locations)
     })
     }
 }

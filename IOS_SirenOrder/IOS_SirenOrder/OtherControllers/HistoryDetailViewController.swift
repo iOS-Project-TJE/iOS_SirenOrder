@@ -64,7 +64,7 @@ class HistoryDetailViewController: UIViewController {
         lblDrinkName.text="\(receiveItem.name!)"
         lblOrderPersonal.text="\(personal!)"
         lblCount.text="총 \(receiveItem.orderCount!)개"
-        lblPrice.text="\(receiveItem.price! * receiveItem.orderCount!)원"
+        lblPrice.text="\(receiveItem.price! * receiveItem.orderCount! + receiveItem.orderPersonalPrice!)원"
     }
     
     @IBAction func btnRefresh(_ sender: UIButton) {
