@@ -1,5 +1,5 @@
 //
-//  CartCheckModel.swift
+//  OrderNumModel.swift
 //  IOS_SirenOrder
 //
 //  Created by Hyeji on 2021/08/06.
@@ -7,20 +7,16 @@
 
 import Foundation
 
-// 21.08.05 조혜지 장바구니에 이미 상품이 있는지 여부 알기 위한 Dao
-protocol CartCheckModelProtocol : AnyObject {
-    func priceDownloaded(items: NSMutableArray)
+// 21.08.05 조혜지 max orderNumber 알기 위한 Dao
+protocol OrderNumModelProtocol : AnyObject {
+    func orderNumDownloaded(items: NSMutableArray)
 }
 
-class CartCheckModel : NSObject {
-    var delegate: CartCheckModelProtocol!
-    var urlPath = "http://\(macIp):8080/starbucks/jsp/hj/"
+class OrderNumModel : NSObject {
+    var delegate: OrderNumModelProtocol!
+    let urlPath = "http://\(macIp):8080/starbucks/jsp/hj/orderNumSelect.jsp"
     
-    func downloadItems(_ cd: String, _ cartPersonal: String, _ cartCount: Int) {
-        let urlAdd = "cartCheck.jsp?userId=\(userId)&cd=\(cd)&cartPersonal=\(cartPersonal)&cartCount=\(SharePersonalData.drinkCount)"
-        urlPath = urlPath + urlAdd
-        print(urlPath)
-        urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+    func downloadItems() {
 
         let url: URL = URL(string: urlPath)!
         let defaultSession = URLSession(configuration: URLSessionConfiguration.default)
@@ -45,12 +41,13 @@ class CartCheckModel : NSObject {
         
         var jsonElement = NSDictionary()
         let locations = NSMutableArray()
-                
+        
+        
         for i in 0..<jsonResult.count {
             jsonElement = jsonResult[i] as! NSDictionary
-            if let cartCheck = jsonElement["cartCheck"] as? String{
+            if let orderNum = jsonElement["orderNum"] as? String{
 
-                let query = CartModel(cartCheck: cartCheck)
+                let query = OrderModel(orderNum: orderNum)
                 locations.add(query)
 
                 
@@ -58,7 +55,7 @@ class CartCheckModel : NSObject {
         }
 
         DispatchQueue.main.async(execute: {() -> Void in
-            self.delegate.priceDownloaded(items: locations)
+            self.delegate.orderNumDownloaded(items: locations)
     })
     }
 }

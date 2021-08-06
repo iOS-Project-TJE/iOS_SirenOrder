@@ -76,6 +76,8 @@
 		85423B5226B7169D00FFEF85 /* StoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85423B5126B7169D00FFEF85 /* StoreDetailViewController.swift */; };
 		8543CDC326BD06FA0057A836 /* ConfirmOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8543CDC226BD06FA0057A836 /* ConfirmOrderViewController.swift */; };
 		8543CDC726BD0DDD0057A836 /* ConfirmOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8543CDC626BD0DDD0057A836 /* ConfirmOrderTableViewCell.swift */; };
+		8543CDC926BD1F3D0057A836 /* OrderNumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8543CDC826BD1F3D0057A836 /* OrderNumModel.swift */; };
+		8543CDCB26BD2A020057A836 /* OrderInsertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8543CDCA26BD2A020057A836 /* OrderInsertModel.swift */; };
 		856F78F026BA9BE50092B57C /* SharePersonal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856F78EF26BA9BE50092B57C /* SharePersonal.swift */; };
 		856F78F226BA9C030092B57C /* SharePersonalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856F78F126BA9C030092B57C /* SharePersonalData.swift */; };
 		856F78F426BAA0950092B57C /* PersonalOptionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856F78F326BAA0950092B57C /* PersonalOptionDetailViewController.swift */; };
@@ -182,6 +184,8 @@
 		85423B5126B7169D00FFEF85 /* StoreDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailViewController.swift; sourceTree = "<group>"; };
 		8543CDC226BD06FA0057A836 /* ConfirmOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmOrderViewController.swift; sourceTree = "<group>"; };
 		8543CDC626BD0DDD0057A836 /* ConfirmOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmOrderTableViewCell.swift; sourceTree = "<group>"; };
+		8543CDC826BD1F3D0057A836 /* OrderNumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderNumModel.swift; sourceTree = "<group>"; };
+		8543CDCA26BD2A020057A836 /* OrderInsertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderInsertModel.swift; sourceTree = "<group>"; };
 		856F78EF26BA9BE50092B57C /* SharePersonal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharePersonal.swift; sourceTree = "<group>"; };
 		856F78F126BA9C030092B57C /* SharePersonalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharePersonalData.swift; sourceTree = "<group>"; };
 		856F78F326BAA0950092B57C /* PersonalOptionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalOptionDetailViewController.swift; sourceTree = "<group>"; };
@@ -281,6 +285,8 @@
 				851AF3A026BCC2420093B318 /* GiftPriceModel.swift */,
 				851AF3A826BCE4980093B318 /* CartCheckModel.swift */,
 				851AF3AA26BCF7850093B318 /* CartForUpdateSelectModel.swift */,
+				8543CDC826BD1F3D0057A836 /* OrderNumModel.swift */,
+				8543CDCA26BD2A020057A836 /* OrderInsertModel.swift */,
 			);
 			path = Dao;
 			sourceTree = "<group>";
@@ -574,6 +580,7 @@
 				851AF3A926BCE4980093B318 /* CartCheckModel.swift in Sources */,
 				85423B2626B6EEB200FFEF85 /* AllMenuViewController.swift in Sources */,
 				85DDD67F26B85C1500B97DF7 /* DrinkDetailViewController.swift in Sources */,
+				8543CDC926BD1F3D0057A836 /* OrderNumModel.swift in Sources */,
 				856F78F226BA9C030092B57C /* SharePersonalData.swift in Sources */,
 				851AF39D26BC335D0093B318 /* CartPriceModel.swift in Sources */,
 				857F1C4C26B27A210028D3BC /* AppDelegate.swift in Sources */,
@@ -584,6 +591,7 @@
 				6980B02026B585690048DAAB /* OtherTableViewController.swift in Sources */,
 				70D9EAD826B2A0640036255C /* CoverViewController.swift in Sources */,
 				69E573F026BAC35E0064CF83 /* HistoryModel.swift in Sources */,
+				8543CDCB26BD2A020057A836 /* OrderInsertModel.swift in Sources */,
 				69E573EC26BA24B70064CF83 /* SettingViewController.swift in Sources */,
 				856F78F426BAA0950092B57C /* PersonalOptionDetailViewController.swift in Sources */,
 				708D257126B5C575000FCCD7 /* HomeViewController.swift in Sources */,
