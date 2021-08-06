@@ -59,34 +59,6 @@ class HomeViewController: UIViewController {
         cv_best.reloadData()
 
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let cell = sender as! HomeCollectionViewCell
-        
-        if segue.identifier == "sgRecommend" {
-            //추천 컬렉션뷰에서 클릭힐경우
-            let indexPath = self.cv_recommend.indexPath(for: cell)
-            let item: DrinkModel = recommendItem[indexPath!.row] as! DrinkModel
-            let drinkDetailViewController = segue.destination as! DrinkDetailViewController
-            drinkDetailViewController.receivedCd = item.cd!
-            
-        }else if segue.identifier == "sgNew" {
-            //뉴 컬렉션 뷰에서 클릭할경우
-            let indexPath = self.cv_new.indexPath(for: cell)
-            let item: DrinkModel = newItem[indexPath!.row] as! DrinkModel
-            let drinkDetailViewController = segue.destination as! DrinkDetailViewController
-            drinkDetailViewController.receivedCd = item.cd!
-            
-        }else {
-            //베스트 컬렉션뷰에서 클릭힐경우
-            let indexPath = self.cv_best.indexPath(for: cell)
-            let item: DrinkModel = bestItem[indexPath!.row] as! DrinkModel
-            let drinkDetailViewController = segue.destination as! DrinkDetailViewController
-            drinkDetailViewController.receivedCd = item.cd!
-            
-            
-        }
-    }
 
     /*
     // MARK: - Navigation
@@ -168,6 +140,28 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         }
 
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "DrinkDetailVC") as? DrinkDetailViewController
+        
+        switch collectionView {
+        case cv_recommend:
+            let item: DrinkModel = recommendItem[indexPath.row] as! DrinkModel
+            vc?.receivedCd = item.cd!
+            
+        case cv_new:
+            let item: DrinkModel = newItem[indexPath.row] as! DrinkModel
+            vc?.receivedCd = item.cd!
+            
+        case cv_best:
+            let item: DrinkModel = bestItem[indexPath.row] as! DrinkModel
+            vc?.receivedCd = item.cd!
+            
+        default :
+            print("fail")
+        }
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
     
     

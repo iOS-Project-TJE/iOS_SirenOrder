@@ -3110,7 +3110,7 @@
         <!--Drink Detail View Controller-->
         <scene sceneID="toy-9N-2WS">
             <objects>
-                <viewController id="F9p-S4-2Za" customClass="DrinkDetailViewController" customModule="IOS_SirenOrder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DrinkDetailVC" id="F9p-S4-2Za" customClass="DrinkDetailViewController" customModule="IOS_SirenOrder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zuq-aV-822">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

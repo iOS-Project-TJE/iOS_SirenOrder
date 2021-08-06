@@ -34,7 +34,6 @@
 		69E573F226BAC3680064CF83 /* ReceiptModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E573F126BAC3680064CF83 /* ReceiptModel.swift */; };
 		69E573F426BAC4100064CF83 /* ReceiptListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E573F326BAC4100064CF83 /* ReceiptListModel.swift */; };
 		69E573F626BAC5D30064CF83 /* ReceiptDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E573F526BAC5D30064CF83 /* ReceiptDetailViewController.swift */; };
-		701CF71326BD880A00BF9B53 /* DrinkDetailInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701CF71226BD880A00BF9B53 /* DrinkDetailInfoModel.swift */; };
 		701CF71526BDBA4F00BF9B53 /* DrinkDetailInfoButtonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701CF71426BDBA4F00BF9B53 /* DrinkDetailInfoButtonModel.swift */; };
 		701CF71B26BDD0CA00BF9B53 /* NutritionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701CF71A26BDD0CA00BF9B53 /* NutritionViewController.swift */; };
 		701CF71D26BDD10800BF9B53 /* DrinkDetailInfoNutritionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701CF71C26BDD10800BF9B53 /* DrinkDetailInfoNutritionModel.swift */; };
@@ -46,6 +45,7 @@
 		70BB20EF26BA79D200871D85 /* HomeNewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BB20EE26BA79D200871D85 /* HomeNewModel.swift */; };
 		70D9EAD826B2A0640036255C /* CoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D9EAD726B2A0640036255C /* CoverViewController.swift */; };
 		70D9EADA26B2A5A30036255C /* PermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D9EAD926B2A5A30036255C /* PermissionViewController.swift */; };
+		70F3E34526BDE80B005386A0 /* DrinkDetailInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F3E34426BDE80B005386A0 /* DrinkDetailInfoModel.swift */; };
 		851AF38926BBB3A80093B318 /* DrinkOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851AF38826BBB3A80093B318 /* DrinkOrderTableViewCell.swift */; };
 		851AF38D26BBBFC60093B318 /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851AF38C26BBBFC60093B318 /* CartModel.swift */; };
 		851AF39126BBEE860093B318 /* OrderSendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851AF39026BBEE860093B318 /* OrderSendModel.swift */; };
@@ -145,7 +145,6 @@
 		69E573F126BAC3680064CF83 /* ReceiptModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptModel.swift; sourceTree = "<group>"; };
 		69E573F326BAC4100064CF83 /* ReceiptListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptListModel.swift; sourceTree = "<group>"; };
 		69E573F526BAC5D30064CF83 /* ReceiptDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptDetailViewController.swift; sourceTree = "<group>"; };
-		701CF71226BD880A00BF9B53 /* DrinkDetailInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrinkDetailInfoModel.swift; path = "../../../../GitHub절대보관/ClassBackUp/iOS_SirenOrder/IOS_SirenOrder/IOS_SirenOrder/Dao/DrinkDetailInfoModel.swift"; sourceTree = "<group>"; };
 		701CF71426BDBA4F00BF9B53 /* DrinkDetailInfoButtonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDetailInfoButtonModel.swift; sourceTree = "<group>"; };
 		701CF71A26BDD0CA00BF9B53 /* NutritionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionViewController.swift; sourceTree = "<group>"; };
 		701CF71C26BDD10800BF9B53 /* DrinkDetailInfoNutritionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDetailInfoNutritionModel.swift; sourceTree = "<group>"; };
@@ -158,6 +157,7 @@
 		70BB20EE26BA79D200871D85 /* HomeNewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNewModel.swift; sourceTree = "<group>"; };
 		70D9EAD726B2A0640036255C /* CoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverViewController.swift; sourceTree = "<group>"; };
 		70D9EAD926B2A5A30036255C /* PermissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionViewController.swift; sourceTree = "<group>"; };
+		70F3E34426BDE80B005386A0 /* DrinkDetailInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDetailInfoModel.swift; sourceTree = "<group>"; };
 		851AF38826BBB3A80093B318 /* DrinkOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkOrderTableViewCell.swift; sourceTree = "<group>"; };
 		851AF38C26BBBFC60093B318 /* CartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModel.swift; sourceTree = "<group>"; };
 		851AF39026BBEE860093B318 /* OrderSendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSendModel.swift; sourceTree = "<group>"; };
@@ -269,7 +269,6 @@
 		6980B01826B585690048DAAB /* Dao */ = {
 			isa = PBXGroup;
 			children = (
-				701CF71226BD880A00BF9B53 /* DrinkDetailInfoModel.swift */,
 				6980B01926B585690048DAAB /* HistoryListModel.swift */,
 				69E573F326BAC4100064CF83 /* ReceiptListModel.swift */,
 				85423B3526B6F7C100FFEF85 /* MyMenuModel.swift */,
@@ -298,6 +297,7 @@
 				8543CDCA26BD2A020057A836 /* OrderInsertModel.swift */,
 				701CF71426BDBA4F00BF9B53 /* DrinkDetailInfoButtonModel.swift */,
 				701CF71C26BDD10800BF9B53 /* DrinkDetailInfoNutritionModel.swift */,
+				70F3E34426BDE80B005386A0 /* DrinkDetailInfoModel.swift */,
 			);
 			path = Dao;
 			sourceTree = "<group>";
@@ -637,7 +637,6 @@
 				6980B02226B585690048DAAB /* MapViewController.swift in Sources */,
 				85423B3A26B6F8C000FFEF85 /* CategoryDetailTableViewCell.swift in Sources */,
 				8543CDC726BD0DDD0057A836 /* ConfirmOrderTableViewCell.swift in Sources */,
-				701CF71326BD880A00BF9B53 /* DrinkDetailInfoModel.swift in Sources */,
 				9966F1EB26B6DE2A003B3DDD /* FindUserPwViewController.swift in Sources */,
 				701CF71B26BDD0CA00BF9B53 /* NutritionViewController.swift in Sources */,
 				6980B02626B585690048DAAB /* NoticeTableViewCell.swift in Sources */,
@@ -659,6 +658,7 @@
 				85DDD67326B8575400B97DF7 /* DrinkInfoModel.swift in Sources */,
 				85423B5226B7169D00FFEF85 /* StoreDetailViewController.swift in Sources */,
 				9966F1E526B6D6F9003B3DDD /* SignUpNicNameViewController.swift in Sources */,
+				70F3E34526BDE80B005386A0 /* DrinkDetailInfoModel.swift in Sources */,
 				85423B2A26B6F1E700FFEF85 /* OrderViewController.swift in Sources */,
 				6980B01E26B585690048DAAB /* NoticeTableViewController.swift in Sources */,
 				701E9C8E26B2B8550008F6F5 /* ExplainViewController.swift in Sources */,
