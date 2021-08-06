@@ -1,26 +1,27 @@
 //
-//  DrinkInfoModel.swift
+//  CartCheckModel.swift
 //  IOS_SirenOrder
 //
-//  Created by Hyeji on 2021/08/02.
+//  Created by Hyeji on 2021/08/06.
 //
 
 import Foundation
 
-// 21.08.02 조혜지 Order Personal 옵션 선택을 위해 Drink 정보 불러오는 Dao
-protocol DrinkInfoModelProtocol : AnyObject {
-    func itemDownloaded(items: NSArray)
+// 21.08.05 조혜지 장바구니에 이미 상품이 있는지 여부 알기 위한 Dao
+protocol CartCheckModelProtocol : AnyObject {
+    func priceDownloaded(items: NSMutableArray)
 }
 
-class DrinkInfoModel : NSObject {
-    var delegate: DrinkInfoModelProtocol!
+class CartCheckModel : NSObject {
+    var delegate: CartCheckModelProtocol!
     var urlPath = "http://\(macIp):8080/starbucks/jsp/hj/"
     
-    func downloadItems(cd: String) {
-        let urlAdd = "drinkInfoSelect.jsp?cd=\(cd)"
+    func downloadItems(_ cd: String, _ cartPersonal: String, _ cartCount: Int) {
+        let urlAdd = "cartCheck.jsp?userId=\(userId)&cd=\(cd)&cartPersonal=\(cartPersonal)&cartCount=\(SharePersonalData.drinkCount)"
         urlPath = urlPath + urlAdd
         print(urlPath)
-        
+        urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+
         let url: URL = URL(string: urlPath)!
         let defaultSession = URLSession(configuration: URLSessionConfiguration.default)
         let task = defaultSession.dataTask(with: url){(data, response, error) in
@@ -45,23 +46,23 @@ class DrinkInfoModel : NSObject {
         var jsonElement = NSDictionary()
         let locations = NSMutableArray()
         
-        print(jsonResult.count)
+        print(jsonResult.count, "여기??")
         
         for i in 0..<jsonResult.count {
             jsonElement = jsonResult[i] as! NSDictionary
-            if let name = jsonElement["name"] as? String,
-               let price = jsonElement["price"] as? String,
-               let type = jsonElement["type"] as? String,
-               let img = jsonElement["img"] as? String{
-                
-                let query = DrinkModel(name: name, price: Int(price)!, type: Int(type)!, img: img)
+            if let cartCheck = jsonElement["cartCheck"] as? String{
+                print(jsonResult.count, "저기??")
+
+                let query = CartModel(cartCheck: cartCheck)
                 locations.add(query)
+                print(jsonResult.count, "요기??")
+
                 
             }
         }
 
         DispatchQueue.main.async(execute: {() -> Void in
-            self.delegate.itemDownloaded(items: locations)
+            self.delegate.priceDownloaded(items: locations)
     })
     }
 }

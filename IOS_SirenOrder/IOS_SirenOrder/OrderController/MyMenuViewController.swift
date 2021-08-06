@@ -14,8 +14,8 @@ class MyMenuViewController: UIViewController { // 2021.07.31 조혜지 Order 나
     @IBOutlet weak var lblStore: UILabel!
     @IBOutlet weak var lblCartCount: UILabel!
     
-    var tag = 0
-    var data = NSMutableArray()
+    var tag: Int = 0
+    var data: NSMutableArray = NSMutableArray()
     var dataItem: NSArray = NSArray()
     
     override func viewDidLoad() {
@@ -49,14 +49,6 @@ class MyMenuViewController: UIViewController { // 2021.07.31 조혜지 Order 나
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        let myMenuModel = MyMenuModel()
-        myMenuModel.delegate = self
-        myMenuModel.downloadItems()
-        tvMyMenu.reloadData()
-        print("여기???")
-    }
-    
     @IBAction func btnMyMenuDelete(_ sender: UIButton) {
         let item: PersonalModel = dataItem[sender.tag] as! PersonalModel
         let myMenuDeleteModel = MyMenuDeleteModel()
@@ -69,8 +61,6 @@ class MyMenuViewController: UIViewController { // 2021.07.31 조혜지 Order 나
                 myMenuModel.downloadItems()
                 self.tvMyMenu.reloadData()
             }
-            
-            
         }
     }
     
@@ -114,15 +104,31 @@ class MyMenuViewController: UIViewController { // 2021.07.31 조혜지 Order 나
                 ShareOrder.orderCount = 1
                 ShareOrder.orderPersonal = item.personalContent!
                 ShareOrder.orderPersonalPrice = item.personalPrice!
+                ShareOrder.orderPrice = item.price!
+                ShareOrder.orderImg = item.img!
             })
             resultAlert.addAction(cancelAction)
             resultAlert.addAction(okAction)
             present(resultAlert, animated: true, completion: nil)
         }else {
             self.performSegue(withIdentifier: "sgOrder", sender: self)
+            ShareOrder.orderCd = item.cd!
+            ShareOrder.orderName = item.name!
+            ShareOrder.orderCount = 1
+            ShareOrder.orderPersonal = item.personalContent!
+            ShareOrder.orderPersonalPrice = item.personalPrice!
+            ShareOrder.orderPrice = item.price!
+            ShareOrder.orderImg = item.img!
         }
     }
     
+    @IBAction func btnStore(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "sgStoreChoice", sender: self)
+    }
+    
+    @IBAction func btnGoCart(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "sgCart", sender: self)
+    }
     /*
     // MARK: - Navigation
 

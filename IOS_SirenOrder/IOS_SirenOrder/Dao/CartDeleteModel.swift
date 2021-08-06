@@ -1,19 +1,19 @@
 //
-//  MyMenuInsertModel.swift
+//  CartDeleteModel.swift
 //  IOS_SirenOrder
 //
-//  Created by Hyeji on 2021/08/02.
+//  Created by Hyeji on 2021/08/05.
 //
 
 import Foundation
 
-// 21.08.02 조혜지 Order 나만의 메뉴 추가하는 Dao
-class MyMenuInsertModel {
-    var urlPath = "http://\(macIp):8080/starbucks/jsp/hj/myMenuInsert.jsp"
+// 21.08.05 조혜지 장바구니 선택 삭제하는 Dao
+class CartDeleteModel {
+    var urlPath = "http://\(macIp):8080/starbucks/jsp/hj/cartDelete.jsp"
     
-    func InsertItems(personalContent: String, cd: String, userId: String, personalPrice: Int) -> Bool {
+    func deleteItems(_ cartId: String) -> Bool {
         var result: Bool = true
-        let urlAdd = "?personalContent=\(personalContent)&cd=\(cd)&userId=\(userId)&personalPrice=\(personalPrice)"
+        let urlAdd = "?cartId=\(cartId)&userId=\(userId)"
         urlPath = urlPath + urlAdd
         
         urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
@@ -22,10 +22,10 @@ class MyMenuInsertModel {
         let defaultSession = URLSession(configuration: URLSessionConfiguration.default)
         let task = defaultSession.dataTask(with: url){(data, response, error) in
             if error != nil {
-                print("Failed to insert data")
+                print("Failed to delete data")
                 result = false
             }else{
-                print("Data is inserted!")
+                print("Data is deleted!")
                 result = true
             }
         }

@@ -1,25 +1,25 @@
 //
-//  CartSelectModel.swift
+//  GiftPriceModel.swift
 //  IOS_SirenOrder
 //
-//  Created by Hyeji on 2021/08/05.
+//  Created by Hyeji on 2021/08/06.
 //
 
 import Foundation
 
-// 2021.08.05 조혜지 Order Cart View Dao
-protocol CartSelectModelProtocol : AnyObject {
-    func cartItemDownloaded(items: NSArray)
+// 21.08.06 조혜지 기프트 카드 잔액 정보 불러오는 Dao
+protocol GiftPriceModelProtocol : AnyObject {
+    func giftPriceDownloaded(items: NSMutableArray)
 }
 
-class CartSelectModel : NSObject {
-    var delegate: CartSelectModelProtocol!
-    var urlPath = "http://\(macIp):8080/starbucks/jsp/hj/cartSelect.jsp"
+class GiftPriceModel : NSObject {
+    var delegate: GiftPriceModelProtocol!
+    var urlPath = "http://\(macIp):8080/starbucks/jsp/hj/"
     
     func downloadItems() {
-        
-        let urlAdd = "?userId=\(userId)"
+        let urlAdd = "giftPriceSelect.jsp?giftReceiver=\(userId)"
         urlPath = urlPath + urlAdd
+        print(urlPath)
         
         let url: URL = URL(string: urlPath)!
         let defaultSession = URLSession(configuration: URLSessionConfiguration.default)
@@ -44,26 +44,21 @@ class CartSelectModel : NSObject {
         
         var jsonElement = NSDictionary()
         let locations = NSMutableArray()
-                
+        
+        print(jsonResult.count)
+        
         for i in 0..<jsonResult.count {
             jsonElement = jsonResult[i] as! NSDictionary
-            if let cartId = jsonElement["cartId"] as? String,
-               let cartCount = jsonElement["cartCount"] as? String,
-               let cartPersonal = jsonElement["cartPersonal"] as? String,
-               let cd = jsonElement["cd"] as? String,
-               let cartPersonalPrice = jsonElement["cartPersonalPrice"] as? String,
-               let name = jsonElement["name"] as? String,
-               let img = jsonElement["img"] as? String,
-               let price = jsonElement["price"] as? String{
+            if let price = jsonElement["price"] as? String{
                 
-                let query = CartModel(cartId: cartId, cartCount: Int(cartCount)!, cartPersonal: cartPersonal, cd: cd, cartPersonalPrice: Int(cartPersonalPrice)!, name: name, img: img, price: Int(price)!)
+                let query = GiftModel(price: price)
                 locations.add(query)
                 
             }
         }
 
         DispatchQueue.main.async(execute: {() -> Void in
-            self.delegate.cartItemDownloaded(items: locations)
+            self.delegate.giftPriceDownloaded(items: locations)
     })
     }
 }
