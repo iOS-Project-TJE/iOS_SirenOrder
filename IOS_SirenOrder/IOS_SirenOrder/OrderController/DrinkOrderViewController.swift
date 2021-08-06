@@ -29,10 +29,11 @@ class DrinkOrderViewController: UIViewController { // 2021.08.05 조혜지 결�
     var orderNum: Int = 0
     var pay: Int = 0
     var inputOrderNum: String = ""
+    var giftState: Bool = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         let orderNumModel = OrderNumModel()
         orderNumModel.delegate = self
         orderNumModel.downloadItems()
@@ -54,6 +55,8 @@ class DrinkOrderViewController: UIViewController { // 2021.08.05 조혜지 결�
         btnAccount.layer.borderColor = UIColor.systemGray5.cgColor
         btnCard.layer.borderColor = UIColor.systemGray5.cgColor
         
+        ShareOrder.giftAfterPrice = 0
+        ShareOrder.giftBeforePrice = 0
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,6 +76,7 @@ class DrinkOrderViewController: UIViewController { // 2021.08.05 조혜지 결�
         if ShareOrder.cartOrder == false {
             lblTotalCount.text = "총 \(ShareOrder.orderCount) 개"
             lblTotalPrice.text = DecimalWon(value: (ShareOrder.orderPrice + ShareOrder.orderPersonalPrice) * ShareOrder.orderCount)
+            ShareOrder.giftAfterPrice = (ShareOrder.orderPrice + ShareOrder.orderPersonalPrice) * ShareOrder.orderCount
         }else {
             let cartCountModel = CartCountModel()
             cartCountModel.delegate = self
@@ -94,6 +98,7 @@ class DrinkOrderViewController: UIViewController { // 2021.08.05 조혜지 결�
         ivGift.tintColor = UIColor.darkGray
         
         lblMessage.text = ""
+        giftState = false
     }
     
     @IBAction func btnAccount(_ sender: UIButton) {
@@ -106,6 +111,7 @@ class DrinkOrderViewController: UIViewController { // 2021.08.05 조혜지 결�
         ivGift.tintColor = UIColor.darkGray
         
         lblMessage.text = ""
+        giftState = false
     }
  
     @IBAction func btnGift(_ sender: UIButton) {
@@ -116,8 +122,10 @@ class DrinkOrderViewController: UIViewController { // 2021.08.05 조혜지 결�
         ivCard.tintColor = UIColor.darkGray
         ivAccount.tintColor = UIColor.darkGray
         ivGift.tintColor = UIColor(displayP3Red: 0/255, green: 112/225, blue: 74/255, alpha: 1)
-        
-        lblMessage.text = "기프트 카드 잔액 : 6,000 원"
+        let item: UserModel = giftPrice[0] as! UserModel
+        lblMessage.text = "기프트 카드 잔액 : \(DecimalWon(value: item.giftPrice!))"
+        ShareOrder.giftBeforePrice = item.giftPrice!
+        giftState = true
     }
     
     func DecimalWon(value: Int) -> String{
@@ -129,26 +137,78 @@ class DrinkOrderViewController: UIViewController { // 2021.08.05 조혜지 결�
     }
     
     @IBAction func btnOrder(_ sender: UIButton) {
-        inputOrderNum = String(orderNum)
-        if orderNum < 10 {
-            inputOrderNum = "A-0\(orderNum)"
-        }else {
-            inputOrderNum = "A-\(orderNum)"
-        }
-        let orderInsertModel = OrderInsertModel()
         
-        if ShareOrder.cartOrder == false {
-            let result = orderInsertModel.InsertItems(orderNum: inputOrderNum, orderCount: ShareOrder.orderCount, orderPersonal: ShareOrder.orderPersonal, storeName: storeName, cd: ShareOrder.orderCd, userId: userId, cartPersonalPrice: ShareOrder.orderPersonalPrice)
-            if result {
-                self.performSegue(withIdentifier: "sgConfirmOrder", sender: self)
+        if giftState == true {
+            if ShareOrder.giftBeforePrice < ShareOrder.giftAfterPrice {
+                let resultAlert = UIAlertController(title: "결제 실패", message: "기프트 카드의 잔액이 부족합니다!", preferredStyle: .alert)
+                let onAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                resultAlert.addAction(onAction)
+                present(resultAlert, animated: true, completion: nil)
+            }else {
+                let giftPriceUpdateModel = GiftPriceUpdateModel()
+                print("\(ShareOrder.giftBeforePrice - ShareOrder.giftAfterPrice)")
+                let result = giftPriceUpdateModel.updateItems(ShareOrder.giftBeforePrice - ShareOrder.giftAfterPrice)
+                if result {
+                    inputOrderNum = String(orderNum)
+                    if orderNum < 10 {
+                        inputOrderNum = "A-0\(orderNum)"
+                    }else {
+                        inputOrderNum = "A-\(orderNum)"
+                    }
+                    
+//                    if orderNum == 100 {
+//                        inputOrderNum = "A-01"
+//                    }else {
+//                        inputOrderNum = "A-\(orderNum)"
+//                    }
+                    
+                    if ShareOrder.cartOrder == false {
+                        let orderInsertModel = OrderInsertModel()
+                        let result = orderInsertModel.InsertItems(orderNum: inputOrderNum, orderCount: ShareOrder.orderCount, orderPersonal: ShareOrder.orderPersonal, storeName: storeName, cd: ShareOrder.orderCd, userId: userId, cartPersonalPrice: ShareOrder.orderPersonalPrice)
+                        if result {
+                            self.performSegue(withIdentifier: "sgConfirmOrder", sender: self)
+                        }
+                    }else {
+                        print(dataItem.count)
+                        for i in 0..<dataItem.count {
+                            print(dataItem.count)
+                            let item: CartModel = dataItem[i] as! CartModel
+                            let orderInsertModel = OrderInsertModel()
+                            let result = orderInsertModel.InsertItems(orderNum: inputOrderNum, orderCount: item.cartCount!, orderPersonal: item.cartPersonal!, storeName: storeName, cd: item.cd!, userId: userId, cartPersonalPrice: item.cartPersonalPrice!)
+                            if result {
+                                
+                            }
+                        }
+                        self.performSegue(withIdentifier: "sgConfirmOrder", sender: self)
+                    }
+                }
             }
         }else {
-            for i in 0..<dataItem.count {
-                let item: CartModel = dataItem[i] as! CartModel
-                let result = orderInsertModel.InsertItems(orderNum: inputOrderNum, orderCount: item.cartCount!, orderPersonal: item.cartPersonal!, storeName: storeName, cd: item.cd!, userId: userId, cartPersonalPrice: item.cartPersonalPrice!)
+            inputOrderNum = String(orderNum)
+            if orderNum < 10 {
+                inputOrderNum = "A-0\(orderNum)"
+            }else {
+                inputOrderNum = "A-\(orderNum)"
+            }
+            
+            if ShareOrder.cartOrder == false {
+                let orderInsertModel = OrderInsertModel()
+                let result = orderInsertModel.InsertItems(orderNum: inputOrderNum, orderCount: ShareOrder.orderCount, orderPersonal: ShareOrder.orderPersonal, storeName: storeName, cd: ShareOrder.orderCd, userId: userId, cartPersonalPrice: ShareOrder.orderPersonalPrice)
                 if result {
                     self.performSegue(withIdentifier: "sgConfirmOrder", sender: self)
                 }
+            }else {
+                print(dataItem.count)
+                for i in 0..<dataItem.count {
+                    print(dataItem.count)
+                    let item: CartModel = dataItem[i] as! CartModel
+                    let orderInsertModel = OrderInsertModel()
+                    let result = orderInsertModel.InsertItems(orderNum: inputOrderNum, orderCount: item.cartCount!, orderPersonal: item.cartPersonal!, storeName: storeName, cd: item.cd!, userId: userId, cartPersonalPrice: item.cartPersonalPrice!)
+                    if result {
+                        
+                    }
+                }
+                self.performSegue(withIdentifier: "sgConfirmOrder", sender: self)
             }
         }
         
@@ -161,7 +221,11 @@ class DrinkOrderViewController: UIViewController { // 2021.08.05 조혜지 결�
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         if segue.identifier == "sgConfirmOrder" {
-            
+            let comfirmOrderViewController = segue.destination as! ConfirmOrderViewController
+            comfirmOrderViewController.receivedStoreName = storeName
+            comfirmOrderViewController.receivedOrderNum = inputOrderNum
+            comfirmOrderViewController.receivedGiftState = giftState
+            comfirmOrderViewController.receivedCartState = ShareOrder.cartOrder
         }
     }
     
@@ -242,14 +306,16 @@ extension DrinkOrderViewController : CartPriceModelProtocol {
         price = items
         let item: CartModel = price[0] as! CartModel
         lblTotalPrice.text = DecimalWon(value: item.totalPrice!)
+        ShareOrder.giftAfterPrice = item.totalPrice!
     }
 }
 
 extension DrinkOrderViewController : GiftPriceModelProtocol {
     func giftPriceDownloaded(items: NSMutableArray) {
         giftPrice = items
-        let item: GiftModel = giftPrice[0] as! GiftModel
-        lblMessage.text = "기프트 카드 잔액 : \(DecimalWon(value: Int(item.price!)!))"
+        let item: UserModel = giftPrice[0] as! UserModel
+        lblMessage.text = "기프트 카드 잔액 : \(DecimalWon(value: item.giftPrice!))"
+        ShareOrder.giftBeforePrice = item.giftPrice!
     }
 }
 
@@ -257,6 +323,6 @@ extension DrinkOrderViewController : OrderNumModelProtocol {
     func orderNumDownloaded(items: NSMutableArray) {
         beforeOrderNum = items
         let item: OrderModel = beforeOrderNum[0] as! OrderModel
-        orderNum = Int(item.orderNum!)! + 1
+        orderNum = Int(Double(item.orderNum!)!)
     }
 }

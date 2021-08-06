@@ -7,16 +7,16 @@
 
 import Foundation
 
-// 21.08.02 조혜지 Order 결제하는 Dao
+// 21.08.06 조혜지 Order 결제하는 Dao
 class OrderInsertModel {
     var urlPath = "http://\(macIp):8080/starbucks/jsp/hj/orderInsert.jsp"
     
     func InsertItems(orderNum: String, orderCount: Int, orderPersonal: String, storeName: String, cd: String, userId: String, cartPersonalPrice: Int) -> Bool {
         var result: Bool = true
-        let urlAdd = "?orderNum=\(orderNum)&orderCount=\(orderCount)&orderPersonal=\(orderPersonal)&storeName=\(storeName)&cd=\(cd)&userId=\(userId)&cartPersonalPrice=\(cartPersonalPrice)"
+        let urlAdd = "?orderNum=\(orderNum)&orderCount=\(orderCount)&orderPersonal=\(orderPersonal)&storeName=\(storeName)&cd=\(cd)&userId=\(userId)&orderPersonalPrice=\(cartPersonalPrice)"
         urlPath = urlPath + urlAdd
-        
         urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+        print(urlPath)
         
         let url: URL = URL(string: urlPath)!
         let defaultSession = URLSession(configuration: URLSessionConfiguration.default)

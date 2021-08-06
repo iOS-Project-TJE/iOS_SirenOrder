@@ -1,23 +1,26 @@
 //
-//  OrderNumModel.swift
+//  OrderCountModel.swift
 //  IOS_SirenOrder
 //
-//  Created by Hyeji on 2021/08/06.
+//  Created by Hyeji on 2021/08/07.
 //
 
 import Foundation
 
-// 21.08.05 조혜지 max orderNumber 알기 위한 Dao
-protocol OrderNumModelProtocol : AnyObject {
-    func orderNumDownloaded(items: NSMutableArray)
+// 21.08.05 조혜지 주문 개수 정보 불러오는 Dao
+protocol OrderCountModelProtocol : AnyObject {
+    func itemDownloaded(items: NSMutableArray)
 }
 
-class OrderNumModel : NSObject {
-    var delegate: OrderNumModelProtocol!
-    let urlPath = "http://\(macIp):8080/starbucks/jsp/hj/orderNumSelect.jsp"
+class OrderCountModel : NSObject {
+    var delegate: OrderCountModelProtocol!
+    var urlPath = "http://\(macIp):8080/starbucks/jsp/hj/"
     
-    func downloadItems() {
+    func downloadItems(_ orderNum: String) {
+        let urlAdd = "orderCountSelect.jsp?orderNum=\(orderNum)"
+        urlPath = urlPath + urlAdd
         print(urlPath)
+        
         let url: URL = URL(string: urlPath)!
         let defaultSession = URLSession(configuration: URLSessionConfiguration.default)
         let task = defaultSession.dataTask(with: url){(data, response, error) in
@@ -42,20 +45,20 @@ class OrderNumModel : NSObject {
         var jsonElement = NSDictionary()
         let locations = NSMutableArray()
         
+        print(jsonResult.count)
         
         for i in 0..<jsonResult.count {
             jsonElement = jsonResult[i] as! NSDictionary
-            if let orderNum = jsonElement["orderNum"] as? String{
-
-                let query = OrderModel(orderNum: orderNum)
+            if let totalCount = jsonElement["totalCount"] as? String{
+                
+                let query = OrderModel(totalCount: Int(totalCount)!)
                 locations.add(query)
-
                 
             }
         }
 
         DispatchQueue.main.async(execute: {() -> Void in
-            self.delegate.orderNumDownloaded(items: locations)
+            self.delegate.itemDownloaded(items: locations)
     })
     }
 }
