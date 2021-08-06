@@ -4634,7 +4634,7 @@
                         <outlet property="lblStoreDetailAddress" destination="Plv-tj-fH4" id="tXO-UI-Uc2"/>
                         <outlet property="mapStoreDetail" destination="XhT-2M-qZi" id="Cf5-mF-N4k"/>
                         <segue destination="ipQ-OS-k3u" kind="show" identifier="sgOrder" id="DFb-S2-SrH"/>
-                        <segue destination="6Ue-If-TgS" kind="show" identifier="sgCart" id="2D1-FY-4au"/>
+                        <segue destination="6Ue-If-TgS" kind="show" identifier="sgCart" id="jGo-CR-DEO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RX3-CU-JKO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -5580,11 +5580,8 @@
     <inferredMetricsTieBreakers>
         <segue reference="VEf-6C-Abn"/>
         <segue reference="2sj-rg-kQz"/>
-        <segue reference="qVp-pZ-vBB"/>
-        <segue reference="2D1-FY-4au"/>
-        <segue reference="hjI-eu-gGQ"/>
-        <segue reference="qVp-pZ-vBB"/>
-        <segue reference="uUa-nT-SgO"/>
+        <segue reference="DFb-S2-SrH"/>
+        <segue reference="jGo-CR-DEO"/>
         <segue reference="9QZ-KS-g69"/>
         <segue reference="Eg1-oz-FCI"/>
         <segue reference="eU3-y3-Iv3"/>

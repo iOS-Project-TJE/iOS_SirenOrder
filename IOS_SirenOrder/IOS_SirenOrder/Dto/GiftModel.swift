@@ -37,5 +37,5 @@ class GiftModel: NSObject {
         self.name=name
         self.img=img
     }
-    
+
 }

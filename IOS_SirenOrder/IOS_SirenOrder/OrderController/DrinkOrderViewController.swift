@@ -155,13 +155,7 @@ class DrinkOrderViewController: UIViewController { // 2021.08.05 조혜지 결�
                     }else {
                         inputOrderNum = "A-\(orderNum)"
                     }
-                    
-//                    if orderNum == 100 {
-//                        inputOrderNum = "A-01"
-//                    }else {
-//                        inputOrderNum = "A-\(orderNum)"
-//                    }
-                    
+
                     if ShareOrder.cartOrder == false {
                         let orderInsertModel = OrderInsertModel()
                         let result = orderInsertModel.InsertItems(orderNum: inputOrderNum, orderCount: ShareOrder.orderCount, orderPersonal: ShareOrder.orderPersonal, storeName: storeName, cd: ShareOrder.orderCd, userId: userId, cartPersonalPrice: ShareOrder.orderPersonalPrice)
@@ -190,7 +184,7 @@ class DrinkOrderViewController: UIViewController { // 2021.08.05 조혜지 결�
             }else {
                 inputOrderNum = "A-\(orderNum)"
             }
-            
+
             if ShareOrder.cartOrder == false {
                 let orderInsertModel = OrderInsertModel()
                 let result = orderInsertModel.InsertItems(orderNum: inputOrderNum, orderCount: ShareOrder.orderCount, orderPersonal: ShareOrder.orderPersonal, storeName: storeName, cd: ShareOrder.orderCd, userId: userId, cartPersonalPrice: ShareOrder.orderPersonalPrice)
