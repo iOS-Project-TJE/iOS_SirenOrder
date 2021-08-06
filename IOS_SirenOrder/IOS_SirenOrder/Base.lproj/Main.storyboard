@@ -3031,6 +3031,7 @@
                                             <outlet property="ivCategoryDetail" destination="Iju-gx-kTj" id="P3c-0Y-rra"/>
                                             <outlet property="lblCategoryDetailName" destination="uNL-g6-pCA" id="RS2-ZB-bHl"/>
                                             <outlet property="lblCategoryDetailPrice" destination="akr-Uv-VoO" id="ejr-2M-sk9"/>
+                                            <segue destination="F9p-S4-2Za" kind="show" identifier="sgDrinkDetail" id="Q2h-Oq-Yag"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -4717,7 +4718,7 @@
             <objects>
                 <viewController modalPresentationStyle="formSheet" hidesBottomBarWhenPushed="YES" id="DB7-B3-54W" customClass="OrderPersonalViewController" customModule="IOS_SirenOrder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="p9w-4x-wZE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="트윙클 스타 핑크 블렌디드" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUF-Ev-hAd">
@@ -5000,7 +5001,7 @@
             <objects>
                 <viewController id="EMt-RM-e0I" customClass="PersonalOptionViewController" customModule="IOS_SirenOrder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UEv-eo-zQ2">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="트윙클 스타 핑크 블렌디드" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TMf-Iz-cjw">
@@ -5231,7 +5232,7 @@
             <objects>
                 <viewController storyboardIdentifier="PersonalOptionDetailViewController" id="HVU-QK-LSO" customClass="PersonalOptionDetailViewController" customModule="IOS_SirenOrder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EL3-XM-oa1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="커피" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4d-e7-ppb">
