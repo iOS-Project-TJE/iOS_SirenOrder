@@ -51,9 +51,10 @@ class DrinkInfoModel : NSObject {
             jsonElement = jsonResult[i] as! NSDictionary
             if let name = jsonElement["name"] as? String,
                let price = jsonElement["price"] as? String,
-               let type = jsonElement["type"] as? String{
+               let type = jsonElement["type"] as? String,
+               let img = jsonElement["img"] as? String{
                 
-                let query = DrinkModel(name: name, price: Int(price)!, type: Int(type)!)
+                let query = DrinkModel(name: name, price: Int(price)!, type: Int(type)!, img: img)
                 locations.add(query)
                 
             }

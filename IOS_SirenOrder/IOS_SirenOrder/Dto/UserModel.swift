@@ -14,6 +14,7 @@ class UserModel : NSObject{
     var userEmail : String?
     var userSigndate : String?
     var userDropdate : String?
+    var giftPrice: Int?
     
     override init() {
         
@@ -27,4 +28,5 @@ class UserModel : NSObject{
         self.userSigndate = userSigndate
         self.userDropdate = userDropdate
     }
+
 }
