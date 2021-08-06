@@ -1,23 +1,23 @@
 //
-//  GiftPriceModel.swift
+//  OrderCountModel.swift
 //  IOS_SirenOrder
 //
-//  Created by Hyeji on 2021/08/06.
+//  Created by Hyeji on 2021/08/07.
 //
 
 import Foundation
 
-// 21.08.06 조혜지 기프트 카드 잔액 정보 불러오는 Dao
-protocol GiftPriceModelProtocol : AnyObject {
-    func giftPriceDownloaded(items: NSMutableArray)
+// 21.08.05 조혜지 주문 개수 정보 불러오는 Dao
+protocol OrderCountModelProtocol : AnyObject {
+    func itemDownloaded(items: NSMutableArray)
 }
 
-class GiftPriceModel : NSObject {
-    var delegate: GiftPriceModelProtocol!
+class OrderCountModel : NSObject {
+    var delegate: OrderCountModelProtocol!
     var urlPath = "http://\(macIp):8080/starbucks/jsp/hj/"
     
-    func downloadItems() {
-        let urlAdd = "giftPriceSelect.jsp?userId=\(userId)"
+    func downloadItems(_ orderNum: String) {
+        let urlAdd = "orderCountSelect.jsp?orderNum=\(orderNum)"
         urlPath = urlPath + urlAdd
         print(urlPath)
         
@@ -49,16 +49,16 @@ class GiftPriceModel : NSObject {
         
         for i in 0..<jsonResult.count {
             jsonElement = jsonResult[i] as! NSDictionary
-            if let giftPrice = jsonElement["giftPrice"] as? String{
+            if let totalCount = jsonElement["totalCount"] as? String{
                 
-                let query = UserModel(giftPrice: Int(giftPrice)!)
+                let query = OrderModel(totalCount: Int(totalCount)!)
                 locations.add(query)
                 
             }
         }
 
         DispatchQueue.main.async(execute: {() -> Void in
-            self.delegate.giftPriceDownloaded(items: locations)
+            self.delegate.itemDownloaded(items: locations)
     })
     }
 }

@@ -15,15 +15,35 @@ class ConfirmOrderViewController: UIViewController { // 21.08.06 조혜지 결�
     @IBOutlet weak var lblTotalCount: UILabel!
     @IBOutlet weak var tvConfirmOrder: UITableView!
     
+    var orderItem: NSArray = NSArray()
+    var count: NSMutableArray = NSMutableArray()
     var timer = Timer()
     let totalTime = 4
     var secondsPassed = 0
-    var dataItem: NSArray = NSArray()
-    var count: NSMutableArray = NSMutableArray()
+    var receivedStoreName: String = ""
+    var receivedOrderNum: String = ""
+    var receivedGiftState: Bool = false
+    var receivedCartState: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        initSetting()
+    }
+    
+    func initSetting() {
+        storeName = ""
+        ShareOrder.orderCd = ""
+        ShareOrder.orderName = ""
+        ShareOrder.orderCount = 0
+        ShareOrder.orderPersonal = ""
+        ShareOrder.orderPersonalPrice = 0
+        ShareOrder.orderPrice = 0
+        ShareOrder.orderImg = ""
+        ShareOrder.cartOrder = false
+        goOrder = false
+        goCart = false
+        
         self.navigationItem.hidesBackButton = true
         self.tabBarController?.tabBar.isHidden = false
         self.tvConfirmOrder.dataSource = self
@@ -32,17 +52,28 @@ class ConfirmOrderViewController: UIViewController { // 21.08.06 조혜지 결�
 
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
         
-        let cartSelectModel = CartSelectModel()
-        cartSelectModel.delegate = self
-        cartSelectModel.downloadItems()
+        let orderSelectModel = OrderSelectModel()
+        orderSelectModel.delegate = self
+        orderSelectModel.downloadItems(receivedOrderNum)
         
-        if ShareOrder.cartOrder == false {
-            lblTotalCount.text = "총 \(ShareOrder.orderCount) 개"
-        }else {
-            let cartCountModel = CartCountModel()
-            cartCountModel.delegate = self
-            cartCountModel.downloadItems()
+        let orderCountModel = OrderCountModel()
+        orderCountModel.delegate = self
+        orderCountModel.downloadItems(receivedOrderNum)
+        
+        lblStoreName.text = "\(receivedStoreName)에서"
+        lblOrderNum.text = "\(receivedOrderNum)🏃‍♀️"
+        
+        if receivedCartState == true {
+            let cartAllDeleteModel = CartAllDeleteModel()
+            let result = cartAllDeleteModel.deleteItems()
+            if result {
+            }
         }
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     @objc func updateTime() {
@@ -77,45 +108,26 @@ class ConfirmOrderViewController: UIViewController { // 21.08.06 조혜지 결�
 extension ConfirmOrderViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "confirmOrderCell") as! ConfirmOrderTableViewCell
-
-        if ShareOrder.cartOrder == false {
-            cell.lblDrinkName.text = ShareOrder.orderName
-            cell.lblDrinkCount.text = "\(ShareOrder.orderCount) 개"
-
-            let firstIndex = ShareOrder.orderPersonal.index(ShareOrder.orderPersonal.startIndex, offsetBy: 0)
-            let lastIndex = ShareOrder.orderPersonal.index(ShareOrder.orderPersonal.startIndex, offsetBy: ShareOrder.orderPersonal.count-2)
-            cell.lblDrinkPersonal.text = String(ShareOrder.orderPersonal[firstIndex..<lastIndex])
-
-            let url = URL(string: "\(ShareOrder.orderImg)")
-            let data = try? Data(contentsOf: url!)
-            cell.ivConfirmOrder.layer.cornerRadius = cell.ivConfirmOrder.frame.height / 2
-            cell.ivConfirmOrder.clipsToBounds = true
-            cell.ivConfirmOrder.image = UIImage(data: data!)
-        }else {
-            let item: CartModel = dataItem[indexPath.row] as! CartModel
-            cell.lblDrinkName.text = item.name!
-            cell.lblDrinkCount.text = "\(item.cartCount!) 개"
-
-            let firstIndex = item.cartPersonal!.index(item.cartPersonal!.startIndex, offsetBy: 0)
-            let lastIndex = item.cartPersonal!.index(item.cartPersonal!.startIndex, offsetBy: item.cartPersonal!.count-2)
-            cell.lblDrinkPersonal.text = String(item.cartPersonal![firstIndex..<lastIndex])
-
-            let url = URL(string: "\(item.img!)")
-            let data = try? Data(contentsOf: url!)
-            cell.ivConfirmOrder.layer.cornerRadius = cell.ivConfirmOrder.frame.height / 2
-            cell.ivConfirmOrder.clipsToBounds = true
-            cell.ivConfirmOrder.image = UIImage(data: data!)
-        }
+        let item: OrderModel = orderItem[indexPath.row] as! OrderModel
+        
+        cell.lblDrinkName.text = item.name!
+        cell.lblDrinkCount.text = "\(item.orderCount!) 개"
+        
+        let firstIndex = item.orderPersonal!.index(item.orderPersonal!.startIndex, offsetBy: 0)
+        let lastIndex = item.orderPersonal!.index(item.orderPersonal!.startIndex, offsetBy: item.orderPersonal!.count-2)
+        cell.lblDrinkPersonal.text = String(item.orderPersonal![firstIndex..<lastIndex])
+        
+        let url = URL(string: "\(item.img!)")
+        let data = try? Data(contentsOf: url!)
+        cell.ivConfirmOrder.layer.cornerRadius = cell.ivConfirmOrder.frame.height / 2
+        cell.ivConfirmOrder.clipsToBounds = true
+        cell.ivConfirmOrder.image = UIImage(data: data!)
 
         return cell
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if ShareOrder.cartOrder == false {
-            return 1
-        }else {
-            return dataItem.count
-        }
+        return orderItem.count
     }
 
 }
@@ -126,17 +138,18 @@ extension ConfirmOrderViewController: UITableViewDelegate {
     }
 }
 
-extension ConfirmOrderViewController : CartSelectModelProtocol {
-    func cartItemDownloaded(items: NSArray) {
-        dataItem = items
-        self.tvConfirmOrder.reloadData()
+extension ConfirmOrderViewController : OrderCountModelProtocol {
+    func itemDownloaded(items: NSMutableArray) {
+        count = items
+        let item: OrderModel = count[0] as! OrderModel
+        lblTotalCount.text = "총 \(item.totalCount!) 개"
     }
 }
 
-extension ConfirmOrderViewController : CartCountModelProtocol {
-    func itemDownloaded(items: NSMutableArray) {
-        count = items
-        let item: PersonalModel = count[0] as! PersonalModel
-        lblTotalCount.text = "총 \(item.cartCount!) 개"
+extension ConfirmOrderViewController : OrderSelectModelProtocol {
+    func orderDownloaded(items: NSArray) {
+        orderItem = items
+        print(orderItem.count)
+        self.tvConfirmOrder.reloadData()
     }
 }

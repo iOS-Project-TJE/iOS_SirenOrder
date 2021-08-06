@@ -37,9 +37,5 @@ class GiftModel: NSObject {
         self.name=name
         self.img=img
     }
-    
-    // 2021.08.06 조혜지 GiftPriceModel에서 사용할 init 추가
-    init(price: String) {
-        self.price = price
-    }
+
 }
