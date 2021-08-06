@@ -25,7 +25,7 @@ class CartCountUpdateModel {
                 print("Failed to delete data")
                 result = false
             }else{
-                print("Data is deleted!")
+                print("Data is updated!")
                 result = true
             }
         }

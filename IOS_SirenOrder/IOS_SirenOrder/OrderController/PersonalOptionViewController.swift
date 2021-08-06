@@ -25,7 +25,6 @@ class PersonalOptionViewController: UIViewController { // 2021.08.02 조혜지 �
     @IBOutlet weak var lblPersonalOptionSelected: UILabel!
     
     var personalOptionName: String = ""
-    var myMenuState: Bool = true
     var pId: String = ""
     var cd: String = ""
     var price: Int = 0
@@ -48,15 +47,15 @@ class PersonalOptionViewController: UIViewController { // 2021.08.02 조혜지 �
     @objc func didDismissPersonalOptionNotification(_ noti: Notification) {
         OperationQueue.main.addOperation {
             self.tvPersonalOption.reloadData()
+            self.myMenuCheck()
             self.personalTotalPrice = SharePersonal.coffeePrice + SharePersonal.vSyrupPrice + SharePersonal.hSyrupPrice + SharePersonal.cSyrupPrice + SharePersonal.whipPrice + SharePersonal.carameldrizzlePrice + SharePersonal.chocolatedrizzlePrice
             SharePersonalData.personalOptionPrice = self.personalTotalPrice
             self.lblPersonalOptionPrice.text = self.DecimalWon(value: SharePersonalData.pChangedPrice+(self.personalTotalPrice*SharePersonalData.drinkCount)+(SharePersonalData.size*SharePersonalData.drinkCount))
         }
     }
     
-    func receivedData(_ receivedName: String, _ receivedState: Bool, _ receivedCd: String, _ receivedPId: String, _ receivedPrice: Int, _ receivedImg: String) {
+    func receivedData(_ receivedName: String, _ receivedCd: String, _ receivedPId: String, _ receivedPrice: Int, _ receivedImg: String) {
         personalOptionName = receivedName
-        myMenuState = receivedState
         cd = receivedCd
         pId = receivedPId
         price = receivedPrice
@@ -84,7 +83,11 @@ class PersonalOptionViewController: UIViewController { // 2021.08.02 조혜지 �
         btnCartShape.layer.cornerRadius = 15
         btnOrderShape.layer.cornerRadius = 15
         
-        if myMenuState == true {
+        myMenuCheck()
+    }
+    
+    func myMenuCheck() {
+        if SharePersonalData.myMenuState == true {
             btnMyMenuNonSelect.isHidden = true
             btnMyMenuSelect.isHidden = false
         }else {
@@ -126,7 +129,7 @@ class PersonalOptionViewController: UIViewController { // 2021.08.02 조혜지 �
         let myMenuDeleteCancelAction = UIAlertAction(title: "Cancel", style: .default, handler: {ACTION in
             self.btnMyMenuNonSelect.isHidden = true
             self.btnMyMenuSelect.isHidden = false
-            self.myMenuState = true
+            SharePersonalData.myMenuState = true
         })
         let myMenuDeleteConfirmAction = UIAlertAction(title: "OK", style: .default, handler: {ACTION in
             let myMenuDeleteModel = MyMenuDeleteModel()
@@ -134,7 +137,7 @@ class PersonalOptionViewController: UIViewController { // 2021.08.02 조혜지 �
             if result {
                 self.btnMyMenuNonSelect.isHidden = false
                 self.btnMyMenuSelect.isHidden = true
-                self.myMenuState = false
+                SharePersonalData.myMenuState = false
             }
         })
         myMenuDeleteController.addAction(myMenuDeleteCancelAction)
@@ -146,7 +149,7 @@ class PersonalOptionViewController: UIViewController { // 2021.08.02 조혜지 �
     @IBAction func btnMyMenuNonSelect(_ sender: UIButton) {
         btnMyMenuNonSelect.isHidden = true
         btnMyMenuSelect.isHidden = false
-        myMenuState = true
+        SharePersonalData.myMenuState = true
         
         pContent = "\(SharePersonal.coffee)\(SharePersonal.vSyrup)\(SharePersonal.hSyrup)\(SharePersonal.cSyrup)\(SharePersonal.ice)\(SharePersonal.whip)\(SharePersonal.caramelDrizzle)\(SharePersonal.chocoDrizzle)\(SharePersonal.lid)"
         

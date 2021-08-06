@@ -150,9 +150,11 @@ class CartViewController: UIViewController { // 2021.08.05 조혜지 장바구�
         ShareOrder.cartOrder = true
         if storeName == "" {
             let resultAlert = UIAlertController(title: "주문할 매장을 선택해 주세요!", message: nil, preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
             let onAction = UIAlertAction(title: "OK", style: .default, handler: {ACTION in
                 self.performSegue(withIdentifier: "sgStoreChoice", sender: self)
             })
+            resultAlert.addAction(cancelAction)
             resultAlert.addAction(onAction)
             present(resultAlert, animated: true, completion: nil)
         }else {
@@ -225,7 +227,7 @@ extension CartViewController: UITableViewDelegate {
 }
 
 extension CartViewController : CartSelectModelProtocol {
-    func itemDownloaded(items: NSArray) {
+    func cartItemDownloaded(items: NSArray) {
         dataItem = items
         self.tvCart.reloadData()
     }

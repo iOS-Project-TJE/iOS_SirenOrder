@@ -65,6 +65,8 @@ class PersonalOptionDetailViewController: UIViewController { // 2021.08.04 ì¡°í˜
     var whipCount: Int = 0
     var caramleDrizzleCount: Int = 0
     var chocoDrizzleCount: Int = 0
+    var beforePersonal: String = ""
+    var afterPersonal: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +75,8 @@ class PersonalOptionDetailViewController: UIViewController { // 2021.08.04 ì¡°í˜
     }
     
     func initSetting() {
+        beforePersonal = "\(SharePersonal.coffee)\(SharePersonal.vSyrup)\(SharePersonal.hSyrup)\(SharePersonal.cSyrup)\(SharePersonal.ice)\(SharePersonal.whip)\(SharePersonal.caramelDrizzle)\(SharePersonal.chocoDrizzle)\(SharePersonal.lid)"
+        
         lblPersonalName.text = personalList[receivedIndexPath]
         btnPersonalShape.layer.cornerRadius = 20
         btnAddOption1.layer.borderWidth = 1
@@ -1487,6 +1491,13 @@ class PersonalOptionDetailViewController: UIViewController { // 2021.08.04 ì¡°í˜
                 SharePersonal.lid = ""
             }
         }
+        
+        afterPersonal = "\(SharePersonal.coffee)\(SharePersonal.vSyrup)\(SharePersonal.hSyrup)\(SharePersonal.cSyrup)\(SharePersonal.ice)\(SharePersonal.whip)\(SharePersonal.caramelDrizzle)\(SharePersonal.chocoDrizzle)\(SharePersonal.lid)"
+
+        if beforePersonal != afterPersonal {
+            SharePersonalData.myMenuState = false
+        }
+        
         NotificationCenter.default.post(name: DidDismissPersonalOptionViewController, object: nil, userInfo: nil)
         dismiss(animated: true, completion: nil)
     }

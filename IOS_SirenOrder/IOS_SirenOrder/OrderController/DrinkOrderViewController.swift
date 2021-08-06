@@ -192,7 +192,7 @@ extension DrinkOrderViewController: UITableViewDelegate {
 }
 
 extension DrinkOrderViewController : CartSelectModelProtocol {
-    func itemDownloaded(items: NSArray) {
+    func cartItemDownloaded(items: NSArray) {
         dataItem = items
         self.tvOrder.reloadData()
     }
