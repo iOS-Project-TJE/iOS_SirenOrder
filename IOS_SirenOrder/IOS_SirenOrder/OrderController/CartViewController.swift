@@ -31,6 +31,7 @@ class CartViewController: UIViewController { // 2021.08.05 조혜지 장바구�
         btnOrder.layer.cornerRadius = 20
         
         goOrder = false
+        goCart = false
         if storeName == "" {
             lblStore.text = "주문할 매장을 선택해 주세요"
         }else {
@@ -142,6 +143,7 @@ class CartViewController: UIViewController { // 2021.08.05 조혜지 장바구�
     }
     
     @IBAction func btnStore(_ sender: UIButton) {
+        goCart = true
         self.performSegue(withIdentifier: "sgStoreChoice", sender: self)
     }
     
@@ -184,33 +186,33 @@ class CartViewController: UIViewController { // 2021.08.05 조혜지 장바구�
 extension CartViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cartCell") as! CartTableViewCell
-        let item: CartModel = dataItem[indexPath.row] as! CartModel
+            let item: CartModel = dataItem[indexPath.row] as! CartModel
+            cell.lblDrinkName.text = item.name!
+            cell.lblDrinkPrice.text = DecimalWon(value: item.price!)
+            cell.lblCartCount.text = String(item.cartCount!)
+            cell.lblTotalPrice.text = DecimalWon(value: (item.price! + item.cartPersonalPrice!) * item.cartCount!)
+            cell.lblPersonalPrice.text = DecimalWon(value: item.cartPersonalPrice!)
+            
+            let firstIndex = item.cartPersonal!.index(item.cartPersonal!.startIndex, offsetBy: 0)
+            let lastIndex = item.cartPersonal!.index(item.cartPersonal!.startIndex, offsetBy: item.cartPersonal!.count-2)
+            cell.lblPersonal.text = String(item.cartPersonal![firstIndex..<lastIndex])
+            
+            let url = URL(string: "\(item.img!)")
+            let data = try? Data(contentsOf: url!)
+            cell.ivCart.layer.cornerRadius = cell.ivCart.frame.height / 2
+            cell.ivCart.clipsToBounds = true
+            cell.ivCart.image = UIImage(data: data!)
+            
+            cell.btnDelete.tag = indexPath.row
+            cell.btnMinus.tag = indexPath.row
+            cell.btnPlus.tag = indexPath.row
+            
+            if item.cartCount == 1 {
+                cell.btnMinus.isEnabled = false
+            }else {
+                cell.btnMinus.isEnabled = true
+            }
         
-        cell.lblDrinkName.text = item.name!
-        cell.lblDrinkPrice.text = DecimalWon(value: item.price!)
-        cell.lblCartCount.text = String(item.cartCount!)
-        cell.lblTotalPrice.text = DecimalWon(value: (item.price! + item.cartPersonalPrice!) * item.cartCount!)
-        cell.lblPersonalPrice.text = DecimalWon(value: item.cartPersonalPrice!)
-        
-        let firstIndex = item.cartPersonal!.index(item.cartPersonal!.startIndex, offsetBy: 0)
-        let lastIndex = item.cartPersonal!.index(item.cartPersonal!.startIndex, offsetBy: item.cartPersonal!.count-2)
-        cell.lblPersonal.text = String(item.cartPersonal![firstIndex..<lastIndex])
-        
-        let url = URL(string: "\(item.img!)")
-        let data = try? Data(contentsOf: url!)
-        cell.ivCart.layer.cornerRadius = cell.ivCart.frame.height / 2
-        cell.ivCart.clipsToBounds = true
-        cell.ivCart.image = UIImage(data: data!)
-        
-        cell.btnDelete.tag = indexPath.row
-        cell.btnMinus.tag = indexPath.row
-        cell.btnPlus.tag = indexPath.row
-        
-        if item.cartCount == 1 {
-            cell.btnMinus.isEnabled = false
-        }else {
-            cell.btnMinus.isEnabled = true
-        }
         return cell
     }
     

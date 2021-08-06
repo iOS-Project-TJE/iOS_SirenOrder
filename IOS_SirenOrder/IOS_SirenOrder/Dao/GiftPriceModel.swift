@@ -17,7 +17,7 @@ class GiftPriceModel : NSObject {
     var urlPath = "http://\(macIp):8080/starbucks/jsp/hj/"
     
     func downloadItems() {
-        let urlAdd = "giftPriceSelect.jsp?giftReceiver=\(userId)"
+        let urlAdd = "giftPriceSelect.jsp?userId=\(userId)"
         urlPath = urlPath + urlAdd
         print(urlPath)
         
@@ -49,9 +49,9 @@ class GiftPriceModel : NSObject {
         
         for i in 0..<jsonResult.count {
             jsonElement = jsonResult[i] as! NSDictionary
-            if let price = jsonElement["price"] as? String{
+            if let giftPrice = jsonElement["giftPrice"] as? String{
                 
-                let query = GiftModel(price: price)
+                let query = UserModel(giftPrice: Int(giftPrice)!)
                 locations.add(query)
                 
             }

@@ -3761,7 +3761,7 @@
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="6Ue-If-TgS" customClass="CartViewController" customModule="IOS_SirenOrder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0Ek-G0-OHk">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zsT-a6-bEH">
@@ -4188,7 +4188,7 @@
                         <outlet property="lblTotalCount" destination="OVX-ja-2FI" id="kf0-Eh-JbN"/>
                         <outlet property="lblTotalPrice" destination="wJp-UG-4nB" id="cg8-kq-luJ"/>
                         <outlet property="tvOrder" destination="DZ6-pb-aQR" id="dvf-A0-Zu8"/>
-                        <segue destination="SIh-5j-AeN" kind="show" identifier="sgConfirmOrdeer" id="rc7-6g-SCp"/>
+                        <segue destination="SIh-5j-AeN" kind="show" identifier="sgConfirmOrder" id="rc7-6g-SCp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cda-nA-80H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -4200,7 +4200,7 @@
             <objects>
                 <viewController id="SIh-5j-AeN" customClass="ConfirmOrderViewController" customModule="IOS_SirenOrder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k9I-N7-Akn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="석촌역점에서" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fr2-2F-nQc">
@@ -4355,7 +4355,7 @@
             <objects>
                 <viewController storyboardIdentifier="StoreSettingViewController" modalPresentationStyle="pageSheet" id="FmL-3P-H9K" customClass="StoreSettingViewController" customModule="IOS_SirenOrder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CsC-0A-Npg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="iMo-4n-Ydp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -4378,7 +4378,7 @@
             <objects>
                 <viewController id="s7h-Tv-dIo" customClass="StoreSearchClickViewController" customModule="IOS_SirenOrder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="77L-XY-ps3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qKv-c0-tQy">
@@ -4425,7 +4425,7 @@
             <objects>
                 <tableViewController id="Woe-mm-642" customClass="StoreSearchTableViewController" customModule="IOS_SirenOrder" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="MaM-Vh-iWY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -4591,6 +4591,7 @@
                         <outlet property="lblStoreDetailAddress" destination="Plv-tj-fH4" id="tXO-UI-Uc2"/>
                         <outlet property="mapStoreDetail" destination="XhT-2M-qZi" id="Cf5-mF-N4k"/>
                         <segue destination="ipQ-OS-k3u" kind="show" identifier="sgOrder" id="DFb-S2-SrH"/>
+                        <segue destination="6Ue-If-TgS" kind="show" identifier="sgCart" id="2D1-FY-4au"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RX3-CU-JKO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -5535,9 +5536,9 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="VEf-6C-Abn"/>
-        <segue reference="xdt-Md-2SL"/>
+        <segue reference="2sj-rg-kQz"/>
         <segue reference="qVp-pZ-vBB"/>
-        <segue reference="Wkf-9m-4eO"/>
+        <segue reference="2D1-FY-4au"/>
         <segue reference="9QZ-KS-g69"/>
         <segue reference="Eg1-oz-FCI"/>
         <segue reference="eU3-y3-Iv3"/>
