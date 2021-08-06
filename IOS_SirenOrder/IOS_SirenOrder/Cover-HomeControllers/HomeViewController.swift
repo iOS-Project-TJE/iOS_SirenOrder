@@ -22,25 +22,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        titleBackgrund.setGradient(color1: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1), color2: #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1))
-
-        cv_recommend.delegate = self
-        cv_recommend.dataSource = self
-        
-        cv_new.delegate = self
-        cv_new.dataSource = self
-        
-        cv_best.delegate = self
-        cv_best.dataSource = self
-        
        
-    }
-    
-    
-    //다시 되돌아 올 경우 리로드
-    override func viewWillAppear(_ animated: Bool) {
-        
         //모델 연결작업
         let HomeRecommendModel = HomeRecommendModel()
         let HomeNewModel = HomeNewModel()
@@ -54,7 +36,24 @@ class HomeViewController: UIViewController {
 
         HomeBestModel.delegate = self
         HomeBestModel.downloadItems()
-
+        
+        cv_recommend.delegate = self
+        cv_recommend.dataSource = self
+        
+        cv_new.delegate = self
+        cv_new.dataSource = self
+        
+        cv_best.delegate = self
+        cv_best.dataSource = self
+        
+        titleBackgrund.setGradient(color1: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1), color2: #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1))
+       
+    }
+    
+    
+    //다시 되돌아 올 경우 리로드
+    override func viewWillAppear(_ animated: Bool) {
+        
         cv_recommend.reloadData()
         cv_new.reloadData()
         cv_best.reloadData()
@@ -171,6 +170,9 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         return cell
     }
     
+    
+    
+    
 }
 
 
@@ -196,3 +198,4 @@ extension HomeViewController : HomeBestModelProtocol {
         self.cv_best.reloadData()
     }
 }
+
