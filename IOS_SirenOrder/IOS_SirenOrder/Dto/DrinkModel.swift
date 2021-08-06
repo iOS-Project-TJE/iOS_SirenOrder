@@ -72,4 +72,13 @@ class DrinkModel : NSObject{
         self.name = name
         self.img = img
     }
+    
+    init(img: String, name: String, content: String, price:Int, type:Int, allergie:String){
+        self.img = img
+        self.name = name
+        self.content = content
+        self.price = price
+        self.type = type
+        self.allergie = allergie
+    }
 }
