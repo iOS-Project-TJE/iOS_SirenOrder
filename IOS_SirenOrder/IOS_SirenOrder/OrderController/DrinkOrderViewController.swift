@@ -25,10 +25,17 @@ class DrinkOrderViewController: UIViewController { // 2021.08.05 조혜지 결�
     var count: NSMutableArray = NSMutableArray()
     var price: NSMutableArray = NSMutableArray()
     var giftPrice: NSMutableArray = NSMutableArray()
+    var beforeOrderNum: NSMutableArray = NSMutableArray()
+    var orderNum: Int = 0
     var pay: Int = 0
-    
+    var inputOrderNum: String = ""
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let orderNumModel = OrderNumModel()
+        orderNumModel.delegate = self
+        orderNumModel.downloadItems()
 
         navigationItem.largeTitleDisplayMode = .never
         navigationController?.navigationBar.barTintColor = .white
@@ -122,18 +129,42 @@ class DrinkOrderViewController: UIViewController { // 2021.08.05 조혜지 결�
     }
     
     @IBAction func btnOrder(_ sender: UIButton) {
+        inputOrderNum = String(orderNum)
+        if orderNum < 10 {
+            inputOrderNum = "A-0\(orderNum)"
+        }else {
+            inputOrderNum = "A-\(orderNum)"
+        }
+        let orderInsertModel = OrderInsertModel()
         
+        if ShareOrder.cartOrder == false {
+            let result = orderInsertModel.InsertItems(orderNum: inputOrderNum, orderCount: ShareOrder.orderCount, orderPersonal: ShareOrder.orderPersonal, storeName: storeName, cd: ShareOrder.orderCd, userId: userId, cartPersonalPrice: ShareOrder.orderPersonalPrice)
+            if result {
+                self.performSegue(withIdentifier: "sgConfirmOrder", sender: self)
+            }
+        }else {
+            for i in 0..<dataItem.count {
+                let item: CartModel = dataItem[i] as! CartModel
+                let result = orderInsertModel.InsertItems(orderNum: inputOrderNum, orderCount: item.cartCount!, orderPersonal: item.cartPersonal!, storeName: storeName, cd: item.cd!, userId: userId, cartPersonalPrice: item.cartPersonalPrice!)
+                if result {
+                    self.performSegue(withIdentifier: "sgConfirmOrder", sender: self)
+                }
+            }
+        }
         
     }
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "sgConfirmOrder" {
+            
+        }
     }
-    */
+    
 
 }
 
@@ -187,7 +218,7 @@ extension DrinkOrderViewController: UITableViewDataSource {
  
 extension DrinkOrderViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 170
+        return 135
     }
 }
 
@@ -219,5 +250,13 @@ extension DrinkOrderViewController : GiftPriceModelProtocol {
         giftPrice = items
         let item: GiftModel = giftPrice[0] as! GiftModel
         lblMessage.text = "기프트 카드 잔액 : \(DecimalWon(value: Int(item.price!)!))"
+    }
+}
+
+extension DrinkOrderViewController : OrderNumModelProtocol {
+    func orderNumDownloaded(items: NSMutableArray) {
+        beforeOrderNum = items
+        let item: OrderModel = beforeOrderNum[0] as! OrderModel
+        orderNum = Int(item.orderNum!)! + 1
     }
 }

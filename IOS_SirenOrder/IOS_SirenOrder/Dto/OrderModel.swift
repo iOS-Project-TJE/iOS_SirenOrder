@@ -23,7 +23,7 @@ class OrderModel : NSObject{
     }
     
     // 2021.08.05 조혜지 DrinkOrderModel에서 사용할 init 추가
-    init(orderId : String, orderNum : String, orderCount : Int, orderPersonal : String, orderDate : String, storename : String, cd : String, userId : String, orderPersonalPrice: Int){
+    init(orderNum : String, orderCount : Int, orderPersonal : String, orderDate : String, storename : String, cd : String, userId : String, orderPersonalPrice: Int){
         self.orderNum = orderNum
         self.orderCount = orderCount
         self.orderPersonal = orderPersonal
@@ -33,5 +33,10 @@ class OrderModel : NSObject{
         self.userId = userId
         self.orderPersonalPrice = orderPersonalPrice
     }
-
+    
+    // 2021.08.06 조혜지 OrderNumModel에서 사용할 init 추가
+    init(orderNum: String) {
+        self.orderNum = orderNum
+    }
+    
 }

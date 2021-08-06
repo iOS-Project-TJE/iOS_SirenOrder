@@ -39,12 +39,12 @@ class CartModel : NSObject{
         self.totalPrice = totalPrice
     }
     
-    // 2021.08.06 조혜지 CartCheckModel 위한 Dto 추가
+    // 2021.08.06 조혜지 CartCheckModel에서 사용할 Dto 추가
     init(cartCheck: String){
         self.cartCheck = cartCheck
     }
     
-    // 2021.08.06 조혜지 CartForUpdateSelectModel 위한 Dto 추가
+    // 2021.08.06 조혜지 CartForUpdateSelectModel에서 사용할 Dto 추가
     init(cartId: String, cartCount: Int){
         self.cartId = cartId
         self.cartCount = cartCount
