@@ -34,6 +34,10 @@
 		69E573F226BAC3680064CF83 /* ReceiptModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E573F126BAC3680064CF83 /* ReceiptModel.swift */; };
 		69E573F426BAC4100064CF83 /* ReceiptListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E573F326BAC4100064CF83 /* ReceiptListModel.swift */; };
 		69E573F626BAC5D30064CF83 /* ReceiptDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E573F526BAC5D30064CF83 /* ReceiptDetailViewController.swift */; };
+		701CF71326BD880A00BF9B53 /* DrinkDetailInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701CF71226BD880A00BF9B53 /* DrinkDetailInfoModel.swift */; };
+		701CF71526BDBA4F00BF9B53 /* DrinkDetailInfoButtonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701CF71426BDBA4F00BF9B53 /* DrinkDetailInfoButtonModel.swift */; };
+		701CF71B26BDD0CA00BF9B53 /* NutritionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701CF71A26BDD0CA00BF9B53 /* NutritionViewController.swift */; };
+		701CF71D26BDD10800BF9B53 /* DrinkDetailInfoNutritionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701CF71C26BDD10800BF9B53 /* DrinkDetailInfoNutritionModel.swift */; };
 		701E9C8E26B2B8550008F6F5 /* ExplainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701E9C8D26B2B8550008F6F5 /* ExplainViewController.swift */; };
 		708D257126B5C575000FCCD7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708D257026B5C575000FCCD7 /* HomeViewController.swift */; };
 		70BB20E926BA787000871D85 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BB20E826BA787000871D85 /* HomeCollectionViewCell.swift */; };
@@ -141,6 +145,10 @@
 		69E573F126BAC3680064CF83 /* ReceiptModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptModel.swift; sourceTree = "<group>"; };
 		69E573F326BAC4100064CF83 /* ReceiptListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptListModel.swift; sourceTree = "<group>"; };
 		69E573F526BAC5D30064CF83 /* ReceiptDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptDetailViewController.swift; sourceTree = "<group>"; };
+		701CF71226BD880A00BF9B53 /* DrinkDetailInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrinkDetailInfoModel.swift; path = "../../../../GitHub절대보관/ClassBackUp/iOS_SirenOrder/IOS_SirenOrder/IOS_SirenOrder/Dao/DrinkDetailInfoModel.swift"; sourceTree = "<group>"; };
+		701CF71426BDBA4F00BF9B53 /* DrinkDetailInfoButtonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDetailInfoButtonModel.swift; sourceTree = "<group>"; };
+		701CF71A26BDD0CA00BF9B53 /* NutritionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionViewController.swift; sourceTree = "<group>"; };
+		701CF71C26BDD10800BF9B53 /* DrinkDetailInfoNutritionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDetailInfoNutritionModel.swift; sourceTree = "<group>"; };
 		701E9C8D26B2B8550008F6F5 /* ExplainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplainViewController.swift; sourceTree = "<group>"; };
 		7086B2066E099B664CDD496E /* Pods-IOS_SirenOrder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOS_SirenOrder.release.xcconfig"; path = "Target Support Files/Pods-IOS_SirenOrder/Pods-IOS_SirenOrder.release.xcconfig"; sourceTree = "<group>"; };
 		708D257026B5C575000FCCD7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -261,6 +269,7 @@
 		6980B01826B585690048DAAB /* Dao */ = {
 			isa = PBXGroup;
 			children = (
+				701CF71226BD880A00BF9B53 /* DrinkDetailInfoModel.swift */,
 				6980B01926B585690048DAAB /* HistoryListModel.swift */,
 				69E573F326BAC4100064CF83 /* ReceiptListModel.swift */,
 				85423B3526B6F7C100FFEF85 /* MyMenuModel.swift */,
@@ -287,6 +296,8 @@
 				851AF3AA26BCF7850093B318 /* CartForUpdateSelectModel.swift */,
 				8543CDC826BD1F3D0057A836 /* OrderNumModel.swift */,
 				8543CDCA26BD2A020057A836 /* OrderInsertModel.swift */,
+				701CF71426BDBA4F00BF9B53 /* DrinkDetailInfoButtonModel.swift */,
+				701CF71C26BDD10800BF9B53 /* DrinkDetailInfoNutritionModel.swift */,
 			);
 			path = Dao;
 			sourceTree = "<group>";
@@ -324,6 +335,7 @@
 				701E9C8D26B2B8550008F6F5 /* ExplainViewController.swift */,
 				708D257026B5C575000FCCD7 /* HomeViewController.swift */,
 				85DDD67E26B85C1500B97DF7 /* DrinkDetailViewController.swift */,
+				701CF71A26BDD0CA00BF9B53 /* NutritionViewController.swift */,
 			);
 			path = "Cover-HomeControllers";
 			sourceTree = "<group>";
@@ -487,6 +499,7 @@
 				TargetAttributes = {
 					857F1C4726B27A210028D3BC = {
 						CreatedOnToolsVersion = 12.5.1;
+						LastSwiftMigration = 1250;
 					};
 				};
 			};
@@ -578,6 +591,7 @@
 				6980B02526B585690048DAAB /* ReceiptViewController.swift in Sources */,
 				85423B4426B6FB7C00FFEF85 /* AllStoreTableViewController.swift in Sources */,
 				851AF3A926BCE4980093B318 /* CartCheckModel.swift in Sources */,
+				701CF71D26BDD10800BF9B53 /* DrinkDetailInfoNutritionModel.swift in Sources */,
 				85423B2626B6EEB200FFEF85 /* AllMenuViewController.swift in Sources */,
 				85DDD67F26B85C1500B97DF7 /* DrinkDetailViewController.swift in Sources */,
 				8543CDC926BD1F3D0057A836 /* OrderNumModel.swift in Sources */,
@@ -592,6 +606,7 @@
 				70D9EAD826B2A0640036255C /* CoverViewController.swift in Sources */,
 				69E573F026BAC35E0064CF83 /* HistoryModel.swift in Sources */,
 				8543CDCB26BD2A020057A836 /* OrderInsertModel.swift in Sources */,
+				701CF71526BDBA4F00BF9B53 /* DrinkDetailInfoButtonModel.swift in Sources */,
 				69E573EC26BA24B70064CF83 /* SettingViewController.swift in Sources */,
 				856F78F426BAA0950092B57C /* PersonalOptionDetailViewController.swift in Sources */,
 				708D257126B5C575000FCCD7 /* HomeViewController.swift in Sources */,
@@ -622,7 +637,9 @@
 				6980B02226B585690048DAAB /* MapViewController.swift in Sources */,
 				85423B3A26B6F8C000FFEF85 /* CategoryDetailTableViewCell.swift in Sources */,
 				8543CDC726BD0DDD0057A836 /* ConfirmOrderTableViewCell.swift in Sources */,
+				701CF71326BD880A00BF9B53 /* DrinkDetailInfoModel.swift in Sources */,
 				9966F1EB26B6DE2A003B3DDD /* FindUserPwViewController.swift in Sources */,
+				701CF71B26BDD0CA00BF9B53 /* NutritionViewController.swift in Sources */,
 				6980B02626B585690048DAAB /* NoticeTableViewCell.swift in Sources */,
 				85423B4A26B6FBF700FFEF85 /* LocationModel.swift in Sources */,
 				3258C15226B8D601006892A6 /* StoreSearchTableViewController.swift in Sources */,
@@ -815,6 +832,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 555WD7N8WG;
 				INFOPLIST_FILE = IOS_SirenOrder/Info.plist;
@@ -825,6 +843,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hyeji.IOS-SirenOrder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -836,6 +856,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 555WD7N8WG;
 				INFOPLIST_FILE = IOS_SirenOrder/Info.plist;
@@ -846,6 +867,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hyeji.IOS-SirenOrder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
