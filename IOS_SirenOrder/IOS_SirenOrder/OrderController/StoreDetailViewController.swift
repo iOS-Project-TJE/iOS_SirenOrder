@@ -10,7 +10,7 @@ import MapKit
 
 class StoreDetailViewController: UIViewController {
     
-    var list = NSArray()
+    var list: NSArray = NSArray()
 
     @IBOutlet weak var mapStoreDetail: MKMapView!
     @IBOutlet weak var lblStoreDetailAddress: UILabel!

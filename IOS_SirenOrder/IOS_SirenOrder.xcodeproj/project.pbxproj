@@ -50,6 +50,8 @@
 		851AF39726BC15890093B318 /* CartDeleteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851AF39626BC15890093B318 /* CartDeleteModel.swift */; };
 		851AF39926BC1AAA0093B318 /* CartCountUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851AF39826BC1AAA0093B318 /* CartCountUpdateModel.swift */; };
 		851AF39D26BC335D0093B318 /* CartPriceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851AF39C26BC335D0093B318 /* CartPriceModel.swift */; };
+		851AF3A126BCC2420093B318 /* GiftPriceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851AF3A026BCC2420093B318 /* GiftPriceModel.swift */; };
+		851AF3A326BCC26C0093B318 /* GiftModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851AF3A226BCC26C0093B318 /* GiftModel.swift */; };
 		85423B2626B6EEB200FFEF85 /* AllMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85423B2526B6EEB200FFEF85 /* AllMenuViewController.swift */; };
 		85423B2826B6EED100FFEF85 /* MyMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85423B2726B6EED100FFEF85 /* MyMenuViewController.swift */; };
 		85423B2A26B6F1E700FFEF85 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85423B2926B6F1E700FFEF85 /* OrderViewController.swift */; };
@@ -150,6 +152,8 @@
 		851AF39626BC15890093B318 /* CartDeleteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartDeleteModel.swift; sourceTree = "<group>"; };
 		851AF39826BC1AAA0093B318 /* CartCountUpdateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCountUpdateModel.swift; sourceTree = "<group>"; };
 		851AF39C26BC335D0093B318 /* CartPriceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartPriceModel.swift; sourceTree = "<group>"; };
+		851AF3A026BCC2420093B318 /* GiftPriceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftPriceModel.swift; sourceTree = "<group>"; };
+		851AF3A226BCC26C0093B318 /* GiftModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftModel.swift; sourceTree = "<group>"; };
 		85423B2526B6EEB200FFEF85 /* AllMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMenuViewController.swift; sourceTree = "<group>"; };
 		85423B2726B6EED100FFEF85 /* MyMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMenuViewController.swift; sourceTree = "<group>"; };
 		85423B2926B6F1E700FFEF85 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
@@ -266,6 +270,7 @@
 				851AF39626BC15890093B318 /* CartDeleteModel.swift */,
 				851AF39826BC1AAA0093B318 /* CartCountUpdateModel.swift */,
 				851AF39C26BC335D0093B318 /* CartPriceModel.swift */,
+				851AF3A026BCC2420093B318 /* GiftPriceModel.swift */,
 			);
 			path = Dao;
 			sourceTree = "<group>";
@@ -282,6 +287,7 @@
 				69E573F126BAC3680064CF83 /* ReceiptModel.swift */,
 				851AF38C26BBBFC60093B318 /* CartModel.swift */,
 				851AF39026BBEE860093B318 /* OrderSendModel.swift */,
+				851AF3A226BCC26C0093B318 /* GiftModel.swift */,
 			);
 			path = Dto;
 			sourceTree = "<group>";
@@ -587,6 +593,7 @@
 				85DDD67726B857F800B97DF7 /* MyMenuDeleteModel.swift in Sources */,
 				85423B3826B6F7EA00FFEF85 /* PersonalModel.swift in Sources */,
 				997120F526B692280026317F /* SignUpAuthEmailViewController.swift in Sources */,
+				851AF3A326BCC26C0093B318 /* GiftModel.swift in Sources */,
 				6980B02C26B585690048DAAB /* DrinkModel.swift in Sources */,
 				997120F726B693990026317F /* SignUpIdPwdViewController.swift in Sources */,
 				3258C15826B8D6A3006892A6 /* StoreSearchTableViewCell.swift in Sources */,
@@ -608,6 +615,7 @@
 				85423B4026B6FA4300FFEF85 /* CategoryDetailModel.swift in Sources */,
 				856F790226BAE32E0092B57C /* CartCountModel.swift in Sources */,
 				69E573F426BAC4100064CF83 /* ReceiptListModel.swift in Sources */,
+				851AF3A126BCC2420093B318 /* GiftPriceModel.swift in Sources */,
 				85DDD67326B8575400B97DF7 /* DrinkInfoModel.swift in Sources */,
 				85423B5226B7169D00FFEF85 /* StoreDetailViewController.swift in Sources */,
 				9966F1E526B6D6F9003B3DDD /* SignUpNicNameViewController.swift in Sources */,

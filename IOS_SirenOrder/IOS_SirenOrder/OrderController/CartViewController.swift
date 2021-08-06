@@ -16,8 +16,8 @@ class CartViewController: UIViewController { // 2021.08.05 조혜지 장바구�
     @IBOutlet weak var lblCartTotalPrice: UILabel!
     
     var dataItem: NSArray = NSArray()
-    var count = NSMutableArray()
-    var price = NSMutableArray()
+    var count: NSMutableArray = NSMutableArray()
+    var price: NSMutableArray = NSMutableArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -147,6 +147,7 @@ class CartViewController: UIViewController { // 2021.08.05 조혜지 장바구�
     
     @IBAction func btnOrder(_ sender: UIButton) {
         goOrder = true
+        ShareOrder.cartOrder = true
         if storeName == "" {
             let resultAlert = UIAlertController(title: "주문할 매장을 선택해 주세요!", message: nil, preferredStyle: .alert)
             let onAction = UIAlertAction(title: "OK", style: .default, handler: {ACTION in

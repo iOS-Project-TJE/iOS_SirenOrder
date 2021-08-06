@@ -14,8 +14,8 @@ class MyMenuViewController: UIViewController { // 2021.07.31 조혜지 Order 나
     @IBOutlet weak var lblStore: UILabel!
     @IBOutlet weak var lblCartCount: UILabel!
     
-    var tag = 0
-    var data = NSMutableArray()
+    var tag: Int = 0
+    var data: NSMutableArray = NSMutableArray()
     var dataItem: NSArray = NSArray()
     
     override func viewDidLoad() {

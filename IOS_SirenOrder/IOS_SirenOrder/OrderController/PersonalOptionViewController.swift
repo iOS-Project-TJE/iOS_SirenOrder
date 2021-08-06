@@ -24,15 +24,15 @@ class PersonalOptionViewController: UIViewController { // 2021.08.02 조혜지 �
     @IBOutlet weak var btnOrderShape: UIButton!
     @IBOutlet weak var lblPersonalOptionSelected: UILabel!
     
-    var personalOptionName = ""
-    var myMenuState = true
-    var pId = ""
-    var cd = ""
-    var price = 0
-    var img = ""
+    var personalOptionName: String = ""
+    var myMenuState: Bool = true
+    var pId: String = ""
+    var cd: String = ""
+    var price: Int = 0
+    var img: String = ""
     var dataItem: NSArray = NSArray()
     var idItem: NSMutableArray = NSMutableArray()
-    var personalTotalPrice = 0
+    var personalTotalPrice: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -173,6 +173,30 @@ class PersonalOptionViewController: UIViewController { // 2021.08.02 조혜지 �
     }
     
     @IBAction func btnCart(_ sender: UIButton) {
+        let cartInsertModel = CartInsertModel()
+        pContent = "\(SharePersonal.coffee)\(SharePersonal.vSyrup)\(SharePersonal.hSyrup)\(SharePersonal.cSyrup)\(SharePersonal.ice)\(SharePersonal.whip)\(SharePersonal.caramelDrizzle)\(SharePersonal.chocoDrizzle)\(SharePersonal.lid)"
+        let result = cartInsertModel.InsertItems(cartCount: SharePersonalData.drinkCount, cartPersonal: "\(iceHot), \(cupSize), \(cupType), \(pContent)", cd: cd, userId: userId, cartPersonalPrice: SharePersonalData.personalOptionPrice + SharePersonalData.size)
+        
+        if result{
+            let myMenuCheckController = UIAlertController(title: "추가", message: "장바구니에 추가되었습니다!", preferredStyle: .alert)
+
+            let myMenuCheckAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            let myMenuGoAction = UIAlertAction(title: "보러가기", style: .default, handler: {ACTION in
+                self.performSegue(withIdentifier: "sgCart", sender: self)
+            })
+            
+            myMenuCheckController.addAction(myMenuCheckAction)
+            myMenuCheckController.addAction(myMenuGoAction)
+            
+            present(myMenuCheckController, animated: true, completion: nil)
+        }else{
+            let resultAlert = UIAlertController(title: "실패", message: "에러가 발생되었습니다!", preferredStyle: .alert)
+            let onAction = UIAlertAction(title: "OK", style: .default, handler: {ACTION in
+                self.navigationController?.popViewController(animated: true)
+            })
+            resultAlert.addAction(onAction)
+            present(resultAlert, animated: true, completion: nil)
+        }
     }
     
     @IBAction func btnOrder(_ sender: UIButton) {
@@ -182,11 +206,13 @@ class PersonalOptionViewController: UIViewController { // 2021.08.02 조혜지 �
             let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: {ACTION in
                 self.performSegue(withIdentifier: "sgStoreChoice", sender: self)
+                pContent = "\(SharePersonal.coffee)\(SharePersonal.vSyrup)\(SharePersonal.hSyrup)\(SharePersonal.cSyrup)\(SharePersonal.ice)\(SharePersonal.whip)\(SharePersonal.caramelDrizzle)\(SharePersonal.chocoDrizzle)\(SharePersonal.lid)"
+                
                 ShareOrder.orderCd = self.cd
                 ShareOrder.orderName = self.personalOptionName
                 ShareOrder.orderCount = SharePersonalData.drinkCount
-                ShareOrder.orderPersonal = "\(iceHot), \(cupSize), \(cupType), \(SharePersonal.coffee)\(SharePersonal.vSyrup)\(SharePersonal.hSyrup)\(SharePersonal.cSyrup)\(SharePersonal.ice)\(SharePersonal.whip)\(SharePersonal.caramelDrizzle)\(SharePersonal.chocoDrizzle)\(SharePersonal.lid)"
-                ShareOrder.orderPersonalPrice = SharePersonalData.personalOptionPrice
+                ShareOrder.orderPersonal = "\(iceHot), \(cupSize), \(cupType), \(pContent)"
+                ShareOrder.orderPersonalPrice = SharePersonalData.personalOptionPrice + SharePersonalData.size
                 ShareOrder.orderPrice = self.price
                 ShareOrder.orderImg = self.img
             })
@@ -198,8 +224,8 @@ class PersonalOptionViewController: UIViewController { // 2021.08.02 조혜지 �
             ShareOrder.orderCd = self.cd
             ShareOrder.orderName = self.personalOptionName
             ShareOrder.orderCount = SharePersonalData.drinkCount
-            ShareOrder.orderPersonal = "\(iceHot), \(cupSize), \(cupType), \(SharePersonal.coffee)\(SharePersonal.vSyrup)\(SharePersonal.hSyrup)\(SharePersonal.cSyrup)\(SharePersonal.ice)\(SharePersonal.whip)\(SharePersonal.caramelDrizzle)\(SharePersonal.chocoDrizzle)\(SharePersonal.lid)"
-            ShareOrder.orderPersonalPrice = SharePersonalData.personalOptionPrice
+            ShareOrder.orderPersonal = "\(iceHot), \(cupSize), \(cupType), \(pContent)"
+            ShareOrder.orderPersonalPrice = SharePersonalData.personalOptionPrice + SharePersonalData.size
             ShareOrder.orderPrice = self.price
             ShareOrder.orderImg = self.img
         }

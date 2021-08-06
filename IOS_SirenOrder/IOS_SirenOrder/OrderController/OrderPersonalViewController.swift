@@ -27,9 +27,9 @@ class OrderPersonalViewController: UIViewController { // 2021.08.02 조혜지 �
     @IBOutlet weak var btnOrderShape: UIButton!
     @IBOutlet weak var btnMinus: UIButton!
     
-    var receivedCd = ""
-    var pId = ""
-    var myMenuState = false
+    var receivedCd: String = ""
+    var pId: String = ""
+    var myMenuState: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -291,7 +291,7 @@ class OrderPersonalViewController: UIViewController { // 2021.08.02 조혜지 �
                 ShareOrder.orderName = item.name!
                 ShareOrder.orderCount = SharePersonalData.drinkCount
                 ShareOrder.orderPersonal = "\(iceHot), \(cupSize), \(cupType), \(pContent)"
-                ShareOrder.orderPersonalPrice = SharePersonalData.personalOptionPrice
+                ShareOrder.orderPersonalPrice = SharePersonalData.personalOptionPrice + SharePersonalData.size
                 ShareOrder.orderPrice = item.price!
                 ShareOrder.orderImg = item.img!
             })
@@ -304,7 +304,7 @@ class OrderPersonalViewController: UIViewController { // 2021.08.02 조혜지 �
             ShareOrder.orderName = item.name!
             ShareOrder.orderCount = SharePersonalData.drinkCount
             ShareOrder.orderPersonal = "\(iceHot), \(cupSize), \(cupType), \(pContent)"
-            ShareOrder.orderPersonalPrice = SharePersonalData.personalOptionPrice
+            ShareOrder.orderPersonalPrice = SharePersonalData.personalOptionPrice + SharePersonalData.size
             ShareOrder.orderPrice = item.price!
             ShareOrder.orderImg = item.img!
         }
