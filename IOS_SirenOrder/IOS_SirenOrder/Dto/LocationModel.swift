@@ -11,17 +11,17 @@ import Foundation
 class LocationModel : NSObject{
     var storename : String?
     var lat : Double?
-    var long : Double?
+    var lon : Double?
     var address : String?
  
     override init() {
         
     }
     
-    init(storename: String, lat: Double, long: Double, address: String){
+    init(storename: String, lat: Double, lon: Double, address: String){
         self.storename = storename
         self.lat = lat
-        self.long = long
+        self.lon = lon
         self.address = address
     }
 

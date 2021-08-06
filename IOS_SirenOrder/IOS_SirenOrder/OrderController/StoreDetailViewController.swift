@@ -10,7 +10,7 @@ import MapKit
 
 class StoreDetailViewController: UIViewController {
     
-    var list = NSArray()
+    var list: NSArray = NSArray()
 
     @IBOutlet weak var mapStoreDetail: MKMapView!
     @IBOutlet weak var lblStoreDetailAddress: UILabel!
@@ -42,7 +42,7 @@ class StoreDetailViewController: UIViewController {
         lblStoreDetailAddress.text = item.address
         name = item.storename!
         lat = item.lat!
-        long = item.long!
+        long = item.lon!
     }
     
     func mapMove(_ lat: CLLocationDegrees, _ lon: CLLocationDegrees, _ txt1: String) {

@@ -12,7 +12,7 @@ class StoreSearchTableViewController: UITableViewController { // 21.08.03 조혜
     @IBOutlet var tvSearchStore: UITableView!
     
     var dataItem: NSMutableArray = NSMutableArray()
-    var receivedSearchText = ""
+    var receivedSearchText: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
