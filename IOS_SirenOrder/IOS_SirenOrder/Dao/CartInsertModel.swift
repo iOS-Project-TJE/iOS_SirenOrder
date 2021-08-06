@@ -15,7 +15,7 @@ class CartInsertModel {
         var result: Bool = true
         let urlAdd = "?cartCount=\(cartCount)&cartPersonal=\(cartPersonal)&cd=\(cd)&userId=\(userId)&cartPersonalPrice=\(cartPersonalPrice)"
         urlPath = urlPath + urlAdd
-        
+        print(urlAdd)
         urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
         
         let url: URL = URL(string: urlPath)!

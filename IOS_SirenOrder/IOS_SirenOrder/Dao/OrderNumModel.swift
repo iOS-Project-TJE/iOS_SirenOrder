@@ -17,7 +17,7 @@ class OrderNumModel : NSObject {
     let urlPath = "http://\(macIp):8080/starbucks/jsp/hj/orderNumSelect.jsp"
     
     func downloadItems() {
-
+        print(urlPath)
         let url: URL = URL(string: urlPath)!
         let defaultSession = URLSession(configuration: URLSessionConfiguration.default)
         let task = defaultSession.dataTask(with: url){(data, response, error) in
