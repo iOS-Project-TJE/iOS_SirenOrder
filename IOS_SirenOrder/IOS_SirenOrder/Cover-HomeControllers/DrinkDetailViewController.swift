@@ -36,6 +36,10 @@ class DrinkDetailViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
     //핫버튼 클릭시
     @IBAction func btnHotAction(_ sender: UIButton) {
         let name = "\(name.text!.replacingOccurrences(of: "아이스", with: "").trimmingCharacters(in: .whitespaces))"

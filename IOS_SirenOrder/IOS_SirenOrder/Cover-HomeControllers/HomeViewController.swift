@@ -9,11 +9,12 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var lblName: UILabel!
+    @IBOutlet weak var lblrecommend: UILabel!
     @IBOutlet weak var titleBackgrund: UIImageView!
     @IBOutlet weak var cv_recommend: UICollectionView!
     @IBOutlet weak var cv_new: UICollectionView!
     @IBOutlet weak var cv_best: UICollectionView!
-    
     
     var recommendItem: NSArray = NSArray()
     var newItem: NSArray = NSArray()
@@ -22,7 +23,10 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+
+        lblName.text = "\(userId)님,"
+        lblrecommend.text = "\(userId)님을 위한 추천 메뉴"
+        
         //모델 연결작업
         let HomeRecommendModel = HomeRecommendModel()
         let HomeNewModel = HomeNewModel()
@@ -54,6 +58,7 @@ class HomeViewController: UIViewController {
     //다시 되돌아 올 경우 리로드
     override func viewWillAppear(_ animated: Bool) {
         
+        navigationController?.setNavigationBarHidden(true, animated: animated)
         cv_recommend.reloadData()
         cv_new.reloadData()
         cv_best.reloadData()
@@ -168,6 +173,30 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         }
 
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "DrinkDetailVC") as! DrinkDetailViewController
+        switch collectionView {
+        case cv_recommend:
+            let item: DrinkModel = recommendItem[indexPath.row] as! DrinkModel
+            vc.receivedCd = item.cd!
+         
+        case cv_new:
+            let item: DrinkModel = newItem[indexPath.row] as! DrinkModel
+            vc.receivedCd = item.cd!
+
+        case cv_best:
+            let item: DrinkModel = bestItem[indexPath.row] as! DrinkModel
+            vc.receivedCd = item.cd!
+
+        default:
+            print("fail")
+        }
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+            
     }
     
     
