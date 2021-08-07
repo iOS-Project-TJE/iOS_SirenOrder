@@ -20,7 +20,6 @@ class OtherTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UserDefaults.standard.set("abc123", forKey: "userId")
         
         let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         backBarButtonItem.tintColor = .gray
@@ -94,6 +93,7 @@ class OtherTableViewController: UITableViewController {
         default:
             break
         }
+        cell.selectionStyle = .none
 
         return cell
     }
