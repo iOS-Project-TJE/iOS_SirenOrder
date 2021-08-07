@@ -88,7 +88,7 @@ extension ReceiptViewController:UITableViewDataSource,UITableViewDelegate{
             priceCount += item.price!
         }
         
-        lblPrice.text = "\(priceCount)원"
+        lblPrice.text = DecimalWon(value: priceCount)
         
         return feedItem.count
     }
@@ -105,7 +105,7 @@ extension ReceiptViewController:UITableViewDataSource,UITableViewDelegate{
             let cell = tableView.dequeueReusableCell(withIdentifier: "receiptCell", for: indexPath) as! ReceiptTableViewCell
             cell.lblOrderDate.text="\(item.orderDate!)"
             cell.lblLocation.text="\(item.storename!)"
-            cell.lblOrderPrice.text="\((item.orderCount! * item.price!) + (item.orderCount! * item.orderPersonalPrice!))원"
+            cell.lblOrderPrice.text=DecimalWon(value: (item.orderCount! * item.price!) + (item.orderCount! * item.orderPersonalPrice!))
             
             cell.selectionStyle = .none
 
@@ -125,6 +125,15 @@ extension ReceiptViewController:UITableViewDataSource,UITableViewDelegate{
             let detailView = segue.destination as! ReceiptDetailViewController
             detailView.receiveItems(item)
         }
+    }
+    
+    
+    func DecimalWon(value: Int) -> String{
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        let result = numberFormatter.string(from: NSNumber(value: value))! + " 원"
+        
+        return result
     }
 }
 
