@@ -1,24 +1,24 @@
 //
-//  CartSelectModel.swift
+//  OrderSelectModel.swift
 //  IOS_SirenOrder
 //
-//  Created by Hyeji on 2021/08/05.
+//  Created by Hyeji on 2021/08/07.
 //
 
 import Foundation
 
-// 2021.08.05 조혜지 Order Cart View Dao
-protocol CartSelectModelProtocol : AnyObject {
-    func cartItemDownloaded(items: NSArray)
+// 2021.08.05 조혜지 Order 최종 결제 확인 View Dao
+protocol OrderSelectModelProtocol : AnyObject {
+    func orderDownloaded(items: NSArray)
 }
 
-class CartSelectModel : NSObject {
-    var delegate: CartSelectModelProtocol!
-    var urlPath = "http://\(macIp):8080/starbucks/jsp/hj/cartSelect.jsp"
+class OrderSelectModel : NSObject {
+    var delegate: OrderSelectModelProtocol!
+    var urlPath = "http://\(macIp):8080/starbucks/jsp/hj/orderSelect.jsp"
     
-    func downloadItems() {
+    func downloadItems(_ orderNum: String) {
         
-        let urlAdd = "?userId=\(userId)"
+        let urlAdd = "?orderNum=\(orderNum)"
         urlPath = urlPath + urlAdd
         
         let url: URL = URL(string: urlPath)!
@@ -47,23 +47,23 @@ class CartSelectModel : NSObject {
                 
         for i in 0..<jsonResult.count {
             jsonElement = jsonResult[i] as! NSDictionary
-            if let cartId = jsonElement["cartId"] as? String,
-               let cartCount = jsonElement["cartCount"] as? String,
-               let cartPersonal = jsonElement["cartPersonal"] as? String,
+            if let orderCount = jsonElement["orderCount"] as? String,
+               let orderPersonal = jsonElement["orderPersonal"] as? String,
+               let orderDate = jsonElement["orderDate"] as? String,
                let cd = jsonElement["cd"] as? String,
-               let cartPersonalPrice = jsonElement["cartPersonalPrice"] as? String,
+               let orderPersonalPrice = jsonElement["orderPersonalPrice"] as? String,
                let name = jsonElement["name"] as? String,
                let img = jsonElement["img"] as? String,
                let price = jsonElement["price"] as? String{
                 
-                let query = CartModel(cartId: cartId, cartCount: Int(cartCount)!, cartPersonal: cartPersonal, cd: cd, cartPersonalPrice: Int(cartPersonalPrice)!, name: name, img: img, price: Int(price)!)
+                let query = OrderModel(orderCount: Int(orderCount)!, orderPersonal: orderPersonal, orderDate: orderDate, cd: cd, orderPersonalPrice: Int(orderPersonalPrice)!, name: name, img: img, price: Int(price)!)
                 locations.add(query)
                 
             }
         }
 
         DispatchQueue.main.async(execute: {() -> Void in
-            self.delegate.cartItemDownloaded(items: locations)
+            self.delegate.orderDownloaded(items: locations)
     })
     }
 }

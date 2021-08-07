@@ -14,7 +14,8 @@ struct SharePersonalData {
     static var btnBool: Bool = false
     static var myMenuSelect: Bool = false
     static var personalOptionPrice: Int = 0
-    static var pPrice = 0
-    static var pChangedPrice = 0
+    static var pPrice: Int = 0
+    static var pChangedPrice: Int = 0
     static var size: Int = 0
+    static var myMenuState: Bool = false
 }

@@ -1,23 +1,23 @@
 //
-//  DrinkInfoModel.swift
+//  OrderCountModel.swift
 //  IOS_SirenOrder
 //
-//  Created by Hyeji on 2021/08/02.
+//  Created by Hyeji on 2021/08/07.
 //
 
 import Foundation
 
-// 21.08.02 조혜지 Order Personal 옵션 선택을 위해 Drink 정보 불러오는 Dao
-protocol DrinkInfoModelProtocol : AnyObject {
-    func itemDownloaded(items: NSArray)
+// 21.08.05 조혜지 주문 개수 정보 불러오는 Dao
+protocol OrderCountModelProtocol : AnyObject {
+    func itemDownloaded(items: NSMutableArray)
 }
 
-class DrinkInfoModel : NSObject {
-    var delegate: DrinkInfoModelProtocol!
+class OrderCountModel : NSObject {
+    var delegate: OrderCountModelProtocol!
     var urlPath = "http://\(macIp):8080/starbucks/jsp/hj/"
     
-    func downloadItems(cd: String) {
-        let urlAdd = "drinkInfoSelect.jsp?cd=\(cd)"
+    func downloadItems(_ orderNum: String) {
+        let urlAdd = "orderCountSelect.jsp?orderNum=\(orderNum)"
         urlPath = urlPath + urlAdd
         print(urlPath)
         
@@ -49,12 +49,9 @@ class DrinkInfoModel : NSObject {
         
         for i in 0..<jsonResult.count {
             jsonElement = jsonResult[i] as! NSDictionary
-            if let name = jsonElement["name"] as? String,
-               let price = jsonElement["price"] as? String,
-               let type = jsonElement["type"] as? String,
-               let img = jsonElement["img"] as? String{
+            if let totalCount = jsonElement["totalCount"] as? String{
                 
-                let query = DrinkModel(name: name, price: Int(price)!, type: Int(type)!, img: img)
+                let query = OrderModel(totalCount: Int(totalCount)!)
                 locations.add(query)
                 
             }

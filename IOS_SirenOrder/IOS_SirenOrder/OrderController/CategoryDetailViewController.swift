@@ -14,7 +14,7 @@ class CategoryDetailViewController: UIViewController { // 2021.08.01 조혜지 O
     @IBOutlet weak var lblCartCount: UILabel!
     
     var dataItem: NSArray = NSArray()
-    var data = NSMutableArray()
+    var data: NSMutableArray = NSMutableArray()
     var indexPath = 0
     
     override func viewDidLoad() {

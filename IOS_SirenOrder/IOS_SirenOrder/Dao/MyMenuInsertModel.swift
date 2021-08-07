@@ -11,9 +11,9 @@ import Foundation
 class MyMenuInsertModel {
     var urlPath = "http://\(macIp):8080/starbucks/jsp/hj/myMenuInsert.jsp"
     
-    func InsertItems(personalContent: String, cd: String, userId: String) -> Bool {
+    func InsertItems(personalContent: String, cd: String, userId: String, personalPrice: Int) -> Bool {
         var result: Bool = true
-        let urlAdd = "?personalContent=\(personalContent)&cd=\(cd)&userId=\(userId)"
+        let urlAdd = "?personalContent=\(personalContent)&cd=\(cd)&userId=\(userId)&personalPrice=\(personalPrice)"
         urlPath = urlPath + urlAdd
         
         urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!

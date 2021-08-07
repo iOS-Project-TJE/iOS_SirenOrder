@@ -16,7 +16,7 @@ class AllMenuViewController: UIViewController { // 2021.07.30 조혜지 TabBar�
     @IBOutlet weak var lblStore: UILabel!
     @IBOutlet weak var lblCartCount: UILabel!
     
-    var data = NSMutableArray()
+    var data: NSMutableArray = NSMutableArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -7,17 +7,21 @@
 
 import UIKit
 
-class DrinkOrderTableViewCell: UITableViewCell {
+class DrinkOrderTableViewCell: UITableViewCell { // 21.08.06 조혜지 결제하기 Table View Cell
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
+    @IBOutlet weak var lblName: UILabel!
+    @IBOutlet weak var lblContent: UILabel!
+    @IBOutlet weak var lblPrice: UILabel!
+    @IBOutlet weak var ivDrink: UIImageView!
+    @IBOutlet weak var lblCount: UILabel!
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        if selected {
+            contentView.backgroundColor = UIColor.systemGray6
+        } else {
+            contentView.backgroundColor = UIColor.systemGray6
+        }
     }
 
 }

@@ -10,7 +10,7 @@ import MapKit
 
 class StoreDetailViewController: UIViewController {
     
-    var list = NSArray()
+    var list: NSArray = NSArray()
 
     @IBOutlet weak var mapStoreDetail: MKMapView!
     @IBOutlet weak var lblStoreDetailAddress: UILabel!
@@ -62,10 +62,12 @@ class StoreDetailViewController: UIViewController {
 
     @IBAction func btnStoreCheck(_ sender: UIButton) {
         storeName = name
-        if goOrder == true {
-            self.performSegue(withIdentifier: "sgOrder", sender: self)
-        }else {
+        if goOrder == false && goCart == false {
             navigationController?.popToRootViewController(animated: true)
+        }else if goOrder == true {
+            self.performSegue(withIdentifier: "sgOrder", sender: self)
+        }else if goCart == true {
+            self.performSegue(withIdentifier: "sgCart", sender: self)
         }
     }
     

@@ -1,22 +1,22 @@
 //
-//  CartInsertModel.swift
+//  OrderInsertModel.swift
 //  IOS_SirenOrder
 //
-//  Created by Hyeji on 2021/08/03.
+//  Created by Hyeji on 2021/08/06.
 //
 
 import Foundation
 
-// 21.08.02 조혜지 Order 장바구니에 추가하는 Dao
-class CartInsertModel {
-    var urlPath = "http://\(macIp):8080/starbucks/jsp/hj/cartInsert.jsp"
+// 21.08.06 조혜지 Order 결제하는 Dao
+class OrderInsertModel {
+    var urlPath = "http://\(macIp):8080/starbucks/jsp/hj/orderInsert.jsp"
     
-    func InsertItems(cartCount: Int, cartPersonal: String, cd: String, userId: String, cartPersonalPrice: Int) -> Bool {
+    func InsertItems(orderNum: String, orderCount: Int, orderPersonal: String, storeName: String, cd: String, userId: String, cartPersonalPrice: Int) -> Bool {
         var result: Bool = true
-        let urlAdd = "?cartCount=\(cartCount)&cartPersonal=\(cartPersonal)&cd=\(cd)&userId=\(userId)&cartPersonalPrice=\(cartPersonalPrice)"
+        let urlAdd = "?orderNum=\(orderNum)&orderCount=\(orderCount)&orderPersonal=\(orderPersonal)&storeName=\(storeName)&cd=\(cd)&userId=\(userId)&orderPersonalPrice=\(cartPersonalPrice)"
         urlPath = urlPath + urlAdd
-        print(urlAdd)
         urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+        print(urlPath)
         
         let url: URL = URL(string: urlPath)!
         let defaultSession = URLSession(configuration: URLSessionConfiguration.default)
