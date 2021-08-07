@@ -36,18 +36,32 @@ class ReceiptDetailViewController: UIViewController {
         let orderDate = dateFormatter.date(from: receiveItem.orderDate!)!
         
         dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        if receiveItem.orderPersonal == "null"{
+            lblOrderPersonal.text = ""
+        }else{
+            let firstIndex = receiveItem.orderPersonal!.index(receiveItem.orderPersonal!.startIndex, offsetBy: 0)
+            let lastIndex = receiveItem.orderPersonal!.index(receiveItem.orderPersonal!.startIndex, offsetBy: receiveItem.orderPersonal!.count-2)
+            lblOrderPersonal.text = String(receiveItem.orderPersonal![firstIndex..<lastIndex])
+        }
+        
+        if receiveItem.orderPersonalPrice! * receiveItem.orderCount! == 0{
+            lblOrderPersonalPrice.text = ""
+        }
+        else{
+            lblOrderPersonalPrice.text = Decimal(value: receiveItem.orderPersonalPrice! * receiveItem.orderCount!)
+        }
 
         lblLocation.text = receiveItem.storename!
         lblDetailLocation.text = receiveItem.address!
         lblOrderDate.text = receiveItem.orderDate!
         lblNickname.text = "\(receiveItem.userNickname!) (\(receiveItem.orderNum!))"
         lblOrderDrink.text = receiveItem.name!
-        lblDrinkPrice.text = "\(receiveItem.price!)"
-        lblOrderPersonalPrice.text = "\(receiveItem.orderPersonalPrice!)"
+        lblDrinkPrice.text = Decimal(value: receiveItem.price!)
         lblDrinkCount.text = "\(receiveItem.orderCount!)"
-        lblDrinkPriceSum.text = "\(receiveItem.orderCount! * receiveItem.price!)"
-        lblOrderSum.text = "\((receiveItem.orderCount! * receiveItem.price!) + (receiveItem.orderCount! * receiveItem.orderPersonalPrice!))"
-        lblOrderSum2.text = lblOrderSum.text
+        lblDrinkPriceSum.text = Decimal(value: receiveItem.orderCount! * receiveItem.price!)
+        lblOrderSum.text = Decimal(value: (receiveItem.orderCount! * receiveItem.price!) + (receiveItem.orderCount! * receiveItem.orderPersonalPrice!))
+        lblOrderSum2.text = "\(lblOrderSum.text!) 원"
         lblOrderNum.text = receiveItem.orderId!
         lblChangeDate.text = "(변경 가능 기간 : ~ \(dateFormatter.string(from: Calendar.current.date(byAdding: DateComponents(day: 14), to: orderDate)!)))"
     }
@@ -56,15 +70,13 @@ class ReceiptDetailViewController: UIViewController {
         receiveItem=item
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func Decimal(value: Int) -> String{
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        let result = numberFormatter.string(from: NSNumber(value: value))!
+        
+        return result
     }
-    */
 
 }
