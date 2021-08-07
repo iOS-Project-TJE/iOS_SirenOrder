@@ -105,7 +105,9 @@ extension ReceiptViewController:UITableViewDataSource,UITableViewDelegate{
             let cell = tableView.dequeueReusableCell(withIdentifier: "receiptCell", for: indexPath) as! ReceiptTableViewCell
             cell.lblOrderDate.text="\(item.orderDate!)"
             cell.lblLocation.text="\(item.storename!)"
-            cell.lblOrderPrice.text="\(item.price!)원"
+            cell.lblOrderPrice.text="\((item.orderCount! * item.price!) + (item.orderCount! * item.orderPersonalPrice!))원"
+            
+            cell.selectionStyle = .none
 
             return cell
         }

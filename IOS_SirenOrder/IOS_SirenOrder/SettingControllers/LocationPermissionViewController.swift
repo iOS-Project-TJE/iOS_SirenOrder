@@ -1,19 +1,22 @@
 //
-//  SettingViewController.swift
+//  LocationPermissionViewController.swift
 //  IOS_SirenOrder
 //
-//  Created by 박성준 on 2021/08/04.
+//  Created by 박성준 on 2021/08/07.
 //
 
 import UIKit
+import WebKit
 
-class SettingViewController: UIViewController {
-    @IBOutlet weak var tvHistoryDetailView: UITableView!
+class LocationPermissionViewController: UIViewController {
+    @IBOutlet weak var webView: WKWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let myUrl = URL(string : "https://www.starbucks.co.kr/footer/etc/rules_loc.do")
+        let myRequest = URLRequest(url: myUrl!)
+        webView.load(myRequest)
     }
     
 

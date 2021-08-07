@@ -94,7 +94,7 @@ extension HistoryViewController:UITableViewDataSource,UITableViewDelegate{
             cell.lblHistoryName.text="\(item.name!)"
             cell.lblHistoryDate.text="\(item.orderDate!)"
             cell.lblHistoryLocation.text="\(item.storename!)"
-            cell.lblHistoryPrice.text="\(item.price! + item.orderPersonalPrice!)원"
+            cell.lblHistoryPrice.text="\((item.orderCount! * item.price!) + (item.orderCount! * item.orderPersonalPrice!))원"
 
             let url = URL(string: item.img!)
             let data = try? Data(contentsOf: url!)
@@ -121,6 +121,8 @@ extension HistoryViewController:UITableViewDataSource,UITableViewDelegate{
             }else{
                 cell.lblOrderComplete.isHidden=true
             }
+            
+            cell.selectionStyle = .none
             
             return cell
         }
