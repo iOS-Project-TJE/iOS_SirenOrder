@@ -33,17 +33,17 @@ class LoginViewController: UIViewController {
         //버튼 라운드
         setRadius()
         
-        if UserDefaults.standard.object(forKey: "userId") != nil { // UserDefault에 값이 있다
-            //ShareVar.userId ?
-            userId = UserDefaults.standard.object(forKey: "userId") as! String
-            self.performSegue(withIdentifier: "sgLoginToMain", sender: self) //Main으로 가는 sg만들기
-
-        }else{
+//        if UserDefaults.standard.object(forKey: "userId") != nil { // UserDefault에 값이 있다
+//            //ShareVar.userId ?
+//            userId = UserDefaults.standard.object(forKey: "userId") as! String
+//            self.performSegue(withIdentifier: "sgLoginToMain", sender: self) //Main으로 가는 sg만들기
+//
+//        }else{
 
             // 없으면 불러오기!
-            //doQueryModel()
+            doQueryModel()
 
-        }//if
+//        }//if
 
     }//viewDidLoad
     

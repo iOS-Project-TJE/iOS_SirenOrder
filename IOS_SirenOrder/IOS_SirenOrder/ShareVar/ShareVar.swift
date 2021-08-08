@@ -8,7 +8,7 @@
 import Foundation
 
 // 2021.07.30 조혜지 static 변수와 상수 선언
-let macIp = "192.168.35.20"
+let macIp = "192.168.35.32"
 
 var userId = "aaa"
 var category = ""

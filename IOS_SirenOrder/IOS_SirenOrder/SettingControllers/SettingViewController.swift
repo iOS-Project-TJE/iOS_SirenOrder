@@ -29,7 +29,17 @@ class SettingViewController: UIViewController {
         let testAlert=UIAlertController(title: "로그아웃 하시겠어요?", message: nil, preferredStyle: .alert)
         
         let actionDefault=UIAlertAction(title: "확인", style: .default, handler: {ACTION in
-            print("로그아웃됨!")
+            userId = ""
+            UserDefaults.standard.removeObject(forKey: "userId")
+            
+            guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "CoverVC") else{
+                return
+            }
+
+            uvc.modalTransitionStyle = UIModalTransitionStyle.coverVertical
+
+            self.present(uvc, animated: true)
+            
         })
         let actionCanceled=UIAlertAction(title: "취소", style: .cancel, handler: nil)
         
