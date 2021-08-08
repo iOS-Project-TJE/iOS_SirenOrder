@@ -31,6 +31,7 @@ class SettingViewController: UIViewController {
         let actionDefault=UIAlertAction(title: "확인", style: .default, handler: {ACTION in
             userId = ""
             UserDefaults.standard.removeObject(forKey: "userId")
+            UserDefaults.standard.removeObject(forKey: "userNickname")
             
             guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "CoverVC") else{
                 return

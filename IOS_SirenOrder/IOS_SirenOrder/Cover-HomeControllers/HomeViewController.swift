@@ -23,9 +23,9 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        lblName.text = "\(userId)님,"
-        lblrecommend.text = "\(userId)님을 위한 추천 메뉴"
+        
+        lblName.text = "\(UserDefaults.standard.object(forKey: "userNickname")!)님,"
+        lblrecommend.text = "\(UserDefaults.standard.object(forKey: "userNickname")!)님을 위한 추천 메뉴"
         
         //모델 연결작업
         let HomeRecommendModel = HomeRecommendModel()
