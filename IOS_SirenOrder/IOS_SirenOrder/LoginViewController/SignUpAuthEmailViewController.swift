@@ -197,7 +197,7 @@ class SignUpAuthEmailViewController: UIViewController {
         tfEmail.textAlignment = .left
         tfEmail.textColor = UIColor.systemGray
         
-        //패스워드
+        //인증번호
         tfAuthCode.borderStyle = .none
         let border2 = CALayer()
         border2.frame = CGRect(x: 0, y: tfAuthCode.frame.size.height-1, width: tfAuthCode.frame.width, height: 1)
