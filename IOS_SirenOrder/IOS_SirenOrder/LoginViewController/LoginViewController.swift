@@ -16,9 +16,15 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var btnLogin: UIButton!
     
+    
+    var feedItem: NSMutableArray = NSMutableArray()
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        //텍스트필드 지우기
+        remove()
         
         //textField 밑줄로 만들기
         setUnderLineId()
@@ -28,18 +34,109 @@ class LoginViewController: UIViewController {
         setRadius()
         
 
+//        if UserDefaults.standard.object(forKey: "userId") != nil { // UserDefault에 값이 있다
+//            //ShareVar.userId ?
+//            userId = UserDefaults.standard.object(forKey: "userId") as! String
+//            self.performSegue(withIdentifier: "sgLoginToMain", sender: self) //Main으로 가는 sg만들기
+//
+//        }else{
+
+            // 없으면 불러오기!
+            doQueryModel()
+
+//        }//if
+
     }//viewDidLoad
     
-    
-    
-    
-    @IBAction func btnSignUp(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "sgLoginToSignUp", sender: self)
-  
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+        remove()
     }
     
+    func remove(){
+        tfUserId.text?.removeAll()
+        tfUserPassWord.text?.removeAll()
+    }
+    
+    //query Model 실행
+    func doQueryModel(){
+        let userinfoModel = UserInfoModel()
+        userinfoModel.delegate = self
+        userinfoModel.downloadItems()
+        
+    }//
+    
+   
+  
+    //로그인 버튼
+    @IBAction func btnLogin(_ sender: UIButton) {
+        var count: Int = 0
+        
+        for i in 0..<feedItem.count {
+            let item: LoginUserInfoModel = feedItem[i] as! LoginUserInfoModel
+            guard let id = item.userId else {
+                return
+            }
+            guard let password = item.userPw else {
+                return
+            }
+            
+            if tfUserId.text == id && tfUserPassWord.text == password {
+                // 아이디와 비밀번호가 일치하면
+                count += 1
+                //sharvar의 userId 에 넣어주기
+                userId = tfUserId.text!
+                UserDefaults.standard.set(tfUserId.text!, forKey: "userId")
+                UserDefaults.standard.set(item.userNickname!, forKey: "userNickname")
+
+//                self.performSegue(withIdentifier: "sgLoginToHome", sender: self)
+                guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") else{
+                    return
+                }
+
+                uvc.modalTransitionStyle = UIModalTransitionStyle.coverVertical
+
+                self.present(uvc, animated: true)
+                
+            } // if
+            
+        } // for
+        
+        if count == 0 {
+        //불일치시
+        let idAlert = UIAlertController(title: "경고", message: "ID나 암호가 불일치 합니다!", preferredStyle: .alert)
+        let idAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+ 
+        idAlert.addAction(idAction)
+        present(idAlert, animated: true, completion: nil)
+
+        }//if
+
+    }//btnLogin
+    
+
+    // 아이디 찾기 버튼
+    @IBAction func btnFindUserId(_ sender: UIButton) {
+        
+        self.performSegue(withIdentifier: "sgFindUserId", sender: self)
+
+    }
+    
+ 
+    //회원가입 버튼
+    @IBAction func btnSignUp(_ sender: UIButton) {
+    
+        self.performSegue(withIdentifier: "sgLoginToSignUp", sender: self)
+        
+    }//btnSignUp
     
     
+    // 비밀번호 찾기
+    @IBAction func btnFindUserPw(_ sender: UIButton) {
+        
+        self.performSegue(withIdentifier: "sgToFindUserPw", sender: self)
+
+    }//btnFindUserPw
     
 
     
@@ -77,19 +174,10 @@ class LoginViewController: UIViewController {
     }
     
 
-    
-    
-    
-    
-    
-    /*
-    // MARK: - Navigation
+}//---------
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension LoginViewController: UserInfoModelProtocol{
+    func itemDownloaded(items: NSArray) {  
+        feedItem = items as! NSMutableArray
     }
-    */
-
-}
+}//extension

@@ -45,9 +45,12 @@ class HistoryDetailViewController: UIViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         
-        var personal = receiveItem.orderPersonal
         if receiveItem.orderPersonal == "null"{
-            personal = ""
+            lblOrderPersonal.text = ""
+        }else{
+            let firstIndex = receiveItem.orderPersonal!.index(receiveItem.orderPersonal!.startIndex, offsetBy: 0)
+            let lastIndex = receiveItem.orderPersonal!.index(receiveItem.orderPersonal!.startIndex, offsetBy: receiveItem.orderPersonal!.count-2)
+            lblOrderPersonal.text = String(receiveItem.orderPersonal![firstIndex..<lastIndex])
         }
         
         lblOrderFin.text="\(dateFormatter.string(from: Date(timeInterval: 300, since: orderDate)))"
@@ -62,9 +65,8 @@ class HistoryDetailViewController: UIViewController {
         lblOrderLoc4.text="\(receiveItem.storename!)"
         lblOrderLocDetail.text="\(receiveItem.address!)"
         lblDrinkName.text="\(receiveItem.name!)"
-        lblOrderPersonal.text="\(personal!)"
         lblCount.text="총 \(receiveItem.orderCount!)개"
-        lblPrice.text="\(receiveItem.price! * receiveItem.orderCount!)원"
+        lblPrice.text=DecimalWon(value: (receiveItem.price! * receiveItem.orderCount!) + (receiveItem.orderPersonalPrice! * receiveItem.orderCount!))
     }
     
     @IBAction func btnRefresh(_ sender: UIButton) {
@@ -99,5 +101,13 @@ class HistoryDetailViewController: UIViewController {
             orderPerm.backgroundColor=UIColor.brown
             orderReady.backgroundColor=UIColor.lightGray
         }
+    }
+    
+    func DecimalWon(value: Int) -> String{
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        let result = numberFormatter.string(from: NSNumber(value: value))! + " 원"
+        
+        return result
     }
 }

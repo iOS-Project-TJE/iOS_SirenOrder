@@ -1,34 +1,33 @@
 //
-//  DrinkDetailViewController.swift
+//  LocationPermissionViewController.swift
 //  IOS_SirenOrder
 //
-//  Created by RayAri on 2021/08/03.
+//  Created by 박성준 on 2021/08/07.
 //
 
 import UIKit
+import WebKit
 
-class DrinkDetailViewController: UIViewController {
-
-    var receivedCd: String = ""
+class LocationPermissionViewController: UIViewController {
+    @IBOutlet weak var webView: WKWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let myUrl = URL(string : "https://www.starbucks.co.kr/footer/etc/rules_loc.do")
+        let myRequest = URLRequest(url: myUrl!)
+        webView.load(myRequest)
     }
     
 
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "sgPersonal" {
-            let orderPersonalViewController = segue.destination as! OrderPersonalViewController
-            orderPersonalViewController.receivedCd = receivedCd
-        }
     }
-    
+    */
 
 }

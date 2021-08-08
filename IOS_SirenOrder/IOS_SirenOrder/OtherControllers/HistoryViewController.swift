@@ -94,7 +94,7 @@ extension HistoryViewController:UITableViewDataSource,UITableViewDelegate{
             cell.lblHistoryName.text="\(item.name!)"
             cell.lblHistoryDate.text="\(item.orderDate!)"
             cell.lblHistoryLocation.text="\(item.storename!)"
-            cell.lblHistoryPrice.text="\(item.price!)원"
+            cell.lblHistoryPrice.text=DecimalWon(value: (item.orderCount! * item.price!) + (item.orderCount! * item.orderPersonalPrice!))
 
             let url = URL(string: item.img!)
             let data = try? Data(contentsOf: url!)
@@ -122,6 +122,8 @@ extension HistoryViewController:UITableViewDataSource,UITableViewDelegate{
                 cell.lblOrderComplete.isHidden=true
             }
             
+            cell.selectionStyle = .none
+            
             return cell
         }
     }
@@ -139,6 +141,16 @@ extension HistoryViewController:UITableViewDataSource,UITableViewDelegate{
             detailView.receiveItems(item)
         }
     }
+    
+    
+    func DecimalWon(value: Int) -> String{
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        let result = numberFormatter.string(from: NSNumber(value: value))! + " 원"
+        
+        return result
+    }
+    
 }
 
 

@@ -53,9 +53,9 @@ class StoreSearchModel : NSObject {
             jsonElement = jsonResult[i] as! NSDictionary
             if let storename = jsonElement["storename"] as? String,
                let lat = jsonElement["lat"] as? String,
-               let long = jsonElement["long"] as? String,
+               let lon = jsonElement["lon"] as? String,
                let address = jsonElement["address"] as? String{
-                let query = LocationModel(storename: storename, lat: Double(lat)!, long: Double(long)!, address: address)
+                let query = LocationModel(storename: storename, lat: Double(lat)!, lon: Double(lon)!, address: address)
                 locations.add(query)
             }
         

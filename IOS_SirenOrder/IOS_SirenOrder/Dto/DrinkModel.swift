@@ -51,7 +51,7 @@ class DrinkModel : NSObject{
         self.price=price
     }
     
-    // 2021.08.01 조혜지 categoryDetailModel에서 사용할 init 추가
+    // 2021.08.01 조혜지 CategoryDetailModel에서 사용할 init 추가
     init(cd: String, name : String, img : String, price : Int) {
         self.cd = cd
         self.name = name
@@ -60,10 +60,11 @@ class DrinkModel : NSObject{
     }
     
     // 2021.08.02 조혜지 DrinkInfoModel에서 사용할 init 추가
-    init(name : String, price : Int, type: Int) {
+    init(name : String, price : Int, type: Int, img: String) {
         self.name = name
         self.price = price
         self.type = type
+        self.img = img
     }
     
     // 2021.08.02 김도우 homeModel에서 사용할 init 추가
@@ -72,4 +73,29 @@ class DrinkModel : NSObject{
         self.name = name
         self.img = img
     }
+    
+    // 2021.08.04 김도우 DrinkDetail에서 사용할 init 추가
+    init(cd: String, img: String, name: String, content: String, price:Int, type:Int, allergie:String){
+        self.cd = cd
+        self.img = img
+        self.name = name
+        self.content = content
+        self.price = price
+        self.type = type
+        self.allergie = allergie
+    }
+    
+    // 2021.08.07 김도우 DrinkDetail에서 사용할 init 추가
+    init(volume : String, kcal : String, protein : String, fat : String, sodium : String, sugars : String, caffeine : String, cholesterol : String, carbo : String){
+        self.volume=volume
+        self.kcal=kcal
+        self.protein=protein
+        self.fat=fat
+        self.sodium=sodium
+        self.sugars=sugars
+        self.caffeine=caffeine
+        self.cholesterol=cholesterol
+        self.carbo=carbo
+    }
+    
 }

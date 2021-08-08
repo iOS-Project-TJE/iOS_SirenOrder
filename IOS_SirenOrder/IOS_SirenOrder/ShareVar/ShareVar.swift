@@ -8,9 +8,9 @@
 import Foundation
 
 // 2021.07.30 조혜지 static 변수와 상수 선언
-let macIp = "192.168.128.42"
+let macIp = "localhost"
 
-var userId = "aaa"
+var userId = ""
 var category = ""
 
 // 2021.08.02 조혜지 Personal View에서 필요한 변수 추가
@@ -24,3 +24,4 @@ var storeName = ""
 
 // 2021.08.04 조혜지 매장 내 직접 수령 버튼 클릭 시 뷰 전환을 위한 상태 변수 추가
 var goOrder = false
+var goCart = false
