@@ -48,6 +48,7 @@ class LoginViewController: UIViewController {
     }//viewDidLoad
     
     override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: animated)
         remove()
     }
     
@@ -86,7 +87,14 @@ class LoginViewController: UIViewController {
                 userId = tfUserId.text!
                 UserDefaults.standard.set(tfUserId.text!, forKey: "userId")
 
-                self.performSegue(withIdentifier: "sgLoginToHome", sender: self)
+//                self.performSegue(withIdentifier: "sgLoginToHome", sender: self)
+                guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") else{
+                    return
+                }
+
+                uvc.modalTransitionStyle = UIModalTransitionStyle.coverVertical
+
+                self.present(uvc, animated: true)
                 
             } // if
             

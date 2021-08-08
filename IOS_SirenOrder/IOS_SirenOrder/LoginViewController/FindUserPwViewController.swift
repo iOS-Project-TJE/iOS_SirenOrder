@@ -46,6 +46,10 @@ class FindUserPwViewController: UIViewController {
         removeEmailLabel()
     }//viewDidLoad
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     // 텍스트필드 지우기
     func remove(){
         tfEmail.text?.removeAll()

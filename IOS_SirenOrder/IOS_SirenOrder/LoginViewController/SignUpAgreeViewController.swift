@@ -28,6 +28,10 @@ class SignUpAgreeViewController: UIViewController {
         
     }//viewDidLoad
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     //전체약관동의
     @IBAction func btnAgreeAll(_ sender: UIButton) {
         
