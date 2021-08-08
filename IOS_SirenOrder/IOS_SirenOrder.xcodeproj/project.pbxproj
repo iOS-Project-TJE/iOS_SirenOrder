@@ -776,6 +776,7 @@
 				4F2C597C26C0614A0002763A /* GiftCardTableViewCell.swift in Sources */,
 				85423B4626B6FB9700FFEF85 /* FrequentStoreTableViewController.swift in Sources */,
 				4F2C597A26C0614A0002763A /* GiftCardPayDetailViewController.swift in Sources */,
+				85423B4626B6FB9700FFEF85 /* FrequentStoreTableViewController.swift in Sources */,
 				857011E326BDFBBB00C5C9B2 /* OrderSelectModel.swift in Sources */,
 				851AF39926BC1AAA0093B318 /* CartCountUpdateModel.swift in Sources */,
 				857011E726BDFC3D00C5C9B2 /* OrderCountModel.swift in Sources */,
