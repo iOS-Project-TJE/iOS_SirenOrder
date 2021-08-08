@@ -33,6 +33,7 @@ class LoginViewController: UIViewController {
         //버튼 라운드
         setRadius()
         
+
 //        if UserDefaults.standard.object(forKey: "userId") != nil { // UserDefault에 값이 있다
 //            //ShareVar.userId ?
 //            userId = UserDefaults.standard.object(forKey: "userId") as! String
@@ -96,7 +97,7 @@ class LoginViewController: UIViewController {
         //불일치시
         let idAlert = UIAlertController(title: "경고", message: "ID나 암호가 불일치 합니다!", preferredStyle: .alert)
         let idAction = UIAlertAction(title: "확인", style: .default, handler: nil)
-        //idAlert.view.backgroundColor = #colorLiteral(red: 0, green: 0.5628422499, blue: 0.3188166618, alpha: 1)
+ 
         idAlert.addAction(idAction)
         present(idAlert, animated: true, completion: nil)
 
