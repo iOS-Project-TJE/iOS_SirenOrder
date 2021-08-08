@@ -87,6 +87,7 @@ class LoginViewController: UIViewController {
                 //sharvar의 userId 에 넣어주기
                 userId = tfUserId.text!
                 UserDefaults.standard.set(tfUserId.text!, forKey: "userId")
+                UserDefaults.standard.set(item.userNickname!, forKey: "userNickname")
 
 //                self.performSegue(withIdentifier: "sgLoginToHome", sender: self)
                 guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") else{
