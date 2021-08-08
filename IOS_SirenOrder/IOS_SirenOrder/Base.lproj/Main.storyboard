@@ -99,7 +99,7 @@
                                 </state>
                                 <connections>
                                     <action selector="btnLogin:" destination="vZq-4n-ai7" eventType="touchUpInside" id="euE-bV-2pl"/>
-                                    <segue destination="hT2-aS-J4e" kind="show" id="dpe-fV-E2L"/>
+                                    <segue destination="hT2-aS-J4e" kind="show" identifier="sgLoginToHome" id="dpe-fV-E2L"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ㅣ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aj6-OC-MQj">
@@ -1887,20 +1887,20 @@
                                         </constraints>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="YMl-22-dga">
-                                                <rect key="frame" x="0.0" y="24.5" width="334" height="53"/>
+                                                <rect key="frame" x="0.0" y="24.5" width="334" height="53.5"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YMl-22-dga" id="q4D-eV-ZTW">
-                                                    <rect key="frame" x="0.0" y="0.0" width="334" height="53"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="334" height="53.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O87-uw-iJ4">
-                                                            <rect key="frame" x="30" y="16" width="42" height="21"/>
+                                                            <rect key="frame" x="30" y="16" width="42" height="21.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hje-k3-zXo">
-                                                            <rect key="frame" x="294" y="5" width="30" height="43"/>
+                                                            <rect key="frame" x="294" y="5" width="30" height="43.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="30" id="8R1-CN-LQW"/>
                                                             </constraints>
