@@ -86,7 +86,7 @@ class LoginViewController: UIViewController {
                 userId = tfUserId.text!
                 UserDefaults.standard.set(tfUserId.text!, forKey: "userId")
 
-                self.performSegue(withIdentifier: "sgLoginToMain", sender: self)
+                self.performSegue(withIdentifier: "sgLoginToHome", sender: self)
                 
             } // if
             
@@ -115,10 +115,9 @@ class LoginViewController: UIViewController {
  
     //회원가입 버튼
     @IBAction func btnSignUp(_ sender: UIButton) {
-        //유저 디폴트가 널값일때만 넘어감
-        if UserDefaults.standard.string(forKey: "userId") == nil{
-            self.performSegue(withIdentifier: "sgLoginToSignUp", sender: self)
-        }
+    
+        self.performSegue(withIdentifier: "sgLoginToSignUp", sender: self)
+        
     }//btnSignUp
     
     
