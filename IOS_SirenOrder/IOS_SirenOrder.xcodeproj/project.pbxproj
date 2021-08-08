@@ -134,6 +134,10 @@
 		997D01B126BFF8C7004168DC /* VerifyDuplicatedIdModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997D01B026BFF8C7004168DC /* VerifyDuplicatedIdModel.swift */; };
 		997D01B326C00035004168DC /* SignUpOkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997D01B226C00035004168DC /* SignUpOkViewController.swift */; };
 		997D01B726C002BB004168DC /* InsertSignInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997D01B626C002BB004168DC /* InsertSignInfo.swift */; };
+		997D01B926C00B2C004168DC /* UserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997D01B826C00B2C004168DC /* UserInfoModel.swift */; };
+		997D01BB26C00C0D004168DC /* LoginUserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997D01BA26C00C0D004168DC /* LoginUserInfoModel.swift */; };
+		997D01BD26C011AA004168DC /* QueryEmailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997D01BC26C011AA004168DC /* QueryEmailModel.swift */; };
+		997D01BF26C01900004168DC /* ChangePwModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997D01BE26C01900004168DC /* ChangePwModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -267,6 +271,10 @@
 		997D01B026BFF8C7004168DC /* VerifyDuplicatedIdModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyDuplicatedIdModel.swift; sourceTree = "<group>"; };
 		997D01B226C00035004168DC /* SignUpOkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpOkViewController.swift; sourceTree = "<group>"; };
 		997D01B626C002BB004168DC /* InsertSignInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertSignInfo.swift; sourceTree = "<group>"; };
+		997D01B826C00B2C004168DC /* UserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoModel.swift; sourceTree = "<group>"; };
+		997D01BA26C00C0D004168DC /* LoginUserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserInfoModel.swift; sourceTree = "<group>"; };
+		997D01BC26C011AA004168DC /* QueryEmailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryEmailModel.swift; sourceTree = "<group>"; };
+		997D01BE26C01900004168DC /* ChangePwModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePwModel.swift; sourceTree = "<group>"; };
 		A08F0ADDDE1E5AACCD89525E /* Pods_IOS_SirenOrder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IOS_SirenOrder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -344,6 +352,9 @@
 				997D01AE26BFF2A2004168DC /* SendEmailModel.swift */,
 				997D01B026BFF8C7004168DC /* VerifyDuplicatedIdModel.swift */,
 				997D01B626C002BB004168DC /* InsertSignInfo.swift */,
+				997D01B826C00B2C004168DC /* UserInfoModel.swift */,
+				997D01BC26C011AA004168DC /* QueryEmailModel.swift */,
+				997D01BE26C01900004168DC /* ChangePwModel.swift */,
 			);
 			path = Dao;
 			sourceTree = "<group>";
@@ -361,6 +372,7 @@
 				851AF38C26BBBFC60093B318 /* CartModel.swift */,
 				851AF39026BBEE860093B318 /* OrderSendModel.swift */,
 				851AF3A226BCC26C0093B318 /* GiftModel.swift */,
+				997D01BA26C00C0D004168DC /* LoginUserInfoModel.swift */,
 			);
 			path = Dto;
 			sourceTree = "<group>";
@@ -661,6 +673,7 @@
 				857F1C5026B27A210028D3BC /* ViewController.swift in Sources */,
 				70297A5226BEF013004DDE12 /* SearchDetailTableViewCell.swift in Sources */,
 				85B5105026BDC47600D61AC7 /* GiftPriceUpdateModel.swift in Sources */,
+				997D01BD26C011AA004168DC /* QueryEmailModel.swift in Sources */,
 				856F78FA26BAD7D00092B57C /* DrinkOrderViewController.swift in Sources */,
 				8543CDC326BD06FA0057A836 /* ConfirmOrderViewController.swift in Sources */,
 				851AF38D26BBBFC60093B318 /* CartModel.swift in Sources */,
@@ -707,6 +720,7 @@
 				851AF39926BC1AAA0093B318 /* CartCountUpdateModel.swift in Sources */,
 				857011E726BDFC3D00C5C9B2 /* OrderCountModel.swift in Sources */,
 				6980B02A26B585690048DAAB /* OrderModel.swift in Sources */,
+				997D01BF26C01900004168DC /* ChangePwModel.swift in Sources */,
 				70BB20ED26BA79C200871D85 /* HomeRecommendModel.swift in Sources */,
 				85DDD68326B85D8900B97DF7 /* OrderPersonalViewController.swift in Sources */,
 				9966F1ED26B6E0B9003B3DDD /* ResetPassWordViewController.swift in Sources */,
@@ -715,6 +729,7 @@
 				85423B3826B6F7EA00FFEF85 /* PersonalModel.swift in Sources */,
 				997120F526B692280026317F /* SignUpAuthEmailViewController.swift in Sources */,
 				69E573F826BD1C250064CF83 /* SettingTableViewController.swift in Sources */,
+				997D01BB26C00C0D004168DC /* LoginUserInfoModel.swift in Sources */,
 				851AF3A326BCC26C0093B318 /* GiftModel.swift in Sources */,
 				6980B02C26B585690048DAAB /* DrinkModel.swift in Sources */,
 				997120F726B693990026317F /* SignUpIdPwdViewController.swift in Sources */,
@@ -768,6 +783,7 @@
 				85423B3226B6F6CB00FFEF85 /* ShareVar.swift in Sources */,
 				85DDD67526B857AB00B97DF7 /* PersonalIdModel.swift in Sources */,
 				70BB20EF26BA79D200871D85 /* HomeNewModel.swift in Sources */,
+				997D01B926C00B2C004168DC /* UserInfoModel.swift in Sources */,
 				85DDD67B26B8587F00B97DF7 /* PersonalOptionContentTableViewCell.swift in Sources */,
 				851AF39726BC15890093B318 /* CartDeleteModel.swift in Sources */,
 				997120F926B6957D0026317F /* LoginViewController.swift in Sources */,
