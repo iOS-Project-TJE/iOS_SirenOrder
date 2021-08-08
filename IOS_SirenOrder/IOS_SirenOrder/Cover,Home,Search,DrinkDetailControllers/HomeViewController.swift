@@ -24,8 +24,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        lblName.text = "\(UserDefaults.standard.object(forKey: "userNickname")!)님,"
-        lblrecommend.text = "\(UserDefaults.standard.object(forKey: "userNickname")!)님을 위한 추천 메뉴"
+        //lblName.text = "\(UserDefaults.standard.object(forKey: "userNickname")!)님,"
+       // lblrecommend.text = "\(UserDefaults.standard.object(forKey: "userNickname")!)님을 위한 추천 메뉴"
         
         //모델 연결작업
         let HomeRecommendModel = HomeRecommendModel()
@@ -40,7 +40,7 @@ class HomeViewController: UIViewController {
 
         HomeBestModel.delegate = self
         HomeBestModel.downloadItems()
-        
+          
         cv_recommend.delegate = self
         cv_recommend.dataSource = self
         
@@ -210,6 +210,14 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
 extension HomeViewController : HomeRecommendModelProtocol {
     func itemRecommendDownloaded(items: NSArray) {
         recommendItem = items
+      
+        if recommendItem.count == 0 {
+            let HomeBestModel = HomeBestModel()
+            
+            HomeBestModel.delegate = self
+            HomeBestModel.downloadItems()
+        }
+        
         self.cv_recommend.reloadData()
     }
 }
@@ -224,6 +232,12 @@ extension HomeViewController : HomeNewModelProtocol {
 extension HomeViewController : HomeBestModelProtocol {
     func itemBestDownloaded(items: NSArray) {
         bestItem = items
+        
+        if recommendItem.count == 0 {
+            recommendItem = bestItem
+            self.cv_recommend.reloadData()
+        }
+            
         self.cv_best.reloadData()
     }
 }
