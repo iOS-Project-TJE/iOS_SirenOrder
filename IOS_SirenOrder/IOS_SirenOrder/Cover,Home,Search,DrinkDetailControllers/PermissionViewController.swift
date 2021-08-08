@@ -21,7 +21,8 @@ class PermissionViewController: UIViewController {
         super.viewDidLoad()
         
         centralManager = CBCentralManager(delegate: self, queue: nil)
-
+        UserDefaults.standard.set("N", forKey: "first")
+        
 
         //버튼 라운드
         btnOK.layer.cornerRadius = 20

@@ -39,6 +39,29 @@ class CoverViewController: UIViewController {
     
     //넘어가는 메소드
     func moveNext() {
+        //처음이 아닐경우
+        if UserDefaults.standard.object(forKey: "first") != nil {
+            if UserDefaults.standard.object(forKey: "userId") != nil {
+                //로그인 했을경우 > 홈으로 // 자동로그인기능
+                guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") else{
+                    return
+                }
+
+                uvc.modalTransitionStyle = UIModalTransitionStyle.coverVertical
+
+                self.present(uvc, animated: true)
+            }else{
+                //로그인 안했을경우 >  로그인으로
+                guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") else{
+                    return
+                }
+
+                uvc.modalTransitionStyle = UIModalTransitionStyle.coverVertical
+
+                self.present(uvc, animated: true)
+            }
+        }else {
+        //처음일경우 > 퍼미션부터
         guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "PermissionVC") else{
             return
         }
@@ -46,6 +69,8 @@ class CoverViewController: UIViewController {
         uvc.modalTransitionStyle = UIModalTransitionStyle.coverVertical
 
         self.present(uvc, animated: true)
+            
+        }
     }
 
     /*
