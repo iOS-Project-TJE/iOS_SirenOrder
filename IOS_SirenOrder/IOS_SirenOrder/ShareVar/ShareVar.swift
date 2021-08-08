@@ -10,7 +10,7 @@ import Foundation
 // 2021.07.30 조혜지 static 변수와 상수 선언
 let macIp = "192.168.35.32"
 
-var userId = "aaa"
+var userId = ""
 var category = ""
 
 // 2021.08.02 조혜지 Personal View에서 필요한 변수 추가
