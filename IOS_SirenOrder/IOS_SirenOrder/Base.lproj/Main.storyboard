@@ -977,7 +977,7 @@
         <!--Cover View Controller-->
         <scene sceneID="Dnf-uU-C9L">
             <objects>
-                <viewController id="QWA-3X-s8W" customClass="CoverViewController" customModule="IOS_SirenOrder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CoverVC" modalPresentationStyle="fullScreen" id="QWA-3X-s8W" customClass="CoverViewController" customModule="IOS_SirenOrder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jVp-vP-uSG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1887,20 +1887,20 @@
                                         </constraints>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="YMl-22-dga">
-                                                <rect key="frame" x="0.0" y="24.5" width="334" height="53.5"/>
+                                                <rect key="frame" x="0.0" y="24.5" width="334" height="53"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YMl-22-dga" id="q4D-eV-ZTW">
-                                                    <rect key="frame" x="0.0" y="0.0" width="334" height="53.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="334" height="53"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O87-uw-iJ4">
-                                                            <rect key="frame" x="30" y="16" width="42" height="21.5"/>
+                                                            <rect key="frame" x="30" y="16" width="42" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hje-k3-zXo">
-                                                            <rect key="frame" x="294" y="5" width="30" height="43.5"/>
+                                                            <rect key="frame" x="294" y="5" width="30" height="43"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="30" id="8R1-CN-LQW"/>
                                                             </constraints>
@@ -5961,7 +5961,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="kR5-y2-H3I"/>
+        <segue reference="Eg1-oz-FCI"/>
         <segue reference="VEf-6C-Abn"/>
         <segue reference="xdt-Md-2SL"/>
         <segue reference="kZT-Mg-Tgu"/>
