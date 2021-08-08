@@ -10,8 +10,14 @@ import UIKit
 class SignUpNicNameViewController: UIViewController {
 
     
-    @IBOutlet weak var tfNickName: UITextField!
+    @IBOutlet weak var tfNickname: UITextField!
     @IBOutlet weak var btnNext: UIButton!
+    
+    //변수: 받은아이디,패스워드,이메일
+    var receiveId = ""
+    var receivePw = ""
+    var receiveEmail = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,9 +27,56 @@ class SignUpNicNameViewController: UIViewController {
         setUnderLine()
         setRadius()
     
+        remove()
+        
     }//viewDidLoad
     
+    func remove(){
+        tfNickname.text?.removeAll()
+    }
     
+    //다음버튼 : 사용자 정보 DB에 입력
+    @IBAction func btnNext(_ sender: UIButton) {
+        let nickname = String((tfNickname.text?.trimmingCharacters(in: .whitespacesAndNewlines))!)
+        let insertSignInfoModel = InsertSignInfoModel()
+        let result = insertSignInfoModel.insertItems(userId: receiveId, userPw: receivePw, userNickname: nickname, userEmail: receiveEmail)
+        
+        if result{
+            let resultAlert = UIAlertController(title: "완료", message: "가입이 완료되었습니다.", preferredStyle: .alert)
+            let onAction = UIAlertAction(title: "OK", style: .default, handler: { ACTION in
+
+                self.performSegue(withIdentifier: "sgToSignUpOk", sender: self)
+
+            })
+
+            resultAlert.addAction(onAction)
+            present(resultAlert, animated: true, completion: nil)
+
+
+        }else{
+            let resultAlert = UIAlertController(title: "에러", message: "에러가 발생했습니다..", preferredStyle: .alert)
+            let onAction = UIAlertAction(title: "OK", style: .default, handler: { ACTION in
+            })
+
+            resultAlert.addAction(onAction)
+            present(resultAlert, animated: true, completion: nil)
+
+        }
+    }//btnNext
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if segue.identifier == "sgToSignUpOk"{
+
+            let signOkId = segue.destination as! SignUpOkViewController
+          
+            signOkId.receiveMsgId = receiveId
+
+        }
+    }//prepare
+    
+
     // 터치
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -34,35 +87,19 @@ class SignUpNicNameViewController: UIViewController {
     func setUnderLine(){
          
         //이메일
-        tfNickName.borderStyle = .none
+        tfNickname.borderStyle = .none
         let border = CALayer()
-        border.frame = CGRect(x: 0, y: tfNickName.frame.size.height-1, width: tfNickName.frame.width, height: 1)
+        border.frame = CGRect(x: 0, y: tfNickname.frame.size.height-1, width: tfNickname.frame.width, height: 1)
         border.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-        tfNickName.layer.addSublayer((border))
-        tfNickName.textAlignment = .left
-        tfNickName.textColor = UIColor.systemGray
+        tfNickname.layer.addSublayer((border))
+        tfNickname.textAlignment = .left
+        tfNickname.textColor = UIColor.systemGray
         
-    
-    }
+    }//setUnderLine
     
     func setRadius(){
         btnNext.layer.cornerRadius = 20
-    }
-    
-    
-    
-    
-    
-    
+    }//setRadius
+      
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
+}//--------
