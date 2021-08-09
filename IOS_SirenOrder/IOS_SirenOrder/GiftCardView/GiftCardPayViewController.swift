@@ -50,6 +50,8 @@ class GiftCardPayViewController: UIViewController {
             btnCheck.isEnabled = false
             GiftCardPayViewController.checkUser = true
             sendToMe = true
+            tfReceiver.text = ""
+            tfAddress.text = ""
         }
         
     }
@@ -148,8 +150,8 @@ class GiftCardPayViewController: UIViewController {
                 
             }
         } else {
-            receiverName = "aaa"
-            receiverAddress = "aaa@naver.com"
+            receiverName = "\(userId)"
+            receiverAddress = "\(userId)@naver.com"
             let detailView = segue.destination as! GiftCardPayDetailViewController
             detailView.receiveData(receiverName!, receiverAddress!, sendMessage!, userSelect.1, userSelect.2, userSelect.0)
         }

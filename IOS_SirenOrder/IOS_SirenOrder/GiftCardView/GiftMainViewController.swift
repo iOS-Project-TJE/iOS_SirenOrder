@@ -60,7 +60,7 @@ class GiftMainViewController: TabmanViewController {
         
         // 인디케이터
         ctBar.indicator.weight = .custom(value: 2)
-        ctBar.indicator.tintColor = UIColor.green
+        ctBar.indicator.tintColor = UIColor(displayP3Red: 0/255, green: 112/225, blue: 74/255, alpha: 1)
     }
 
 }
@@ -71,7 +71,7 @@ extension GiftMainViewController: PageboyViewControllerDataSource, TMBarDataSour
         // MARK: -Tab 안 글씨들
         switch index {
         case 1:
-            return TMBarItem(title: "\t\t\t선물내역\t\t\t")
+            return TMBarItem(title: "\t\t\t선물내역\t\t\t   ")
         default:
             return TMBarItem(title: "\t\t\t선물하기\t\t\t")
         }

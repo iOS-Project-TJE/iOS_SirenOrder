@@ -68,13 +68,17 @@ class GiftCardPayDetailViewController: UIViewController {
         if result {
             let resultAlert = UIAlertController(title: "완료", message: "결제 되었습니다!", preferredStyle: .alert)
             let onAction = UIAlertAction(title: "OK", style: .default, handler: {ACTION in
+                
                 self.navigationController?.popViewController(animated: true)
                 self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
-       
-                
+ 
             })
             resultAlert.addAction(onAction)
             present(resultAlert, animated: true, completion: nil)
+            
+            let giftCardPayInsert = GiftCardPayInsert()
+            giftCardPayInsert.insertItems(userId: dataList.0, giftPrice: dataList.3)
+            
             
         }else {
             let resultAlert = UIAlertController(title: "실패", message: "결제 실패하였습니다!", preferredStyle: .alert)
