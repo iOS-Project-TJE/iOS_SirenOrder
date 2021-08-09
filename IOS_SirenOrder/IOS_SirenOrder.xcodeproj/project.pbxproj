@@ -772,6 +772,7 @@
 				6980B01F26B585690048DAAB /* HistoryTableViewCell.swift in Sources */,
 				6980B02B26B585690048DAAB /* UserModel.swift in Sources */,
 				851AF38926BBB3A80093B318 /* DrinkOrderTableViewCell.swift in Sources */,
+				85423B4626B6FB9700FFEF85 /* FrequentStoreTableViewController.swift in Sources */,
 				4F2C598426C063480002763A /* TestModel.swift in Sources */,
 				4F2C597C26C0614A0002763A /* GiftCardTableViewCell.swift in Sources */,
 				85423B4626B6FB9700FFEF85 /* FrequentStoreTableViewController.swift in Sources */,
