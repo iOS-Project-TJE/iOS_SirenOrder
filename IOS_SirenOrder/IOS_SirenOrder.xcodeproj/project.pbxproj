@@ -11,6 +11,20 @@
 		3258C15526B8D635006892A6 /* StoreSearchClickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3258C15426B8D635006892A6 /* StoreSearchClickViewController.swift */; };
 		3258C15826B8D6A3006892A6 /* StoreSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3258C15726B8D6A3006892A6 /* StoreSearchTableViewCell.swift */; };
 		3258C15E26B8E16E006892A6 /* StoreSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3258C15D26B8E16E006892A6 /* StoreSearchModel.swift */; };
+		4F2C597926C0614A0002763A /* GiftCardPayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2C597126C0614A0002763A /* GiftCardPayViewController.swift */; };
+		4F2C597A26C0614A0002763A /* GiftCardPayDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2C597226C0614A0002763A /* GiftCardPayDetailViewController.swift */; };
+		4F2C597B26C0614A0002763A /* GiftMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2C597326C0614A0002763A /* GiftMainViewController.swift */; };
+		4F2C597C26C0614A0002763A /* GiftCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2C597426C0614A0002763A /* GiftCardTableViewCell.swift */; };
+		4F2C597D26C0614A0002763A /* GiftCardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2C597526C0614A0002763A /* GiftCardListViewController.swift */; };
+		4F2C597E26C0614A0002763A /* GiftCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2C597626C0614A0002763A /* GiftCardCollectionViewCell.swift */; };
+		4F2C597F26C0614A0002763A /* CardPayListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2C597726C0614A0002763A /* CardPayListTableViewCell.swift */; };
+		4F2C598026C0614A0002763A /* GiftCardItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2C597826C0614A0002763A /* GiftCardItemViewController.swift */; };
+		4F2C598226C063350002763A /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2C598126C063350002763A /* CardModel.swift */; };
+		4F2C598426C063480002763A /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2C598326C063480002763A /* TestModel.swift */; };
+		4F2C598626C063890002763A /* PaidCardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2C598526C063890002763A /* PaidCardList.swift */; };
+		4F2C598826C063BB0002763A /* GiftSend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2C598726C063BB0002763A /* GiftSend.swift */; };
+		4F2C598A26C063C40002763A /* GiftUserCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2C598926C063C40002763A /* GiftUserCheck.swift */; };
+		4F2C598C26C064480002763A /* GiftCardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2C598B26C064480002763A /* GiftCardList.swift */; };
 		5E4AB2B60D49CA78EAC2D69E /* Pods_IOS_SirenOrder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A08F0ADDDE1E5AACCD89525E /* Pods_IOS_SirenOrder.framework */; };
 		6980B01E26B585690048DAAB /* NoticeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6980B00D26B585690048DAAB /* NoticeTableViewController.swift */; };
 		6980B01F26B585690048DAAB /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6980B00E26B585690048DAAB /* HistoryTableViewCell.swift */; };
@@ -146,6 +160,20 @@
 		3258C15426B8D635006892A6 /* StoreSearchClickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreSearchClickViewController.swift; sourceTree = "<group>"; };
 		3258C15726B8D6A3006892A6 /* StoreSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreSearchTableViewCell.swift; sourceTree = "<group>"; };
 		3258C15D26B8E16E006892A6 /* StoreSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreSearchModel.swift; sourceTree = "<group>"; };
+		4F2C597126C0614A0002763A /* GiftCardPayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftCardPayViewController.swift; sourceTree = "<group>"; };
+		4F2C597226C0614A0002763A /* GiftCardPayDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftCardPayDetailViewController.swift; sourceTree = "<group>"; };
+		4F2C597326C0614A0002763A /* GiftMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftMainViewController.swift; sourceTree = "<group>"; };
+		4F2C597426C0614A0002763A /* GiftCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftCardTableViewCell.swift; sourceTree = "<group>"; };
+		4F2C597526C0614A0002763A /* GiftCardListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftCardListViewController.swift; sourceTree = "<group>"; };
+		4F2C597626C0614A0002763A /* GiftCardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		4F2C597726C0614A0002763A /* CardPayListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardPayListTableViewCell.swift; sourceTree = "<group>"; };
+		4F2C597826C0614A0002763A /* GiftCardItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftCardItemViewController.swift; sourceTree = "<group>"; };
+		4F2C598126C063350002763A /* CardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
+		4F2C598326C063480002763A /* TestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
+		4F2C598526C063890002763A /* PaidCardList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaidCardList.swift; sourceTree = "<group>"; };
+		4F2C598726C063BB0002763A /* GiftSend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftSend.swift; sourceTree = "<group>"; };
+		4F2C598926C063C40002763A /* GiftUserCheck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftUserCheck.swift; sourceTree = "<group>"; };
+		4F2C598B26C064480002763A /* GiftCardList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftCardList.swift; sourceTree = "<group>"; };
 		615FB0826BEB5B7B6461CB8D /* Pods-IOS_SirenOrder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOS_SirenOrder.debug.xcconfig"; path = "Target Support Files/Pods-IOS_SirenOrder/Pods-IOS_SirenOrder.debug.xcconfig"; sourceTree = "<group>"; };
 		6980B00D26B585690048DAAB /* NoticeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeTableViewController.swift; sourceTree = "<group>"; };
 		6980B00E26B585690048DAAB /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -292,6 +320,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F2C597026C061150002763A /* GiftCardView */ = {
+			isa = PBXGroup;
+			children = (
+				4F2C597726C0614A0002763A /* CardPayListTableViewCell.swift */,
+				4F2C597626C0614A0002763A /* GiftCardCollectionViewCell.swift */,
+				4F2C597826C0614A0002763A /* GiftCardItemViewController.swift */,
+				4F2C597526C0614A0002763A /* GiftCardListViewController.swift */,
+				4F2C597226C0614A0002763A /* GiftCardPayDetailViewController.swift */,
+				4F2C597126C0614A0002763A /* GiftCardPayViewController.swift */,
+				4F2C597426C0614A0002763A /* GiftCardTableViewCell.swift */,
+				4F2C597326C0614A0002763A /* GiftMainViewController.swift */,
+			);
+			path = GiftCardView;
+			sourceTree = "<group>";
+		};
 		6980B00C26B585690048DAAB /* OtherControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -317,6 +360,7 @@
 			isa = PBXGroup;
 			children = (
 				69E5740226BD39590064CF83 /* LocationList.swift */,
+				4F2C598B26C064480002763A /* GiftCardList.swift */,
 				6980B01926B585690048DAAB /* HistoryListModel.swift */,
 				69E573F326BAC4100064CF83 /* ReceiptListModel.swift */,
 				85423B3526B6F7C100FFEF85 /* MyMenuModel.swift */,
@@ -324,14 +368,17 @@
 				85423B4726B6FBD200FFEF85 /* AllStoreModel.swift */,
 				85423B4F26B710F500FFEF85 /* FrequentStoreModel.swift */,
 				85DDD67026B8571000B97DF7 /* MyMenuInsertModel.swift */,
+				4F2C598726C063BB0002763A /* GiftSend.swift */,
 				85DDD67226B8575400B97DF7 /* DrinkInfoModel.swift */,
 				85DDD67426B857AB00B97DF7 /* PersonalIdModel.swift */,
 				85DDD67626B857F800B97DF7 /* MyMenuDeleteModel.swift */,
+				4F2C598926C063C40002763A /* GiftUserCheck.swift */,
 				85DDD67826B8583E00B97DF7 /* CartInsertModel.swift */,
 				3258C15D26B8E16E006892A6 /* StoreSearchModel.swift */,
 				856F790126BAE32E0092B57C /* CartCountModel.swift */,
 				70BB20EA26BA79B200871D85 /* HomeBestModel.swift */,
 				70BB20EC26BA79C200871D85 /* HomeRecommendModel.swift */,
+				4F2C598526C063890002763A /* PaidCardList.swift */,
 				70BB20EE26BA79D200871D85 /* HomeNewModel.swift */,
 				851AF39226BBF2A70093B318 /* CartSelectModel.swift */,
 				851AF39426BC14D50093B318 /* CarttAllDeleteModel.swift */,
@@ -365,9 +412,11 @@
 		6980B01A26B585690048DAAB /* Dto */ = {
 			isa = PBXGroup;
 			children = (
+				4F2C598126C063350002763A /* CardModel.swift */,
 				6980B01B26B585690048DAAB /* OrderModel.swift */,
 				6980B01C26B585690048DAAB /* UserModel.swift */,
 				6980B01D26B585690048DAAB /* DrinkModel.swift */,
+				4F2C598326C063480002763A /* TestModel.swift */,
 				85423B3726B6F7EA00FFEF85 /* PersonalModel.swift */,
 				85423B4926B6FBF700FFEF85 /* LocationModel.swift */,
 				69E573EF26BAC35E0064CF83 /* HistoryModel.swift */,
@@ -499,6 +548,7 @@
 		857F1C4A26B27A210028D3BC /* IOS_SirenOrder */ = {
 			isa = PBXGroup;
 			children = (
+				4F2C597026C061150002763A /* GiftCardView */,
 				70BB20E726BA783D00871D85 /* HomeCustomCell */,
 				85423B3026B6F6BB00FFEF85 /* ShareVar */,
 				85423B2B26B6F39200FFEF85 /* OrderCustomCell */,
@@ -674,6 +724,7 @@
 				997120F326B68F980026317F /* SignUpAgreeViewController.swift in Sources */,
 				856F78F626BABD7E0092B57C /* CartViewController.swift in Sources */,
 				857F1C5026B27A210028D3BC /* ViewController.swift in Sources */,
+				4F2C598A26C063C40002763A /* GiftUserCheck.swift in Sources */,
 				70297A5226BEF013004DDE12 /* SearchDetailTableViewCell.swift in Sources */,
 				85B5105026BDC47600D61AC7 /* GiftPriceUpdateModel.swift in Sources */,
 				997D01BD26C011AA004168DC /* QueryEmailModel.swift in Sources */,
@@ -683,10 +734,12 @@
 				6980B02526B585690048DAAB /* ReceiptViewController.swift in Sources */,
 				85423B4426B6FB7C00FFEF85 /* AllStoreTableViewController.swift in Sources */,
 				851AF3A926BCE4980093B318 /* CartCheckModel.swift in Sources */,
+				4F2C597E26C0614A0002763A /* GiftCardCollectionViewCell.swift in Sources */,
 				701CF71D26BDD10800BF9B53 /* DrinkDetailInfoNutritionModel.swift in Sources */,
 				997D01B726C002BB004168DC /* InsertSignInfo.swift in Sources */,
 				85423B2626B6EEB200FFEF85 /* AllMenuViewController.swift in Sources */,
 				85DDD67F26B85C1500B97DF7 /* DrinkDetailViewController.swift in Sources */,
+				4F2C598226C063350002763A /* CardModel.swift in Sources */,
 				8543CDC926BD1F3D0057A836 /* OrderNumModel.swift in Sources */,
 				856F78F226BA9C030092B57C /* SharePersonalData.swift in Sources */,
 				851AF39D26BC335D0093B318 /* CartPriceModel.swift in Sources */,
@@ -711,6 +764,7 @@
 				85423B4826B6FBD200FFEF85 /* AllStoreModel.swift in Sources */,
 				6980B02326B585690048DAAB /* QnAViewController.swift in Sources */,
 				69E5740926BE43780064CF83 /* SettingViewController.swift in Sources */,
+				4F2C598C26C064480002763A /* GiftCardList.swift in Sources */,
 				85DDD68526B8606B00B97DF7 /* PersonalOptionViewController.swift in Sources */,
 				997D01B126BFF8C7004168DC /* VerifyDuplicatedIdModel.swift in Sources */,
 				851AF39326BBF2A70093B318 /* CartSelectModel.swift in Sources */,
@@ -718,7 +772,10 @@
 				6980B01F26B585690048DAAB /* HistoryTableViewCell.swift in Sources */,
 				6980B02B26B585690048DAAB /* UserModel.swift in Sources */,
 				851AF38926BBB3A80093B318 /* DrinkOrderTableViewCell.swift in Sources */,
+				4F2C598426C063480002763A /* TestModel.swift in Sources */,
+				4F2C597C26C0614A0002763A /* GiftCardTableViewCell.swift in Sources */,
 				85423B4626B6FB9700FFEF85 /* FrequentStoreTableViewController.swift in Sources */,
+				4F2C597A26C0614A0002763A /* GiftCardPayDetailViewController.swift in Sources */,
 				857011E326BDFBBB00C5C9B2 /* OrderSelectModel.swift in Sources */,
 				851AF39926BC1AAA0093B318 /* CartCountUpdateModel.swift in Sources */,
 				857011E726BDFC3D00C5C9B2 /* OrderCountModel.swift in Sources */,
@@ -736,11 +793,13 @@
 				851AF3A326BCC26C0093B318 /* GiftModel.swift in Sources */,
 				6980B02C26B585690048DAAB /* DrinkModel.swift in Sources */,
 				997120F726B693990026317F /* SignUpIdPwdViewController.swift in Sources */,
+				4F2C597D26C0614A0002763A /* GiftCardListViewController.swift in Sources */,
 				70297A5826BF43BC004DDE12 /* SearchTableViewCell.swift in Sources */,
 				3258C15826B8D6A3006892A6 /* StoreSearchTableViewCell.swift in Sources */,
 				6980B02226B585690048DAAB /* MapViewController.swift in Sources */,
 				85423B3A26B6F8C000FFEF85 /* CategoryDetailTableViewCell.swift in Sources */,
 				8543CDC726BD0DDD0057A836 /* ConfirmOrderTableViewCell.swift in Sources */,
+				4F2C598626C063890002763A /* PaidCardList.swift in Sources */,
 				9966F1EB26B6DE2A003B3DDD /* FindUserPwViewController.swift in Sources */,
 				701CF71B26BDD0CA00BF9B53 /* NutritionViewController.swift in Sources */,
 				6980B02626B585690048DAAB /* NoticeTableViewCell.swift in Sources */,
@@ -769,14 +828,19 @@
 				6980B01E26B585690048DAAB /* NoticeTableViewController.swift in Sources */,
 				701E9C8E26B2B8550008F6F5 /* ExplainViewController.swift in Sources */,
 				856F790426BAEF9C0092B57C /* CartTableViewCell.swift in Sources */,
+				4F2C597B26C0614A0002763A /* GiftMainViewController.swift in Sources */,
 				85423B2826B6EED100FFEF85 /* MyMenuViewController.swift in Sources */,
 				6980B02726B585690048DAAB /* HistoryViewController.swift in Sources */,
+				4F2C597926C0614A0002763A /* GiftCardPayViewController.swift in Sources */,
 				856F78FE26BAD86F0092B57C /* ShareOrder.swift in Sources */,
 				6980B02126B585690048DAAB /* PersonalViewController.swift in Sources */,
+				4F2C598826C063BB0002763A /* GiftSend.swift in Sources */,
 				85423B4226B6FB2100FFEF85 /* StoreSettingViewController.swift in Sources */,
 				85DDD67926B8583E00B97DF7 /* CartInsertModel.swift in Sources */,
 				6980B02926B585690048DAAB /* HistoryListModel.swift in Sources */,
 				70A0A54526C04834009A33D9 /* SearchSQLiteModel.swift in Sources */,
+				4F2C598026C0614A0002763A /* GiftCardItemViewController.swift in Sources */,
+				4F2C597F26C0614A0002763A /* CardPayListTableViewCell.swift in Sources */,
 				851AF39526BC14D50093B318 /* CarttAllDeleteModel.swift in Sources */,
 				70BB20EB26BA79B200871D85 /* HomeBestModel.swift in Sources */,
 				85423B3626B6F7C100FFEF85 /* MyMenuModel.swift in Sources */,
