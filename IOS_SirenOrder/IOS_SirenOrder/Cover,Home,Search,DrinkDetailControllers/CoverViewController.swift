@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+var allCardImgList: NSMutableArray = NSMutableArray() // 양서린_card data Array
 class CoverViewController: UIViewController {
 
     //시간설정
@@ -18,6 +18,10 @@ class CoverViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+
+        let giftCardList = GiftCardList()
+        giftCardList.delegate = self
+        giftCardList.downloadItems()
 
         //타이머준비
         Timer.scheduledTimer(timeInterval: interval, target: self, selector: timeSelector, userInfo: nil, repeats: true)
@@ -83,4 +87,11 @@ class CoverViewController: UIViewController {
     }
     */
 
+}
+extension CoverViewController: GiftCardListProtocol {
+    
+    func itemDownloaded(items: NSMutableArray) {
+        allCardImgList = items
+    }
+    
 }
