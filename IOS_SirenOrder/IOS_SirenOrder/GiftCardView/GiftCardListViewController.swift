@@ -22,7 +22,7 @@ class GiftCardListViewController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         let paidCardList = PaidCardList()
         paidCardList.delegate = self
-        paidCardList.downloadItems("aaa")
+        paidCardList.downloadItems("\(userId)")
     }
     
 

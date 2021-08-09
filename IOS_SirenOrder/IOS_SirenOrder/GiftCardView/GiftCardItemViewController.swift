@@ -37,6 +37,9 @@ class GiftCardItemViewController: UIViewController {
         makeMainImage()
         linkPageControler()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         collectionListTable.delegate = self
         collectionListTable.dataSource = self
         collectionListTable.rowHeight = 130
@@ -44,7 +47,6 @@ class GiftCardItemViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
         self.giftCardImgView.isUserInteractionEnabled = true
         self.giftCardImgView.addGestureRecognizer(tapGesture)
-        
     }
     @objc func handleTap(sender: UITapGestureRecognizer) {
         var item: CardModel = CardModel.init()

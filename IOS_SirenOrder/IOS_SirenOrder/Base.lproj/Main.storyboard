@@ -6012,10 +6012,10 @@
             </objects>
             <point key="canvasLocation" x="5340.579710144928" y="1834.8214285714284"/>
         </scene>
-        <!--선물하기-->
+        <!--sgToGift-->
         <scene sceneID="Jsm-fK-ssY">
             <objects>
-                <viewController storyboardIdentifier="giftItems" id="9G8-sP-JN5" customClass="GiftCardItemViewController" customModule="IOS_SirenOrder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="giftItems" title="sgToGift" id="9G8-sP-JN5" customClass="GiftCardItemViewController" customModule="IOS_SirenOrder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="R7l-ep-XnX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -6103,6 +6103,7 @@
                         <outlet property="cardImgChangeControler" destination="okR-NT-sLV" id="AUx-My-EeB"/>
                         <outlet property="collectionListTable" destination="H00-Gw-PqM" id="6gZ-Av-DfN"/>
                         <outlet property="giftCardImgView" destination="D3E-FK-R1b" id="OCV-T6-p70"/>
+                        <segue destination="QOO-kV-GUc" kind="show" identifier="sgToGift" id="TmS-wC-JgG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WwU-4W-hG3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -6182,22 +6183,22 @@
             <objects>
                 <viewController id="QOO-kV-GUc" customClass="GiftCardPayViewController" customModule="IOS_SirenOrder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RqQ-1r-oLr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Avf-hM-AJe">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bB8-uU-8dH">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1189"/>
+                                        <rect key="frame" x="0.0" y="8" width="414" height="1189"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Trr-Sa-YR9">
-                                                <rect key="frame" x="8" y="46" width="202" height="90"/>
+                                                <rect key="frame" x="19" y="8" width="202" height="90"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="1Ez-01-xhq">
-                                                <rect key="frame" x="20" y="172" width="374" height="32"/>
+                                                <rect key="frame" x="20" y="146" width="374" height="32"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <segments>
                                                     <segment title="이메일으로 인증"/>
@@ -6208,33 +6209,33 @@
                                                 </connections>
                                             </segmentedControl>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="받는 사람" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qjh-6I-jBN">
-                                                <rect key="frame" x="23" y="222" width="64" height="21"/>
+                                                <rect key="frame" x="23" y="196" width="64" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="받는 사람 아이디" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="700-vD-S0t">
-                                                <rect key="frame" x="20" y="261" width="112" height="34"/>
+                                                <rect key="frame" x="20" y="235" width="112" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="받는 사람 이메일" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zGI-KG-JC9">
-                                                <rect key="frame" x="140" y="261" width="190" height="34"/>
+                                                <rect key="frame" x="140" y="235" width="190" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="메시지 입력" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DSi-wg-DXK">
-                                                <rect key="frame" x="20" y="311" width="78" height="21"/>
+                                                <rect key="frame" x="20" y="285" width="78" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="스타벅스 e-Gift Card가 도착했어요!" translatesAutoresizingMaskIntoConstraints="NO" id="hXU-G7-4VC">
-                                                <rect key="frame" x="20" y="340" width="366" height="61"/>
+                                                <rect key="frame" x="20" y="314" width="366" height="61"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <color key="textColor" systemColor="labelColor"/>
@@ -6242,14 +6243,14 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="금액 선택" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gqe-Aq-0Mh">
-                                                <rect key="frame" x="23" y="396" width="64" height="21"/>
+                                                <rect key="frame" x="23" y="370" width="64" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="KKc-8n-5nD">
-                                                <rect key="frame" x="19" y="430" width="374" height="32"/>
+                                                <rect key="frame" x="19" y="404" width="374" height="32"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <segments>
                                                     <segment title="1만원"/>
@@ -6263,18 +6264,18 @@
                                                 </connections>
                                             </segmentedControl>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ad_sample" translatesAutoresizingMaskIntoConstraints="NO" id="pdI-NZ-O3E">
-                                                <rect key="frame" x="0.0" y="497" width="414" height="100"/>
+                                                <rect key="frame" x="0.0" y="455" width="414" height="100"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="결제 방법" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yV2-Qo-g9g">
-                                                <rect key="frame" x="20" y="632" width="64" height="21"/>
+                                                <rect key="frame" x="17" y="570" width="64" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="x1C-5s-XBL">
-                                                <rect key="frame" x="20" y="663" width="374" height="32"/>
+                                                <rect key="frame" x="17" y="599" width="374" height="32"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <segments>
                                                     <segment title="신용카드"/>
@@ -6285,28 +6286,15 @@
                                                     <action selector="selectPayMethod:" destination="QOO-kV-GUc" eventType="valueChanged" id="y7j-CH-VwQ"/>
                                                 </connections>
                                             </segmentedControl>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9zN-oA-a3B">
-                                                <rect key="frame" x="19" y="720" width="374" height="48"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                                                <state key="normal" title="선물 보내기">
-                                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="btnGoPay:" destination="QOO-kV-GUc" eventType="touchUpInside" id="FN6-Fp-B7R"/>
-                                                    <segue destination="6au-gF-gMs" kind="show" id="WIF-HK-N3s"/>
-                                                </connections>
-                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4HJ-zg-U7a">
-                                                <rect key="frame" x="218" y="81" width="136" height="21"/>
+                                                <rect key="frame" x="229" y="43" width="136" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wTx-Wo-jsr">
-                                                <rect key="frame" x="108" y="222" width="123" height="22"/>
+                                                <rect key="frame" x="108" y="196" width="123" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -6321,7 +6309,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MlC-M9-H69">
-                                                <rect key="frame" x="338" y="265" width="68" height="26"/>
+                                                <rect key="frame" x="338" y="239" width="68" height="26"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
@@ -6333,6 +6321,19 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="btnCheck:" destination="QOO-kV-GUc" eventType="touchUpInside" id="gHp-Xx-Wtr"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9zN-oA-a3B">
+                                                <rect key="frame" x="19" y="645" width="374" height="48"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                                <state key="normal" title="선물 보내기">
+                                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnGoPay:" destination="QOO-kV-GUc" eventType="touchUpInside" id="FN6-Fp-B7R"/>
+                                                    <segue destination="6au-gF-gMs" kind="show" id="WIF-HK-N3s"/>
                                                 </connections>
                                             </button>
                                         </subviews>

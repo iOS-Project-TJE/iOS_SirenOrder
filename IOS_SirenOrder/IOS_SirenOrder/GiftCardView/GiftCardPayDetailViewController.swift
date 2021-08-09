@@ -63,7 +63,7 @@ class GiftCardPayDetailViewController: UIViewController {
     @IBAction func btnPayFinish(_ sender: UIButton) {
         
         let giftInsert = GiftSend()
-        let result = giftInsert.insertItems(giftSender: "aaa", giftReceiver: dataList.0, card_cd: GiftCardPayViewController.cardData.0!, price: dataList.3)
+        let result = giftInsert.insertItems(giftSender: "\(userId)", giftReceiver: dataList.0, card_cd: GiftCardPayViewController.cardData.0!, price: dataList.3)
         
         if result {
             let resultAlert = UIAlertController(title: "완료", message: "결제 되었습니다!", preferredStyle: .alert)
