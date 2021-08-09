@@ -144,29 +144,37 @@ class MyMenuViewController: UIViewController { // 2021.07.31 조혜지 Order 나
 extension MyMenuViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myMenuCell") as! MyMenuTableViewCell
-        let item: PersonalModel = dataItem[indexPath.row] as! PersonalModel
-        cell.lblMyMenuName.text = "\(item.name!)"
-        cell.lblMyMenuPrice.text = "\(DecimalWon(value: item.price!+item.personalPrice!))"
         
-        let firstIndex = item.personalContent!.index(item.personalContent!.startIndex, offsetBy: 0)
-        let lastIndex = item.personalContent!.index(item.personalContent!.startIndex, offsetBy: item.personalContent!.count-2)
-        cell.lblMyMenuPersonal.text = String(item.personalContent![firstIndex..<lastIndex])
-        
-        let url = URL(string: "\(item.img!)")
-        let data = try? Data(contentsOf: url!)
-        cell.ivMyMenu.layer.cornerRadius = cell.ivMyMenu.frame.height / 2
-        cell.ivMyMenu.clipsToBounds = true
-        cell.ivMyMenu.image = UIImage(data: data!)
-        
-        cell.btnCartShape.layer.borderWidth = 1
-        cell.btnCartShape.layer.borderColor = UIColor(displayP3Red: 0/255, green: 112/225, blue: 74/255, alpha: 1).cgColor
-        cell.btnCartShape.layer.cornerRadius = 15
-        cell.btnOrderShape.layer.cornerRadius = 15
-        
-        cell.btnDelete.tag = indexPath.row
-        cell.btnCartShape.tag = indexPath.row
-        cell.btnOrderShape.tag = indexPath.row
-        
+        if dataItem.count == 0 {
+            cell.imageView?.image = UIImage(named: "no_myMenu.jpg")
+            cell.ivMyMenu.image = nil
+        }else {
+            cell.imageView?.image = nil
+            
+            let item: PersonalModel = dataItem[indexPath.row] as! PersonalModel
+            cell.lblMyMenuName.text = "\(item.name!)"
+            cell.lblMyMenuPrice.text = "\(DecimalWon(value: item.price!+item.personalPrice!))"
+            
+            let firstIndex = item.personalContent!.index(item.personalContent!.startIndex, offsetBy: 0)
+            let lastIndex = item.personalContent!.index(item.personalContent!.startIndex, offsetBy: item.personalContent!.count-2)
+            cell.lblMyMenuPersonal.text = String(item.personalContent![firstIndex..<lastIndex])
+            
+            let url = URL(string: "\(item.img!)")
+            let data = try? Data(contentsOf: url!)
+            cell.ivMyMenu.layer.cornerRadius = cell.ivMyMenu.frame.height / 2
+            cell.ivMyMenu.clipsToBounds = true
+            cell.ivMyMenu.image = UIImage(data: data!)
+            
+            cell.btnCartShape.layer.borderWidth = 1
+            cell.btnCartShape.layer.borderColor = UIColor(displayP3Red: 0/255, green: 112/225, blue: 74/255, alpha: 1).cgColor
+            cell.btnCartShape.layer.cornerRadius = 15
+            cell.btnOrderShape.layer.cornerRadius = 15
+            
+            cell.btnDelete.tag = indexPath.row
+            cell.btnCartShape.tag = indexPath.row
+            cell.btnOrderShape.tag = indexPath.row
+            
+        }
         return cell
     }
     
@@ -179,14 +187,22 @@ extension MyMenuViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataItem.count
+        if dataItem.count == 0 {
+            return 1
+        }else {
+            return dataItem.count
+        }
     }
 
 }
  
 extension MyMenuViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 217
+        if dataItem.count == 0 {
+            return 550
+        }else {
+            return 217
+        }
     }
 }
 
