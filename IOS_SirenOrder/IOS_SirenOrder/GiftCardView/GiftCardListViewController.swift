@@ -22,7 +22,7 @@ class GiftCardListViewController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         let paidCardList = PaidCardList()
         paidCardList.delegate = self
-        paidCardList.downloadItems("aaa")
+        paidCardList.downloadItems("\(userId)")
     }
     
 
@@ -65,7 +65,7 @@ extension GiftCardListViewController: UITableViewDataSource, UITableViewDelegate
 
         cell.lblCardName?.text = "\(item.name ?? "스타벅스 카드")"
         cell.lblPayDate?.text = "\(item.payDate ?? "")"
-        cell.lblPrice?.text = "\(item.price ?? "10000")"
+        cell.lblPrice?.text = "\(item.price ?? "10000")원"
 
         return cell
     }
