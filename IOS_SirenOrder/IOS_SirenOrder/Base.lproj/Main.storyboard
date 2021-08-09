@@ -3435,7 +3435,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="1112"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GSy-oA-aai">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="849.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="829.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="event2" translatesAutoresizingMaskIntoConstraints="NO" id="lMM-TO-XQS">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
@@ -3505,12 +3505,12 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jnW-zk-RBd">
-                                                <rect key="frame" x="10" y="769.5" width="394" height="60"/>
+                                                <rect key="frame" x="10" y="769.5" width="394" height="40"/>
                                                 <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="60" id="gID-w0-cr5"/>
+                                                    <constraint firstAttribute="height" constant="40" id="gID-w0-cr5"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                 <state key="normal" title="주문하기">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -3627,6 +3627,7 @@
                         <outlet property="btnGroup" destination="7ez-Lg-4Nw" id="TuH-lr-0em"/>
                         <outlet property="btnHot" destination="ovY-Mp-8ot" id="wcC-7i-aoo"/>
                         <outlet property="btnIced" destination="wtQ-sn-7qO" id="psa-gg-IaI"/>
+                        <outlet property="btnOrder" destination="jnW-zk-RBd" id="9eG-9M-fIg"/>
                         <outlet property="content" destination="piC-i8-Hu6" id="wgq-tS-pS7"/>
                         <outlet property="image" destination="lMM-TO-XQS" id="EvJ-ia-qur"/>
                         <outlet property="lblHotIceOnly" destination="gnj-4y-hJa" id="K1K-wZ-LeZ"/>
@@ -4120,7 +4121,7 @@
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="6Ue-If-TgS" customClass="CartViewController" customModule="IOS_SirenOrder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0Ek-G0-OHk">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zsT-a6-bEH">
@@ -4559,7 +4560,7 @@
             <objects>
                 <viewController id="SIh-5j-AeN" customClass="ConfirmOrderViewController" customModule="IOS_SirenOrder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k9I-N7-Akn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="석촌역점에서" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fr2-2F-nQc">
@@ -6487,8 +6488,8 @@
         <segue reference="eU3-y3-Iv3"/>
         <segue reference="IDY-P2-z5t"/>
         <segue reference="6mb-g1-UgV"/>
-        <segue reference="kZT-Mg-Tgu"/>
-        <segue reference="kAz-mu-mEY"/>
+        <segue reference="DFb-S2-SrH"/>
+        <segue reference="jGo-CR-DEO"/>
         <segue reference="9QZ-KS-g69"/>
     </inferredMetricsTieBreakers>
     <resources>

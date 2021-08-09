@@ -19,6 +19,7 @@ class DrinkDetailViewController: UIViewController {
     @IBOutlet weak var btnIced: UIButton!
     @IBOutlet weak var lblHotIceOnly: UILabel!
     @IBOutlet weak var allergie: UILabel!
+    @IBOutlet weak var btnOrder: UIButton!
     
     var receivedCd: String = ""
     var drinkInfo: NSArray = NSArray()
@@ -32,7 +33,7 @@ class DrinkDetailViewController: UIViewController {
         let DrinkDetailInfoModel = DrinkDetailInfoModel()
         DrinkDetailInfoModel.delegate = self
         DrinkDetailInfoModel.downloadItems(cd: receivedCd)
-        
+        btnOrder.layer.cornerRadius = 20
         
         // Do any additional setup after loading the view.
     }

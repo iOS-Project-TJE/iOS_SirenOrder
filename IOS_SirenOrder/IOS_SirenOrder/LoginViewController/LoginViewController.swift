@@ -42,7 +42,7 @@ class LoginViewController: UIViewController {
 //        }else{
 
             // 없으면 불러오기!
-            doQueryModel()
+            
 
 //        }//if
 
@@ -50,6 +50,7 @@ class LoginViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: animated)
+        doQueryModel()
         remove()
     }
     

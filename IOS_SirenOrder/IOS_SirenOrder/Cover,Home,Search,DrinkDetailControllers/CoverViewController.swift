@@ -46,6 +46,8 @@ class CoverViewController: UIViewController {
         if UserDefaults.standard.object(forKey: "first") != nil {
             if UserDefaults.standard.object(forKey: "userId") != nil {
                 //로그인 했을경우 > 홈으로 // 자동로그인기능
+                userId = UserDefaults.standard.object(forKey: "userId") as! String
+                
                 guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") else{
                     return
                 }

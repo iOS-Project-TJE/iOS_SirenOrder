@@ -186,6 +186,13 @@ class CartViewController: UIViewController { // 2021.08.05 조혜지 장바구�
 extension CartViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cartCell") as! CartTableViewCell
+            
+        if dataItem.count == 0 {
+            cell.imageView?.image = UIImage(named: "no_cart.jpg")
+            cell.ivCart.image = nil
+        }else {
+            cell.imageView?.image = nil
+            
             let item: CartModel = dataItem[indexPath.row] as! CartModel
             cell.lblDrinkName.text = item.name!
             cell.lblDrinkPrice.text = DecimalWon(value: item.price!)
@@ -212,19 +219,28 @@ extension CartViewController: UITableViewDataSource {
             }else {
                 cell.btnMinus.isEnabled = true
             }
+        }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataItem.count
+        if dataItem.count == 0 {
+            return 1
+        }else {
+            return dataItem.count
+        }
     }
 
 }
  
 extension CartViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 225
+        if dataItem.count == 0 {
+            return 580
+        }else {
+            return 225
+        }
     }
 }
 
