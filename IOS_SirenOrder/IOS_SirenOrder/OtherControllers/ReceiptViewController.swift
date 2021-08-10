@@ -36,6 +36,10 @@ class ReceiptViewController: UIViewController {
         
         tvReceiptList.rowHeight = 55
         
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        backBarButtonItem.tintColor = .gray
+        self.navigationItem.backBarButtonItem = backBarButtonItem
+        
         dateFormatter.dateFormat = "yyyy-MM-dd"
         lblPeriod.text="\(dateFormatter.string(from: Calendar.current.date(byAdding: DateComponents(day:-30), to: Date())!)) ~ \(dateFormatter.string(from: Date()))"
 

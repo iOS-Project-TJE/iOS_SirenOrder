@@ -33,6 +33,10 @@ class HistoryViewController: UIViewController {
         
         dateFormatter.dateFormat = "yyyy-MM-dd"
         lblPeriod.text="\(dateFormatter.string(from: Calendar.current.date(byAdding: DateComponents(day:-30), to: Date())!)) ~ \(dateFormatter.string(from: Date()))"
+        
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        backBarButtonItem.tintColor = .gray
+        self.navigationItem.backBarButtonItem = backBarButtonItem
 
         self.tvHistoryList.dataSource=self
         self.tvHistoryList.delegate=self

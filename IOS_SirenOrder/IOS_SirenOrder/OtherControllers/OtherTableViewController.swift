@@ -103,7 +103,15 @@ class OtherTableViewController: UITableViewController {
         case 0:
             break
         case 1:
-            self.performSegue(withIdentifier: "\(serviceList2[indexPath.item])ViewController", sender: self)
+            if indexPath.item == 1{
+                guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "GiftVC") else{
+                    return
+                }
+                uvc.modalTransitionStyle = UIModalTransitionStyle.coverVertical
+                self.present(uvc, animated: true)
+            }else{
+                self.performSegue(withIdentifier: "\(serviceList2[indexPath.item])ViewController", sender: self)
+            }
         case 2:
             self.performSegue(withIdentifier: "\(helpList2[indexPath.item])ViewController", sender: self)
         case 3:

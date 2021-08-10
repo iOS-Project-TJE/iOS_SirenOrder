@@ -6,11 +6,17 @@
 //
 
 import UIKit
+import WebKit
 
 class QnAViewController: UIViewController {
-
+    @IBOutlet weak var webView: WKWebView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let myUrl = URL(string : "https://www.starbucks.co.kr/util/faq.do")
+        let myRequest = URLRequest(url: myUrl!)
+        webView.load(myRequest)
 
         // Do any additional setup after loading the view.
     }
