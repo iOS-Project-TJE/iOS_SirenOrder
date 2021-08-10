@@ -102,7 +102,11 @@ class FindUserPwViewController: UIViewController {
         userEmail = String((tfEmail.text?.trimmingCharacters(in: .whitespacesAndNewlines))!)
         issueTemporaryCode()
         sendTemporaryCodeToEmail()
-
+        let SendAlert = UIAlertController(title: "확인", message: "인증번호가 이메일로 전송되었습니다. \n해당 이메일에서 번호를 확인해주세요", preferredStyle: .alert)
+        let onAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+        
+        SendAlert.addAction(onAction)
+        present(SendAlert, animated: true, completion: nil)
     
     }//btnSendCode
     
