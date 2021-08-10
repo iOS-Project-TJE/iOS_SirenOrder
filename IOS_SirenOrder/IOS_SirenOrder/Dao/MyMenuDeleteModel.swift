@@ -17,6 +17,7 @@ class MyMenuDeleteModel {
         urlPath = urlPath + urlAdd
         
         urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+        print(urlPath)
         
         let url: URL = URL(string: urlPath)!
         let defaultSession = URLSession(configuration: URLSessionConfiguration.default)

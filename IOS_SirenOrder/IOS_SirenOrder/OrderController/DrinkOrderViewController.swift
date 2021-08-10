@@ -276,7 +276,7 @@ extension DrinkOrderViewController: UITableViewDataSource {
  
 extension DrinkOrderViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 135
+        return 170
     }
 }
 

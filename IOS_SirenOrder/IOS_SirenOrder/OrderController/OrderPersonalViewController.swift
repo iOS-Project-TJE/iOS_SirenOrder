@@ -271,15 +271,18 @@ class OrderPersonalViewController: UIViewController { // 2021.08.02 조혜지 �
         let myMenuInsertModel = MyMenuInsertModel()
         let result = myMenuInsertModel.InsertItems(personalContent: "\(iceHot), \(cupSize), \(cupType), \(pContent)", cd: receivedCd, userId: userId, personalPrice: SharePersonalData.personalOptionPrice + SharePersonalData.size)
         
-        let personalIdModel = PersonalIdModel()
-        personalIdModel.delegate = self
-        personalIdModel.downloadItems()
+//        let personalIdModel = PersonalIdModel()
+//        personalIdModel.delegate = self
+//        personalIdModel.downloadItems()
                         
         if result{
             let myMenuCheckController = UIAlertController(title: "추가", message: "나만의 메뉴에 추가되었습니다!", preferredStyle: .alert)
             let myMenuCheckAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             myMenuCheckController.addAction(myMenuCheckAction)            
             present(myMenuCheckController, animated: true, completion: nil)
+            let personalIdModel = PersonalIdModel()
+            personalIdModel.delegate = self
+            personalIdModel.downloadItems()
         }else{
             let resultAlert = UIAlertController(title: "실패", message: "에러가 발생되었습니다!", preferredStyle: .alert)
             let onAction = UIAlertAction(title: "OK", style: .default, handler: {ACTION in
