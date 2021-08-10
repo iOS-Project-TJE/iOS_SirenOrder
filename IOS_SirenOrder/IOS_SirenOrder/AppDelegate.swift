@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import KakaoSDKCommon
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -15,6 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 //        GMSServices.provideAPIKey("AIzaSyBToQQkW4Zxe70jG5jWRUe-uKhAbm1OnbI")
+        KakaoSDKCommon.initSDK(appKey: "47e253a0ef2ddd90b8207ae2d67c3846")
+        
         return true
     }
 

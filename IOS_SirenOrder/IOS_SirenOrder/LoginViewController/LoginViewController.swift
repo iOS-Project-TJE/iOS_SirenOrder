@@ -6,7 +6,9 @@
 //
 
 import UIKit
-
+import KakaoSDKAuth
+import KakaoSDKUser
+import KakaoSDKCommon
 class LoginViewController: UIViewController {
 
     
@@ -15,7 +17,13 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var tfUserPassWord: UITextField!
 
     @IBOutlet weak var btnLogin: UIButton!
+    @IBOutlet weak var btnKakao: UIButton!
     
+    // Kakao Login Info
+    var kakaoUserEmail = ""
+    var kakaoUserId = ""
+    var kakaoUserPw = ""
+    var kakaoUserNickname = ""
     
     var feedItem: NSMutableArray = NSMutableArray()
 
@@ -34,18 +42,6 @@ class LoginViewController: UIViewController {
         setRadius()
         
 
-//        if UserDefaults.standard.object(forKey: "userId") != nil { // UserDefault에 값이 있다
-//            //ShareVar.userId ?
-//            userId = UserDefaults.standard.object(forKey: "userId") as! String
-//            self.performSegue(withIdentifier: "sgLoginToMain", sender: self) //Main으로 가는 sg만들기
-//
-//        }else{
-
-            // 없으면 불러오기!
-            
-
-//        }//if
-
     }//viewDidLoad
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,7 +55,7 @@ class LoginViewController: UIViewController {
         tfUserPassWord.text?.removeAll()
     }
     
-    //query Model 실행
+    //query Model 실행 : 유저 정보 불러오기
     func doQueryModel(){
         let userinfoModel = UserInfoModel()
         userinfoModel.delegate = self
@@ -67,7 +63,99 @@ class LoginViewController: UIViewController {
         
     }//
     
-   
+   // Kakao Login 버튼
+    @IBAction func btnKakao(_ sender: UIButton) {
+        // 카카오톡 설치 여부 확인
+          if (UserApi.isKakaoTalkLoginAvailable()) {
+            // 카카오톡 로그인. api 호출 결과를 클로저로 전달.
+            UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
+                if let error = error {
+                    // 예외 처리 (로그인 취소 등)
+                    print("kakao login install",error)
+                }
+                else {
+                    print("loginWithKakaoTalk() success.")
+                   // do something
+                    _ = oauthToken
+                   // 어세스토큰
+                   let accessToken = oauthToken?.accessToken
+                    
+                }
+            }
+          }else{
+            
+            UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
+            
+               if let error = error {
+                 print(error)
+               }
+               else {
+                print("loginWithKakaoAccount() success.")
+                UserApi.shared.me() {(user, error) in
+                    if let error = error {
+                        print(error)
+                    }
+                    else {
+                       
+                        print("me() success.")
+                        // Kakao 에서 받은 이메일 정보
+                        self.kakaoUserEmail = String(user!.kakaoAccount!.email!)
+                        self.kakaoUserNickname = String(user!.kakaoAccount!.profile!.nickname!)
+                        print("kakaoUserEmail에 담기는 값: \(self.kakaoUserEmail)")
+                        // 임의의 아이디, 비밀번호 카카오변수에 넣기
+                        self.kakaoUserId = String((user!.id!))
+                        print("useridwillbe : \(self.kakaoUserId)")
+                        self.kakaoUserPw = "kakaoPassword"
+                        // 카카오 변수에 넣음 임의 아이디 비밀번호 -> Share에 넣기
+                        userId = self.kakaoUserId
+                        // UserDefaults에 값넣기
+                        UserDefaults.standard.set(self.kakaoUserId, forKey: "userId")
+                        UserDefaults.standard.set(self.kakaoUserNickname, forKey: "userNickname")
+                        
+                        let insertSignInfoModel = InsertSignInfoModel()
+                        let result = insertSignInfoModel.insertItems(userId: self.kakaoUserId, userPw: self.kakaoUserPw, userNickname: self.kakaoUserNickname, userEmail: self.kakaoUserEmail)
+
+                        if result{
+                            let resultAlert = UIAlertController(title: "완료", message: "카카오톡으로 가입이 완료되었습니다.", preferredStyle: .alert)
+                            let onAction = UIAlertAction(title: "확인", style: .default, handler: { ACTION in
+
+                                guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") else{
+                                    return
+                                }
+
+                                uvc.modalTransitionStyle = UIModalTransitionStyle.coverVertical
+
+                                self.present(uvc, animated: true)
+
+                            })
+
+                            resultAlert.addAction(onAction)
+                            self.present(resultAlert, animated: true, completion: nil)
+
+
+                        }else{
+                            let resultAlert = UIAlertController(title: "에러", message: "가입이 불가합니다. 다시 확인해주세요", preferredStyle: .alert)
+                            let onAction = UIAlertAction(title: "확인", style: .default, handler: { ACTION in
+                            })
+
+                            resultAlert.addAction(onAction)
+                            self.present(resultAlert, animated: true, completion: nil)
+
+                        }
+                        
+                    }
+                }
+
+                //do something
+                _ = oauthToken
+               }
+            }
+          }//else
+  
+    }//btnKakao
+    
+    
+    
   
     //로그인 버튼
     @IBAction func btnLogin(_ sender: UIButton) {
