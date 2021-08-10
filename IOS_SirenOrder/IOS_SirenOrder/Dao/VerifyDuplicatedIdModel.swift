@@ -38,34 +38,6 @@ class VerifyDuplicatedIdModel{
         task.resume()
     }
     
-    func sendEmail(email: String, password: String) -> Bool{
-            
-            var result : Bool = true
-            var urlPath = "http://\(macIp):8080/starbucks/he/findPassword_SendEmail.jsp"
-            let urlAdd = "?email=\(email)&password=\(password)"
-            urlPath += urlAdd
-            print(urlPath)
-            
-            // 한글 url encoding
-            urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
-            
-            let url: URL = URL(string: urlPath)!
-            let defaultSession = URLSession(configuration: URLSessionConfiguration.default)
-            let task = defaultSession.dataTask(with: url){(data, response, error) in
-                if error != nil{
-                    print("Failed to send email")
-                    result = false
-                }else{
-                    print("Email is sended")
-                    result = true
-                }
-            }
-            task.resume()
-            return result
-        }
-    
-    
-
     func parseJSON(_ data: Data){
         var json = ["":""]
         do{

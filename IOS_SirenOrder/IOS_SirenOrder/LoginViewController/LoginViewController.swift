@@ -96,43 +96,66 @@ class LoginViewController: UIViewController {
                         print(error)
                     }
                     else {
-                       
                         print("me() success.")
+                        var count: Int = 0
                         // Kakao 에서 받은 이메일 정보
                         self.kakaoUserEmail = String(user!.kakaoAccount!.email!)
                         self.kakaoUserNickname = String(user!.kakaoAccount!.profile!.nickname!)
-                        print("kakaoUserEmail에 담기는 값: \(self.kakaoUserEmail)")
                         // 임의의 아이디, 비밀번호 카카오변수에 넣기
                         self.kakaoUserId = String((user!.id!))
-                        print("useridwillbe : \(self.kakaoUserId)")
                         self.kakaoUserPw = "kakaoPassword"
-                        // 카카오 변수에 넣음 임의 아이디 비밀번호 -> Share에 넣기
-                        userId = self.kakaoUserId
-                        // UserDefaults에 값넣기
-                        UserDefaults.standard.set(self.kakaoUserId, forKey: "userId")
-                        UserDefaults.standard.set(self.kakaoUserNickname, forKey: "userNickname")
                         
-                        let insertSignInfoModel = InsertSignInfoModel()
-                        let result = insertSignInfoModel.insertItems(userId: self.kakaoUserId, userPw: self.kakaoUserPw, userNickname: self.kakaoUserNickname, userEmail: self.kakaoUserEmail)
-
-                        if result{
-                            let resultAlert = UIAlertController(title: "완료", message: "카카오톡으로 가입이 완료되었습니다.", preferredStyle: .alert)
-                            let onAction = UIAlertAction(title: "확인", style: .default, handler: { ACTION in
-
+                        // 중복체크
+                        for i in 0..<self.feedItem.count {
+                            let item: LoginUserInfoModel = self.feedItem[i] as! LoginUserInfoModel
+                            guard let email = item.userEmail else {
+                                return
+                            }
+                            
+                            // DB의 이메일과 현재 카카오 이메일 일치시 화면 넘기기
+                            if email == self.kakaoUserEmail{
+                                count += 1
+                                // 카카오 변수에 넣음 임의 아이디 비밀번호 -> Share에 넣기
+                                userId = self.kakaoUserId
+                                // UserDefaults에 값넣기
+                                UserDefaults.standard.set(self.kakaoUserId, forKey: "userId")
+                                UserDefaults.standard.set(self.kakaoUserNickname, forKey: "userNickname")
                                 guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") else{
                                     return
                                 }
 
                                 uvc.modalTransitionStyle = UIModalTransitionStyle.coverVertical
-
                                 self.present(uvc, animated: true)
+                                
+                            }//if
+                        }//for
+                        if count == 0 {
+                        // DB에 일치하는 이메일이 없을때 가입시키기!
+                        let insertSignInfoModel = InsertSignInfoModel()
+                        let result = insertSignInfoModel.insertItems(userId: self.kakaoUserId, userPw: self.kakaoUserPw, userNickname: self.kakaoUserNickname, userEmail: self.kakaoUserEmail)
 
-                            })
+                        let resultAlert = UIAlertController(title: "완료", message: "카카오톡으로 가입이 완료되었습니다.", preferredStyle: .alert)
+                        let onAction = UIAlertAction(title: "확인", style: .default, handler: { ACTION in
+                            // 카카오 변수에 넣음 임의 아이디 비밀번호 -> Share에 넣기
+                            userId = self.kakaoUserId
+                            // UserDefaults에 값넣기
+                            UserDefaults.standard.set(self.kakaoUserId, forKey: "userId")
+                            UserDefaults.standard.set(self.kakaoUserNickname, forKey: "userNickname")
+                            //Home화면으로
+                            guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") else{
+                                return
+                            }
 
-                            resultAlert.addAction(onAction)
-                            self.present(resultAlert, animated: true, completion: nil)
+                            uvc.modalTransitionStyle = UIModalTransitionStyle.coverVertical
+                            self.present(uvc, animated: true)
 
+                        })
 
+                        resultAlert.addAction(onAction)
+                        self.present(resultAlert, animated: true, completion: nil)
+                        
+                        
+                            
                         }else{
                             let resultAlert = UIAlertController(title: "에러", message: "가입이 불가합니다. 다시 확인해주세요", preferredStyle: .alert)
                             let onAction = UIAlertAction(title: "확인", style: .default, handler: { ACTION in
@@ -192,13 +215,24 @@ class LoginViewController: UIViewController {
         } // for
         
         if count == 0 {
-        //불일치시
-        let idAlert = UIAlertController(title: "경고", message: "ID나 암호가 불일치 합니다!", preferredStyle: .alert)
-        let idAction = UIAlertAction(title: "확인", style: .default, handler: nil)
- 
-        idAlert.addAction(idAction)
-        present(idAlert, animated: true, completion: nil)
-
+        // 아이디와 패스워드 2개 필드 입력 안했으면 경고!
+        if tfUserId.text?.isEmpty == true && tfUserPassWord.text?.isEmpty == true{
+            let idAlert = UIAlertController(title: "경고", message: "아이디와 패스워드를 입력해주세요", preferredStyle: .alert)
+            let idAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+     
+            idAlert.addAction(idAction)
+            present(idAlert, animated: true, completion: nil)
+        }else{
+            //불일치시
+            let idAlert = UIAlertController(title: "경고", message: "ID나 암호가 불일치 합니다!", preferredStyle: .alert)
+            let idAction = UIAlertAction(title: "확인", style: .default, handler: {ACTION in
+                self.remove()
+                                         })
+     
+            idAlert.addAction(idAction)
+            present(idAlert, animated: true, completion: nil)
+            
+        }
         }//if
 
     }//btnLogin
