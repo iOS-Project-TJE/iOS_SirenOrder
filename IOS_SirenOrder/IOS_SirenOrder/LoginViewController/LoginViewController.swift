@@ -288,7 +288,7 @@ class LoginViewController: UIViewController {
     
     
     func setRadius(){
-        btnLogin.layer.cornerRadius = 20
+        btnLogin.layer.cornerRadius = 10
     }
     
     //터치
