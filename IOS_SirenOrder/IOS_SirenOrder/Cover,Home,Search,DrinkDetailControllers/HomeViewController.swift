@@ -65,34 +65,6 @@ class HomeViewController: UIViewController {
 
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let cell = sender as! HomeCollectionViewCell
-        
-        if segue.identifier == "sgRecommend" {
-            //추천 컬렉션뷰에서 클릭힐경우
-            let indexPath = self.cv_recommend.indexPath(for: cell)
-            let item: DrinkModel = recommendItem[indexPath!.row] as! DrinkModel
-            let drinkDetailViewController = segue.destination as! DrinkDetailViewController
-            drinkDetailViewController.receivedCd = item.cd!
-            
-        }else if segue.identifier == "sgNew" {
-            //뉴 컬렉션 뷰에서 클릭할경우
-            let indexPath = self.cv_new.indexPath(for: cell)
-            let item: DrinkModel = newItem[indexPath!.row] as! DrinkModel
-            let drinkDetailViewController = segue.destination as! DrinkDetailViewController
-            drinkDetailViewController.receivedCd = item.cd!
-            
-        }else {
-            //베스트 컬렉션뷰에서 클릭힐경우
-            let indexPath = self.cv_best.indexPath(for: cell)
-            let item: DrinkModel = bestItem[indexPath!.row] as! DrinkModel
-            let drinkDetailViewController = segue.destination as! DrinkDetailViewController
-            drinkDetailViewController.receivedCd = item.cd!
-            
-            
-        }
-    }
-
     /*
     // MARK: - Navigation
 
