@@ -112,7 +112,7 @@ class ResetPassWordViewController: UIViewController {
            
             if result{
                 let resultAlert = UIAlertController(title: "완료", message: "비밀번호가 변경되었습니다.", preferredStyle: .alert)
-                let onAction = UIAlertAction(title: "OK", style: .default, handler: { ACTION in
+                let onAction = UIAlertAction(title: "확인", style: .default, handler: { ACTION in
                     self.navigationController?.popToRootViewController(animated: true)
                 })
                 
@@ -121,7 +121,7 @@ class ResetPassWordViewController: UIViewController {
            
             }else{
                 let resultAlert = UIAlertController(title: "에러", message: "비밀번호 변경이 불가합니다.", preferredStyle: .alert)
-                let onAction = UIAlertAction(title: "OK", style: .default, handler: { ACTION in
+                let onAction = UIAlertAction(title: "확인", style: .default, handler: { ACTION in
                 })
                 
                 resultAlert.addAction(onAction)

@@ -38,30 +38,40 @@ class SignUpNicNameViewController: UIViewController {
     //다음버튼 : 사용자 정보 DB에 입력
     @IBAction func btnNext(_ sender: UIButton) {
         let nickname = String((tfNickname.text?.trimmingCharacters(in: .whitespacesAndNewlines))!)
-        let insertSignInfoModel = InsertSignInfoModel()
-        let result = insertSignInfoModel.insertItems(userId: receiveId, userPw: receivePw, userNickname: nickname, userEmail: receiveEmail)
-        
-        if result{
-            let resultAlert = UIAlertController(title: "완료", message: "가입이 완료되었습니다.", preferredStyle: .alert)
-            let onAction = UIAlertAction(title: "OK", style: .default, handler: { ACTION in
+        if tfNickname.text?.isEmpty == false {
+            let insertSignInfoModel = InsertSignInfoModel()
+            let result = insertSignInfoModel.insertItems(userId: receiveId, userPw: receivePw, userNickname: nickname, userEmail: receiveEmail)
+            
+            if result{
+                let resultAlert = UIAlertController(title: "완료", message: "가입이 완료되었습니다.", preferredStyle: .alert)
+                let onAction = UIAlertAction(title: "확인", style: .default, handler: { ACTION in
 
-                self.performSegue(withIdentifier: "sgToSignUpOk", sender: self)
+                    self.performSegue(withIdentifier: "sgToSignUpOk", sender: self)
 
-            })
+                })
 
-            resultAlert.addAction(onAction)
-            present(resultAlert, animated: true, completion: nil)
+                resultAlert.addAction(onAction)
+                present(resultAlert, animated: true, completion: nil)
 
 
+            }else{
+                let resultAlert = UIAlertController(title: "에러", message: "에러가 발생했습니다..", preferredStyle: .alert)
+                let onAction = UIAlertAction(title: "확인", style: .default, handler: { ACTION in
+                })
+
+                resultAlert.addAction(onAction)
+                present(resultAlert, animated: true, completion: nil)
+
+            }
         }else{
-            let resultAlert = UIAlertController(title: "에러", message: "에러가 발생했습니다..", preferredStyle: .alert)
-            let onAction = UIAlertAction(title: "OK", style: .default, handler: { ACTION in
-            })
-
-            resultAlert.addAction(onAction)
-            present(resultAlert, animated: true, completion: nil)
-
+            
+            let blankAlert = UIAlertController(title: "경고", message: "닉네임을 입력해주세요", preferredStyle: .alert)
+            let onAction = UIAlertAction(title: "확인", style: .default, handler:nil)
+            blankAlert.addAction(onAction)
+            present(blankAlert, animated: true, completion: nil)
+            
         }
+        
     }//btnNext
     
     
