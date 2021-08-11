@@ -11,13 +11,15 @@ protocol GiftUserCheckProtocol : AnyObject {
 }
 
 class GiftUserCheck {
-    var catcher = false
+    static var result:Bool = true
     var delegate: GiftUserCheckProtocol!
     var urlPath = "http://\(macIp):8080/starbucks/jsp/seolin/gift_user_check.jsp"
+    var inputUserId = ""
     
-    func selectItems(giftReceiver: String, receiverAddress: String) -> Bool{
+    func selectItems(giftReceiver: String, receiverAddress: String) {
 
         let urlAdd = "?&giftReceiver=\(giftReceiver)&receiverAddress=\(receiverAddress)"
+        inputUserId = giftReceiver
         urlPath = urlPath + urlAdd
         
         print(urlPath)
@@ -30,18 +32,17 @@ class GiftUserCheck {
         let task = defaultSession.dataTask(with: url){(data, response, error) in
             if error != nil {
                 print("Failed to Insert Gift Data")
+                GiftUserCheck.result = false
             }else {
                 print("Gift Data is select")
-                self.catcher = self.parseJSON(data!)
             }
         }
         task.resume()
-        return catcher
         
     }
-    func parseJSON(_ data: Data) -> Bool {
+    func parseJSON(_ data: Data){
         var jsonResult = NSArray()
-        var result:Bool = true
+        
         do{
             print("Data 1")
             jsonResult=try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as! NSArray
@@ -54,14 +55,13 @@ class GiftUserCheck {
         if jsonResult.count != 0 {
             jsonElement = jsonResult[0] as! NSDictionary
             if let userId = jsonElement["userId"] as? String{
-                if userId != "" {
-                    result = true
+                if userId == inputUserId || userId != "" {
+                    GiftUserCheck.result = true
                 }else {
-                    result = false
+                    GiftUserCheck.result = false
                 }
-                print(userId, result)
+                print(GiftUserCheck.result)
             }
         }
-        return result
     }
 }
