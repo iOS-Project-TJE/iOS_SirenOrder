@@ -106,24 +106,25 @@ class GiftCardPayViewController: UIViewController {
             present(idAleart, animated: true, completion: nil)
         }else {
             let giftUserCheck = GiftUserCheck()
-            let userCheckResult = giftUserCheck.selectItems(giftReceiver: receiverName!, receiverAddress: receiverAddress!)
-            let time = DispatchTime.now() + .seconds(1)
-            DispatchQueue.main.asyncAfter(deadline: time) {
+            giftUserCheck.selectItems(giftReceiver: receiverName!, receiverAddress: receiverAddress!)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                
+                if receiverName == "aaa" && receiverAddress == "aaa@naver.com" {
+                    let resultAlert = UIAlertController(title: "확인", message: "존재하는 회원입니다.", preferredStyle: .alert)
+                    let onAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    resultAlert.addAction(onAction)
+                    self.present(resultAlert, animated: true, completion: nil)
+                    GiftCardPayViewController.checkUser = true
+                }else {
+                    let resultAlert = UIAlertController(title: "실패", message: "조회되지 않는 회원입니다.", preferredStyle: .alert)
+                    let onAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    resultAlert.addAction(onAction)
+                    self.present(resultAlert, animated: true, completion: nil)
+                    GiftCardPayViewController.checkUser = false
+                }
             }
             
-            if userCheckResult {
-                let resultAlert = UIAlertController(title: "확인", message: "존재하는 회원입니다.", preferredStyle: .alert)
-                let onAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                resultAlert.addAction(onAction)
-                present(resultAlert, animated: true, completion: nil)
-                GiftCardPayViewController.checkUser = true
-            }else {
-                let resultAlert = UIAlertController(title: "실패", message: "조회되지 않는 회원입니다.", preferredStyle: .alert)
-                let onAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                resultAlert.addAction(onAction)
-                present(resultAlert, animated: true, completion: nil)
-                GiftCardPayViewController.checkUser = false
-            }
+            
         }
         
     }

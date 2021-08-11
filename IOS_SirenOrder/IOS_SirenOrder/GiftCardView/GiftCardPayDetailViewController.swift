@@ -57,7 +57,7 @@ class GiftCardPayDetailViewController: UIViewController {
     }
 
     @IBAction func btnBack(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
 
     @IBAction func btnPayFinish(_ sender: UIButton) {
@@ -69,8 +69,7 @@ class GiftCardPayDetailViewController: UIViewController {
             let resultAlert = UIAlertController(title: "완료", message: "결제 되었습니다!", preferredStyle: .alert)
             let onAction = UIAlertAction(title: "OK", style: .default, handler: {ACTION in
                 
-                self.navigationController?.popViewController(animated: true)
-                self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+                self.navigationController?.popToRootViewController(animated: true)
  
             })
             resultAlert.addAction(onAction)
