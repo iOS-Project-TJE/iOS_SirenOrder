@@ -64,6 +64,7 @@
 		70297A5426BF2FAC004DDE12 /* SearchDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70297A5326BF2FAC004DDE12 /* SearchDetailModel.swift */; };
 		70297A5626BF36A8004DDE12 /* SearchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70297A5526BF36A8004DDE12 /* SearchDetailViewController.swift */; };
 		70297A5826BF43BC004DDE12 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70297A5726BF43BC004DDE12 /* SearchTableViewCell.swift */; };
+		7031B4BD26C3A90300A189BE /* HomeEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7031B4BC26C3A90300A189BE /* HomeEventViewController.swift */; };
 		708D257126B5C575000FCCD7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708D257026B5C575000FCCD7 /* HomeViewController.swift */; };
 		70A0A54526C04834009A33D9 /* SearchSQLiteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A0A54426C04834009A33D9 /* SearchSQLiteModel.swift */; };
 		70BB20E926BA787000871D85 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BB20E826BA787000871D85 /* HomeCollectionViewCell.swift */; };
@@ -117,7 +118,6 @@
 		856F790226BAE32E0092B57C /* CartCountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856F790126BAE32E0092B57C /* CartCountModel.swift */; };
 		856F790426BAEF9C0092B57C /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856F790326BAEF9C0092B57C /* CartTableViewCell.swift */; };
 		857011D826BDF45000C5C9B2 /* DrinkDetailInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857011D726BDF45000C5C9B2 /* DrinkDetailInfoModel.swift */; };
-		857011DA26BDF5AD00C5C9B2 /* GiftPriceUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857011D926BDF5AD00C5C9B2 /* GiftPriceUpdateModel.swift */; };
 		857011E326BDFBBB00C5C9B2 /* OrderSelectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857011E226BDFBBB00C5C9B2 /* OrderSelectModel.swift */; };
 		857011E726BDFC3D00C5C9B2 /* OrderCountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857011E626BDFC3D00C5C9B2 /* OrderCountModel.swift */; };
 		857F1C4C26B27A210028D3BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857F1C4B26B27A210028D3BC /* AppDelegate.swift */; };
@@ -214,6 +214,7 @@
 		70297A5326BF2FAC004DDE12 /* SearchDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailModel.swift; sourceTree = "<group>"; };
 		70297A5526BF36A8004DDE12 /* SearchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewController.swift; sourceTree = "<group>"; };
 		70297A5726BF43BC004DDE12 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		7031B4BC26C3A90300A189BE /* HomeEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEventViewController.swift; sourceTree = "<group>"; };
 		7086B2066E099B664CDD496E /* Pods-IOS_SirenOrder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOS_SirenOrder.release.xcconfig"; path = "Target Support Files/Pods-IOS_SirenOrder/Pods-IOS_SirenOrder.release.xcconfig"; sourceTree = "<group>"; };
 		708D257026B5C575000FCCD7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		70A0A54426C04834009A33D9 /* SearchSQLiteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSQLiteModel.swift; sourceTree = "<group>"; };
@@ -466,6 +467,7 @@
 				701CF71A26BDD0CA00BF9B53 /* NutritionViewController.swift */,
 				70297A4D26BEEC6E004DDE12 /* SearchViewController.swift */,
 				70297A5526BF36A8004DDE12 /* SearchDetailViewController.swift */,
+				7031B4BC26C3A90300A189BE /* HomeEventViewController.swift */,
 			);
 			path = "Cover,Home,Search,DrinkDetailControllers";
 			sourceTree = "<group>";
@@ -744,6 +746,7 @@
 				85DDD67F26B85C1500B97DF7 /* DrinkDetailViewController.swift in Sources */,
 				4F2C598226C063350002763A /* CardModel.swift in Sources */,
 				8543CDC926BD1F3D0057A836 /* OrderNumModel.swift in Sources */,
+				7031B4BD26C3A90300A189BE /* HomeEventViewController.swift in Sources */,
 				856F78F226BA9C030092B57C /* SharePersonalData.swift in Sources */,
 				851AF39D26BC335D0093B318 /* CartPriceModel.swift in Sources */,
 				857F1C4C26B27A210028D3BC /* AppDelegate.swift in Sources */,
@@ -753,7 +756,6 @@
 				6980B02826B585690048DAAB /* ManualViewController.swift in Sources */,
 				6980B02026B585690048DAAB /* OtherTableViewController.swift in Sources */,
 				70D9EAD826B2A0640036255C /* CoverViewController.swift in Sources */,
-				857011DA26BDF5AD00C5C9B2 /* GiftPriceUpdateModel.swift in Sources */,
 				70297A5426BF2FAC004DDE12 /* SearchDetailModel.swift in Sources */,
 				69E573F026BAC35E0064CF83 /* HistoryModel.swift in Sources */,
 				8543CDCB26BD2A020057A836 /* OrderInsertModel.swift in Sources */,
