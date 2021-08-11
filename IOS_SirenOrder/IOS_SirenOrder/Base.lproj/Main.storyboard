@@ -93,18 +93,6 @@
                                     <action selector="btnFindUserId:" destination="vZq-4n-ai7" eventType="touchUpInside" id="Kfm-7X-GCF"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wzt-sK-Jji">
-                                <rect key="frame" x="10" y="738" width="394" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="로그인">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="btnLogin:" destination="vZq-4n-ai7" eventType="touchUpInside" id="euE-bV-2pl"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ㅣ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aj6-OC-MQj">
                                 <rect key="frame" x="267" y="557" width="15" height="20.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -118,6 +106,18 @@
                                 <state key="normal" image="kakaologin"/>
                                 <connections>
                                     <action selector="btnKakao:" destination="vZq-4n-ai7" eventType="touchUpInside" id="U70-Wm-P6l"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wzt-sK-Jji">
+                                <rect key="frame" x="10" y="585" width="394" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="로그인">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnLogin:" destination="vZq-4n-ai7" eventType="touchUpInside" id="euE-bV-2pl"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1808,7 +1808,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eT8-Zy-Uim" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4675" y="1268"/>
+            <point key="canvasLocation" x="343" y="1203"/>
         </scene>
         <!--검색-->
         <scene sceneID="rVi-uP-EQf">
@@ -1867,7 +1867,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MQd-1E-PBo">
-                                <rect key="frame" x="0.0" y="158" width="414" height="655"/>
+                                <rect key="frame" x="0.0" y="158" width="414" height="704"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최근 검색어" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WqF-Jv-aep">
                                         <rect key="frame" x="40" y="10" width="56" height="14.5"/>
@@ -1876,10 +1876,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hgo-Nu-wbN">
-                                        <rect key="frame" x="0.0" y="42" width="414" height="613"/>
+                                        <rect key="frame" x="0.0" y="42" width="414" height="662"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <view key="tableFooterView" contentMode="scaleToFill" id="Lcg-PZ-772">
-                                            <rect key="frame" x="0.0" y="102.50000034679067" width="414" height="470"/>
+                                            <rect key="frame" x="0.0" y="102.00000034679067" width="414" height="470"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fhn-hd-HXW">
@@ -1902,20 +1902,20 @@
                                         </view>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchTextCell" id="YMl-22-dga" customClass="SearchTableViewCell" customModule="IOS_SirenOrder" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="24.5" width="414" height="53.5"/>
+                                                <rect key="frame" x="0.0" y="24.5" width="414" height="53"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YMl-22-dga" id="q4D-eV-ZTW">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="53.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="53"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O87-uw-iJ4">
-                                                            <rect key="frame" x="30" y="16" width="42" height="21.5"/>
+                                                            <rect key="frame" x="30" y="16" width="42" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hje-k3-zXo">
-                                                            <rect key="frame" x="374" y="5" width="30" height="43.5"/>
+                                                            <rect key="frame" x="374" y="5" width="30" height="43"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="30" id="8R1-CN-LQW"/>
                                                             </constraints>
@@ -1982,7 +1982,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HJ1-za-WFj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5410.144927536232" y="1267.6339285714284"/>
+            <point key="canvasLocation" x="-391" y="1203"/>
         </scene>
         <!--All Menu View Controller-->
         <scene sceneID="LIh-UY-FJU">
@@ -3303,7 +3303,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gvL-Cb-BZt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6159" y="1268"/>
+            <point key="canvasLocation" x="-1141" y="1203"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yqo-PF-pIv">
@@ -4352,7 +4352,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sDU-zq-24g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1852.1739130434785" y="5402.6785714285716"/>
+            <point key="canvasLocation" x="-2046" y="4445"/>
         </scene>
         <!--Drink Order View Controller-->
         <scene sceneID="5s2-MG-G4O">
@@ -4573,7 +4573,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cda-nA-80H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1852" y="6079"/>
+            <point key="canvasLocation" x="-2046" y="5121"/>
         </scene>
         <!--Confirm Order View Controller-->
         <scene sceneID="2pF-Fj-mbg">
@@ -4728,7 +4728,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t1J-GV-Qt9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1123.1884057971015" y="6077.6785714285716"/>
+            <point key="canvasLocation" x="-1317" y="5120"/>
         </scene>
         <!--매장 설정-->
         <scene sceneID="aq3-jY-jbN">
@@ -6535,11 +6535,11 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="nhZ-ng-lqo"/>
-        <segue reference="FB9-zA-9gG"/>
-        <segue reference="wsI-yt-6o8"/>
-        <segue reference="0vZ-1z-EKh"/>
-        <segue reference="a8y-gg-9Wc"/>
-        <segue reference="9QZ-KS-g69"/>
+        <segue reference="VEf-6C-Abn"/>
+        <segue reference="xdt-Md-2SL"/>
+        <segue reference="qVp-pZ-vBB"/>
+        <segue reference="uUa-nT-SgO"/>
+        <segue reference="zrr-fj-JqM"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="ad_sample" width="828" height="195"/>
