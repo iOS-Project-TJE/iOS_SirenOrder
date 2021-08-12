@@ -158,7 +158,8 @@ class DrinkOrderViewController: UIViewController { // 2021.08.05 조혜지 결�
 
                     if ShareOrder.cartOrder == false {
                         let orderInsertModel = OrderInsertModel()
-                        let result = orderInsertModel.InsertItems(orderNum: inputOrderNum, orderCount: ShareOrder.orderCount, orderPersonal: ShareOrder.orderPersonal, storeName: storeName, cd: ShareOrder.orderCd, userId: userId, cartPersonalPrice: ShareOrder.orderPersonalPrice)
+                        print(storeName)
+                        let result = orderInsertModel.InsertItems(orderNum: inputOrderNum, orderCount: ShareOrder.orderCount, orderPersonal: ShareOrder.orderPersonal, storename: storeName, cd: ShareOrder.orderCd, userId: userId, cartPersonalPrice: ShareOrder.orderPersonalPrice)
                         if result {
                             self.performSegue(withIdentifier: "sgConfirmOrder", sender: self)
                         }
@@ -168,7 +169,7 @@ class DrinkOrderViewController: UIViewController { // 2021.08.05 조혜지 결�
                             print(dataItem.count)
                             let item: CartModel = dataItem[i] as! CartModel
                             let orderInsertModel = OrderInsertModel()
-                            let result = orderInsertModel.InsertItems(orderNum: inputOrderNum, orderCount: item.cartCount!, orderPersonal: item.cartPersonal!, storeName: storeName, cd: item.cd!, userId: userId, cartPersonalPrice: item.cartPersonalPrice!)
+                            let result = orderInsertModel.InsertItems(orderNum: inputOrderNum, orderCount: item.cartCount!, orderPersonal: item.cartPersonal!, storename: storeName, cd: item.cd!, userId: userId, cartPersonalPrice: item.cartPersonalPrice!)
                             if result {
                                 
                             }
@@ -187,7 +188,7 @@ class DrinkOrderViewController: UIViewController { // 2021.08.05 조혜지 결�
 
             if ShareOrder.cartOrder == false {
                 let orderInsertModel = OrderInsertModel()
-                let result = orderInsertModel.InsertItems(orderNum: inputOrderNum, orderCount: ShareOrder.orderCount, orderPersonal: ShareOrder.orderPersonal, storeName: storeName, cd: ShareOrder.orderCd, userId: userId, cartPersonalPrice: ShareOrder.orderPersonalPrice)
+                let result = orderInsertModel.InsertItems(orderNum: inputOrderNum, orderCount: ShareOrder.orderCount, orderPersonal: ShareOrder.orderPersonal, storename: storeName, cd: ShareOrder.orderCd, userId: userId, cartPersonalPrice: ShareOrder.orderPersonalPrice)
                 if result {
                     self.performSegue(withIdentifier: "sgConfirmOrder", sender: self)
                 }
@@ -197,7 +198,7 @@ class DrinkOrderViewController: UIViewController { // 2021.08.05 조혜지 결�
                     print(dataItem.count)
                     let item: CartModel = dataItem[i] as! CartModel
                     let orderInsertModel = OrderInsertModel()
-                    let result = orderInsertModel.InsertItems(orderNum: inputOrderNum, orderCount: item.cartCount!, orderPersonal: item.cartPersonal!, storeName: storeName, cd: item.cd!, userId: userId, cartPersonalPrice: item.cartPersonalPrice!)
+                    let result = orderInsertModel.InsertItems(orderNum: inputOrderNum, orderCount: item.cartCount!, orderPersonal: item.cartPersonal!, storename: storeName, cd: item.cd!, userId: userId, cartPersonalPrice: item.cartPersonalPrice!)
                     if result {
                         
                     }

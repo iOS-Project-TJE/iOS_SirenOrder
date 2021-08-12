@@ -11,9 +11,10 @@ import Foundation
 class OrderInsertModel {
     var urlPath = "http://\(macIp):8080/starbucks/jsp/hj/orderInsert.jsp"
     
-    func InsertItems(orderNum: String, orderCount: Int, orderPersonal: String, storeName: String, cd: String, userId: String, cartPersonalPrice: Int) -> Bool {
+    func InsertItems(orderNum: String, orderCount: Int, orderPersonal: String, storename: String, cd: String, userId: String, cartPersonalPrice: Int) -> Bool {
         var result: Bool = true
-        let urlAdd = "?orderNum=\(orderNum)&orderCount=\(orderCount)&orderPersonal=\(orderPersonal)&storeName=\(storeName)&cd=\(cd)&userId=\(userId)&orderPersonalPrice=\(cartPersonalPrice)"
+        print(storeName, "ssssss")
+        let urlAdd = "?orderNum=\(orderNum)&orderCount=\(orderCount)&orderPersonal=\(orderPersonal)&storename=\(storename)&cd=\(cd)&userId=\(userId)&orderPersonalPrice=\(cartPersonalPrice)"
         urlPath = urlPath + urlAdd
         urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
         print(urlPath)
